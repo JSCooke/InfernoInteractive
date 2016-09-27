@@ -7,15 +7,6 @@ public class MovementStationBehaviour : ControlStationBehaviour {
 	public GameObject tankBase;
 
 	public float rotationSpeed;
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        
-	}
 
 	public override void keyHeld(bool up, bool left, bool down, bool right){
 		if (left && !right) {

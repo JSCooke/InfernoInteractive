@@ -4,10 +4,7 @@ using System.Collections;
 public class BossController : MonoBehaviour {
 
     public GameObject enemy;
-    //public GameObject player;
-
-    //public Transform playerPosition;
-    public Transform enemyPosition;
+    public GameObject player;
 
     public float rotationSpeed = 5;
     public int maxLevel = 2;
@@ -20,18 +17,13 @@ public class BossController : MonoBehaviour {
     private Vector3 offset = new Vector3(2, 0, 0);
     // Use this for initialization
     void Start () {
-        //playerPosition = player.transform;
-        enemyPosition = enemy.transform;
-
-        currentHealth = maxHealth;
-
+       currentHealth = maxHealth;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        //enemyPosition.rotation = Quaternion.Slerp(enemyPosition.rotation,
-        //Quaternion.LookRotation(playerPosition.position - enemyPosition.position), rotationSpeed * Time.deltaTime);
-
+        //enemyPosition.rotation = Quaternion.Slerp(enemyPosition.rotation, Quaternion.LookRotation(playerPosition.position - enemyPosition.position), rotationSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 0.05F);
         if (currentLevel < maxLevel && currentHealth <= maxHealth * threshold)
         {
             GameObject child1 = (GameObject)Instantiate(enemy, this.transform.position + offset, Quaternion.identity);
@@ -57,6 +49,11 @@ public class BossController : MonoBehaviour {
 
     void Awake()
     {
+        InvokeRepeating("JumpCharge", 2, 2);
+    }
 
+    void JumpCharge()
+    {
+        
     }
 }

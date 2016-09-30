@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BossController : MonoBehaviour {
+public class BossController : Damageable {
 
     public GameObject enemy;
     public GameObject player;
@@ -10,12 +10,12 @@ public class BossController : MonoBehaviour {
     public int maxLevel = 2;
     public int currentLevel = 0;
 
-    public double maxHealth = 100;
-    public double currentHealth = 100;
     public double threshold = 0.5;
 
 	public double chargeDuration = 2;
 	public double chargeStartTime = 10;
+
+	//public RigidBody rb;
 
 	//private float ypos = 0;
 	//private float time;
@@ -28,34 +28,42 @@ public class BossController : MonoBehaviour {
 
     private bool targetAcquired = false;
     private Vector3 playerPosition;
+	private bool randomMovement = true;
 
     private Vector3 offset = new Vector3(2, 0, 0);
 
     // Use this for initialization
     void Start () {
        currentHealth = maxHealth;
+		maxHealth = currentHealth;
+		//rb = GetComponent<RigidBody> (); 
     }
 
 	// Update is called once per frame
 	void Update () {
-		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(this.transform.position - player.transform.position), rotationSpeed * Time.deltaTime);
 
+		if (!randomMovement) {
+			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation (this.transform.position - player.transform.position), rotationSpeed * Time.deltaTime);
+		}
+
+		//Attack when ready and not already attacking
         if (!targetAcquired && Time.fixedTime > (chargeStartTime + chargeDuration)) {
             targetAcquired = true;
             playerPosition = player.transform.position;
-            
+			randomMovement = false;
             //verticalSpeed = (float)2;
         }
 
-        if (targetAcquired) {
-            transform.position = Vector3.MoveTowards(transform.position, playerPosition, 0.15F);
+		if (targetAcquired) {
+			transform.position = Vector3.MoveTowards (transform.position, playerPosition, 0.15F);
             
-            if (transform.position == playerPosition) {
-                targetAcquired = false;
-                chargeStartTime = Time.fixedTime;
-            }
+			if (transform.position == playerPosition) {
+				targetAcquired = false;
+				chargeStartTime = Time.fixedTime;
+				randomMovement = true;
+			}
             
-        }
+		} 
 
         if (currentLevel < maxLevel && currentHealth <= maxHealth * threshold){
             GameObject child1 = (GameObject)Instantiate(enemy, this.transform.position + offset, Quaternion.identity);
@@ -63,21 +71,38 @@ public class BossController : MonoBehaviour {
 
             BossController childScript1 = child1.GetComponent<BossController>();
             childScript1.currentLevel = currentLevel + 1;
-            childScript1.maxHealth = maxHealth * threshold;
-            childScript1.currentHealth = maxHealth * threshold;
+			childScript1.maxHealth = (int)(maxHealth * threshold);
+			childScript1.currentHealth = (int)(maxHealth * threshold);
 
             GameObject child2 = (GameObject)Instantiate(enemy, this.transform.position - offset, Quaternion.identity);
             child2.transform.localScale = new Vector3(this.transform.localScale.x / 2, this.transform.localScale.y / 2, this.transform.localScale.z / 2);
 
             BossController childScript2 = child2.GetComponent<BossController>();
             childScript2.currentLevel = currentLevel + 1;
-            childScript2.maxHealth = maxHealth * threshold;
-            childScript2.currentHealth = maxHealth * threshold;
+			childScript2.maxHealth = (int)(maxHealth * threshold);
+			childScript2.currentHealth = (int)(maxHealth * threshold);
 
             Destroy(this.gameObject);
 
         }
     }
+
+	void OnCollisionEnter(Collision collision) {
+
+		if (collision.gameObject.tag == "Player") {
+			targetAcquired = false;
+			chargeStartTime = Time.fixedTime;
+		}
+	}
+
+	void OnTriggerStay(Collider collider) {
+
+		if (collider.gameObject.tag == "Player") {
+			targetAcquired = false;
+			chargeStartTime = Time.fixedTime;
+		}
+	}
+
 
 }
 

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ProjectileController : MonoBehaviour {
     public float speed;
+	public int damage;
 	// Use this for initialization
 	void Start () {
 	

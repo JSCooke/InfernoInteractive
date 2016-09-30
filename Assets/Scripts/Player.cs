@@ -2,9 +2,11 @@
 using System.Collections;
 using System;
 //Adapted from inScope Studios' health bar tutorial
+//This demonstrates the code  on the player's side.
 public class Player : MonoBehaviour {
 
 	public Stat health;
+	public Stat boss;
 	// Use this for initialization
 	void Start () {
 	}
@@ -12,16 +14,17 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.W)) {
-			health.CurrentVal += 10;
+			health.damage(-10);
 		} else if (Input.GetKeyDown (KeyCode.S)) {
-			health.CurrentVal -= 10;
+			health.damage(10);
 		} else if (Input.GetKeyDown (KeyCode.Space)) {
-			health.ObjectiveCount += 1;
+			health.collect ();
+		} else if (Input.GetKeyDown(KeyCode.UpArrow)) {
+			boss.damage (-1);
+		} else if (Input.GetKeyDown(KeyCode.DownArrow)){
+			boss.damage (1);
 		}
-	}
 
-//	float Damage(float damage) {
-//		health.CurrentVal -= damage;
-//	}
+	}
 
 }

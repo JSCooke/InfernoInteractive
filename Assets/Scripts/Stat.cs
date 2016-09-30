@@ -36,4 +36,28 @@ public class Stat
 			objectiveCount = newValue;
 		}
 	}
+	//Note that passing negative values in will heal, positive will damage.
+	public void damage(float hit){
+		currentVal -= hit;
+		bar.Value = currentVal;
+	}
+
+	public bool dead() {
+		if (bar.Value == 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public bool full() {
+		if (bar.Value == 100) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public void collect() {
+		ObjectiveCount++;
+	}
 }

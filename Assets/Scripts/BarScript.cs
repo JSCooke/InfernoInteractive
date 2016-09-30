@@ -23,6 +23,9 @@ public class BarScript : MonoBehaviour {
 			valueText.text = tmp [0] + ": " + value + "%";
 			fillAmount = value/100;
 		}
+		get{
+			return fillAmount * 100;
+		}
 	}
 
 	// Use this for initialization

@@ -34,14 +34,16 @@ public class TankController : MonoBehaviour {
 		if(Vector3.Angle(tankBase.transform.forward, rb.velocity)<90){
 			//If angle between treads' forward vector and velocity is <90 degrees, assume forward movement
 			//Set all velocity to be in direction of treads
-			rb.velocity = new Vector3 (tankBase.transform.forward.x, Mathf.Min (0, tankBase.transform.forward.y), tankBase.transform.forward.z) * rb.velocity.magnitude;
+			rb.velocity = new Vector3 (tankBase.transform.forward.x, Mathf.Min (0, tankBase.transform.forward.y), tankBase.transform.forward.z) * Mathf.Min(topSpeed, rb.velocity.magnitude);
 		}else{
 			//If angle between treads' forward vector and velocity is >90 degrees, assume backwards movement
 			//Set all velocity to be in direction of treads
-			rb.velocity = new Vector3 (tankBase.transform.forward.x, Mathf.Min (0, tankBase.transform.forward.y), tankBase.transform.forward.z) * -rb.velocity.magnitude;
+			rb.velocity = new Vector3 (tankBase.transform.forward.x, Mathf.Min (0, tankBase.transform.forward.y), tankBase.transform.forward.z) * -Mathf.Min(topSpeed, rb.velocity.magnitude);
 		}
 	}
 
+
+	//These are called on Update, so set flags to defer actions until FixedUpdate
     public void accelerate() {
 		doAccelerate = true;
     }

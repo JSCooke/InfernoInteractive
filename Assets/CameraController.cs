@@ -15,8 +15,10 @@ public class CameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () { 
+		//Smooth camera movement
+		//Reference: http://answers.unity3d.com/questions/29183/2d-camera-smooth-follow.html
 		Vector3 point = camera.WorldToViewportPoint(target.transform.position);
-		Vector3 delta = target.transform.position - camera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, height)); //(new Vector3(0.5, 0.5, point.z));
+		Vector3 delta = target.transform.position - camera.ViewportToWorldPoint(new Vector3(0.5f, 0.3f, height)); //(new Vector3(0.5, 0.5, point.z));
 		Vector3 destination = transform.position + delta;
 		transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
 

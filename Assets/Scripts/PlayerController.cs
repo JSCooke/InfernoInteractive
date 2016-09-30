@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnTriggerExit(Collider other){
-		if(other.gameObject==currentControlStation){
+		if(other.gameObject==currentControlStation && !attachedToControlStation){
 			currentControlStation=null;
 			currentControlStationController=null;
 		}

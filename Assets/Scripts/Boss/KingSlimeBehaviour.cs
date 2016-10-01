@@ -41,27 +41,33 @@ public class KingSlimeBehaviour : MonoBehaviour {
     void Start() {
 
         chargeParticles.enableEmission = false;
+
         rb = GetComponent<Rigidbody>();
+        //rb.velocity = Vector3.zero;
+        //rb.angularVelocity = Vector3.zero;
+
+        if (player == null) {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
     }
 
     // Update is called once per frame
     void Update() {
+
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
 
         if (currentLevel < maxLevel && this.GetComponent<BossController>().currentHealth <= this.GetComponent<BossController>().maxHealth * threshold) {
             duplicate();
         }
 
         if (charging) {
-            print("charging");
             charge();
         } else if (dashing) {
-            print("dashing");
             dashAttack();
         } else if (finding) {
-           print("finding");
             findRandomPosition();
         } else if (roaming) {
-            print("roaming");
             roam();
         }
 
@@ -101,12 +107,12 @@ public class KingSlimeBehaviour : MonoBehaviour {
 
         //Once finished walking, decide whether to attack or roam again. Rebalance boss here if too hard
         if (transform.position == randomPosition) {
-            if (chance <= 60) {
-                randomPosition = Random.insideUnitCircle * 5;
+            if (chance <= 10) {
+                randomPosition = Random.insideUnitCircle * 10;
                 randomPosition.y = 0;
             } else {
-                rb.velocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero;
+                //rb.velocity = Vector3.zero;
+                //rb.angularVelocity = Vector3.zero;
 
                 roaming = false;
                 charging = true;
@@ -118,7 +124,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
 
     void findRandomPosition() {
         
-        randomPosition = Random.insideUnitCircle * 5;
+        randomPosition = Random.insideUnitCircle * 10;
         randomPosition.y = 0;
 
         finding = false;
@@ -139,8 +145,8 @@ public class KingSlimeBehaviour : MonoBehaviour {
 
         for (int i = 0; i < this.GetComponent<BossController>().difficulty; i++) {
 
-            Vector3 spawnPoint = Random.insideUnitCircle * 5;
-            spawnPoint.y = 0;
+            Vector3 spawnPoint = Random.insideUnitCircle * 10;
+            spawnPoint.y = spawnPoint.y + i ;
 
             GameObject child = (GameObject)Instantiate(enemy, spawnPoint, Quaternion.identity);
             child.transform.localScale = new Vector3(this.transform.localScale.x / (float)1.5, this.transform.localScale.y / (float)1.5, this.transform.localScale.z / (float)1.5);
@@ -149,6 +155,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
             childScript.GetComponent<KingSlimeBehaviour>().currentLevel = currentLevel + 1;
             childScript.maxHealth = (int)(this.GetComponent<BossController>().maxHealth * threshold);
             childScript.currentHealth = (int)(this.GetComponent<BossController>().maxHealth * threshold);
+
         }
 
         Destroy(this.gameObject);

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 using System.Collections;
 
 public class scoreboard : MonoBehaviour {
@@ -24,29 +25,43 @@ public class scoreboard : MonoBehaviour {
         {
             easyPlayerInfo[i] = new PlayerInfo();
             easyPlayerInfo[i].Name = "---";
-            easyPlayerInfo[i].Time = "--:--";
+            easyPlayerInfo[i].Time = int.MaxValue;
 
             medPlayerInfo[i] = new PlayerInfo();
             medPlayerInfo[i].Name = "---";
-            medPlayerInfo[i].Time = "--:--";
+            medPlayerInfo[i].Time = int.MaxValue;
 
             hardPlayerInfo[i] = new PlayerInfo();
             hardPlayerInfo[i].Name = "---";
-            hardPlayerInfo[i].Time = "--:--";
+            hardPlayerInfo[i].Time = int.MaxValue;
         }
     }
 	
 	void Update () {
-	    for (int i = 0; i < easyPlayerInfo.Length; i++)
+
+        easyPlayerInfo = SortArray(easyPlayerInfo);
+        medPlayerInfo = SortArray(medPlayerInfo);
+        hardPlayerInfo = SortArray(hardPlayerInfo);
+
+        for (int i = 0; i < easyPlayerInfo.Length; i++)
         {
             EasyNames[i].text = easyPlayerInfo[i].Name;
-            EasyTimes[i].text = easyPlayerInfo[i].Time;
+            if (easyPlayerInfo[i].Time != int.MaxValue)
+            {
+                EasyTimes[i].text = easyPlayerInfo[i].Time.ToString();
+            }
 
             MedNames[i].text = medPlayerInfo[i].Name;
-            MedTimes[i].text = medPlayerInfo[i].Time;
+            if (medPlayerInfo[i].Time != int.MaxValue)
+            {
+                MedTimes[i].text = medPlayerInfo[i].Time.ToString();
+            }
 
             HardNames[i].text = hardPlayerInfo[i].Name;
-            HardTimes[i].text = hardPlayerInfo[i].Time;
+            if (hardPlayerInfo[i].Time != int.MaxValue)
+            {
+                HardTimes[i].text = hardPlayerInfo[i].Time.ToString();
+            }
         }
     }
 
@@ -59,15 +74,23 @@ public class scoreboard : MonoBehaviour {
         else if (dropdown.value == 1) { playerInfo = medPlayerInfo; }
         else { playerInfo = hardPlayerInfo; }
 
+
+
         if (Name == null || Name.Trim().Length == 0) { Name = "CIA"; }
 
-        playerInfo[0].Name = Name;
-        playerInfo[0].Time = inputTime.text;
+        playerInfo[5].Name = Name;
+        playerInfo[5].Time = System.Int32.Parse(inputTime.text);
+    }
+
+    PlayerInfo[] SortArray(PlayerInfo[] playerInfo)
+    {
+        playerInfo = playerInfo.OrderBy(x => x.Time).ToArray();
+        return playerInfo;
     }
 
     public class PlayerInfo
     {
         public string Name;
-        public string Time;
+        public int Time;
     }
 }

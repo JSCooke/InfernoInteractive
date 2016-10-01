@@ -17,6 +17,7 @@ public abstract class Damageable : MonoBehaviour {
 
 	public void takeDamage(int damage){
 		currentHealth = currentHealth - damage;
+        print(currentHealth);
 		//Instantiate(damageText)
 	}
 }

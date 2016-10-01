@@ -35,7 +35,7 @@ public class mainMenu : MonoBehaviour {
     //Use this when "Leaderboard" is pressed
     public void LeaderboardPress()
     {
-
+        SceneManager.LoadScene("Leaderboard");
     }
 
     //Use this when "Customise" is pressed

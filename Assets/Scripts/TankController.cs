@@ -29,16 +29,19 @@ public class TankController : MonoBehaviour {
 		if (doDecelerate && !doAccelerate) {
 			rb.AddForce (-tankBase.transform.forward * acceleration, ForceMode.Acceleration);
 		}
-
-
+		
 		if(Vector3.Angle(tankBase.transform.forward, rb.velocity)<90){
 			//If angle between treads' forward vector and velocity is <90 degrees, assume forward movement
 			//Set all velocity to be in direction of treads
-			rb.velocity = new Vector3 (tankBase.transform.forward.x, Mathf.Min (0, tankBase.transform.forward.y), tankBase.transform.forward.z) * Mathf.Min(topSpeed, rb.velocity.magnitude);
+			rb.velocity = 
+				new Vector3 (tankBase.transform.forward.x, Mathf.Min (0, tankBase.transform.forward.y), tankBase.transform.forward.z)
+				* Mathf.Min(topSpeed, rb.velocity.magnitude);
 		}else{
 			//If angle between treads' forward vector and velocity is >90 degrees, assume backwards movement
 			//Set all velocity to be in direction of treads
-			rb.velocity = new Vector3 (tankBase.transform.forward.x, Mathf.Min (0, tankBase.transform.forward.y), tankBase.transform.forward.z) * -Mathf.Min(topSpeed, rb.velocity.magnitude);
+			rb.velocity = 
+				new Vector3 (tankBase.transform.forward.x, Mathf.Max (0, tankBase.transform.forward.y), tankBase.transform.forward.z)
+				* -Mathf.Min(topSpeed, rb.velocity.magnitude);
 		}
 	}
 

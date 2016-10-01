@@ -16,14 +16,25 @@ public class MovementStationBehaviour : ControlStationBehaviour {
 		if (right && !left) {
 			tankBase.transform.Rotate (0, rotationSpeed * Time.deltaTime, 0);
 		}
+	}
 
-        if(up && !down) {
-            tankController.accelerate();
-        }
+	public override void keyPressed(bool up, bool left, bool down, bool right){
+		if (up) {
+			tankController.accelerate ();
+		}
+		
+		if (down) {
+			tankController.decelerate ();
+		}
+	}
 
-        if (down && !up) {
-            tankController.decelerate();
-        }
-
+	public override void keyReleased(bool up, bool left, bool down, bool right){
+		if (up) {
+			tankController.stopAccelerate ();
+		}
+		
+		if (down) {
+			tankController.stopDecelerate ();
+		}
 	}
 }

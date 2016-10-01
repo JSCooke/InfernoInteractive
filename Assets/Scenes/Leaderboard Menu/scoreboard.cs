@@ -4,6 +4,11 @@ using System.Collections;
 
 public class scoreboard : MonoBehaviour {
 
+    //TODO remove
+    public Dropdown dropdown;
+    public Text inputName;
+    public Text inputTime;
+
     public Text[] EasyNames;
     public Text[] EasyTimes;
     public Text[] MedNames;
@@ -14,25 +19,17 @@ public class scoreboard : MonoBehaviour {
     public PlayerInfo[] medPlayerInfo = new PlayerInfo[6];
     public PlayerInfo[] hardPlayerInfo = new PlayerInfo[6];
 
-    public enum Difficulty { Easy, Medium, Hard };
-
     void Start () {
 	    for (int i = 0; i < easyPlayerInfo.Length; i++)
         {
             easyPlayerInfo[i] = new PlayerInfo();
             easyPlayerInfo[i].Name = "---";
             easyPlayerInfo[i].Time = "--:--";
-        }
 
-        for (int i = 0; i < medPlayerInfo.Length; i++)
-        {
             medPlayerInfo[i] = new PlayerInfo();
             medPlayerInfo[i].Name = "---";
             medPlayerInfo[i].Time = "--:--";
-        }
 
-        for (int i = 0; i < hardPlayerInfo.Length; i++)
-        {
             hardPlayerInfo[i] = new PlayerInfo();
             hardPlayerInfo[i].Name = "---";
             hardPlayerInfo[i].Time = "--:--";
@@ -44,25 +41,33 @@ public class scoreboard : MonoBehaviour {
         {
             EasyNames[i].text = easyPlayerInfo[i].Name;
             EasyTimes[i].text = easyPlayerInfo[i].Time;
-        }
 
-        for (int i = 0; i < medPlayerInfo.Length; i++)
-        {
             MedNames[i].text = medPlayerInfo[i].Name;
             MedTimes[i].text = medPlayerInfo[i].Time;
-        }
 
-        for (int i = 0; i < hardPlayerInfo.Length; i++)
-        {
             HardNames[i].text = hardPlayerInfo[i].Name;
             HardTimes[i].text = hardPlayerInfo[i].Time;
         }
+    }
+
+    public void addScore()
+    {
+        PlayerInfo[] playerInfo;
+        string Name = inputName.text.ToUpper();
+
+        if (dropdown.value == 0) { playerInfo = easyPlayerInfo; }
+        else if (dropdown.value == 1) { playerInfo = medPlayerInfo; }
+        else { playerInfo = hardPlayerInfo; }
+
+        if (Name == null || Name.Trim().Length == 0) { Name = "CIA"; }
+
+        playerInfo[0].Name = Name;
+        playerInfo[0].Time = inputTime.text;
     }
 
     public class PlayerInfo
     {
         public string Name;
         public string Time;
-        public Difficulty Diff;
     }
 }

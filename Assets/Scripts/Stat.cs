@@ -24,18 +24,7 @@ public class Stat
 			bar.Value = currentVal;
 		}
 	}
-
-	public float ObjectiveCount {
-		get {
-			return objectiveCount;
-		}
-		set {
-			float newValue = Mathf.Clamp (value, 0, objectiveMax);
-			string[] tmp = keys.text.Split(new Char [] {' ' , '/' });
-			keys.text = tmp [0] + " " + newValue + "/" + objectiveMax; 
-			objectiveCount = newValue;
-		}
-	}
+		
 	//Note that passing negative values in will heal, positive will damage.
 	public void damage(float hit){
 		currentVal -= hit;
@@ -56,8 +45,5 @@ public class Stat
 		}else{
 			return false;
 		}
-	}
-	public void collect() {
-		ObjectiveCount++;
 	}
 }

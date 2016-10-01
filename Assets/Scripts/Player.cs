@@ -17,8 +17,6 @@ public class Player : MonoBehaviour {
 			health.damage(-10);
 		} else if (Input.GetKeyDown (KeyCode.S)) {
 			health.damage(10);
-		} else if (Input.GetKeyDown (KeyCode.Space)) {
-			health.collect ();
 		} else if (Input.GetKeyDown(KeyCode.UpArrow)) {
 			boss.damage (-1);
 		} else if (Input.GetKeyDown(KeyCode.DownArrow)){

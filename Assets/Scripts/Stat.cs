@@ -39,7 +39,7 @@ public class Stat
 	//Note that passing negative values in will heal, positive will damage.
 	public void damage(float hit){
 		currentVal -= hit;
-		bar.Value = currentVal;
+		CurrentVal = currentVal;
 	}
 
 	public bool dead() {

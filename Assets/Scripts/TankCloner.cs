@@ -21,15 +21,6 @@ public class TankCloner : MonoBehaviour {
 			GetComponent<Rigidbody> ().isKinematic = true;
 			GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeAll;
 
-			//Disable all scripts except the player controllers and control station controllers
-			foreach (MonoBehaviour script in GetComponentsInChildren<MonoBehaviour>()) {
-				if (script.GetType () != typeof(PlayerController) && 
-				    script.GetType () != typeof(ControlStationController) && 
-				    !script.GetType ().IsSubclassOf(typeof(ControlStationBehaviour))) {
-					script.enabled = false;
-				}
-			}
-
 			//Add proxy movement controllers to the 'real' players so that their movement is determined by the clone ones instead
 			for (int i=0; i<2; i++) {
 				//Get the original player and player controller

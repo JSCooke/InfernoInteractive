@@ -23,7 +23,9 @@ public class TankCloner : MonoBehaviour {
 
 			//Disable all scripts except the player controllers and control station controllers
 			foreach (MonoBehaviour script in GetComponentsInChildren<MonoBehaviour>()) {
-				if (script.GetType () != typeof(PlayerController) && script.GetType () != typeof(ControlStationController)) {
+				if (script.GetType () != typeof(PlayerController) && 
+				    script.GetType () != typeof(ControlStationController) && 
+				    !script.GetType ().IsSubclassOf(typeof(ControlStationBehaviour))) {
 					script.enabled = false;
 				}
 			}

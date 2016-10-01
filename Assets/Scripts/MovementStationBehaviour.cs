@@ -8,6 +8,13 @@ public class MovementStationBehaviour : ControlStationBehaviour {
 
 	public float rotationSpeed;
 
+	void Start(){
+		//Auto-find tank references on start
+		tankController = GetComponentInParent<TankController> ();
+		tank = tankController.gameObject;
+		tankBase = tank.transform.Find ("Treads").gameObject;
+	}
+
 	public override void keyHeld(bool up, bool left, bool down, bool right){
 		if (left && !right) {
 			tankBase.transform.Rotate (0, -rotationSpeed * Time.deltaTime, 0);

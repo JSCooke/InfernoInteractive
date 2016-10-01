@@ -4,7 +4,7 @@ using System.Collections;
 public class KingSlimeBehaviour : MonoBehaviour {
 
     public GameObject enemy;
-    public GameObject player;
+    public GameObject player = null;
 
     //How many times to duplicate
     public int maxLevel = 2;
@@ -12,10 +12,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
     //Duplicate when reach threshold
     private double threshold = 0.5;
 
-    //Properties of each charge attack
-    public double chargeDuration = 3;
-    //Give players at least 5 seconds to prepare
-    private double chargeStartTime = 5;
+    
     private bool targetAcquired = false;
     private Vector3 playerPosition;
 
@@ -27,22 +24,24 @@ public class KingSlimeBehaviour : MonoBehaviour {
     private Vector3 randomPosition;
     private bool moving = false;
 
+
+    private Rigidbody rb;
+
+    private bool charging = false;
+    private bool dashing = false;
+    private bool finding = true;
+    private bool roaming = false;
+
+    //Properties of each charge attack
+    public double chargeDuration = 3;
+    private double chargeStartTime;
+
+
     // Use this for initialization
     void Start() {
-        IEnumerator landing = WaitForLanding();
-        StartCoroutine(landing);
 
         chargeParticles.enableEmission = false;
-
-        player = GameObject.FindGameObjectsWithTag("Player")[0];
-    }
-
-    IEnumerator WaitForLanding() {
-
-        while (transform.position.y > 0) {
-            yield return null;
-        }
-
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -52,88 +51,98 @@ public class KingSlimeBehaviour : MonoBehaviour {
             duplicate();
         }
 
-        if (randomMovement) {
-            wander();
-        }
-        else {
-            chargeAttack();
+        if (charging) {
+            print("charging");
+            charge();
+        } else if (dashing) {
+            print("dashing");
+            dashAttack();
+        } else if (finding) {
+           print("finding");
+            findRandomPosition();
+        } else if (roaming) {
+            print("roaming");
+            roam();
         }
 
     }
 
-    void chargeAttack() {
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(this.transform.position - player.transform.position), this.GetComponent<BossController>().rotationSpeed * Time.deltaTime);
+    void charge() {
 
-        //Attack when ready and not already attacking. Rebalance here if boss too hard
-        if (Random.value < this.GetComponent<BossController>().difficulty / 50 && !targetAcquired && Time.fixedTime > (chargeStartTime + chargeDuration)) {
-            targetAcquired = true;
-            playerPosition = player.transform.position;
+        chargeParticles.enableEmission = true;
+
+        //Look at the player
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(this.transform.position - player.transform.position), this.GetComponent<BossController>().rotationSpeed * Time.deltaTime);
+        playerPosition = player.transform.position;
+
+        //Finished charging and started attacking
+        if (Time.fixedTime > (chargeStartTime + chargeDuration)) {
+            dashing = true;
+            charging = false;
             chargeParticles.enableEmission = false;
         }
 
-        if (targetAcquired) {
-            transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed);
+    }
 
-            if (transform.position == playerPosition) {
-                targetAcquired = false;
-                //chargeStartTime = Time.fixedTime;
-                randomMovement = true;
-            }
+    void dashAttack() {
+        transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed);
 
+        if (transform.position == playerPosition) {
+            dashing = false;
+            finding = true;
         }
+    }
+
+    void roam() {
+
+        transform.position = Vector3.MoveTowards(transform.position, randomPosition, 0.2F);
+
+        float chance = Random.Range(0,100);
+
+        //Once finished walking, decide whether to attack or roam again. Rebalance boss here if too hard
+        if (transform.position == randomPosition) {
+            if (chance <= 60) {
+                randomPosition = Random.insideUnitCircle * 5;
+                randomPosition.y = 0;
+            } else {
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+
+                roaming = false;
+                charging = true;
+                chargeStartTime = Time.fixedTime;
+            }
+        }
+
+    }
+
+    void findRandomPosition() {
+        
+        randomPosition = Random.insideUnitCircle * 5;
+        randomPosition.y = 0;
+
+        finding = false;
+        roaming = true;
     }
 
     void OnCollisionEnter(Collision collision) {
-
-        if (collision.gameObject.tag == "Player") {
-            targetAcquired = false;
-            //chargeStartTime = Time.fixedTime;
-            randomMovement = true;
-        }
+        dashing = false;
+        finding = true;
     }
 
     void OnTriggerStay(Collider collider) {
-
-        if (collider.gameObject.tag == "Player") {
-            targetAcquired = false;
-            //chargeStartTime = Time.fixedTime;
-            randomMovement = true;
-        }
-    }
-
-    void wander() {
-
-        if (!moving) {
-            moving = true;
-            randomPosition = Random.insideUnitCircle * 2;
-            randomPosition.y = 0;
-        }
-
-        if (moving) {
-
-            transform.position = Vector3.MoveTowards(transform.position, randomPosition, 0.1F);
-
-            if (transform.position == randomPosition) {
-                float chance = Random.value;
-
-                //Once finished moving to random position, decide whether to move randomly again or attack
-                if (chance <= 0.01F) {
-                    moving = false;
-                }
-                else if (chance <= 0.02F) {
-                    randomMovement = false;
-                    chargeStartTime = Time.fixedTime;
-                    chargeParticles.enableEmission = true;
-                }
-            }
-
-        }
+        dashing = false;
+        finding = true;
     }
 
     void duplicate() {
 
         for (int i = 0; i < this.GetComponent<BossController>().difficulty; i++) {
-            GameObject child = (GameObject)Instantiate(enemy, this.transform.position, Quaternion.identity);
+
+            Vector3 spawnPoint = Random.insideUnitCircle * 5;
+            spawnPoint.y = 0;
+
+            GameObject child = (GameObject)Instantiate(enemy, spawnPoint, Quaternion.identity);
             child.transform.localScale = new Vector3(this.transform.localScale.x / (float)1.5, this.transform.localScale.y / (float)1.5, this.transform.localScale.z / (float)1.5);
 
             BossController childScript = child.GetComponent<BossController>();

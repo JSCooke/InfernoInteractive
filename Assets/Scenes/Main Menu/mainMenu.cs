@@ -41,7 +41,7 @@ public class mainMenu : MonoBehaviour {
     //Use this when "Customise" is pressed
     public void CustomisePress()
     {
-
+        SceneManager.LoadScene("Customise");
     }
 
     //Use this when "Achievements" is pressed

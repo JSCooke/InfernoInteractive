@@ -43,9 +43,9 @@ public class DialogTextManager : MonoBehaviour {
         sprites.Add("Jessie", Jessie);
         sprites.Add("James", James);
         sprites.Add("General Watson", GeneralWatson);
-        sprites.Add("Civilian1", Civilian1);
-        sprites.Add("Civilian2", Civilian2);
-        sprites.Add("Civilian3", Civilian3);
+        sprites.Add("Civilian 1", Civilian1);
+        sprites.Add("Civilian 2", Civilian2);
+        sprites.Add("Civilian 3", Civilian3);
 
         tank = FindObjectOfType<TankController>();
         oldSpeed = tank.getSpeed();

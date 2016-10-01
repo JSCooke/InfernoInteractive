@@ -19,11 +19,14 @@ public class BossController : Damageable {
     public float difficulty = 2;
 
     //Properties of each charge attack
-    private double chargeDuration = 3;
+    public double chargeDuration = 3;
     //Give players at least 5 seconds to prepare
     private double chargeStartTime = 5; 
     private bool targetAcquired = false;
     private Vector3 playerPosition;
+
+    //Animation of charge attack
+    public ParticleSystem chargeParticles;
 
     //Move randomly when not attacking
     private bool randomMovement = true;
@@ -41,14 +44,14 @@ public class BossController : Damageable {
         currentHealth = maxHealth;
 		maxHealth = currentHealth;
 
+        chargeParticles.enableEmission = false;
     }
 
 	// Update is called once per frame
 	void Update () {
 
-        //Must attack after a period of time, otherwise boss is too easy
-        if(Time.fixedTime > (chargeStartTime + chargeDuration)) {
-            randomMovement = false;
+        if (currentLevel < maxLevel && currentHealth <= maxHealth * threshold) {
+            duplicate();
         }
 
         if (randomMovement) {
@@ -56,9 +59,7 @@ public class BossController : Damageable {
         } else {
             chargeAttack();
         }
-
-        duplicate();
-
+        
     }
 
     void chargeAttack() {
@@ -68,15 +69,15 @@ public class BossController : Damageable {
         if (Random.value < difficulty / 50 && !targetAcquired && Time.fixedTime > (chargeStartTime + chargeDuration)) {
             targetAcquired = true;
             playerPosition = player.transform.position;
+            chargeParticles.enableEmission = false;
         }
 
         if (targetAcquired) {
-
             transform.position = Vector3.MoveTowards(transform.position, playerPosition, bossSpeed);
 
             if (transform.position == playerPosition) {
                 targetAcquired = false;
-                chargeStartTime = Time.fixedTime;
+                //chargeStartTime = Time.fixedTime;
                 randomMovement = true;
             }
 
@@ -87,36 +88,42 @@ public class BossController : Damageable {
 
 		if (collision.gameObject.tag == "Player") {
 			targetAcquired = false;
-			chargeStartTime = Time.fixedTime;
-		}
+            //chargeStartTime = Time.fixedTime;
+            randomMovement = true;
+        }
 	}
 
 	void OnTriggerStay(Collider collider) {
 
 		if (collider.gameObject.tag == "Player") {
 			targetAcquired = false;
-			chargeStartTime = Time.fixedTime;
-		}
+            //chargeStartTime = Time.fixedTime;
+            randomMovement = true;
+        }
 	}
 
     void wander() {
 
         if (!moving) {
             moving = true;
-            randomPosition = Random.insideUnitCircle * 5;
+            randomPosition = Random.insideUnitCircle * 2;
             randomPosition.y = 0;
         }
 
         if (moving) {
 
-            transform.position = Vector3.MoveTowards(transform.position, randomPosition, 0.05F);
+            transform.position = Vector3.MoveTowards(transform.position, randomPosition, 0.1F);
 
             if (transform.position == randomPosition) {
                 float chance = Random.value;
+
+                //Once finished moving to random position, decide whether to move randomly again or attack
                 if (chance <= 0.01F) {
                     moving = false;
                 } else if (chance <= 0.02F) {
                     randomMovement = false;
+                    chargeStartTime = Time.fixedTime;
+                    chargeParticles.enableEmission = true;
                 }
             }
 
@@ -124,21 +131,20 @@ public class BossController : Damageable {
     }
 
     void duplicate() {
-        if (currentLevel < maxLevel && currentHealth <= maxHealth * threshold) {
 
-            for (int i = 0; i < difficulty; i++) {
-                GameObject child = (GameObject)Instantiate(enemy, this.transform.position, Quaternion.identity);
-                child.transform.localScale = new Vector3(this.transform.localScale.x / (float)1.5, this.transform.localScale.y / (float)1.5, this.transform.localScale.z / (float)1.5);
+        for (int i = 0; i < difficulty; i++) {
+            GameObject child = (GameObject)Instantiate(enemy, this.transform.position, Quaternion.identity);
+            child.transform.localScale = new Vector3(this.transform.localScale.x / (float)1.5, this.transform.localScale.y / (float)1.5, this.transform.localScale.z / (float)1.5);
 
-                BossController childScript = child.GetComponent<BossController>();
-                childScript.currentLevel = currentLevel + 1;
-                childScript.maxHealth = (int)(maxHealth * threshold);
-                childScript.currentHealth = (int)(maxHealth * threshold);
-            }
-
-            Destroy(this.gameObject);
+            BossController childScript = child.GetComponent<BossController>();
+            childScript.currentLevel = currentLevel + 1;
+            childScript.maxHealth = (int)(maxHealth * threshold);
+            childScript.currentHealth = (int)(maxHealth * threshold);
         }
 
+        Destroy(this.gameObject);
     }
+
+
 
 }

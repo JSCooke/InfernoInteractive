@@ -7,19 +7,17 @@ namespace AssemblyCSharp
 	[Serializable]
 	public class UIAdapter
 	{
-		public Stat health;
+		public Stat player;
 		public Stat boss;
 		public Animator achievementAnimator;
-		public Image achievementBox;
 		public UIAdapter ()
 		{
-			achievementAnimator = achievementBox.GetComponent<Animator>();
 		}
 		//Reduces (negative increases) the player's health by the input percentage.
 		//Returns the remaining hp of the player.
 		public float damagePlayer(float hp){
-			health.damage (hp);
-			return health.CurrentVal;
+			player.damage (hp);
+			return player.CurrentVal;
 		}
 		//Reduces (negative increases) the boss's health by the input percentage.
 		//Returns the remaining hp of the boss.
@@ -31,6 +29,20 @@ namespace AssemblyCSharp
 		//Add paramters to specify details about the achievement.
 		public void achieve(){
 			achievementAnimator.SetTrigger ("Achievement");
+		}
+		public bool playerDead() {
+			if (player.CurrentVal == 0){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		public bool bossDead() {
+			if (boss.CurrentVal == 0){
+				return true;
+			}else{
+				return false;
+			}
 		}
 	}
 }

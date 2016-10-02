@@ -499,20 +499,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5248786a1a43c4539814a2d910a47303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health:
-    bar: {fileID: 2128535293}
-    keys: {fileID: 1302878445}
-    currentVal: 100
-    objectiveCount: 0
-    objectiveMax: 3
-  boss:
-    bar: {fileID: 1004194383}
-    keys: {fileID: 0}
-    currentVal: 100
-    objectiveCount: 0
-    objectiveMax: 0
-  achievementAnimator: {fileID: 0}
-  achievementBox: {fileID: 607159436}
+  ui:
+    player:
+      bar: {fileID: 2128535293}
+      currentVal: 100
+    boss:
+      bar: {fileID: 1004194383}
+      currentVal: 100
+    achievementAnimator: {fileID: 607159435}
 --- !u!4 &546403876
 Transform:
   m_ObjectHideFlags: 0

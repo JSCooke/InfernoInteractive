@@ -9,10 +9,7 @@ using UnityEngine.UI;
 public class Stat
 {
 	public BarScript bar;
-	public Text keys;
 	public float currentVal;
-	public float objectiveCount;
-	public float objectiveMax;
 
 
 	public float CurrentVal {
@@ -29,21 +26,5 @@ public class Stat
 	public void damage(float hit){
 		currentVal -= hit;
 		CurrentVal = currentVal;
-	}
-
-	public bool dead() {
-		if (bar.Value == 0){
-			return true;
-		}else{
-			return false;
-		}
-	}
-
-	public bool full() {
-		if (bar.Value == 100) {
-			return true;
-		}else{
-			return false;
-		}
 	}
 }

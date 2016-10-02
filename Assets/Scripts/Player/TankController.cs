@@ -36,7 +36,6 @@ public class TankController : MonoBehaviour {
 		if (Vector3.Angle (rb.velocity, tankBase.transform.right) > 90) {
 			horizontalSpeed *= -1;
 		}
-		print (horizontalSpeed);
 
 		if (Mathf.Abs(horizontalSpeed) > 1) {
 			rb.AddForce (tankBase.transform.right * horizontalSpeed * -drag, ForceMode.Acceleration);

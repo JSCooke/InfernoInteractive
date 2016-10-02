@@ -39,13 +39,17 @@ public class KingSlimeBehaviour : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
 
         if (player == null) {
-            player = GameObject.FindGameObjectWithTag("Player");
+            player = GameObject.FindGameObjectsWithTag("Player")[0];
         }
     }
 
     // Update is called once per frame
     void Update() {
-        
+        print(Time.timeScale);
+        if (Time.timeScale == 0) {
+            return;
+        }
+
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
@@ -64,15 +68,19 @@ public class KingSlimeBehaviour : MonoBehaviour {
         }
 
         if (charging) {
+            print("charging");
             charge();
         }
         else if (dashing) {
+            print("dashing");
             dashAttack();
         }
         else if (finding) {
+            print("finding");
             findRandomPosition();
         }
         else if (roaming) {
+            print("roaming");
             roam();
         }
     }
@@ -95,7 +103,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
     }
 
     void dashAttack() {
-        transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed);
+        transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime);
 
         if (transform.position == playerPosition) {
             dashing = false;
@@ -113,12 +121,18 @@ public class KingSlimeBehaviour : MonoBehaviour {
         if (transform.position == randomPosition) {
 
             //Rebalance attack rate here
-            if (chance <= 50) {
+            if (chance <= 10) {
                 randomPosition = Random.insideUnitCircle * 10;
                 randomPosition.y = 0;
             } else {
                 //rb.velocity = Vector3.zero;
                 //rb.angularVelocity = Vector3.zero;
+
+                if (Time.fixedTime % 3 == 2) {
+                    roaming = false;
+                    charging = true;
+                    chargeStartTime = Time.fixedTime;
+                }
 
                 roaming = false;
                 charging = true;

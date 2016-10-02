@@ -45,7 +45,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        print(Time.timeScale);
+
         if (Time.timeScale == 0) {
             return;
         }
@@ -103,7 +103,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
     }
 
     void dashAttack() {
-        transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime * 10);
 
         if (transform.position == playerPosition) {
             dashing = false;
@@ -113,7 +113,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
 
     void roam() {
 
-        transform.position = Vector3.MoveTowards(transform.position, randomPosition, 0.2F);
+        transform.position = Vector3.MoveTowards(transform.position, randomPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime);
 
         float chance = Random.Range(0,100);
 
@@ -124,15 +124,9 @@ public class KingSlimeBehaviour : MonoBehaviour {
             if (chance <= 10) {
                 randomPosition = Random.insideUnitCircle * 10;
                 randomPosition.y = 0;
+                randomPosition.x += transform.position.x;
+                randomPosition.z += transform.position.z;
             } else {
-                //rb.velocity = Vector3.zero;
-                //rb.angularVelocity = Vector3.zero;
-
-                if (Time.fixedTime % 3 == 2) {
-                    roaming = false;
-                    charging = true;
-                    chargeStartTime = Time.fixedTime;
-                }
 
                 roaming = false;
                 charging = true;
@@ -146,6 +140,8 @@ public class KingSlimeBehaviour : MonoBehaviour {
         
         randomPosition = Random.insideUnitCircle * 10;
         randomPosition.y = 0;
+        randomPosition.x += transform.position.x;
+        randomPosition.z += transform.position.z;
 
         finding = false;
         roaming = true;

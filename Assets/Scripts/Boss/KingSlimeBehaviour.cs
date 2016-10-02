@@ -41,10 +41,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
     void Start() {
 
         chargeParticles.enableEmission = false;
-
         rb = GetComponent<Rigidbody>();
-        //rb.velocity = Vector3.zero;
-        //rb.angularVelocity = Vector3.zero;
 
         if (player == null) {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -53,24 +50,36 @@ public class KingSlimeBehaviour : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
+        
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
+        if (this.GetComponent<BossController>().dead) {
+            StartCoroutine(Die());
+        } else {
+            fightPlayer();
+        }
+        
+
+    }
+
+    void fightPlayer() {
         if (currentLevel < maxLevel && this.GetComponent<BossController>().currentHealth <= this.GetComponent<BossController>().maxHealth * threshold) {
             duplicate();
         }
 
         if (charging) {
             charge();
-        } else if (dashing) {
+        }
+        else if (dashing) {
             dashAttack();
-        } else if (finding) {
+        }
+        else if (finding) {
             findRandomPosition();
-        } else if (roaming) {
+        }
+        else if (roaming) {
             roam();
         }
-
     }
 
     void charge() {
@@ -107,7 +116,9 @@ public class KingSlimeBehaviour : MonoBehaviour {
 
         //Once finished walking, decide whether to attack or roam again. Rebalance boss here if too hard
         if (transform.position == randomPosition) {
-            if (chance <= 10) {
+
+            //Rebalance attack rate here
+            if (chance <= 50) {
                 randomPosition = Random.insideUnitCircle * 10;
                 randomPosition.y = 0;
             } else {
@@ -143,13 +154,18 @@ public class KingSlimeBehaviour : MonoBehaviour {
 
     void duplicate() {
 
-        for (int i = 0; i < this.GetComponent<BossController>().difficulty; i++) {
+        float offset = (float)0.5;
 
-            Vector3 spawnPoint = Random.insideUnitCircle * 10;
-            spawnPoint.y = spawnPoint.y + i ;
+        //this.GetComponent<BossController>().difficulty
+        for (int i = 0; i < 2; i++) {
+
+            Vector3 spawnPoint = this.transform.position;
+            offset *= -1;
+            spawnPoint.x += offset;
+            spawnPoint.z += offset;
 
             GameObject child = (GameObject)Instantiate(enemy, spawnPoint, Quaternion.identity);
-            child.transform.localScale = new Vector3(this.transform.localScale.x / (float)1.5, this.transform.localScale.y / (float)1.5, this.transform.localScale.z / (float)1.5);
+            child.transform.localScale = new Vector3(this.transform.localScale.x / 2, this.transform.localScale.y / 2, this.transform.localScale.z / 2);
 
             BossController childScript = child.GetComponent<BossController>();
             childScript.GetComponent<KingSlimeBehaviour>().currentLevel = currentLevel + 1;
@@ -158,7 +174,25 @@ public class KingSlimeBehaviour : MonoBehaviour {
 
         }
 
-        Destroy(this.gameObject);
+        StartCoroutine(Die());
+        
+    }
+
+    IEnumerator Die() {
+
+        if (this.GetComponent<KingSlimeBehaviour>().currentLevel == maxLevel) {
+            Quaternion targetRotation = targetRotation = Quaternion.Euler(new Vector3(90, 45, 0));
+            rb.transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 2.5F);
+
+            //Wait for 1 second animation to finish
+            yield return new WaitForSeconds(1);
+            Destroy(this.gameObject);
+        }
+        else {
+            Destroy(this.gameObject);
+        }
+
+
     }
 
     public void Spawn() {
@@ -167,4 +201,5 @@ public class KingSlimeBehaviour : MonoBehaviour {
         spawnPoint.y += 15;
         Instantiate(this, spawnPoint, Quaternion.identity);
     }
+
 }

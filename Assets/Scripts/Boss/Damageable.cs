@@ -6,6 +6,7 @@ public abstract class Damageable : MonoBehaviour {
     public int maxHealth, currentHealth;
 	public int bodyDamage;
 	public string damagedBy; //PlayerProjectile
+    public bool dead = false;
 
 	void OnTriggerEnter(Collider collider){
 		if (collider.gameObject.tag == damagedBy) {
@@ -19,8 +20,9 @@ public abstract class Damageable : MonoBehaviour {
         currentHealth = currentHealth - damage;
 
         if (currentHealth <= 0) {
-            Destroy(this.gameObject);
+            dead = true;  
         }
 
 	}
+
 }

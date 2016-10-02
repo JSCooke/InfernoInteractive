@@ -7,19 +7,16 @@ public class upgradeSelect : MonoBehaviour {
     public GameObject AttackStation;
     public GameObject DefenseStation;
     public GameObject MovementStation;
-    public GameObject OtherStation;
+    public GameObject LeftStation;
+    public GameObject RightStation;
 
     void Start()
     {
-        //AttackStation = AttackStation.GetComponent<Image>();
-        //DefenseStation = DefenseStation.GetComponent<Image>();
-        //MovementStation = MovementStation.GetComponent<Image>();
-        //OtherStation = OtherStation.GetComponent<Image>();
-
         AttackStation.SetActive(true);
         DefenseStation.SetActive(false);
         MovementStation.SetActive(false);
-        OtherStation.SetActive(false);
+        LeftStation.SetActive(false);
+        RightStation.SetActive(false);
     }
 
     public void DisplayAttackUpgrades()
@@ -27,7 +24,8 @@ public class upgradeSelect : MonoBehaviour {
         AttackStation.SetActive(true);
         DefenseStation.SetActive(false);
         MovementStation.SetActive(false);
-        OtherStation.SetActive(false);
+        LeftStation.SetActive(false);
+        RightStation.SetActive(false);
     }
 
     public void DisplayDefenseUpgrades()
@@ -35,7 +33,8 @@ public class upgradeSelect : MonoBehaviour {
         AttackStation.SetActive(false);
         DefenseStation.SetActive(true);
         MovementStation.SetActive(false);
-        OtherStation.SetActive(false);
+        LeftStation.SetActive(false);
+        RightStation.SetActive(false);
     }
 
     public void DisplayMovementUpgrades()
@@ -43,14 +42,25 @@ public class upgradeSelect : MonoBehaviour {
         AttackStation.SetActive(false);
         DefenseStation.SetActive(false);
         MovementStation.SetActive(true);
-        OtherStation.SetActive(false);
+        LeftStation.SetActive(false);
+        RightStation.SetActive(false);
     }
 
-    public void DisplayOtherUpgrades()
+    public void DisplayLeftUpgrades()
     {
         AttackStation.SetActive(false);
         DefenseStation.SetActive(false);
         MovementStation.SetActive(false);
-        OtherStation.SetActive(true);
+        LeftStation.SetActive(true);
+        RightStation.SetActive(false);
+    }
+
+    public void DisplayRightUpgrades()
+    {
+        AttackStation.SetActive(false);
+        DefenseStation.SetActive(false);
+        MovementStation.SetActive(false);
+        LeftStation.SetActive(false);
+        RightStation.SetActive(true);
     }
 }

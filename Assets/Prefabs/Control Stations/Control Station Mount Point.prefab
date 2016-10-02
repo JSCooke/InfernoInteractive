@@ -49,6 +49,7 @@ MonoBehaviour:
   - {fileID: 118382, guid: 6d2ea1f19abbb434cbeb31b294720caf, type: 2}
   defensiveStations:
   - {fileID: 156960, guid: ad7c4edc7e9c66a4ba2f4dfc4351ea30, type: 2}
+  - {fileID: 156960, guid: ae5af660735501d4ca37dab5cfc89d8a, type: 2}
   startingStation: 
 --- !u!1001 &100100000
 Prefab:
@@ -59,7 +60,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: defensiveStations.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: allowDefensive
@@ -81,6 +82,10 @@ Prefab:
       propertyPath: defensiveStations.Array.data[0]
       value: 
       objectReference: {fileID: 156960, guid: ad7c4edc7e9c66a4ba2f4dfc4351ea30, type: 2}
+    - target: {fileID: 0}
+      propertyPath: defensiveStations.Array.data[1]
+      value: 
+      objectReference: {fileID: 156960, guid: ae5af660735501d4ca37dab5cfc89d8a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 101320}

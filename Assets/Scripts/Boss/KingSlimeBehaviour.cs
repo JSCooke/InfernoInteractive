@@ -68,19 +68,19 @@ public class KingSlimeBehaviour : MonoBehaviour {
         }
 
         if (charging) {
-            print("charging");
+            //print("charging");
             charge();
         }
         else if (dashing) {
-            print("dashing");
+            //print("dashing");
             dashAttack();
         }
         else if (finding) {
-            print("finding");
+            //print("finding");
             findRandomPosition();
         }
         else if (roaming) {
-            print("roaming");
+            //print("roaming");
             roam();
         }
     }
@@ -121,7 +121,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
         if (transform.position == randomPosition) {
 
             //Rebalance attack rate here
-            if (chance <= 10) {
+            if (chance <= 80) {
                 randomPosition = Random.insideUnitCircle * 10;
                 randomPosition.y = 0;
                 randomPosition.x += transform.position.x;
@@ -148,13 +148,22 @@ public class KingSlimeBehaviour : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision collision) {
-        dashing = false;
-        finding = true;
+
+        string collidedTag = collision.gameObject.tag;
+        if (collidedTag == "Player" || collidedTag == "KingSlime") {
+            dashing = false;
+            finding = true;
+        }
+        
     }
 
     void OnTriggerStay(Collider collider) {
-        dashing = false;
-        finding = true;
+        string collidedTag = collider.gameObject.tag;
+        if (collidedTag == "Player" || collidedTag == "KingSlime") {
+            dashing = false;
+            finding = true;
+        }
+
     }
 
     void duplicate() {

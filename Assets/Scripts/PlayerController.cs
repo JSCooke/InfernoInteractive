@@ -77,20 +77,29 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	public void detach(){
+		attachedToControlStation = false;
+		//Unfreeze x and z positions
+		rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
+		if (currentControlStationController != null) {
+			currentControlStationController.detachPlayer ();
+		}
+	}
+
 	void toggleControl(){
 		if (attachedToControlStation) {
 			attachedToControlStation = false;
-			currentControlStationController.detachPlayer ();
 
 			//Unfreeze x and z positions
 			rb.constraints=RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
+			currentControlStationController.detachPlayer ();
 		} else {
 			if (currentControlStationController != null) {
-				currentControlStationController.attachPlayer (this.gameObject);
 				attachedToControlStation = true;
 
 				//Freeze position and rotation
-				rb.constraints=	RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
+				rb.constraints=	RigidbodyConstraints.FreezeAll;
+				currentControlStationController.attachPlayer (this.gameObject);
 			}
 		}
 	}

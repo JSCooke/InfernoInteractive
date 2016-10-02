@@ -48,11 +48,12 @@ namespace AssemblyCSharp
 			BossVal = bossVal;
 			return BossVal;
 		}
-		//Causes an achievement box to pop up
+		//Causes an achievement box to pop up.
 		//Add paramters to specify details about the achievement.
 		public void achieve(){
 			achievementAnimator.SetTrigger ("Achievement");
 		}
+		//Returns true if the player is dead.
 		public bool playerDead() {
 			if (PlayerVal == 0){
 				return true;
@@ -60,6 +61,7 @@ namespace AssemblyCSharp
 				return false;
 			}
 		}
+		//Returns true if the boss is dead.
 		public bool bossDead() {
 			if (BossVal == 0){
 				return true;

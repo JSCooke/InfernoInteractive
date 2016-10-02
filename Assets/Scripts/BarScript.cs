@@ -41,6 +41,8 @@ public class BarScript : MonoBehaviour {
 		}
 	}
 
+	//Change the size of the coloured image representing the health bar.
+	//Call every time fillAmount is changed.
 	private void HandleBar() {
 		if (fillAmount != content.fillAmount) {
 			content.fillAmount = Mathf.Lerp (content.fillAmount, fillAmount, Time.deltaTime * lerpSpeed);

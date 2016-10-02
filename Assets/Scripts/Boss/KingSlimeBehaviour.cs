@@ -12,18 +12,13 @@ public class KingSlimeBehaviour : MonoBehaviour {
     //Duplicate when reach threshold
     private double threshold = 0.5;
 
-    
-    private bool targetAcquired = false;
     private Vector3 playerPosition;
 
     //Animation of charge attack
     public ParticleSystem chargeParticles;
 
     //Move randomly when not attacking
-    private bool randomMovement = true;
     private Vector3 randomPosition;
-    private bool moving = false;
-
 
     private Rigidbody rb;
 

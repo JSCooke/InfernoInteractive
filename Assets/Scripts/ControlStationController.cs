@@ -26,11 +26,14 @@ public class ControlStationController : MonoBehaviour {
 	public void attachPlayer(GameObject player){
 		attachedPlayer = player;
 		attachedPlayerController = player.GetComponent<PlayerController> ();
+		
+		behaviour.onAttachPlayer (player);
 
 		glowParticles.enableEmission = false;
 	}
 
 	public void detachPlayer(){	
+		behaviour.onDetachPlayer (attachedPlayer);
 		attachedPlayer = null;
 		attachedPlayerController = null;
 

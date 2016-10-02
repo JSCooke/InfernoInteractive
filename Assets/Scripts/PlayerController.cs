@@ -3,20 +3,25 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 	public KeyCode action, moveUp, moveLeft, moveDown, moveRight;
-	public float moveSpeed;
+	public float moveSpeed, heightOffset;
+	public bool enableMovement = true;
 
 	private GameObject currentControlStation;
 	private ControlStationController currentControlStationController;
 
 	private bool attachedToControlStation = false;
+
+	private Rigidbody rb;
 	// Use this for initialization
 	void Start () {
-	
+		rb = GetComponent<Rigidbody> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		movement ();
+		resetPosition ();
+
 	}
 
 	void movement(){
@@ -24,7 +29,7 @@ public class PlayerController : MonoBehaviour {
 			toggleControl();
 		}
 
-		if (!attachedToControlStation) {
+		if (!attachedToControlStation && enableMovement) {
 			//Move up
 			if (Input.GetKey (moveUp) && !Input.GetKey (moveDown)) {
 				transform.Translate (0, 0, moveSpeed * Time.deltaTime);
@@ -42,7 +47,7 @@ public class PlayerController : MonoBehaviour {
 			if (Input.GetKey (moveRight) && !Input.GetKey (moveLeft)) {
 				transform.Translate (moveSpeed * Time.deltaTime, 0, 0);
 			}
-		} else {
+		} else if (attachedToControlStation) {
 			//If currently attacked to a control station, send the inputs to be processed by the behaviour script
 			currentControlStationController.behaviour.keyPressed(
 				Input.GetKeyDown(moveUp), 
@@ -65,14 +70,27 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
+	void resetPosition(){
+		transform.localRotation = new Quaternion ();
+		if (attachedToControlStation) {
+			transform.position = currentControlStation.transform.position + new Vector3 (0, heightOffset, 0);
+		}
+	}
+
 	void toggleControl(){
 		if (attachedToControlStation) {
 			attachedToControlStation = false;
 			currentControlStationController.detachPlayer ();
+
+			//Unfreeze x and z positions
+			rb.constraints=RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
 		} else {
 			if (currentControlStationController != null) {
 				currentControlStationController.attachPlayer (this.gameObject);
 				attachedToControlStation = true;
+
+				//Freeze position and rotation
+				rb.constraints=	RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
 			}
 		}
 	}

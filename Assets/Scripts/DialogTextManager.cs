@@ -10,7 +10,6 @@ public class DialogTextManager : MonoBehaviour {
     public Image dialogueImage;
 
     public TankController tank;
-    public float oldSpeed;
 
     public TextAsset textFile;
     public string[] textLines;
@@ -48,7 +47,6 @@ public class DialogTextManager : MonoBehaviour {
         sprites.Add("Civilian 3", Civilian3);
 
         tank = FindObjectOfType<TankController>();
-        oldSpeed = tank.getSpeed();
 
         if (textFile != null)
         {
@@ -110,9 +108,7 @@ public class DialogTextManager : MonoBehaviour {
 
         if (stopGameMovements == true)
         {
-            oldSpeed = tank.getSpeed();
-            tank.setSpeed(0);
-            tank.canMove = false;
+			Time.timeScale = 0;
         }
     }
 
@@ -121,8 +117,7 @@ public class DialogTextManager : MonoBehaviour {
     {
         if (stopGameMovements == true)
         {
-            tank.setSpeed(oldSpeed);
-            tank.canMove = true;
+			Time.timeScale = 1;
         }
         textBox.SetActive(false);
         isActive = false;

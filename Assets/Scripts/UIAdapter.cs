@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 namespace AssemblyCSharp
 {
+	[Serializable]
 	public class UIAdapter
 	{
 		public Stat health;

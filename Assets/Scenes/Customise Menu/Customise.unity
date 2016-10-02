@@ -1384,7 +1384,7 @@ Prefab:
     - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpgradeShow
+      value: AttackUpgradeShow
       objectReference: {fileID: 0}
     - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
         type: 2}
@@ -6684,6 +6684,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 574699426}
     m_Modifications:
+    - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224000011542920198, guid: 9b637c69c05203c4da11c76cb6ba4423,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -6789,6 +6794,36 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: aae6e11f931187447932d544f9e62c21,
         type: 3}
+    - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 969428247}
+    - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AttackUpgradeShow
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 507451344}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b637c69c05203c4da11c76cb6ba4423, type: 2}
   m_IsPrefabParent: 0
@@ -8764,13 +8799,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca02e00c59f800b42968182c54cb93f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeObjects:
+  AttackUpgrades:
   - {fileID: 369356142}
-  - {fileID: 251053395}
-  - {fileID: 448895623}
-  - {fileID: 802850511}
   - {fileID: 507451344}
+  DefenseUpgrades:
   - {fileID: 1625264536}
+  MovementUpgrades: []
+  LeftUpgrades:
+  - {fileID: 802850511}
+  - {fileID: 251053395}
+  RightUpgrades:
+  - {fileID: 448895623}
   - {fileID: 42739261}
 --- !u!114 &969428248
 MonoBehaviour:
@@ -9197,7 +9236,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1094868032}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 969428247}
+        m_MethodName: RightUpgradeShow
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 448895623}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1094868032
@@ -10521,6 +10571,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1129611786}
     m_Modifications:
+    - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224000011542920198, guid: 9b637c69c05203c4da11c76cb6ba4423,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -10626,6 +10681,36 @@ Prefab:
       propertyPath: m_Text
       value: Shield
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 969428247}
+    - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DefenseUpgradeShow
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1625264536}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b637c69c05203c4da11c76cb6ba4423, type: 2}
   m_IsPrefabParent: 0
@@ -10809,7 +10894,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1532693933}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 969428247}
+        m_MethodName: RightUpgradeShow
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 42739261}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1532693933
@@ -10933,6 +11029,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1326866125}
     m_Modifications:
+    - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224000011542920198, guid: 9b637c69c05203c4da11c76cb6ba4423,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -11038,6 +11139,36 @@ Prefab:
       propertyPath: m_Text
       value: Ray Gun
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 969428247}
+    - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LeftUpgradeShow
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013161993038, guid: 9b637c69c05203c4da11c76cb6ba4423,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 802850511}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b637c69c05203c4da11c76cb6ba4423, type: 2}
   m_IsPrefabParent: 0
@@ -11793,7 +11924,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1905080708}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 969428247}
+        m_MethodName: LeftUpgradeShow
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 251053395}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1905080708

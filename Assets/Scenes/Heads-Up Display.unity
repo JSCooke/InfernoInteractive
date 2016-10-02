@@ -500,12 +500,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui:
-    player:
-      bar: {fileID: 2128535293}
-      currentVal: 100
-    boss:
-      bar: {fileID: 1004194383}
-      currentVal: 100
+    player: {fileID: 2128535293}
+    playerVal: 100
+    boss: {fileID: 1004194383}
+    bossVal: 100
     achievementAnimator: {fileID: 607159435}
 --- !u!4 &546403876
 Transform:

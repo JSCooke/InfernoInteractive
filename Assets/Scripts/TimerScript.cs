@@ -32,7 +32,7 @@ public class TimerScript : MonoBehaviour {
 			seconds += Time.deltaTime;
 		}
 	}
-	public void getTime(){
+	public float[] getTime(){
 		return new float[] { minutes, seconds };
 	}
 }

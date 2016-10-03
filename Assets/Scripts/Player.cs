@@ -4,8 +4,6 @@ using System;
 //Adapted from inScope Studios' health bar tutorial
 //This demonstrates the code  on the player's side.
 using UnityEngine.UI;
-using AssemblyCSharp;
-
 
 public class Player : MonoBehaviour {
 

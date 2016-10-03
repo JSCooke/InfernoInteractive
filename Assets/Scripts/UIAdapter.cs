@@ -30,29 +30,47 @@ namespace AssemblyCSharp
 				boss.Value = bossVal;
 			}
 		}
+
+		//Perhaps make a general animator?
 		public Animator achievementAnimator;
+		public Animator deathAnimator;
+
+		public TimerScript timer;
+
 		public UIAdapter ()
 		{
 		}
+
 		//Reduces (negative increases) the player's health by the input percentage.
 		//Returns the remaining hp of the player.
 		public float damagePlayer(float hp){
-			playerVal -= hp;
-			PlayerVal = playerVal;
+			if (!playerDead ()) {
+				playerVal -= hp;
+				PlayerVal = playerVal;
+			}
 			return PlayerVal;
 		}
+
 		//Reduces (negative increases) the boss's health by the input percentage.
 		//Returns the remaining hp of the boss.
 		public float damageBoss(float hp){
-			bossVal -= hp;
-			BossVal = bossVal;
+			if (!bossDead ()) {
+				bossVal -= hp;
+				BossVal = bossVal;
+			}
 			return BossVal;
 		}
+
 		//Causes an achievement box to pop up.
 		//Add paramters to specify details about the achievement.
 		public void achieve(){
 			achievementAnimator.SetTrigger ("Achievement");
 		}
+		public void die(){
+			deathAnimator.SetTrigger ("Death");
+			timer.stop = true;
+		}
+
 		//Returns true if the player is dead.
 		public bool playerDead() {
 			if (PlayerVal == 0){
@@ -61,6 +79,7 @@ namespace AssemblyCSharp
 				return false;
 			}
 		}
+
 		//Returns true if the boss is dead.
 		public bool bossDead() {
 			if (BossVal == 0){
@@ -71,4 +90,3 @@ namespace AssemblyCSharp
 		}
 	}
 }
-

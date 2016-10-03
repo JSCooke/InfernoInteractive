@@ -16,6 +16,7 @@ public class Player : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		bool alive = true;
 		if (Input.GetKeyDown (KeyCode.W)) {
 			ui.damagePlayer (-10);
 		} else if (Input.GetKeyDown (KeyCode.S)) {
@@ -25,7 +26,10 @@ public class Player : MonoBehaviour {
 		} else if (Input.GetKeyDown (KeyCode.DownArrow)) {
 			ui.damageBoss (1);
 		} else if (Input.GetKeyDown (KeyCode.Space)) {
-			ui.achieve();
+			ui.achieve ();
+		} else if (ui.playerDead() && alive) {
+			alive = false;
+			ui.die ();
 		}
 	}
 }

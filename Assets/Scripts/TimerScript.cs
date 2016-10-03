@@ -7,13 +7,20 @@ public class TimerScript : MonoBehaviour {
 	public Text text;
 	private float seconds = 0.0f;
 	private float minutes = 0.0f;
+	public bool stop = true;
+
+	public void Start(){
+		stop = false;
+	}
 
 	public void Update(){
-		if (seconds >= 59) {
-			minutes += 1;
-			seconds = 0;
+		if (!stop) {
+			if (seconds >= 59) {
+				minutes += 1;
+				seconds = 0;
+			}
+			text.text = Mathf.RoundToInt (minutes).ToString ("D2") + ":" + Mathf.RoundToInt (seconds).ToString ("D2");
+			seconds += Time.deltaTime;
 		}
-		text.text = Mathf.RoundToInt (minutes).ToString ("D2") + ":" + Mathf.RoundToInt (seconds).ToString ("D2");
-		seconds += Time.deltaTime;
 	}
 }

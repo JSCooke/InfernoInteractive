@@ -14,20 +14,20 @@ public class Player : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		bool alive = true;
 		if (Input.GetKeyDown (KeyCode.W)) {
 			ui.damagePlayer (-10);
 		} else if (Input.GetKeyDown (KeyCode.S)) {
 			ui.damagePlayer (10);
 		} else if (Input.GetKeyDown (KeyCode.UpArrow)) {
-			ui.damageBoss (-1);
+			ui.damageBoss (-10);
 		} else if (Input.GetKeyDown (KeyCode.DownArrow)) {
-			ui.damageBoss (1);
+			ui.damageBoss (10);
 		} else if (Input.GetKeyDown (KeyCode.Space)) {
 			ui.achieve ();
-		} else if (ui.playerDead() && alive) {
-			alive = false;
+		} else if (ui.playerDead ()) {
 			ui.die ();
+		} else if (ui.bossDead ()) {
+			ui.win ();
 		}
 	}
 }

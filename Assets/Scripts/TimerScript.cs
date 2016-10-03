@@ -32,7 +32,7 @@ public class TimerScript : MonoBehaviour {
 			seconds += Time.deltaTime;
 		}
 	}
-	public float[] getTime(){
-		return new float[] { minutes, seconds };
+	public int[] getTime(){
+		return new int[] { Mathf.RoundToInt (minutes), Mathf.RoundToInt (seconds) };
 	}
 }

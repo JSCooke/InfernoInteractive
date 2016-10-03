@@ -74,6 +74,11 @@ public class UIAdapter
 		return BossVal;
 	}
 
+	//Overload allowing bosses of higher hp to be damaged correctly.
+	public float damageBoss(float hp, float maxHp){
+		return damageBoss (BarScript.Map (hp, 0, maxHp, 0, 100));
+	}
+
 	//Causes an achievement box to pop up.
 	//Add paramters to specify details about the achievement.
 	public void achieve(){

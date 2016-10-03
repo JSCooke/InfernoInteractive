@@ -20,7 +20,7 @@ public class BarScript : MonoBehaviour {
 	public float Value {
 		set{
 			string[] tmp = valueText.text.Split(':');
-			valueText.text = tmp [0] + ": " + value + "%";
+			valueText.text = tmp [0] + ": " + Mathf.RoundToInt(value) + "%";
 			fillAmount = value/100;
 		}
 		get{
@@ -51,7 +51,16 @@ public class BarScript : MonoBehaviour {
 	}
 
 	//This is a general function, and can be adapted. value/inMax will cut the mustard in 90% of our cases
-	private float Map(float value, float inMin, float inMax, float outMin, float outMax){
+	/**
+	 * Sample usage:
+	 * A boss has 400hp which goes down to 0, and needs to take 20 damage, and have it represented on a percentage health bar.
+	 * Map(20, 0, 400, 0, 100) will return the percentage of health lost,that is:
+	 * "map 20hp, on a scale of 0 to 400, to a scale of 0 to 100", and it will return 5.
+	 * The health bar returns a value of 95%, and this needs to be mapped back to maximum health.
+	 * Map(95, 0, 100, 0, 400) will return the boss's remaining health, that is:
+	 * "map 95%, on a scale of 0 to 100, to a scale of 0 to 400", and it will return 380.
+	 */
+	public static float Map(float value, float inMin, float inMax, float outMin, float outMax){
 		return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
 	}
 }

@@ -58,13 +58,12 @@ public class ControlStationMountController : MonoBehaviour {
 	}
 
 	void setStation(GameObject station){
-        print("Station " + station.name);
         foreach (Transform child in transform){
 			Destroy(child.gameObject);
 		}
 
 		GameObject newStation = (GameObject) Instantiate (station, transform.position, transform.rotation);
 		newStation.transform.parent = transform;
-
+        newStation.transform.localScale = newStation.transform.parent.localScale;
 	}
 }

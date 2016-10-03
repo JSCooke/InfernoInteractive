@@ -14,8 +14,7 @@ public class upgradeController : MonoBehaviour {
     public void AssignStation(GameObject Upgrade)
     {
         string StationName = Upgrade.transform.parent.name;
-        print("UpgradeName " + Upgrade.name);
-        print("StationName " + StationName);
+
 
         if (StationName == "NorthStation")
         {

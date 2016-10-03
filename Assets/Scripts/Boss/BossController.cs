@@ -12,9 +12,8 @@ public class BossController : Damageable {
 
     // Use this for initialization
     void Start () {
-
+        dead = false;
         currentHealth = maxHealth;
-		//maxHealth = currentHealth;
 
     }
 

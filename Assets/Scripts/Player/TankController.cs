@@ -13,7 +13,6 @@ public class TankController : MonoBehaviour {
     // Use this for initialization
     void Start() {
 		rb = GetComponent<Rigidbody> ();
-        print(UIAdapter.playerVal);
     }
 
     // Update is called once per frame

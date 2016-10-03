@@ -50,31 +50,29 @@ public class KingSlimeBehaviour : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
         if (Time.timeScale == 0) {
             return;
         }
 
         currentHealth = this.GetComponent<BossController>().currentHealth;
 
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
+        if (currentLevel < maxLevel && currentHealth <= 0) {
+            duplicate();
+        }
 
         if (this.GetComponent<BossController>().dead) {
             StartCoroutine(Die());
         } else {
-            //fightPlayer();
+            fightPlayer();
         }
         
 
     }
 
     void fightPlayer() {
-        currentHealth = GetComponent<BossController>().currentHealth;
-        maxHealth = GetComponent<BossController>().maxHealth;
-
-        if (currentLevel < maxLevel && currentHealth <= 0) {
-            duplicate();
-        }
 
         if (charging) {
             //print("charging");
@@ -203,6 +201,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
 
     IEnumerator Die() {
 
+        //Only animate death for smallest slimes
         if (this.GetComponent<KingSlimeBehaviour>().currentLevel == maxLevel) {
             Quaternion targetRotation = targetRotation = Quaternion.Euler(new Vector3(90, 45, 0));
             rb.transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 2.5F);

@@ -8,21 +8,13 @@ public abstract class Damageable : MonoBehaviour {
 	public string damagedBy; //PlayerProjectile
     public bool dead = false;
 
-	void OnTriggerEnter(Collider collider){
+    void OnTriggerEnter(Collider collider){
 		if (collider.gameObject.tag == damagedBy) {
             takeDamage (collider.gameObject.GetComponent<ProjectileController>().damage);
 			Destroy (collider.gameObject);
 		}
 	}
 
-	public void takeDamage(int damage){
-
-        currentHealth = currentHealth - damage;
-
-        if (currentHealth <= 0) {
-            dead = true;  
-        }
-
-	}
+	public virtual void takeDamage(int damage){}
 
 }

@@ -8,9 +8,9 @@ public class KingSlimeBehaviour : MonoBehaviour {
 
     //How many times to duplicate
     public int maxLevel = 2;
-    private int currentLevel = 0;
+    public int currentLevel = 0;
     //Duplicate when reach threshold
-    private double threshold = 0.5;
+    private double threshold = 0;
 
     private Vector3 playerPosition;
 
@@ -31,6 +31,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
     public double chargeDuration = 3;
     private double chargeStartTime;
 
+    private int currentHealth, maxHealth;
 
     // Use this for initialization
     void Start() {
@@ -50,8 +51,8 @@ public class KingSlimeBehaviour : MonoBehaviour {
             return;
         }
 
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
+        //rb.velocity = Vector3.zero;
+        //rb.angularVelocity = Vector3.zero;
 
         if (this.GetComponent<BossController>().dead) {
             StartCoroutine(Die());
@@ -63,8 +64,10 @@ public class KingSlimeBehaviour : MonoBehaviour {
     }
 
     void fightPlayer() {
-        if (currentLevel < maxLevel && this.GetComponent<BossController>().currentHealth <= this.GetComponent<BossController>().maxHealth * threshold) {
-            duplicate();
+        currentHealth = GetComponent<BossController>().currentHealth;
+        maxHealth = GetComponent<BossController>().maxHealth;
+        if (currentLevel < maxLevel && currentHealth <= maxHealth * threshold) {
+            //duplicate();
         }
 
         if (charging) {
@@ -203,6 +206,8 @@ public class KingSlimeBehaviour : MonoBehaviour {
             Destroy(this.gameObject);
         }
         else {
+            //Destroy(this.gameObject);
+            duplicate();
             Destroy(this.gameObject);
         }
 

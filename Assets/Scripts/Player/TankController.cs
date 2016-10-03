@@ -5,7 +5,7 @@ public class TankController : MonoBehaviour {
     public GameObject tankBase;
     public float acceleration, drag, topSpeed;
     public bool canMove = true;
-
+    
     private float speed;
 	private Rigidbody rb;
 	private bool doAccelerate, doDecelerate;
@@ -13,6 +13,7 @@ public class TankController : MonoBehaviour {
     // Use this for initialization
     void Start() {
 		rb = GetComponent<Rigidbody> ();
+        print(UIAdapter.playerVal);
     }
 
     // Update is called once per frame
@@ -21,6 +22,13 @@ public class TankController : MonoBehaviour {
 			transform.rotation.eulerAngles.x,
 			0,
 			transform.rotation.eulerAngles.z);
+
+
+        //if (Input.GetKeyDown(KeyCode.W)) {
+        //    UIAdapter.damagePlayer(10);
+        //    print(UIAdapter.playerVal);
+        //}
+
     }
 
 	void FixedUpdate(){

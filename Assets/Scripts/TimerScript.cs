@@ -9,6 +9,15 @@ public class TimerScript : MonoBehaviour {
 	private float minutes = 0.0f;
 	public bool stop = true;
 
+	public bool Stop {
+		get {
+			return stop;
+		}
+		set {
+			stop = value;
+		}
+	}
+
 	public void Start(){
 		stop = false;
 	}
@@ -22,5 +31,8 @@ public class TimerScript : MonoBehaviour {
 			text.text = Mathf.RoundToInt (minutes).ToString ("D2") + ":" + Mathf.RoundToInt (seconds).ToString ("D2");
 			seconds += Time.deltaTime;
 		}
+	}
+	public void getTime(){
+		return new float[] { minutes, seconds };
 	}
 }

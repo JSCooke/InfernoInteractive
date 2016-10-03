@@ -58,7 +58,8 @@ public class ControlStationMountController : MonoBehaviour {
 	}
 
 	void setStation(GameObject station){
-		foreach(Transform child in transform){
+        print("Station " + station.name);
+        foreach (Transform child in transform){
 			Destroy(child.gameObject);
 		}
 

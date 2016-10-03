@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class customiseMenu : MonoBehaviour {
 
-    public GameObject[] AttackUpgrades = new GameObject[2];
+    /*public GameObject[] AttackUpgrades = new GameObject[2];
     public GameObject[] DefenseUpgrades = new GameObject[1];
     public GameObject[] MovementUpgrades = new GameObject[0];
     public GameObject[] LeftUpgrades = new GameObject[2];
@@ -32,14 +32,14 @@ public class customiseMenu : MonoBehaviour {
         {
             RightUpgrades[i].SetActive(false);
         }
-    }
+    }*/
 
     public void BackPress()
     {
         SceneManager.LoadScene("Main");
     }
 
-    public void AttackUpgradeShow(GameObject upgradeObject)
+    /*public void AttackUpgradeShow(GameObject upgradeObject)
     {
         for (int i = 0; i < AttackUpgrades.Length; i++)
         {
@@ -82,5 +82,5 @@ public class customiseMenu : MonoBehaviour {
             RightUpgrades[i].SetActive(false);
         }
         upgradeObject.SetActive(true);
-    }
+    }*/
 }

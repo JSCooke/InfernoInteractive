@@ -10,7 +10,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
     public int maxLevel = 2;
     public int currentLevel = 0;
     //Duplicate when reach threshold
-    private double threshold = 0;
+    private double threshold = 0.5;
 
     private Vector3 playerPosition;
 
@@ -39,6 +39,9 @@ public class KingSlimeBehaviour : MonoBehaviour {
         chargeParticles.enableEmission = false;
         rb = GetComponent<Rigidbody>();
 
+        maxHealth = this.GetComponent<BossController>().maxHealth;
+        currentHealth = maxHealth;
+
         if (player == null) {
             player = GameObject.FindGameObjectsWithTag("Player")[0];
         }
@@ -51,13 +54,15 @@ public class KingSlimeBehaviour : MonoBehaviour {
             return;
         }
 
-        //rb.velocity = Vector3.zero;
-        //rb.angularVelocity = Vector3.zero;
+        currentHealth = this.GetComponent<BossController>().currentHealth;
+
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
 
         if (this.GetComponent<BossController>().dead) {
             StartCoroutine(Die());
         } else {
-            fightPlayer();
+            //fightPlayer();
         }
         
 
@@ -66,8 +71,9 @@ public class KingSlimeBehaviour : MonoBehaviour {
     void fightPlayer() {
         currentHealth = GetComponent<BossController>().currentHealth;
         maxHealth = GetComponent<BossController>().maxHealth;
-        if (currentLevel < maxLevel && currentHealth <= maxHealth * threshold) {
-            //duplicate();
+
+        if (currentLevel < maxLevel && currentHealth <= 0) {
+            duplicate();
         }
 
         if (charging) {
@@ -106,7 +112,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
     }
 
     void dashAttack() {
-        transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime * 10);
+        transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime * 2);
 
         if (transform.position == playerPosition) {
             dashing = false;
@@ -186,8 +192,8 @@ public class KingSlimeBehaviour : MonoBehaviour {
 
             BossController childScript = child.GetComponent<BossController>();
             childScript.GetComponent<KingSlimeBehaviour>().currentLevel = currentLevel + 1;
-            childScript.maxHealth = (int)(this.GetComponent<BossController>().maxHealth * threshold);
-            childScript.currentHealth = (int)(this.GetComponent<BossController>().maxHealth * threshold);
+            childScript.maxHealth = (int)(maxHealth * threshold);
+            childScript.currentHealth = childScript.maxHealth;
 
         }
 
@@ -206,8 +212,6 @@ public class KingSlimeBehaviour : MonoBehaviour {
             Destroy(this.gameObject);
         }
         else {
-            //Destroy(this.gameObject);
-            duplicate();
             Destroy(this.gameObject);
         }
 

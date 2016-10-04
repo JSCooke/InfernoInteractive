@@ -108,13 +108,6 @@ public class DialogTextManager : MonoBehaviour {
                     _cutsceneController.ActivateCutscene();
                 }
 
-                /*if ((!_cutsceneController.playingCutscene)&& (_cutsceneController!= null))
-                {
-                    _cutsceneController.EndCutscene();
-                    //_cutsceneController.GetComponent<CameraController>().enabled = false;
-                    _mainCamera.GetComponent<CameraController>().enabled = true;
-                }*/
-
                 if (Input.GetKeyUp(KeyCode.Return))
                 {
                     currentLineNumber++;
@@ -150,6 +143,7 @@ public class DialogTextManager : MonoBehaviour {
         }
         textBox.SetActive(false);
         isActive = false;
+        _mainCamera.GetComponent<CameraController>().enabled = true;
     }
 
     public void ReloadScript(TextAsset theText)

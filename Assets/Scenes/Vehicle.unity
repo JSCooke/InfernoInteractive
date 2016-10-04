@@ -2757,18 +2757,14 @@ MonoBehaviour:
   endLineNumber: 0
   isActive: 1
   stopGameMovements: 1
-  cutsceneController: {fileID: 0}
   Jessie: {fileID: 21300000, guid: 9ad54090ff0dc3f48922af5ad8dbdbd8, type: 3}
   James: {fileID: 21300000, guid: e514eea517db4ee459dc74f60aea3278, type: 3}
   GeneralWatson: {fileID: 21300000, guid: 7916a6fd7721b8743b9a46d7545264eb, type: 3}
   Civilian1: {fileID: 21300000, guid: dbdd366b7f679194aa7cfdf871e88440, type: 3}
   Civilian2: {fileID: 21300000, guid: 2a0641910aca7ee49ace6859171249dd, type: 3}
   Civilian3: {fileID: 21300000, guid: ee2f448cf0106104283e68ddc6f9a5cb, type: 3}
-  sentance: []
-  _cutscenePresent: 0
   _mainCamera: {fileID: 1846196922}
   cutscene: {fileID: 793504805}
-  _cutsceneController: {fileID: 0}
   _lineNumber: 4
 --- !u!4 &374623263
 Transform:
@@ -2844,8 +2840,7 @@ MonoBehaviour:
   dialogManager: {fileID: 374623262}
   destroyWhenActivated: 1
   stopGameMovements: 1
-  cutsceneController: {fileID: 0}
-  lineNumber: 2
+  lineNumber: 1
 --- !u!4 &386167590 stripped
 Transform:
   m_PrefabParentObject: {fileID: 428394, guid: 7f2736d6f8008bf4589781f16b782388, type: 2}
@@ -4074,8 +4069,7 @@ MonoBehaviour:
   dialogManager: {fileID: 374623262}
   destroyWhenActivated: 1
   stopGameMovements: 1
-  cutsceneController: {fileID: 0}
-  lineNumber: 3
+  lineNumber: 1
 --- !u!135 &537888579
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10569,7 +10563,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: cutsceneCubicMidPoints.Array.size
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_LocalPosition.x
@@ -10601,7 +10595,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: mainCutsceneCam
@@ -10609,27 +10603,27 @@ Prefab:
       objectReference: {fileID: 1846196926}
     - target: {fileID: 400014, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.44126993
+      value: -42.803726
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.41701788
+      value: -85.91254
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -6.3961315
+      value: -127.4294
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5.39877
+      value: -16.7
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.2380049
+      value: -21.6
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 3.1424258
+      value: -29.2
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_LocalPosition.x
@@ -10649,7 +10643,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -156.2532
+      value: -156.1124
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_LocalPosition.y
@@ -10661,7 +10655,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 34.026703
+      value: 33.9915
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -10783,6 +10777,10 @@ Prefab:
       propertyPath: cutsceneCubicMidPoints.Array.data[5]
       value: 
       objectReference: {fileID: 1139577174}
+    - target: {fileID: 11400000, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
+      propertyPath: cutsceneEventTimescale.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
   m_IsPrefabParent: 0
@@ -12569,8 +12567,24 @@ Prefab:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
+      propertyPath: cutsceneAnimators.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: cutsceneCubicMidPoints.Array.size
-      value: 6
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
+      propertyPath: cutsceneAnimatorVariables.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
+      propertyPath: cutsceneAnimatorVarChoices.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
+      propertyPath: cutsceneAnimatorVariableTargets.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_LocalPosition.x
@@ -12662,19 +12676,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.4845204
+      value: 1.4841542
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -47.58281
+      value: -47.57109
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 11.285703
+      value: 11.282773
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.51424
+      value: 7.512775
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -12682,11 +12696,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.2673965
+      value: 7.2659316
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 5.0773964
+      value: 5.0759315
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -12783,6 +12797,18 @@ Prefab:
     - target: {fileID: 11400000, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
       propertyPath: disableWhileInCutscene.Array.data[0]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
+      propertyPath: cutsceneAnimatorVariableTargets.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
+      propertyPath: cutsceneAnimatorVariables.Array.data[1]
+      value: 57616c6b696e67
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
+      propertyPath: cutsceneAnimatorVarChoices.Array.data[1]
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1a326faa0abcc6e479695891c4eea56b, type: 2}
@@ -13873,8 +13899,6 @@ MonoBehaviour:
   smooth: 0
   height: 30
   dampTime: 0.05
-  velocity: {x: 0, y: 0, z: 0}
-  camera: {fileID: 0}
 --- !u!1001 &1847483736
 Prefab:
   m_ObjectHideFlags: 0
@@ -14163,19 +14187,8 @@ MonoBehaviour:
   player: {fileID: 27030126}
   maxLevel: 2
   currentLevel: 0
-  threshold: 0
-  playerPosition: {x: 0, y: 0, z: 0}
   chargeParticles: {fileID: 660069140}
-  randomPosition: {x: 0, y: 0, z: 0}
-  rb: {fileID: 0}
-  charging: 0
-  dashing: 0
-  finding: 1
-  roaming: 0
   chargeDuration: 3
-  chargeStartTime: 0
-  currentHealth: 0
-  maxHealth: 0
 --- !u!33 &1870383892
 MeshFilter:
   m_ObjectHideFlags: 0

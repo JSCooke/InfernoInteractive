@@ -91,13 +91,13 @@ public class RepairControlStationBehaviour : ControlStationBehaviour {
 		}
 	}
 
-	public override void onAttachPlayer(GameObject player){
+	public override void onAttachPlayer(UnityEngine.GameObject player){
 		textPrompt.gameObject.SetActive (true);
 		currentPlayer = player.name;
 		setPrompt ();
 	}
 
-	public override void onDetachPlayer(GameObject player){
+	public override void onDetachPlayer(UnityEngine.GameObject player){
 		textPrompt.gameObject.SetActive (false);
 		currentPlayer=null;
 	}

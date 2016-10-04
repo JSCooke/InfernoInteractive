@@ -46,7 +46,7 @@ public class GE_UIResponder : MonoBehaviour
 	void Start()
 	{
 
-		GameObject go = GameObject.Find("Text Package Title");
+        UnityEngine.GameObject go = UnityEngine.GameObject.Find("Text Package Title");
 		if (go != null)
 		{
 			Text m_PackageText = go.GetComponent<Text>();

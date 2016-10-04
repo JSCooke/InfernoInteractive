@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class TankController : MonoBehaviour {
-    public GameObject tankBase;
+    public UnityEngine.GameObject tankBase;
     public float acceleration, drag, topSpeed;
     public bool canMove = true;
     

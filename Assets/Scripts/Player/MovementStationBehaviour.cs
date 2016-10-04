@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class MovementStationBehaviour : ControlStationBehaviour {
-	public GameObject tank;
+	public UnityEngine.GameObject tank;
     public TankController tankController;
-	public GameObject tankBase;
+	public UnityEngine.GameObject tankBase;
 
 	public float rotationSpeed;
 

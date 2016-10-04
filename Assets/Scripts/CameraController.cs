@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class CameraController : MonoBehaviour {
-	public GameObject target;
+	public UnityEngine.GameObject target;
 
 	public bool smooth;
 	public float height;
@@ -26,6 +26,7 @@ public class CameraController : MonoBehaviour {
 			transform.position = Vector3.SmoothDamp (transform.position, destination, ref velocity, dampTime);
 		} else {
 			transform.position = target.transform.position + new Vector3 (0, 30, 5);
+            transform.rotation = Quaternion.Euler(85, 0, 0);
 		}
 	}
 }

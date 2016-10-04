@@ -2,14 +2,14 @@
 using System.Collections;
 
 public class TankCloner : MonoBehaviour {
-	public GameObject original;
+	public UnityEngine.GameObject original;
 	public bool isClone = false;
 	//Make a clone of the tank which doesn't move to use for simulating in-tank physics
 	void Start () {
 		print (isClone);
 		if (!isClone) {
-			//If this is the original, make a copy
-			GameObject clone = (GameObject)Instantiate (gameObject, new Vector3 (0, -99999, 0), new Quaternion ());
+            //If this is the original, make a copy
+            UnityEngine.GameObject clone = (UnityEngine.GameObject)Instantiate(gameObject, new Vector3(0, -99999, 0), new Quaternion());
 			clone.GetComponent<TankCloner> ().isClone = true;
 			clone.GetComponent<TankCloner> ().original = gameObject;
 		} else {
@@ -25,11 +25,11 @@ public class TankCloner : MonoBehaviour {
 			for (int i=0; i<2; i++) {
 				//Get the original player and player controller
 				PlayerController originalPlayerController = original.GetComponentsInChildren<PlayerController> () [i];
-				GameObject originalPlayer = originalPlayerController.gameObject;
+                UnityEngine.GameObject originalPlayer = originalPlayerController.gameObject;
 
 				///Get the clone player and player controller
 				PlayerController clonePlayerController = GetComponentsInChildren<PlayerController> () [i];
-				GameObject clonePlayer = clonePlayerController.gameObject;
+                UnityEngine.GameObject clonePlayer = clonePlayerController.gameObject;
 
 				//Disable movement input on the original
 				originalPlayerController.enableMovement = false;

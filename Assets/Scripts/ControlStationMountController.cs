@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class ControlStationMountController : MonoBehaviour {
 
 	public bool allowMovement, allowOffensive, allowDefensive;
-	public List<GameObject> movementStations, offensiveStations, defensiveStations;
+	public List<UnityEngine.GameObject> movementStations, offensiveStations, defensiveStations;
 
 	public string startingStation;
     public string stationName;
@@ -17,28 +17,28 @@ public class ControlStationMountController : MonoBehaviour {
 		}
 		set {
 			if (allowMovement) {
-				foreach (GameObject station in movementStations) {
+				foreach (UnityEngine.GameObject station in movementStations) {
 					if (station.name == value) {
-						_station=station.name;
-						setStation (station);
+                        _station = station.name;
+                        setStation(station);
 						return;
 					}
 				}
 			}
 			if (allowOffensive) {
-				foreach (GameObject station in offensiveStations) {
+				foreach (UnityEngine.GameObject station in offensiveStations) {
 					if (station.name == value) {
-						_station=station.name;
-						setStation (station);
+                        _station = station.name;
+                        setStation(station);
 						return;
 					}
 				}
 			}
 			if (allowDefensive) {
-				foreach (GameObject station in defensiveStations) {
+				foreach (UnityEngine.GameObject station in defensiveStations) {
 					if (station.name == value) {
-						_station=station.name;
-						setStation (station);
+                        _station = station.name;
+                        setStation(station);
 						return;
 					}
 				}
@@ -63,12 +63,12 @@ public class ControlStationMountController : MonoBehaviour {
 	
 	}
 
-	void setStation(GameObject station){
+	void setStation(UnityEngine.GameObject station){
 		foreach(Transform child in transform){
 			Destroy(child.gameObject);
 		}
 
-		GameObject newStation = (GameObject) Instantiate (station, transform.position, transform.rotation);
+        UnityEngine.GameObject newStation = (UnityEngine.GameObject)Instantiate(station, transform.position, transform.rotation);
 		newStation.transform.parent = transform;
 		newStation.transform.localScale = newStation.transform.parent.localScale;
 	}

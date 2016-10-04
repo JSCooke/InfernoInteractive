@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class ShieldControlStationBehaviour : ControlStationBehaviour {
-	public GameObject shield;
+	public UnityEngine.GameObject shield;
 	public TextMesh cooldownIndicator;
 	public float cooldown, shieldDuration;
 	public Color blue, red;
@@ -32,7 +32,7 @@ public class ShieldControlStationBehaviour : ControlStationBehaviour {
 		shieldDurationRemaining -= Time.fixedDeltaTime;
 	}
 
-	public override void onAttachPlayer(GameObject player){
+	public override void onAttachPlayer(UnityEngine.GameObject player){
 		print (cooldownRemaining);
 		if (cooldownRemaining <= 0) {
 			shieldDurationRemaining = shieldDuration;

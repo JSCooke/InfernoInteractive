@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour {
 	public float moveSpeed, heightOffset;
 	public bool enableMovement = true;
 
-	private GameObject currentControlStation;
+	private UnityEngine.GameObject currentControlStation;
 	private ControlStationController currentControlStationController;
 
 	private bool attachedToControlStation = false;

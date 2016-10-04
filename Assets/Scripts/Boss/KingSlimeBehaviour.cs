@@ -3,8 +3,8 @@ using System.Collections;
 
 public class KingSlimeBehaviour : MonoBehaviour {
 
-    public GameObject enemy;
-    public GameObject player = null;
+    public UnityEngine.GameObject enemy;
+    public UnityEngine.GameObject player = null;
 
     //How many times to duplicate
     public int maxLevel = 2;
@@ -46,7 +46,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
         this.GetComponent<BossController>().totalHealth = 100 + (200 * (this.GetComponent<BossController>().difficulty - 1));
 
         if (player == null) {
-            player = GameObject.FindGameObjectsWithTag("Player")[0];
+            player = UnityEngine.GameObject.FindGameObjectsWithTag("Player")[0];
         }
 
     }

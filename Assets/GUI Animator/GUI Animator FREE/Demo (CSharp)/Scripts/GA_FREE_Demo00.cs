@@ -67,8 +67,8 @@ public class GA_FREE_Demo00 : MonoBehaviour
 
 	IEnumerator ShowText(float Delay)
 	{
-		// Find game object names "Panel (Middle Center)"
-		GameObject go = GameObject.Find("Panel (Middle Center)");
+        // Find game object names "Panel (Middle Center)"
+        UnityEngine.GameObject go = UnityEngine.GameObject.Find("Panel (Middle Center)");
 
 		// Play move-in animations
 		if(go)

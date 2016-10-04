@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class ProxyPlayerController : MonoBehaviour {
-	public GameObject original;
+	public UnityEngine.GameObject original;
 	// Use this for initialization
 	void Start () {
 	

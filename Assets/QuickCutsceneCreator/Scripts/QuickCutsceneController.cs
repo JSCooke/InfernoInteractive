@@ -141,7 +141,7 @@ public class QuickCutsceneController : MonoBehaviour {
 	/// <summary>
 	///The message target
 	/// </summary>
-	public GameObject[] broadcastMessageTarget;
+	public UnityEngine.GameObject[] broadcastMessageTarget;
 	 
 	/// <summary>
 	///Controls the update() function

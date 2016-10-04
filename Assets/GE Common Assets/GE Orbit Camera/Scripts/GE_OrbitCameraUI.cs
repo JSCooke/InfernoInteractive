@@ -69,34 +69,34 @@ public class GE_OrbitCameraUI : MonoBehaviour
 			GUIAnimSystemFREE.Instance.m_AutoAnimation = false;
 		}
 
-		m_GE_OrbitCamera = GameObject.FindObjectOfType<GE_OrbitCamera>();
+        m_GE_OrbitCamera = UnityEngine.GameObject.FindObjectOfType<GE_OrbitCamera>();
 
-		// Find Unity UI elements
-		GameObject go = GameObject.Find("Toggle Invert X");
+        // Find Unity UI elements
+        UnityEngine.GameObject go = UnityEngine.GameObject.Find("Toggle Invert X");
 		if (go != null)
 			m_ToggleYaw = go.GetComponent<Toggle>();
-		go = GameObject.Find("Toggle Invert Y");
+		go = UnityEngine.GameObject.Find("Toggle Invert Y");
 		if (go != null)
 			m_TogglePitch = go.GetComponent<Toggle>();
-		go = GameObject.Find("Toggle Invert Zoom");
+		go = UnityEngine.GameObject.Find("Toggle Invert Zoom");
 		if (go != null)
 			m_ToggleZoom = go.GetComponent<Toggle>();
-		go = GameObject.Find("Toggle Help");
+		go = UnityEngine.GameObject.Find("Toggle Help");
 		if (go != null)
 			m_ToggleHelp = go.GetComponent<Toggle>();
-		go = GameObject.Find("Toggle Details");
+		go = UnityEngine.GameObject.Find("Toggle Details");
 		if (go != null)
 			m_ToggleDetails = go.GetComponent<Toggle>();
-		go = GameObject.Find("Button Pinch Zoom");
+		go = UnityEngine.GameObject.Find("Button Pinch Zoom");
 		if (go != null)
 			m_PinchZoom = go.GetComponent<Button>();
-		go = GameObject.Find("Button V-Scroll Zoom");
+		go = UnityEngine.GameObject.Find("Button V-Scroll Zoom");
 		if (go != null)
 			m_VScrollZoom = go.GetComponent<Button>();
-		go = GameObject.Find("Panel Settings");
+		go = UnityEngine.GameObject.Find("Panel Settings");
 		if (go != null)
 			m_PanelSettings = go.GetComponent<GUIAnimFREE>();
-		go = GameObject.Find("Button Settings");
+		go = UnityEngine.GameObject.Find("Button Settings");
 		if (go != null)
 			m_ButtonSettings = go.GetComponent<GUIAnimFREE>();
 		if (m_ButtonSettings != null)
@@ -104,13 +104,13 @@ public class GE_OrbitCameraUI : MonoBehaviour
 			m_ButtonSettings.MoveIn(GUIAnimSystemFREE.eGUIMove.Self);
 		}
 
-		go = GameObject.Find("Panel Help1");
+		go = UnityEngine.GameObject.Find("Panel Help1");
 		if (go != null)
 			m_PanelHelp1 = go.GetComponent<GUIAnimFREE>();
-		go = GameObject.Find("Panel Help2");
+		go = UnityEngine.GameObject.Find("Panel Help2");
 		if (go != null)
 			m_PanelHelp2 = go.GetComponent<GUIAnimFREE>();
-		go = GameObject.Find("Panel Details");
+		go = UnityEngine.GameObject.Find("Panel Details");
 		if (go != null)
 			m_PanelDetails = go.GetComponent<GUIAnimFREE>();
 		if (m_ToggleHelp != null)

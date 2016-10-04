@@ -5,9 +5,9 @@ using System.Collections.Generic;
 public class ControlStationController : MonoBehaviour {
 	public ParticleSystem glowParticles;
 
-	private List<GameObject> hoveringPlayers = new List<GameObject> ();
+	private List<UnityEngine.GameObject> hoveringPlayers = new List<UnityEngine.GameObject>();
 
-	private GameObject attachedPlayer;
+	private UnityEngine.GameObject attachedPlayer;
 	private PlayerController attachedPlayerController;
 
 	private ControlStationBehaviour controlStationBehaviour;
@@ -23,7 +23,7 @@ public class ControlStationController : MonoBehaviour {
 	
 	}
 
-	public void attachPlayer(GameObject player){
+	public void attachPlayer(UnityEngine.GameObject player){
 		attachedPlayer = player;
 		attachedPlayerController = player.GetComponent<PlayerController> ();
 		

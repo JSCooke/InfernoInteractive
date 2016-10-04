@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class DialogTextManager : MonoBehaviour {
 
-    public GameObject textBox;
+    public UnityEngine.GameObject textBox;
     public Text inputText;
     public Image dialogueImage;
 
@@ -21,6 +21,8 @@ public class DialogTextManager : MonoBehaviour {
 
     public bool stopGameMovements;
 
+    private QuickCutsceneController cutsceneController;
+
     //List of different sprites
     public Sprite Jessie;
     public Sprite James;
@@ -32,6 +34,12 @@ public class DialogTextManager : MonoBehaviour {
 
     private Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
     private string[] sentance;
+
+    private bool _cutscenePresent = false;
+    public GameObject _mainCamera;
+    public GameObject cutscene;
+    private QuickCutsceneController _cutsceneController;
+    public int _lineNumber;
 
     // Use this for initialization
     void Start()
@@ -68,6 +76,12 @@ public class DialogTextManager : MonoBehaviour {
             DisableDialogBox();
         }
 
+        //Initialise cutscene controller
+        if (cutscene != null)
+        {
+            _cutscenePresent = true;
+            _cutsceneController = cutscene.GetComponent<QuickCutsceneController>();
+        }
 
     }
 
@@ -75,6 +89,7 @@ public class DialogTextManager : MonoBehaviour {
     {
         if (isActive)
         {
+
             if (currentLineNumber <= endLineNumber)
             {
                 //get the current line
@@ -85,6 +100,20 @@ public class DialogTextManager : MonoBehaviour {
                 Sprite nextSprite;
                 sprites.TryGetValue(sentance[0], out nextSprite);
                 dialogueImage.sprite = nextSprite;
+
+                //Display the cutscene if at the correct line number
+                if (_cutscenePresent && (_lineNumber == currentLineNumber))
+                {
+                    _mainCamera.GetComponent<CameraController>().enabled = false;
+                    _cutsceneController.ActivateCutscene();
+                }
+
+                /*if ((!_cutsceneController.playingCutscene)&& (_cutsceneController!= null))
+                {
+                    _cutsceneController.EndCutscene();
+                    //_cutsceneController.GetComponent<CameraController>().enabled = false;
+                    _mainCamera.GetComponent<CameraController>().enabled = true;
+                }*/
 
                 if (Input.GetKeyUp(KeyCode.Return))
                 {
@@ -133,4 +162,12 @@ public class DialogTextManager : MonoBehaviour {
     }
 
 
+    public void SetCutscene(GameObject mainCamera, QuickCutsceneController sceneController, int lineNumber)
+    {
+        _cutscenePresent = true;
+        _mainCamera = mainCamera;
+        _cutsceneController = sceneController;
+        _lineNumber = lineNumber;
+
+    }
 }

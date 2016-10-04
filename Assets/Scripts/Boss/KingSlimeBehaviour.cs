@@ -3,8 +3,8 @@ using System.Collections;
 
 public class KingSlimeBehaviour : MonoBehaviour {
 
-    public GameObject enemy;
-    public GameObject player = null;
+    public UnityEngine.GameObject enemy;
+    public UnityEngine.GameObject player = null;
 
     //How many times to duplicate
     public int maxLevel = 2;
@@ -40,7 +40,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
 
         if (player == null) {
-            player = GameObject.FindGameObjectsWithTag("Player")[0];
+            player = UnityEngine.GameObject.FindGameObjectsWithTag("Player")[0];
         }
     }
 
@@ -181,7 +181,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
             spawnPoint.x += offset;
             spawnPoint.z += offset;
 
-            GameObject child = (GameObject)Instantiate(enemy, spawnPoint, Quaternion.identity);
+            UnityEngine.GameObject child = (UnityEngine.GameObject)Instantiate(enemy, spawnPoint, Quaternion.identity);
             child.transform.localScale = new Vector3(this.transform.localScale.x / 2, this.transform.localScale.y / 2, this.transform.localScale.z / 2);
 
             BossController childScript = child.GetComponent<BossController>();

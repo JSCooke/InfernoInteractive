@@ -3,6 +3,9 @@ using System.Collections;
 
 public class ActivateNewDialog : MonoBehaviour {
 
+	public UnityEngine.GameObject cutscene;
+    public UnityEngine.GameObject mainCamera;
+
     public TextAsset theText;
 
     public int startLine = 0;
@@ -14,10 +17,13 @@ public class ActivateNewDialog : MonoBehaviour {
 
     public bool stopGameMovements;
 
+    private QuickCutsceneController cutsceneController;
+    public int lineNumber;
+
     // Use this for initialization
     void Start () {
         dialogManager = FindObjectOfType<DialogTextManager>();
-
+        cutsceneController = cutscene.GetComponent<QuickCutsceneController>();
 	}
 	
 	// Update is called once per frame
@@ -41,6 +47,10 @@ public class ActivateNewDialog : MonoBehaviour {
             dialogManager.ReloadScript(theText);
             dialogManager.currentLineNumber = startLine;
             dialogManager.endLineNumber = endLine;
+            if(cutscene != null)
+            {
+                dialogManager.SetCutscene(mainCamera, cutsceneController, lineNumber);
+            }
             dialogManager.EnableDialogBox();
 
             //if end line isnt inputted default to all lines
@@ -49,12 +59,10 @@ public class ActivateNewDialog : MonoBehaviour {
                 dialogManager.endLineNumber = dialogManager.textLines.Length - 1;
             }
 
-
             if (destroyWhenActivated)
             {
                 Destroy(gameObject);
             }
-
         }
     }
 

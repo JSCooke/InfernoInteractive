@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class MachineGunBehaviour : ControlStationBehaviour {
-	public GameObject gun, projectile, spawner;
+	public UnityEngine.GameObject gun, projectile, spawner;
 	public float cooldown, maxAngle, rotationSpeed;
 
 	private float lastShotTime;

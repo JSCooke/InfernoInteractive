@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class BigCannonBehaviour : ControlStationBehaviour {
-    public GameObject projectile, projectileSpawn;
+    public UnityEngine.GameObject projectile, projectileSpawn;
     public int cooldown;
 
     private int lastShotTime;

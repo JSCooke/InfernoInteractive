@@ -188,7 +188,7 @@ public class QuickTakeCutsceneControllerEditor : Editor {
 			
 			for(int i = numberOfEvents; i < 3; i++)
 			{
-				GameObject g = new GameObject();
+                UnityEngine.GameObject g = new UnityEngine.GameObject();
 				g.transform.position = (Selection.activeTransform.position + Random.insideUnitSphere * 5f);
 				g.transform.rotation = Selection.activeTransform.rotation;
 				g.transform.parent = Selection.activeTransform;
@@ -415,7 +415,7 @@ public class QuickTakeCutsceneControllerEditor : Editor {
 			
 			if(GUILayout.Button("Add camera point"))
 			{
-				GameObject g = new GameObject();
+                UnityEngine.GameObject g = new UnityEngine.GameObject();
 				g.transform.position = (Selection.activeTransform.position + Random.insideUnitSphere * 5f);
 				g.transform.rotation = Selection.activeTransform.rotation;
 				g.transform.parent = Selection.activeTransform;
@@ -715,7 +715,7 @@ public class QuickTakeCutsceneControllerEditor : Editor {
 					{
 						EditorGUILayout.BeginVertical();
 						q.broadcastMessageString[i] = EditorGUILayout.TextField("   >Method name",q.broadcastMessageString[i]);
-						q.broadcastMessageTarget[i] = EditorGUILayout.ObjectField("   >Target", q.broadcastMessageTarget[i], typeof(GameObject), true) as GameObject;
+						q.broadcastMessageTarget[i] = EditorGUILayout.ObjectField("   >Target", q.broadcastMessageTarget[i], typeof(UnityEngine.GameObject), true) as UnityEngine.GameObject;
 						EditorGUILayout.EndVertical();
 					}
 					

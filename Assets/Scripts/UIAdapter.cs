@@ -11,14 +11,15 @@ public class UIAdapter : MonoBehaviour
         boss = bossBar;
     }
 
-	public static BarScript player;
+
+
+    public static BarScript player;
 	public static float playerVal = 100;
 	public static float PlayerVal {
 		get {
 			return playerVal;
 		}
 		set { 
-			playerVal = Mathf.Clamp(value, 0, 100);
 			player.Value = playerVal;
 		}
 	}
@@ -30,7 +31,6 @@ public class UIAdapter : MonoBehaviour
 			return bossVal;
 		}
 		set { 
-			bossVal = Mathf.Clamp(value, 0, 100);
 			boss.Value = bossVal;
 		}
 	}
@@ -40,18 +40,29 @@ public class UIAdapter : MonoBehaviour
 	public static float damagePlayer(float hp){
 		playerVal -= hp;
 		PlayerVal = playerVal;
-		return PlayerVal;
+
+        return PlayerVal;
 	}
 	//Reduces (negative increases) the boss's health by the input percentage.
 	//Returns the remaining hp of the boss.
 	public static float damageBoss(float hp){
 		bossVal -= hp;
 		BossVal = bossVal;
+
 		return BossVal;
 	}
-	//Causes an achievement box to pop up.
-	//Add paramters to specify details about the achievement.
-	public static void achieve(){
+
+    public static float damageBoss(float damage, float maxHP) {
+        return damageBoss(BarScript.Map(damage, 0, maxHP, 0, 100));
+    }
+
+    public static float damagePlayer(float damage, float maxHP) {
+        return damagePlayer(BarScript.Map(damage, 0, maxHP, 0, 100));
+    }
+
+    //Causes an achievement box to pop up.
+    //Add paramters to specify details about the achievement.
+    public static void achieve(){
 		achievementAnimator.SetTrigger ("Achievement");
 	}
 	//Returns true if the player is dead.

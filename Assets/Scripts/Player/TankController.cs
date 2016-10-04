@@ -10,9 +10,14 @@ public class TankController : MonoBehaviour {
 	private Rigidbody rb;
 	private bool doAccelerate, doDecelerate;
 
+    public int maxHealth = 100;
+    private int currentHealth;
+    public string damagedBy = "Enemy";
+
     // Use this for initialization
     void Start() {
 		rb = GetComponent<Rigidbody> ();
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -21,12 +26,6 @@ public class TankController : MonoBehaviour {
 			transform.rotation.eulerAngles.x,
 			0,
 			transform.rotation.eulerAngles.z);
-
-
-        //if (Input.GetKeyDown(KeyCode.W)) {
-        //    UIAdapter.damagePlayer(10);
-        //    print(UIAdapter.playerVal);
-        //}
 
     }
 
@@ -66,5 +65,23 @@ public class TankController : MonoBehaviour {
 	public void stopDecelerate() {
 		doDecelerate = false;
 	}
+
+    void OnTriggerEnter(Collider collider) {
+        if (collider.gameObject.tag == damagedBy) {
+            takeDamage(collider.gameObject.GetComponent<BossController>().bodyDamage);
+        }
+    }
+
+    public void takeDamage(int damage) {
+
+        
+        if (damage > currentHealth) {
+            damage = currentHealth;
+        }
+        
+        currentHealth = currentHealth - damage;
+        UIAdapter.damagePlayer((float)damage, maxHealth);
+        print(currentHealth);
+    }
 
 }

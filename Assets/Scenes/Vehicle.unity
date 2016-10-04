@@ -4266,7 +4266,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 374623261}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 442ad05748ec1674ca9d303f272ad5fe, type: 3}
   m_Name: 
@@ -9048,7 +9048,7 @@ Canvas:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 986952023}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -14760,7 +14760,7 @@ GameObject:
   - 54: {fileID: 1870383894}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: KingSlime
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14777,14 +14777,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89935db5bd5ff394eb189967b2392eb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 100
   currentHealth: 0
-  bodyDamage: 0
+  bodyDamage: 20
   damagedBy: PlayerProjectile
   dead: 0
   rotationSpeed: 10
   bossSpeed: 10
+  difficultyLevel: 3
   difficulty: 2
+  totalHealth: 0
 --- !u!114 &1870383891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14803,6 +14805,7 @@ MonoBehaviour:
   currentLevel: 0
   chargeParticles: {fileID: 186070010}
   chargeDuration: 3
+  attackRate: 10
 --- !u!33 &1870383892
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14846,7 +14849,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1870383889}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 393.57}
+  m_LocalPosition: {x: 0, y: 0, z: 385.04}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -17323,6 +17326,14 @@ Prefab:
     - target: {fileID: 11454204, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: ui.achievementAnimator
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454204, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: currentHealth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454204, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: maxHealth
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}

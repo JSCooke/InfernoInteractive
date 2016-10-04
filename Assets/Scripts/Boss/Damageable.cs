@@ -3,7 +3,8 @@ using System.Collections;
 
 public abstract class Damageable : MonoBehaviour {
 
-    public int maxHealth, currentHealth;
+    public int maxHealth;
+    public int currentHealth;
 	public int bodyDamage;
 	public string damagedBy; //PlayerProjectile
     public bool dead = false;

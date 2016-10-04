@@ -7,19 +7,23 @@ public class BossController : Damageable {
     public float rotationSpeed = 5;
     public float bossSpeed;
 
-    //Difficulty affects the attack speed
-    public float difficulty = 2;
+    //Difficulty affects the number of splits
+    public enum Difficulty { Easy = 2, Medium = 3, Hard = 4 };
+    public Difficulty difficultyLevel = Difficulty.Easy;
+
+    public int difficulty;
+    public float totalHealth;
 
     // Use this for initialization
     void Start () {
         dead = false;
         currentHealth = maxHealth;
-
+        difficulty = (int)difficultyLevel;
     }
 
 	// Update is called once per frame
 	void Update () {
-        
+
     }
 
     public override void takeDamage(int damage) {
@@ -30,11 +34,21 @@ public class BossController : Damageable {
 
         currentHealth = currentHealth - damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        UIAdapter.damageBoss((float)damage);
+        UIAdapter.damageBoss((float)damage, totalHealth);
 
         if (currentHealth <= 0) {
             dead = true;  
         }
     }
 
+    
+
 }
+
+//100 : 50 50 : 25 25 25 25 : 300
+//100 : 50 50 50 : 25 25 25 25 25 25 25 25 25 : 500
+//100 : 50 50 50 50 : 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 : 700
+
+//2 = 300, 200
+//3 = 500, 400
+//4 = 700, 600

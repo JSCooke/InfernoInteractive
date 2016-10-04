@@ -25,7 +25,7 @@ public class CameraController : MonoBehaviour {
 			Vector3 destination = transform.position + delta;
 			transform.position = Vector3.SmoothDamp (transform.position, destination, ref velocity, dampTime);
 		} else {
-			transform.position = target.transform.position + new Vector3 (0, 30, 5);
+			transform.position = target.transform.position + new Vector3 (0, 50, 5);
 		}
 	}
 }

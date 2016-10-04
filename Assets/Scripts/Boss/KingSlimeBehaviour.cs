@@ -32,6 +32,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
     private double chargeStartTime;
 
     private int currentHealth, maxHealth;
+    public int attackRate = 10;
 
     // Use this for initialization
     void Start() {
@@ -42,8 +43,14 @@ public class KingSlimeBehaviour : MonoBehaviour {
         maxHealth = this.GetComponent<BossController>().maxHealth;
         currentHealth = maxHealth;
 
+        this.GetComponent<BossController>().totalHealth = 100 + (200 * (this.GetComponent<BossController>().difficulty - 1));
+
         if (player == null) {
             player = GameObject.FindGameObjectsWithTag("Player")[0];
+        }
+
+        if (maxHealth > UIAdapter.bossVal) {
+            UIAdapter.bossVal = maxHealth;
         }
     }
 
@@ -128,13 +135,12 @@ public class KingSlimeBehaviour : MonoBehaviour {
         if (transform.position == randomPosition) {
 
             //Rebalance attack rate here
-            if (chance <= 80) {
+            if (chance <= (100 - attackRate)) { //Roam again
                 randomPosition = Random.insideUnitCircle * 10;
                 randomPosition.y = 0;
                 randomPosition.x += transform.position.x;
                 randomPosition.z += transform.position.z;
-            } else {
-
+            } else { //Attack
                 roaming = false;
                 charging = true;
                 chargeStartTime = Time.fixedTime;
@@ -175,17 +181,15 @@ public class KingSlimeBehaviour : MonoBehaviour {
 
     void duplicate() {
 
-        float offset = (float)0.5;
+        float radius = 2f;
 
-        //this.GetComponent<BossController>().difficulty
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < this.GetComponent<BossController>().difficulty; i++) {
 
-            Vector3 spawnPoint = this.transform.position;
-            offset *= -1;
-            spawnPoint.x += offset;
-            spawnPoint.z += offset;
+            //Referenced from http://answers.unity3d.com/questions/1068513/place-8-objects-around-a-target-gameobject.html
+            float angle = i * Mathf.PI * 2f / this.GetComponent<BossController>().difficulty;
+            Vector3 newPos = new Vector3(this.transform.position.x + Mathf.Cos(angle) * radius, 0, this.transform.position.z + Mathf.Sin(angle) * radius);
 
-            GameObject child = (GameObject)Instantiate(enemy, spawnPoint, Quaternion.identity);
+            GameObject child = (GameObject)Instantiate(enemy, newPos, Quaternion.identity);
             child.transform.localScale = new Vector3(this.transform.localScale.x / 2, this.transform.localScale.y / 2, this.transform.localScale.z / 2);
 
             BossController childScript = child.GetComponent<BossController>();

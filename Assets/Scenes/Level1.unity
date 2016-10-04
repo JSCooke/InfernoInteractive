@@ -2518,7 +2518,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1286620443}
   m_Direction: 2
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.22513019
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -21273,29 +21273,25 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11454204, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-      propertyPath: ui.player
-      value: 
+    - target: {fileID: 11406270, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: stationName
+      value: central
       objectReference: {fileID: 0}
-    - target: {fileID: 11454204, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-      propertyPath: ui.boss
-      value: 
+    - target: {fileID: 11440590, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: stationName
+      value: north
       objectReference: {fileID: 0}
-    - target: {fileID: 11454204, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-      propertyPath: ui.playerVal
-      value: 100
+    - target: {fileID: 11448792, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: stationName
+      value: west
       objectReference: {fileID: 0}
-    - target: {fileID: 11454204, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-      propertyPath: ui.bossVal
-      value: 100
+    - target: {fileID: 11470610, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: stationName
+      value: east
       objectReference: {fileID: 0}
-    - target: {fileID: 11454204, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-      propertyPath: ui.achievementAnimator
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11454204, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-      propertyPath: maxHealth
-      value: 200
+    - target: {fileID: 11441542, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: stationName
+      value: south
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}

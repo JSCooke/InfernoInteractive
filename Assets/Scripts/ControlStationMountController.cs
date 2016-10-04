@@ -8,6 +8,7 @@ public class ControlStationMountController : MonoBehaviour {
 	public List<GameObject> movementStations, offensiveStations, defensiveStations;
 
 	public string startingStation;
+    public string stationName;
 
 	private string _station;
 	public string station {
@@ -50,6 +51,11 @@ public class ControlStationMountController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		station = startingStation;
+        //check if the user has set a station
+        if(stationName!="" && GameData.get<string>(stationName+" station")!=null) {
+            //set the station
+            station = GameData.get<string>(stationName + " station");
+        }
 	}
 	
 	// Update is called once per frame

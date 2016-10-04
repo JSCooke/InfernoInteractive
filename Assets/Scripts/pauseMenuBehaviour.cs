@@ -50,7 +50,17 @@ public class pauseMenuBehaviour : MonoBehaviour {
 
     public void mainPress()
     {
+        //TODO close the current game
         Application.LoadLevel("Main");
     }
 
+    public void resumePress()
+    {
+        
+    }
+
+    public void restartPress()
+    {
+       
+    }
 }

@@ -43,6 +43,10 @@ public class UIAdapter : MonoBehaviour
 		playerVal -= hp;
 		PlayerVal = playerVal;
 
+        if (Mathf.Floor(PlayerVal) == 0) {
+            print("Lost");
+        }
+
         return PlayerVal;
 	}
 	//Reduces (negative increases) the boss's health by the input percentage.
@@ -50,6 +54,11 @@ public class UIAdapter : MonoBehaviour
 	public static float damageBoss(float hp){
 		bossVal -= hp;
 		BossVal = bossVal;
+        print(BossVal);
+
+        if (Mathf.Floor(BossVal) == 0) {
+            print("Won");
+        }
 
 		return BossVal;
 	}

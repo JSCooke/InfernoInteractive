@@ -117,7 +117,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
     }
 
     void dashAttack() {
-        transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime * 2);
+        transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime * 6);
 
         if (transform.position == playerPosition) {
             dashing = false;
@@ -126,7 +126,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
     }
 
     void roam() {
-
+        //print(randomPosition);
         transform.position = Vector3.MoveTowards(transform.position, randomPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime);
 
         float chance = Random.Range(0,100);
@@ -137,9 +137,11 @@ public class KingSlimeBehaviour : MonoBehaviour {
             //Rebalance attack rate here
             if (chance <= (100 - attackRate)) { //Roam again
                 randomPosition = Random.insideUnitCircle * 10;
-                randomPosition.y = 0;
+
                 randomPosition.x += transform.position.x;
+                randomPosition.z = randomPosition.y;
                 randomPosition.z += transform.position.z;
+                randomPosition.y = 0;
             } else { //Attack
                 roaming = false;
                 charging = true;
@@ -152,9 +154,11 @@ public class KingSlimeBehaviour : MonoBehaviour {
     void findRandomPosition() {
         
         randomPosition = Random.insideUnitCircle * 10;
-        randomPosition.y = 0;
+        
         randomPosition.x += transform.position.x;
+        randomPosition.z = randomPosition.y;
         randomPosition.z += transform.position.z;
+        randomPosition.y = 0;
 
         finding = false;
         roaming = true;

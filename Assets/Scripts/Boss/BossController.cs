@@ -11,8 +11,8 @@ public class BossController : Damageable {
     public enum Difficulty { Easy = 2, Medium = 3, Hard = 4 };
     public Difficulty difficultyLevel = Difficulty.Easy;
 
-    public int difficulty;
-    public float totalHealth;
+    public int difficulty = 0;
+    public float totalHealth = 0;
 
     // Use this for initialization
     void Start () {

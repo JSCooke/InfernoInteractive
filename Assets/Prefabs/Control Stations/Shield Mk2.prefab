@@ -97,7 +97,7 @@ GameObject:
   - 114: {fileID: 11409660}
   - 114: {fileID: 11432710}
   m_Layer: 9
-  m_Name: Shield
+  m_Name: Shield Mk2
   m_TagString: ControlStation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ Transform:
   m_LocalRotation: {x: -0.000000115202326, y: 0.7071067, z: -0.7071068, w: -0.00000011520231}
   m_LocalPosition: {x: 0, y: 0, z: 0.5}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 89.980194, y: -180, z: 0}
   m_Children:
   - {fileID: 414286}
   m_Father: {fileID: 476706}
@@ -161,7 +161,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.980194, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 476706}
   m_RootOrder: 1
@@ -501,8 +501,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shield: {fileID: 0}
   cooldownIndicator: {fileID: 10214338}
-  cooldown: 10
-  shieldDuration: 2
+  cooldown: 8
+  shieldDuration: 4
   blue: {r: 0.44117647, g: 0.81501013, b: 1, a: 0}
   red: {r: 1, g: 0.20588237, b: 0.20588237, a: 0}
 --- !u!198 &19807808

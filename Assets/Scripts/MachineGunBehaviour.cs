@@ -1,11 +1,22 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class MachineGunBehaviour : ControlStationBehaviour {
-	public GameObject gun, projectile, spawner;
+	public GameObject gun, projectile;
 	public float cooldown, maxAngle, rotationSpeed;
 
 	private float lastShotTime;
+    private List<GameObject> spawners;
+
+    void Start() {
+        spawners = new List<GameObject>();
+        foreach (Transform transform in gun.transform) {
+            if(transform.gameObject.name=="Projectile Spawner") {
+                spawners.Add(transform.gameObject);
+            }
+        }
+    }
+
 	public override void keyHeld(bool up, bool left, bool down, bool right){
 		if (left && !right) {
 
@@ -28,9 +39,12 @@ public class MachineGunBehaviour : ControlStationBehaviour {
 		print (gun.transform.localRotation.eulerAngles.y);
 
 		if (up && Time.fixedTime > lastShotTime + cooldown) {
-			lastShotTime = Time.fixedTime;
-			print (spawner.transform.rotation.eulerAngles);
-			Instantiate (projectile, spawner.transform.position, spawner.transform.rotation);
+            foreach (GameObject spawner in spawners)
+            {
+                lastShotTime = Time.fixedTime;
+                print(spawner.transform.rotation.eulerAngles);
+                Instantiate(projectile, spawner.transform.position, spawner.transform.rotation);
+            }
 		}
 	}
 }

@@ -1,27 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
-//Adapted from inScope Studios' health bar tutorial
-//This demonstrates the code  on the player's side.
 using UnityEngine.UI;
 using System.Collections.Generic;
 
+//Adapted from inScope Studios' health bar tutorial
+/**
+ * A simple player class allowing UI elements to be tested.
+ * Also shows how to use the UI Adapter.
+ */
 public class Player : MonoBehaviour {
 
 	public UIAdapter ui;
 
+	//This is the simplest way to pass sprites into the achievements.
 	public Sprite sprite1;
 	public Sprite sprite2;
+
 	// Use this for initialization
 	void Start () {
-	}
-
-	public void Awake(){
-		//THIS CODE IS TEMPORARY - Assign some values to the achievement dictionary
-		ui.achievements = new Dictionary<int, Achievement>{
-			{0, new Achievement("Complete the tutorial!", sprite1)},
-			{1, new Achievement("Beat the king slime!", sprite2)}
-		};
 	}
 
 	// Update is called once per frame
@@ -35,9 +32,9 @@ public class Player : MonoBehaviour {
 		} else if (Input.GetKeyDown (KeyCode.DownArrow)) {
 			ui.damageBoss (10);
 		} else if (Input.GetKeyDown (KeyCode.Space)) {
-			ui.achieve (0);
+			ui.achieve ("Completed the tutorial", sprite1);
 		} else if (Input.GetKeyDown (KeyCode.LeftCommand)){
-			ui.achieve (1);
+			ui.achieve ("Defeated King Slime", sprite2);
 		} else if (ui.playerDead ()) {
 			ui.die ();
 		} else if (ui.bossDead ()) {

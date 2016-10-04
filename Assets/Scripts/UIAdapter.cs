@@ -40,9 +40,6 @@ public class UIAdapter
 	public Image achievementImageBox;
 	public Text achievementTextBox;
 
-	//Achievement system is represented here by a dictionary. This will be changed once other systems implement achievements.
-	public Dictionary<int, Achievement> achievements;
-
 	//This needs to be altered in this class to show points earned.
 	public Text winText;
 
@@ -88,9 +85,9 @@ public class UIAdapter
 	}
 
 	//Causes an achievement box to pop up.
-	public void achieve(int achievementID){
-		achievementTextBox.text = achievements[achievementID].AchievementText;	//Change text to whatever achievement value is.
-		achievementImageBox.sprite = achievements[achievementID].AchievementSprite;	//Change sprite to whatever achievement sprite is.
+	public void achieve(String achievementText, Sprite achievementSprite){
+		achievementTextBox.text = achievementText;	//Change text to whatever achievement value is.
+		achievementImageBox.sprite = achievementSprite;	//Change sprite to whatever achievement sprite is.
 		achievementAnimator.SetTrigger ("Achievement");
 	}
 	public void die(){
@@ -127,35 +124,5 @@ public class UIAdapter
 		}else{
 			return false;
 		}
-	}
-}
-
-
-//Simple wrapper class to hold achievements.
-public class Achievement{
-	public String achievementText;
-	public Sprite achievementSprite;
-
-	public String AchievementText {
-		get {
-			return achievementText;
-		}
-		set {
-			achievementText = value;
-		}
-	}
-
-	public Sprite AchievementSprite {
-		get {
-			return achievementSprite;
-		}
-		set {
-			achievementSprite = value;
-		}
-	}
-
-	public Achievement(String achievementText, Sprite achievementSprite){
-		this.achievementText = achievementText;
-		this.achievementSprite = achievementSprite;
 	}
 }

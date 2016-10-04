@@ -6,7 +6,7 @@ public class TankCloner : MonoBehaviour {
 	public bool isClone = false;
 	//Make a clone of the tank which doesn't move to use for simulating in-tank physics
 	void Start () {
-		print (isClone);
+		//print (isClone);
 		if (!isClone) {
 			//If this is the original, make a copy
 			GameObject clone = (GameObject)Instantiate (gameObject, new Vector3 (0, -99999, 0), new Quaternion ());

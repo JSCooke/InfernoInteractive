@@ -70,9 +70,9 @@ public class KingSlimeBehaviour : MonoBehaviour {
         if (this.GetComponent<BossController>().dead) {
             StartCoroutine(Die());
         } else {
-            //fightPlayer();
+            fightPlayer();
         }
-        
+
 
     }
 
@@ -109,6 +109,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
             dashing = true;
             charging = false;
             chargeParticles.enableEmission = false;
+
         }
 
     }
@@ -126,7 +127,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
         //print(randomPosition);
         transform.position = Vector3.MoveTowards(transform.position, randomPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime);
 
-        float chance = Random.Range(0,100);
+        float chance = Random.Range(0, 100);
 
         //Once finished walking, decide whether to attack or roam again. Rebalance boss here if too hard
         if (transform.position == randomPosition) {
@@ -149,9 +150,9 @@ public class KingSlimeBehaviour : MonoBehaviour {
     }
 
     void findRandomPosition() {
-        
+
         randomPosition = Random.insideUnitCircle * 10;
-        
+
         randomPosition.x += transform.position.x;
         randomPosition.z = randomPosition.y;
         randomPosition.z += transform.position.z;
@@ -172,6 +173,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
     }
 
     void OnTriggerStay(Collider collider) {
+
         string collidedTag = collider.gameObject.tag;
         if (collidedTag == "Player" || collidedTag == "Enemy") {
             dashing = false;

@@ -26,15 +26,18 @@ public class pauseMenuBehaviour : MonoBehaviour {
 			if (this.GetComponent<Canvas> ().isActiveAndEnabled) {
 				//UNPAUSE
 				this.GetComponent<Canvas> ().enabled = false;
+                Time.timeScale = 1;
 			} else {
 				//PAUSE
 				if (controls.isActiveAndEnabled || objectives.isActiveAndEnabled) {
 					objectives.enabled = false;
 					controls.enabled = false;
 					this.GetComponent<Canvas> ().enabled = true;
-				} else {
+                    Time.timeScale = 0;
+                } else {
 					this.GetComponent<Canvas> ().enabled = true;
-				}
+                    Time.timeScale = 0;
+                }
 
 			}
 

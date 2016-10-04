@@ -28,6 +28,7 @@ public class DialogTextManager : MonoBehaviour {
     public Sprite Civilian1;
     public Sprite Civilian2;
     public Sprite Civilian3;
+    public Sprite InformativeText;
 
 
     private Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
@@ -45,6 +46,7 @@ public class DialogTextManager : MonoBehaviour {
         sprites.Add("Civilian 1", Civilian1);
         sprites.Add("Civilian 2", Civilian2);
         sprites.Add("Civilian 3", Civilian3);
+        sprites.Add("Informative text", InformativeText);
 
         tank = FindObjectOfType<TankController>();
 

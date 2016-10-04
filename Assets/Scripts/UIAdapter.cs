@@ -11,7 +11,9 @@ public class UIAdapter : MonoBehaviour
         boss = bossBar;
     }
 
-
+    void Update() {
+        //print(boss);
+    }
 
     public static BarScript player;
 	public static float playerVal = 100;

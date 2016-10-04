@@ -36,13 +36,13 @@ public class MachineGunBehaviour : ControlStationBehaviour {
 			}
 		}
 
-		print (gun.transform.localRotation.eulerAngles.y);
+		//print (gun.transform.localRotation.eulerAngles.y);
 
 		if (up && Time.fixedTime > lastShotTime + cooldown) {
             foreach (GameObject spawner in spawners)
             {
                 lastShotTime = Time.fixedTime;
-                print(spawner.transform.rotation.eulerAngles);
+                //print(spawner.transform.rotation.eulerAngles);
                 Instantiate(projectile, spawner.transform.position, spawner.transform.rotation);
             }
 		}

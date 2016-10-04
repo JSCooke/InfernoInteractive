@@ -81,7 +81,11 @@ public class TankController : MonoBehaviour {
         
         currentHealth = currentHealth - damage;
         UIAdapter.damagePlayer((float)damage, maxHealth);
-        print(currentHealth);
+
+        if (currentHealth <= 0) {
+            print("Lost");
+        }
+
     }
 
 }

@@ -31,13 +31,14 @@ public class BossController : Damageable {
         if (damage > currentHealth) {
             damage = currentHealth;
         }
-
+        
         currentHealth = currentHealth - damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UIAdapter.damageBoss((float)damage, totalHealth);
-
+        print(totalHealth);
+        print(currentHealth);
         if (currentHealth <= 0) {
-            dead = true;  
+            dead = true;
         }
     }
 

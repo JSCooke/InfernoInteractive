@@ -49,9 +49,6 @@ public class KingSlimeBehaviour : MonoBehaviour {
             player = GameObject.FindGameObjectsWithTag("Player")[0];
         }
 
-        if (maxHealth > UIAdapter.bossVal) {
-            UIAdapter.bossVal = maxHealth;
-        }
     }
 
     // Update is called once per frame
@@ -73,7 +70,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
         if (this.GetComponent<BossController>().dead) {
             StartCoroutine(Die());
         } else {
-            fightPlayer();
+            //fightPlayer();
         }
         
 
@@ -167,7 +164,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
     void OnCollisionEnter(Collision collision) {
 
         string collidedTag = collision.gameObject.tag;
-        if (collidedTag == "Player" || collidedTag == "KingSlime") {
+        if (collidedTag == "Player" || collidedTag == "Enemy") {
             dashing = false;
             finding = true;
         }
@@ -176,7 +173,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
 
     void OnTriggerStay(Collider collider) {
         string collidedTag = collider.gameObject.tag;
-        if (collidedTag == "Player" || collidedTag == "KingSlime") {
+        if (collidedTag == "Player" || collidedTag == "Enemy") {
             dashing = false;
             finding = true;
         }

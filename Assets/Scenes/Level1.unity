@@ -2518,7 +2518,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1286620443}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.22513019
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -17923,7 +17923,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  bodyDamage: 10
+  bodyDamage: 100
   damagedBy: PlayerProjectile
   dead: 0
   rotationSpeed: 10
@@ -17949,7 +17949,7 @@ MonoBehaviour:
   currentLevel: 0
   chargeParticles: {fileID: 634550337}
   chargeDuration: 3
-  attackRate: 100
+  attackRate: 0
 --- !u!33 &1870383892
 MeshFilter:
   m_ObjectHideFlags: 0

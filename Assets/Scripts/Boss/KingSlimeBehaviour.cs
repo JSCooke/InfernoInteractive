@@ -190,7 +190,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
 
             //Referenced from http://answers.unity3d.com/questions/1068513/place-8-objects-around-a-target-gameobject.html
             float angle = i * Mathf.PI * 2f / this.GetComponent<BossController>().difficulty;
-            Vector3 newPos = new Vector3(this.transform.position.x + Mathf.Cos(angle) * radius, 0, this.transform.position.z + Mathf.Sin(angle) * radius);
+            Vector3 newPos = new Vector3(this.transform.position.x + Mathf.Cos(angle) * radius, 0.5F, this.transform.position.z + Mathf.Sin(angle) * radius);
 
             GameObject child = (GameObject)Instantiate(enemy, newPos, Quaternion.identity);
             child.transform.localScale = new Vector3(this.transform.localScale.x / 2, this.transform.localScale.y / 2, this.transform.localScale.z / 2);

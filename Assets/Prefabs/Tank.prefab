@@ -496,7 +496,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 428358}
   m_RootOrder: 0
@@ -1243,9 +1243,12 @@ MonoBehaviour:
   offensiveStations:
   - {fileID: 198196, guid: d932126627cb1fd4ebba9e1b6f31cf30, type: 2}
   - {fileID: 118382, guid: 6d2ea1f19abbb434cbeb31b294720caf, type: 2}
+  - {fileID: 124550, guid: 8298c161395e8ec4e8a45652b9853dd8, type: 2}
+  - {fileID: 198196, guid: dd6a5ce8d97726642b24da64a47e10d9, type: 2}
   defensiveStations:
   - {fileID: 156960, guid: ad7c4edc7e9c66a4ba2f4dfc4351ea30, type: 2}
   - {fileID: 156960, guid: ae5af660735501d4ca37dab5cfc89d8a, type: 2}
+  - {fileID: 156960, guid: 2266145a219365a4fa27236d61d37414, type: 2}
   startingStation: Movement Control
 --- !u!114 &11415026
 MonoBehaviour:
@@ -1317,9 +1320,12 @@ MonoBehaviour:
   offensiveStations:
   - {fileID: 198196, guid: d932126627cb1fd4ebba9e1b6f31cf30, type: 2}
   - {fileID: 118382, guid: 6d2ea1f19abbb434cbeb31b294720caf, type: 2}
+  - {fileID: 124550, guid: 8298c161395e8ec4e8a45652b9853dd8, type: 2}
+  - {fileID: 198196, guid: dd6a5ce8d97726642b24da64a47e10d9, type: 2}
   defensiveStations:
   - {fileID: 156960, guid: ad7c4edc7e9c66a4ba2f4dfc4351ea30, type: 2}
   - {fileID: 156960, guid: ae5af660735501d4ca37dab5cfc89d8a, type: 2}
+  - {fileID: 156960, guid: 2266145a219365a4fa27236d61d37414, type: 2}
   startingStation: Big Cannon
 --- !u!114 &11441542
 MonoBehaviour:
@@ -1340,10 +1346,13 @@ MonoBehaviour:
   offensiveStations:
   - {fileID: 198196, guid: d932126627cb1fd4ebba9e1b6f31cf30, type: 2}
   - {fileID: 118382, guid: 6d2ea1f19abbb434cbeb31b294720caf, type: 2}
+  - {fileID: 124550, guid: 8298c161395e8ec4e8a45652b9853dd8, type: 2}
+  - {fileID: 198196, guid: dd6a5ce8d97726642b24da64a47e10d9, type: 2}
   defensiveStations:
   - {fileID: 156960, guid: ad7c4edc7e9c66a4ba2f4dfc4351ea30, type: 2}
   - {fileID: 156960, guid: ae5af660735501d4ca37dab5cfc89d8a, type: 2}
-  startingStation: Shield
+  - {fileID: 156960, guid: 2266145a219365a4fa27236d61d37414, type: 2}
+  startingStation: Shield Mk2
 --- !u!114 &11448792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1363,9 +1372,12 @@ MonoBehaviour:
   offensiveStations:
   - {fileID: 198196, guid: d932126627cb1fd4ebba9e1b6f31cf30, type: 2}
   - {fileID: 118382, guid: 6d2ea1f19abbb434cbeb31b294720caf, type: 2}
+  - {fileID: 124550, guid: 8298c161395e8ec4e8a45652b9853dd8, type: 2}
+  - {fileID: 198196, guid: dd6a5ce8d97726642b24da64a47e10d9, type: 2}
   defensiveStations:
   - {fileID: 156960, guid: ad7c4edc7e9c66a4ba2f4dfc4351ea30, type: 2}
   - {fileID: 156960, guid: ae5af660735501d4ca37dab5cfc89d8a, type: 2}
+  - {fileID: 156960, guid: 2266145a219365a4fa27236d61d37414, type: 2}
   startingStation: Machine Gun
 --- !u!114 &11454204
 MonoBehaviour:
@@ -1402,9 +1414,12 @@ MonoBehaviour:
   offensiveStations:
   - {fileID: 198196, guid: d932126627cb1fd4ebba9e1b6f31cf30, type: 2}
   - {fileID: 118382, guid: 6d2ea1f19abbb434cbeb31b294720caf, type: 2}
+  - {fileID: 124550, guid: 8298c161395e8ec4e8a45652b9853dd8, type: 2}
+  - {fileID: 198196, guid: dd6a5ce8d97726642b24da64a47e10d9, type: 2}
   defensiveStations:
   - {fileID: 156960, guid: ad7c4edc7e9c66a4ba2f4dfc4351ea30, type: 2}
   - {fileID: 156960, guid: ae5af660735501d4ca37dab5cfc89d8a, type: 2}
+  - {fileID: 156960, guid: 2266145a219365a4fa27236d61d37414, type: 2}
   startingStation: Machine Gun
 --- !u!135 &13565340
 SphereCollider:

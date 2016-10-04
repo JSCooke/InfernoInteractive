@@ -3915,6 +3915,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd60c1d7b6e149b9b9c4f0ccb4a7413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerBar: {fileID: 0}
+  bossBar: {fileID: 0}
 --- !u!4 &522312344
 Transform:
   m_ObjectHideFlags: 0
@@ -15860,26 +15862,6 @@ Prefab:
     - target: {fileID: 428358, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11454204, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-      propertyPath: ui.player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11454204, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-      propertyPath: ui.boss
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11454204, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-      propertyPath: ui.playerVal
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 11454204, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-      propertyPath: ui.bossVal
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 11454204, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-      propertyPath: ui.achievementAnimator
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}

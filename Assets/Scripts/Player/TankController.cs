@@ -14,6 +14,9 @@ public class TankController : MonoBehaviour {
     private int currentHealth;
     public string damagedBy = "Enemy";
 
+    private float lastDamageTime = 0;
+    public float iFrameTime = 2; //seconds of invulnerablity after hit
+
     // Use this for initialization
     void Start() {
 		rb = GetComponent<Rigidbody> ();
@@ -74,13 +77,19 @@ public class TankController : MonoBehaviour {
 
     public void takeDamage(int damage) {
 
-        
-        if (damage > currentHealth) {
-            damage = currentHealth;
+        if (Time.fixedTime - lastDamageTime > iFrameTime) {
+            lastDamageTime = Time.fixedTime;
+
+            if (damage > currentHealth) {
+                damage = currentHealth;
+            }
+
+            currentHealth = currentHealth - damage;
+            UIAdapter.damagePlayer((float)damage, maxHealth);
+
         }
         
-        currentHealth = currentHealth - damage;
-        UIAdapter.damagePlayer((float)damage, maxHealth);
+        
 
         //if (currentHealth <= 0) {
         //    print("Lost");

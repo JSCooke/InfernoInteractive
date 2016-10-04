@@ -1,13 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Damageable : MonoBehaviour {
+public class Damageable : MonoBehaviour {
 
     public int maxHealth;
     public int currentHealth;
 	public int bodyDamage;
 	public string damagedBy; //PlayerProjectile
     public bool dead = false;
+
+    void Start() {
+        currentHealth = maxHealth;
+    }
 
     void OnTriggerEnter(Collider collider){
 		if (collider.gameObject.tag == damagedBy) {
@@ -16,6 +20,11 @@ public abstract class Damageable : MonoBehaviour {
 		}
 	}
 
-	public virtual void takeDamage(int damage){}
+	public virtual void takeDamage(int damage){
+        currentHealth -= damage;
+        if (currentHealth <= 0) {
+            Destroy(gameObject);
+        }
+    }
 
 }

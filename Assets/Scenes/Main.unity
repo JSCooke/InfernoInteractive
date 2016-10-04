@@ -1113,8 +1113,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1726741645}
   m_HandleRect: {fileID: 1726741643}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.5766577
+  m_Value: 0.99999976
+  m_Size: 0.62252676
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -18419,6 +18419,26 @@ Prefab:
     - target: {fileID: 428358, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_LocalScale.z
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406270, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: stationName
+      value: central
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440590, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: stationName
+      value: north
+      objectReference: {fileID: 0}
+    - target: {fileID: 11448792, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: stationName
+      value: west
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470610, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: stationName
+      value: east
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441542, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: stationName
+      value: south
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}

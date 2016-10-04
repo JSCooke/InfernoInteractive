@@ -64,6 +64,6 @@ public class ControlStationMountController : MonoBehaviour {
 
 		GameObject newStation = (GameObject) Instantiate (station, transform.position, transform.rotation);
 		newStation.transform.parent = transform;
-
+		newStation.transform.localScale = newStation.transform.parent.localScale;
 	}
 }

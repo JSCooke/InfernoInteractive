@@ -5,16 +5,15 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class objectiveMenuBehaviour : MonoBehaviour {
-    public Canvas objectiveMenu;
-    public Button returnBtn;
+	
     public Text objectiveDescription;
+	public Canvas pauseMenu;
 
     // Use this for initialization
     void Start () {
-        objectiveMenu = objectiveMenu.GetComponent<Canvas>();
-        returnBtn = returnBtn.GetComponent<Button>();
+
         objectiveDescription = objectiveDescription.GetComponent<Text>();
-        objectiveMenu.enabled = true;
+
     }
 	
 	// Update is called once per frame
@@ -24,6 +23,7 @@ public class objectiveMenuBehaviour : MonoBehaviour {
     
     public void pressReturn()
     {
-        Application.LoadLevel("PauseMenu");
+		this.GetComponent<Canvas> ().enabled = false;
+		pauseMenu.enabled = true;
     }
 }

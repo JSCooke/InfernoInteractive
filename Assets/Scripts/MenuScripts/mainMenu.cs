@@ -7,15 +7,28 @@ using System.Collections;
 public class mainMenu : MonoBehaviour {
 
     public Canvas quitMenu;
+	public Button quitButton;
+
+	public Canvas playMenu;
     public Button playButton;
-    public Button leaderboardButton;
-    public Button customiseButton;
-    public Button achievementsButton;
-    public Button settingsButton;
-    public Button quitButton;
+    
+	public Canvas leaderboardMenu;
+	public Button leaderboardButton;
+    
+	public Canvas customiseMenu;
+	public Button customiseButton;
+    
+	public Canvas achievementMenu;
+	public Button achievementsButton;
+    
+	public Canvas settingsMenu;
+	public Button settingsButton;
+    
 
     // Use this for initialization
     void Start () {
+
+
         quitMenu = quitMenu.GetComponent<Canvas>();
         playButton = playButton.GetComponent<Button>();
         leaderboardButton = leaderboardButton.GetComponent<Button>();
@@ -24,36 +37,50 @@ public class mainMenu : MonoBehaviour {
         settingsButton = settingsButton.GetComponent<Button>();
         quitButton = quitButton.GetComponent<Button>();
         quitMenu.enabled = false;
+
+
+		//turn off all other canvas
+		playMenu.enabled = false;
+		leaderboardMenu.enabled = false;
+		customiseMenu.enabled = false;
+		achievementMenu.enabled = false;
+		settingsMenu.enabled = false;
+
     }
 
     //Use this when "Play" button is pressed
     public void PlayPress()
     {
-        SceneManager.LoadScene("Play");
+		playMenu.enabled = true;
+		this.GetComponent<Canvas> ().enabled = false;
     }
 
     //Use this when "Leaderboard" is pressed
     public void LeaderboardPress()
     {
-        SceneManager.LoadScene("Leaderboard");
+		leaderboardMenu.enabled = true;
+		this.GetComponent<Canvas> ().enabled = false;
     }
 
     //Use this when "Customise" is pressed
     public void CustomisePress()
     {
-        SceneManager.LoadScene("Customise");
+		customiseMenu.enabled = true;
+		this.GetComponent<Canvas> ().enabled = false;
     }
 
     //Use this when "Achievements" is pressed
     public void AchievementsPress()
     {
-        SceneManager.LoadScene("MenuAchievements");
+		achievementMenu.enabled = true;
+		this.GetComponent<Canvas> ().enabled = false;
     }
 
     //Use this when "Settings" is pressed
     public void SettingsPress()
     {
-        SceneManager.LoadScene("MenuSetting");
+		settingsMenu.enabled = true;
+		this.GetComponent<Canvas> ().enabled = false;
     }
 
     //Use this when "Exit" is pressed

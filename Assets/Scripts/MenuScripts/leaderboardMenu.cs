@@ -6,6 +6,7 @@ public class leaderboardMenu : MonoBehaviour {
 
     public Canvas[] Leaderboards = new Canvas[5];
     Canvas Menu;
+	public Canvas mainMenu;
 
     void Start()
     {
@@ -14,12 +15,13 @@ public class leaderboardMenu : MonoBehaviour {
             Leaderboards[i].enabled = false;
         }
         Menu = this.GetComponent<Canvas>();
-        Menu.enabled = true;
+        Menu.enabled = false;
     }
 
     public void BackPress()
     {
-        SceneManager.LoadScene("Main");
+		this.GetComponent<Canvas> ().enabled = false;
+		mainMenu.enabled = true;
     }
 
     public void LevelPress(int level)

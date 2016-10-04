@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class customiseMenu : MonoBehaviour {
 
+	public Canvas mainMenu;
     /*public GameObject[] AttackUpgrades = new GameObject[2];
     public GameObject[] DefenseUpgrades = new GameObject[1];
     public GameObject[] MovementUpgrades = new GameObject[0];
@@ -34,10 +35,18 @@ public class customiseMenu : MonoBehaviour {
         }
     }*/
 
+	public Camera tankCamera;
+
     public void BackPress()
     {
-        SceneManager.LoadScene("Main");
+		this.GetComponent<Canvas> ().enabled = false;
+		mainMenu.enabled = true;
     }
+
+	void Update(){
+		tankCamera.enabled = GetComponent<Canvas> ().enabled;
+	}
+			
 
     /*public void AttackUpgradeShow(GameObject upgradeObject)
     {

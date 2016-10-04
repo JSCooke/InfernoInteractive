@@ -7,6 +7,7 @@ public class playMenu : MonoBehaviour {
 
     public Image Preview;
     public Text Desciption;
+	public Canvas mainMenu;
 
     public Sprite[] levelSprites = new Sprite[5];
     string[] descriptions = new string[5];
@@ -18,12 +19,14 @@ public class playMenu : MonoBehaviour {
 
     public void LoadScene(int level)
     {
+		print (level);
         SceneManager.LoadScene(level);
     }
 
     public void BackPress()
     {
-        SceneManager.LoadScene("Main");
+		this.GetComponent<Canvas> ().enabled = false;
+		mainMenu.enabled = true;
     }
 
     public void ShowPreview(int level)

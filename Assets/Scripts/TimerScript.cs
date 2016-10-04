@@ -23,6 +23,9 @@ public class TimerScript : MonoBehaviour {
 	}
 
 	public void Update(){
+		if (Time.timeScale == 0) {
+			return;
+		}
 		if (!stop) {
 			if (seconds >= 59) {
 				minutes += 1;

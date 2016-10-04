@@ -15,6 +15,7 @@ public class pauseMenuBehaviour : MonoBehaviour {
 
 		objectives.enabled = false;
 		controls.enabled = false;
+		this.GetComponent<Canvas> ().enabled = false;
 
     }
 	
@@ -22,9 +23,21 @@ public class pauseMenuBehaviour : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown("escape"))
         {
+			if (this.GetComponent<Canvas> ().isActiveAndEnabled) {
+				//UNPAUSE
+				this.GetComponent<Canvas> ().enabled = false;
+			} else {
+				//PAUSE
+				if (controls.isActiveAndEnabled || objectives.isActiveAndEnabled) {
+					objectives.enabled = false;
+					controls.enabled = false;
+					this.GetComponent<Canvas> ().enabled = true;
+				} else {
+					this.GetComponent<Canvas> ().enabled = true;
+				}
 
-			//UNPAUSE
-			this.GetComponent<Canvas> ().enabled = false;
+			}
+
         }
     }
 

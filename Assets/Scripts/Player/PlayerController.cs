@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour {
 			if (Input.GetKey (moveRight) && !Input.GetKey (moveLeft)) {
 				transform.Translate (moveSpeed * Time.deltaTime, 0, 0);
 			}
-		} else if (attachedToControlStation) {
+		} else if (attachedToControlStation && currentControlStationController!=null && currentControlStationController.behaviour!=null) {
 			//If currently attacked to a control station, send the inputs to be processed by the behaviour script
 			currentControlStationController.behaviour.keyPressed(
 				Input.GetKeyDown(moveUp), 

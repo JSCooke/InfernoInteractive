@@ -315,6 +315,12 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 52685ed25fdcb1b488b7047664232501, type: 2}
   m_PrefabInternal: {fileID: 9773142}
+--- !u!114 &16045243 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11434110, guid: 1daf6072311684a538bc8e1d6e2ddf9d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1502001400}
+  m_Script: {fileID: 11500000, guid: 6d015ae0c5836484595a5308e4bbda6d, type: 3}
 --- !u!1001 &17000531
 Prefab:
   m_ObjectHideFlags: 0
@@ -2511,8 +2517,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1286620444}
   m_HandleRect: {fileID: 1286620443}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.99999994
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4677,8 +4683,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd60c1d7b6e149b9b9c4f0ccb4a7413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBar: {fileID: 0}
-  bossBar: {fileID: 0}
+  playerBar: {fileID: 16045243}
+  bossBar: {fileID: 1271671532}
 --- !u!4 &522312344
 Transform:
   m_ObjectHideFlags: 0
@@ -11639,6 +11645,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 22351419a83571849ae7f44cca0ff793, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1271671532 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11475498, guid: 1daf6072311684a538bc8e1d6e2ddf9d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1502001400}
+  m_Script: {fileID: 11500000, guid: 6d015ae0c5836484595a5308e4bbda6d, type: 3}
 --- !u!1001 &1271700307
 Prefab:
   m_ObjectHideFlags: 0
@@ -16463,7 +16475,7 @@ GameObject:
   - 54: {fileID: 1870383894}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: KingSlime
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16482,12 +16494,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  bodyDamage: 0
+  bodyDamage: 10
   damagedBy: PlayerProjectile
   dead: 0
   rotationSpeed: 10
   bossSpeed: 10
+  difficultyLevel: 2
   difficulty: 2
+  totalHealth: 0
 --- !u!114 &1870383891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16506,6 +16520,7 @@ MonoBehaviour:
   currentLevel: 0
   chargeParticles: {fileID: 660069140}
   chargeDuration: 3
+  attackRate: 100
 --- !u!33 &1870383892
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -16549,7 +16564,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1870383889}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.846851, y: 2.1, z: 387.52582}
+  m_LocalPosition: {x: 1, y: 2.1, z: 354}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -19807,7 +19822,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 428358, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 331
       objectReference: {fileID: 0}
     - target: {fileID: 428358, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_LocalRotation.x
@@ -19848,6 +19863,10 @@ Prefab:
     - target: {fileID: 11454204, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: ui.achievementAnimator
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454204, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: maxHealth
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}

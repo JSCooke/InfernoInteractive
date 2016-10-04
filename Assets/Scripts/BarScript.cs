@@ -20,7 +20,7 @@ public class BarScript : MonoBehaviour {
 	public float Value {
 		set{
 			string[] tmp = valueText.text.Split(':');
-			valueText.text = tmp [0] + ": " + value + "%";
+			valueText.text = tmp [0] + ": " + Mathf.RoundToInt(value) + "%";
 			fillAmount = value/100;
 		}
 		get{
@@ -51,7 +51,7 @@ public class BarScript : MonoBehaviour {
 	}
 
 	//This is a general function, and can be adapted. value/inMax will cut the mustard in 90% of our cases
-	private float Map(float value, float inMin, float inMax, float outMin, float outMax){
+	public static float Map(float value, float inMin, float inMax, float outMin, float outMax){
 		return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
 	}
 }

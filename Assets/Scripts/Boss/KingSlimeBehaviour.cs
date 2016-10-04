@@ -10,7 +10,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
     public int maxLevel = 2;
     public int currentLevel = 0;
     //Duplicate when reach threshold
-    private double threshold = 0;
+    private double threshold = 0.5;
 
     private Vector3 playerPosition;
 
@@ -32,6 +32,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
     private double chargeStartTime;
 
     private int currentHealth, maxHealth;
+    public int attackRate = 10;
 
     // Use this for initialization
     void Start() {
@@ -39,20 +40,35 @@ public class KingSlimeBehaviour : MonoBehaviour {
         chargeParticles.enableEmission = false;
         rb = GetComponent<Rigidbody>();
 
+        maxHealth = this.GetComponent<BossController>().maxHealth;
+        currentHealth = maxHealth;
+
+        this.GetComponent<BossController>().totalHealth = 100 + (200 * (this.GetComponent<BossController>().difficulty - 1));
+
         if (player == null) {
             player = GameObject.FindGameObjectsWithTag("Player")[0];
+        }
+
+        if (maxHealth > UIAdapter.bossVal) {
+            UIAdapter.bossVal = maxHealth;
         }
     }
 
     // Update is called once per frame
     void Update() {
 
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
         if (Time.timeScale == 0) {
             return;
         }
 
-        //rb.velocity = Vector3.zero;
-        //rb.angularVelocity = Vector3.zero;
+        currentHealth = this.GetComponent<BossController>().currentHealth;
+
+        if (currentLevel < maxLevel && currentHealth <= 0) {
+            duplicate();
+        }
 
         if (this.GetComponent<BossController>().dead) {
             StartCoroutine(Die());
@@ -64,11 +80,6 @@ public class KingSlimeBehaviour : MonoBehaviour {
     }
 
     void fightPlayer() {
-        currentHealth = GetComponent<BossController>().currentHealth;
-        maxHealth = GetComponent<BossController>().maxHealth;
-        if (currentLevel < maxLevel && currentHealth <= maxHealth * threshold) {
-            //duplicate();
-        }
 
         if (charging) {
             //print("charging");
@@ -106,7 +117,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
     }
 
     void dashAttack() {
-        transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime * 10);
+        transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime * 6);
 
         if (transform.position == playerPosition) {
             dashing = false;
@@ -115,7 +126,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
     }
 
     void roam() {
-
+        //print(randomPosition);
         transform.position = Vector3.MoveTowards(transform.position, randomPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime);
 
         float chance = Random.Range(0,100);
@@ -124,13 +135,14 @@ public class KingSlimeBehaviour : MonoBehaviour {
         if (transform.position == randomPosition) {
 
             //Rebalance attack rate here
-            if (chance <= 80) {
+            if (chance <= (100 - attackRate)) { //Roam again
                 randomPosition = Random.insideUnitCircle * 10;
-                randomPosition.y = 0;
-                randomPosition.x += transform.position.x;
-                randomPosition.z += transform.position.z;
-            } else {
 
+                randomPosition.x += transform.position.x;
+                randomPosition.z = randomPosition.y;
+                randomPosition.z += transform.position.z;
+                randomPosition.y = 0;
+            } else { //Attack
                 roaming = false;
                 charging = true;
                 chargeStartTime = Time.fixedTime;
@@ -142,9 +154,11 @@ public class KingSlimeBehaviour : MonoBehaviour {
     void findRandomPosition() {
         
         randomPosition = Random.insideUnitCircle * 10;
-        randomPosition.y = 0;
+        
         randomPosition.x += transform.position.x;
+        randomPosition.z = randomPosition.y;
         randomPosition.z += transform.position.z;
+        randomPosition.y = 0;
 
         finding = false;
         roaming = true;
@@ -171,23 +185,21 @@ public class KingSlimeBehaviour : MonoBehaviour {
 
     void duplicate() {
 
-        float offset = (float)0.5;
+        float radius = 2f;
 
-        //this.GetComponent<BossController>().difficulty
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < this.GetComponent<BossController>().difficulty; i++) {
 
-            Vector3 spawnPoint = this.transform.position;
-            offset *= -1;
-            spawnPoint.x += offset;
-            spawnPoint.z += offset;
+            //Referenced from http://answers.unity3d.com/questions/1068513/place-8-objects-around-a-target-gameobject.html
+            float angle = i * Mathf.PI * 2f / this.GetComponent<BossController>().difficulty;
+            Vector3 newPos = new Vector3(this.transform.position.x + Mathf.Cos(angle) * radius, 0, this.transform.position.z + Mathf.Sin(angle) * radius);
 
-            GameObject child = (GameObject)Instantiate(enemy, spawnPoint, Quaternion.identity);
+            GameObject child = (GameObject)Instantiate(enemy, newPos, Quaternion.identity);
             child.transform.localScale = new Vector3(this.transform.localScale.x / 2, this.transform.localScale.y / 2, this.transform.localScale.z / 2);
 
             BossController childScript = child.GetComponent<BossController>();
             childScript.GetComponent<KingSlimeBehaviour>().currentLevel = currentLevel + 1;
-            childScript.maxHealth = (int)(this.GetComponent<BossController>().maxHealth * threshold);
-            childScript.currentHealth = (int)(this.GetComponent<BossController>().maxHealth * threshold);
+            childScript.maxHealth = (int)(maxHealth * threshold);
+            childScript.currentHealth = childScript.maxHealth;
 
         }
 
@@ -197,6 +209,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
 
     IEnumerator Die() {
 
+        //Only animate death for smallest slimes
         if (this.GetComponent<KingSlimeBehaviour>().currentLevel == maxLevel) {
             Quaternion targetRotation = targetRotation = Quaternion.Euler(new Vector3(90, 45, 0));
             rb.transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 2.5F);
@@ -206,8 +219,6 @@ public class KingSlimeBehaviour : MonoBehaviour {
             Destroy(this.gameObject);
         }
         else {
-            //Destroy(this.gameObject);
-            duplicate();
             Destroy(this.gameObject);
         }
 

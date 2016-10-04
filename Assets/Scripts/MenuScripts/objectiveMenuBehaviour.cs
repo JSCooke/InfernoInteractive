@@ -12,7 +12,7 @@ public class objectiveMenuBehaviour : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        objectiveDescription = objectiveDescription.GetComponent<Text>();
+		print (objectiveDescription.text);
 
     }
 	

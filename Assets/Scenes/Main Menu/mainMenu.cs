@@ -47,13 +47,13 @@ public class mainMenu : MonoBehaviour {
     //Use this when "Achievements" is pressed
     public void AchievementsPress()
     {
-
+        SceneManager.LoadScene("MenuAchievements");
     }
 
     //Use this when "Settings" is pressed
     public void SettingsPress()
     {
-
+        SceneManager.LoadScene("MenuSetting");
     }
 
     //Use this when "Exit" is pressed

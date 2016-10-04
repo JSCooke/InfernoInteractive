@@ -4454,6 +4454,65 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 448992, guid: 1f9fba2234c037f44955f8356168372f, type: 2}
   m_PrefabInternal: {fileID: 507336636}
+--- !u!1 &507780928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 507780929}
+  - 135: {fileID: 507780931}
+  - 114: {fileID: 507780930}
+  m_Layer: 2
+  m_Name: DialogZone (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &507780929
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 507780928}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.28, y: -0.0053450265, z: 0.056}
+  m_LocalScale: {x: 20, y: 1.0588403, z: 0.1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 888301143}
+  m_RootOrder: 8
+--- !u!114 &507780930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 507780928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d198b7a348a837c42b7cc69a06d7834f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theText: {fileID: 4900000, guid: cf8837acac0dc0e41a101498dced0549, type: 3}
+  startLine: 0
+  endLine: 0
+  dialogManager: {fileID: 0}
+  destroyWhenActivated: 1
+  stopGameMovements: 1
+--- !u!135 &507780931
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 507780928}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &508785529
 Prefab:
   m_ObjectHideFlags: 0
@@ -8057,6 +8116,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7ac0920406bb0f41920740a0e750598, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &888301143 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 474440, guid: b7ac0920406bb0f41920740a0e750598, type: 2}
+  m_PrefabInternal: {fileID: 888301142}
 --- !u!4 &889872627 stripped
 Transform:
   m_PrefabParentObject: {fileID: 485238, guid: 565d9d4a943910846b02f932fd4a6a3a, type: 2}

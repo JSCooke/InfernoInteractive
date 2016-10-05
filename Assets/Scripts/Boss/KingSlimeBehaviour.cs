@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class KingSlimeBehaviour : MonoBehaviour {
+public class KingSlimeBehaviour : Spawnable {
 
     public UnityEngine.GameObject enemy;
     public UnityEngine.GameObject player = null;
@@ -45,9 +45,12 @@ public class KingSlimeBehaviour : MonoBehaviour {
 
         this.GetComponent<BossController>().totalHealth = 100 + (200 * (this.GetComponent<BossController>().difficulty - 1));
 
+		print (player);
         if (player == null) {
-            player = UnityEngine.GameObject.FindGameObjectsWithTag("Player")[0];
+			player = UnityEngine.GameObject.FindGameObjectsWithTag("Player")[0];
         }
+
+		print (UnityEngine.GameObject.FindGameObjectsWithTag("Player"));
 
     }
 
@@ -70,7 +73,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
         if (this.GetComponent<BossController>().dead) {
             StartCoroutine(Die());
         } else {
-            //fightPlayer();
+            fightPlayer();
         }
         
 
@@ -79,19 +82,19 @@ public class KingSlimeBehaviour : MonoBehaviour {
     void fightPlayer() {
 
         if (charging) {
-            //print("charging");
+            print("charging");
             charge();
         }
         else if (dashing) {
-            //print("dashing");
+            print("dashing");
             dashAttack();
         }
         else if (finding) {
-            //print("finding");
+            print("finding");
             findRandomPosition();
         }
         else if (roaming) {
-            //print("roaming");
+            print("roaming");
             roam();
         }
     }
@@ -222,10 +225,12 @@ public class KingSlimeBehaviour : MonoBehaviour {
 
     }
 
-    public void Spawn() {
+    public override void Spawn() {
+		print ("spawning");
+		Start ();
         Vector3 spawnPoint = player.transform.position;
-        spawnPoint.x += 15;
-        spawnPoint.y += 15;
+        spawnPoint.z += 20;
+        spawnPoint.y += 5;
         Instantiate(this, spawnPoint, Quaternion.identity);
     }
 

@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11432984}
   - 114: {fileID: 11415330}
   - 136: {fileID: 13665508}
+  - 111: {fileID: 11195124}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -232,6 +233,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!111 &11195124
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 129446}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 212a96d56f083764390b2f98e192392b, type: 2}
+  - {fileID: 7400000, guid: b6fe1f0888a0d914aa98e030cff7946c, type: 2}
+  - {fileID: 7400000, guid: 5bd2c060cd3130e4bb056ad10c9d2505, type: 2}
+  - {fileID: 7400000, guid: f845c9e6e43fdf6468b10ba7cad5a9e8, type: 2}
+  - {fileID: 7400000, guid: 505aecf0a2823b34093c8b551b4ba821, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 1
+  m_CullingType: 0
 --- !u!114 &11415330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -272,6 +292,12 @@ MonoBehaviour:
   chargeDuration: 3
   attackRate: 50
   boundary: {fileID: 155766, guid: 88e2553324159f84b89ce23b06ea258f, type: 2}
+  animationClips:
+  - {fileID: 7400000, guid: 5bd2c060cd3130e4bb056ad10c9d2505, type: 2}
+  - {fileID: 7400000, guid: 212a96d56f083764390b2f98e192392b, type: 2}
+  - {fileID: 7400000, guid: b6fe1f0888a0d914aa98e030cff7946c, type: 2}
+  - {fileID: 7400000, guid: f845c9e6e43fdf6468b10ba7cad5a9e8, type: 2}
+  - {fileID: 7400000, guid: 505aecf0a2823b34093c8b551b4ba821, type: 2}
 --- !u!136 &13665508
 CapsuleCollider:
   m_ObjectHideFlags: 1

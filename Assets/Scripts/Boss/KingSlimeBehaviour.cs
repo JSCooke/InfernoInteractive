@@ -229,7 +229,6 @@ public class KingSlimeBehaviour : Spawnable {
 		Start ();
         Vector3 spawnPoint = player.transform.position;
         spawnPoint.z += 20;
-        spawnPoint.y += 5;
         Instantiate(this, spawnPoint, Quaternion.identity);
 		UIAdapter.setBossUI (true);
     }

@@ -73,7 +73,9 @@ public class PlayerController : MonoBehaviour {
 	void resetPosition(){
 		transform.localRotation = new Quaternion ();
 		if (attachedToControlStation) {
-			transform.position = currentControlStation.transform.position + new Vector3 (0, heightOffset, 0);
+			if (currentControlStation != null) {
+				transform.position = currentControlStation.transform.position + new Vector3 (0, heightOffset, 0);
+			}
 		}
 	}
 

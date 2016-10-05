@@ -11,7 +11,7 @@ public class ShowDialogue : MonoBehaviour {
 	public int startLine = 0;
 	public int endLine = 0;
 
-	public DialogTextManager dialogManager;
+	public DialogManagerVer2 dialogManager;
 
 	private bool dialogueShown = false;
 

@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class DialogTextManager : MonoBehaviour
+public class DialogManagerVer2 : MonoBehaviour
 {
 
 	public GameObject textBox;

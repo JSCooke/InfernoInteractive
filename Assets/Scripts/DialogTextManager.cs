@@ -32,7 +32,6 @@ public class DialogTextManager : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-
 		//hashmap for strings -> sprites
 
 		sprites.Add("Jessie", Jessie);

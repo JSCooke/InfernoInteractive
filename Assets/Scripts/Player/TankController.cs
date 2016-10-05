@@ -13,6 +13,8 @@ public class TankController : MonoBehaviour {
     public int maxHealth = 100;
     private int currentHealth;
     public string damagedBy = "Enemy";
+    public float lastDamageTime;
+    public float iFrameTime = 2;
 
     // Use this for initialization
     void Start() {
@@ -74,16 +76,17 @@ public class TankController : MonoBehaviour {
 
     public void takeDamage(int damage) {
 
-        
-        if (damage > currentHealth) {
-            damage = currentHealth;
-        }
-        
-        currentHealth = currentHealth - damage;
-        UIAdapter.damagePlayer((float)damage, maxHealth);
 
-        if (currentHealth <= 0) {
-            print("Lost");
+        if (Time.fixedTime - lastDamageTime > iFrameTime) {
+            lastDamageTime = Time.fixedTime;
+
+            if (damage > currentHealth) {
+                damage = currentHealth;
+            }
+
+            currentHealth = currentHealth - damage;
+            UIAdapter.damagePlayer((float)damage, maxHealth);
+
         }
 
     }

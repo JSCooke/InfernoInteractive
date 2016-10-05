@@ -70,7 +70,7 @@ public class KingSlimeBehaviour : MonoBehaviour {
         if (this.GetComponent<BossController>().dead) {
             StartCoroutine(Die());
         } else {
-            //fightPlayer();
+            fightPlayer();
         }
         
 
@@ -79,19 +79,19 @@ public class KingSlimeBehaviour : MonoBehaviour {
     void fightPlayer() {
 
         if (charging) {
-            //print("charging");
+            print("charging");
             charge();
         }
         else if (dashing) {
-            //print("dashing");
+            print("dashing");
             dashAttack();
         }
         else if (finding) {
-            //print("finding");
+            print("finding");
             findRandomPosition();
         }
         else if (roaming) {
-            //print("roaming");
+            print("roaming");
             roam();
         }
     }

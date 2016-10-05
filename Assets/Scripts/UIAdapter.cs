@@ -144,8 +144,12 @@ public class UIAdapter : MonoBehaviour
 		stopTimer ();
 
 		//update all achievement values
-		AchievementController.updateAchievement("Cannon King", AchievementController.hasUsedOnlyCannon);
-		AchievementController.updateAchievement("Untouchable!", AchievementController.hasBeenDamaged);
+		if (AchievementController.hasBeenDamaged) {
+			AchievementController.updateAchievement("Untouchable!", AchievementController.hasBeenDamaged);
+		}
+		if (AchievementController.hasUsedOnlyCannon) {
+			AchievementController.updateAchievement("Cannon King", AchievementController.hasUsedOnlyCannon);
+		}
 		//if the time taken to win is longer than 70 you fail the achievement
         if((timer.getTime()[0] * 60) - (timer.getTime()[1]) < 70)
         {

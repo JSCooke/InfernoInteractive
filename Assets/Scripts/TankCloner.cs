@@ -9,7 +9,7 @@ public class TankCloner : MonoBehaviour {
 		print (isClone);
 		if (!isClone) {
             //If this is the original, make a copy
-            UnityEngine.GameObject clone = (UnityEngine.GameObject)Instantiate(gameObject, new Vector3(0, -99999, 0), new Quaternion());
+            UnityEngine.GameObject clone = (UnityEngine.GameObject)Instantiate(gameObject, new Vector3(this.transform.position.x, -1000, this.transform.position.z), new Quaternion());
 			clone.GetComponent<TankCloner> ().isClone = true;
 			clone.GetComponent<TankCloner> ().original = gameObject;
 		} else {

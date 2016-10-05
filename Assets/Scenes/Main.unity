@@ -790,7 +790,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 86057528}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1354532318}
+        m_MethodName: setDifficulty
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: hard
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &86057528
@@ -1113,8 +1124,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1726741645}
   m_HandleRect: {fileID: 1726741643}
   m_Direction: 2
-  m_Value: 0.99999976
-  m_Size: 0.62252676
+  m_Value: 1
+  m_Size: 0.53486156
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1362,19 +1373,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22417428, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 133
       objectReference: {fileID: 0}
     - target: {fileID: 22417428, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 22417428, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 266
       objectReference: {fileID: 0}
     - target: {fileID: 22417428, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 22417428, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
       propertyPath: m_AnchorMin.x
@@ -1382,7 +1393,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22417428, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22417428, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
       propertyPath: m_AnchorMax.x
@@ -1390,7 +1401,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22417428, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22417428, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
       propertyPath: m_Pivot.x
@@ -4280,7 +4291,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 393445947}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1354532318}
+        m_MethodName: setDifficulty
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: easy
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &393445947
@@ -8389,7 +8411,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 894959725}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1354532318}
+        m_MethodName: setDifficulty
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: medium
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &894959725
@@ -11459,7 +11492,6 @@ GameObject:
   - 223: {fileID: 1354532322}
   - 114: {fileID: 1354532321}
   - 114: {fileID: 1354532320}
-  - 114: {fileID: 1354532319}
   - 114: {fileID: 1354532318}
   m_Layer: 5
   m_Name: Settings
@@ -11480,17 +11512,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 1639194548}
---- !u!114 &1354532319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1354532317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82ee34314d01dcc43b9b864e00cd8e9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1354532320
 MonoBehaviour:
   m_ObjectHideFlags: 0

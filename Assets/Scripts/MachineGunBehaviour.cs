@@ -41,7 +41,7 @@ public class MachineGunBehaviour : ControlStationBehaviour {
 		if (up && Time.fixedTime > lastShotTime + cooldown) {
 
             //fail the cannon only achievement
-            AchievementController.updateAchievement("Cannon King", false);
+			AchievementController.hasUsedOnlyCannon = false;
 
             foreach (GameObject spawner in spawners)
             {

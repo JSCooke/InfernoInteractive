@@ -72,7 +72,7 @@ public class KingSlimeBehaviour : Spawnable {
         if (this.GetComponent<BossController>().dead) {
             StartCoroutine(Die());
         } else {
-            //fightPlayer();
+            fightPlayer();
         }
         
 
@@ -229,7 +229,7 @@ public class KingSlimeBehaviour : Spawnable {
 		Start ();
         Vector3 spawnPoint = player.transform.position;
         spawnPoint.z += 20;
-        spawnPoint.y += 5;
+        spawnPoint.y += 2;
         Instantiate(this, spawnPoint, Quaternion.identity);
 		UIAdapter.setBossUI (true);
     }

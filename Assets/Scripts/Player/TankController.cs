@@ -16,6 +16,8 @@ public class TankController : MonoBehaviour {
     public float lastDamageTime;
     public float iFrameTime = 2;
 
+    public GameObject shield;
+
     // Use this for initialization
     void Start() {
 		rb = GetComponent<Rigidbody> ();
@@ -75,7 +77,12 @@ public class TankController : MonoBehaviour {
     }
 
     public void takeDamage(int damage) {
-
+     
+        if (shield.gameObject.activeSelf) {
+            lastDamageTime = Time.fixedTime;
+            shield.SetActive(false);
+            return;
+        }
 
         if (Time.fixedTime - lastDamageTime > iFrameTime) {
             lastDamageTime = Time.fixedTime;

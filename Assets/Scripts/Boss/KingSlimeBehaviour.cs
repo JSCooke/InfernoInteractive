@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class KingSlimeBehaviour : MonoBehaviour {
+public class KingSlimeBehaviour : Spawnable {
 
     public UnityEngine.GameObject enemy;
     public UnityEngine.GameObject player = null;
@@ -45,9 +45,12 @@ public class KingSlimeBehaviour : MonoBehaviour {
 
         this.GetComponent<BossController>().totalHealth = 100 + (200 * (this.GetComponent<BossController>().difficulty - 1));
 
+		print (player);
         if (player == null) {
-            player = UnityEngine.GameObject.FindGameObjectsWithTag("Player")[0];
+			player = UnityEngine.GameObject.FindGameObjectsWithTag("Player")[UnityEngine.GameObject.FindGameObjectsWithTag("Player").Length - 1];
         }
+
+		print (UnityEngine.GameObject.FindGameObjectsWithTag("Player"));
 
     }
 
@@ -222,10 +225,11 @@ public class KingSlimeBehaviour : MonoBehaviour {
 
     }
 
-    public void Spawn() {
+    public override void Spawn() {
+		print ("spawning");
+		Start ();
         Vector3 spawnPoint = player.transform.position;
-        spawnPoint.x += 15;
-        spawnPoint.y += 15;
+        spawnPoint.z += 20;
         Instantiate(this, spawnPoint, Quaternion.identity);
     }
 

@@ -20,10 +20,17 @@ public class ActivateNewDialog : MonoBehaviour {
     private QuickCutsceneController cutsceneController;
     public int lineNumber;
 
+	//potential spawner
+	public bool shouldSpawn = false;
+	public Spawnable spawningObject; 
+
     // Use this for initialization
     void Start () {
         dialogManager = FindObjectOfType<DialogTextManager>();
-        cutsceneController = cutscene.GetComponent<QuickCutsceneController>();
+		if (cutscene != null) {
+			cutsceneController = cutscene.GetComponent<QuickCutsceneController>();
+		}
+        
 	}
 	
 	// Update is called once per frame
@@ -52,6 +59,11 @@ public class ActivateNewDialog : MonoBehaviour {
                 dialogManager.SetCutscene(mainCamera, cutsceneController, lineNumber);
             }
             dialogManager.EnableDialogBox();
+
+			if (shouldSpawn == true) {
+				dialogManager.shouldSpawn = true;
+				dialogManager.spawningObject = spawningObject;
+			}
 
             //if end line isnt inputted default to all lines
             if (endLine == 0)

@@ -23,6 +23,10 @@ public class DialogTextManager : MonoBehaviour {
 
     private QuickCutsceneController cutsceneController;
 
+	//potential spawner
+	public bool shouldSpawn;
+	public Spawnable spawningObject; 
+
     //List of different sprites
     public Sprite Jessie;
     public Sprite James;
@@ -108,6 +112,7 @@ public class DialogTextManager : MonoBehaviour {
                 {
                     _mainCamera.GetComponent<CameraController>().enabled = false;
                     _cutsceneController.ActivateCutscene();
+
                 }
 
                 if (Input.GetKeyUp(KeyCode.Return))
@@ -120,6 +125,9 @@ public class DialogTextManager : MonoBehaviour {
             if (currentLineNumber > endLineNumber)
             {
                 DisableDialogBox();
+				if (shouldSpawn == true) {
+					spawningObject.Spawn ();
+				}
             }
         }
  

@@ -23,7 +23,9 @@ public class BossController : Damageable {
 
 	// Update is called once per frame
 	void Update () {
-
+		if (currentHealth <= 0 && UIAdapter.bossDead()) {
+			dead = true;
+		}
     }
 
     public override void takeDamage(int damage) {
@@ -35,11 +37,6 @@ public class BossController : Damageable {
         currentHealth = currentHealth - damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UIAdapter.damageBoss((float)damage, totalHealth);
-        print(totalHealth);
-        print(currentHealth);
-        if (currentHealth <= 0) {
-            dead = true;
-        }
     }
 
     

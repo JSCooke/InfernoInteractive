@@ -211,7 +211,7 @@ public class KingSlimeBehaviour : Spawnable {
 
         //Only animate death for smallest slimes
         if (this.GetComponent<KingSlimeBehaviour>().currentLevel == maxLevel) {
-            Quaternion targetRotation = targetRotation = Quaternion.Euler(new Vector3(90, 45, 0));
+            Quaternion targetRotation = Quaternion.Euler(new Vector3(90, 45, 0));
             rb.transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 2.5F);
 
             //Wait for 1 second animation to finish

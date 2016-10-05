@@ -19,6 +19,13 @@ public class BossController : Damageable {
         dead = false;
         currentHealth = maxHealth;
         difficulty = (int)difficultyLevel;
+
+        //set difficulty level if set in menu
+        if (GameData.get<Difficulty>("difficulty") != default(Difficulty)) {
+            difficultyLevel= GameData.get<Difficulty>("difficulty");
+            difficulty = (int)GameData.get<Difficulty>("difficulty");
+        }
+        print(GameData.get<Difficulty>("difficulty"));
     }
 
 	// Update is called once per frame

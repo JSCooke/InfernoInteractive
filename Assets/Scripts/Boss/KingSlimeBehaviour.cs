@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class KingSlimeBehaviour : Spawnable {
 
@@ -36,6 +37,9 @@ public class KingSlimeBehaviour : Spawnable {
 
     public GameObject boundary;
 
+    public AnimationClip[] animationClips;
+    private Dictionary<string, AnimationClip> animations = new Dictionary<string, AnimationClip>();
+
     // Use this for initialization
     void Start() {
         chargeParticles.enableEmission = false;
@@ -55,6 +59,12 @@ public class KingSlimeBehaviour : Spawnable {
 
         print (UnityEngine.GameObject.FindGameObjectsWithTag("Player"));
 
+		//Add animations to dictionary
+        animations.Add("Attack", animationClips[0]);
+        animations.Add("Dead", animationClips[1]);
+        animations.Add("Damage", animationClips[2]);
+        animations.Add("Walk", animationClips[3]);
+        animations.Add("Wait", animationClips[4]);
     }
 
     // Update is called once per frame
@@ -87,11 +97,19 @@ public class KingSlimeBehaviour : Spawnable {
         if (charging) {
             //print("charging");
             charge();
-        }
+			AnimationClip nextAnimation;
+			animations.TryGetValue("Walk", out nextAnimation);
+			gameObject.GetComponent<Animation>().clip = nextAnimation;
+			gameObject.GetComponent<Animation>().Play();
+		}
         else if (dashing) {
             //print("dashing");
             dashAttack();
-        }
+			AnimationClip nextAnimation;
+			animations.TryGetValue("Walk", out nextAnimation);
+			gameObject.GetComponent<Animation>().clip = nextAnimation;
+			gameObject.GetComponent<Animation>().Play();
+		}
         else if (finding) {
             //print("finding");
             findRandomPosition();
@@ -99,6 +117,10 @@ public class KingSlimeBehaviour : Spawnable {
         else if (roaming) {
             //print("roaming");
             roam();
+            AnimationClip nextAnimation;
+            animations.TryGetValue("Wait", out nextAnimation);
+            gameObject.GetComponent<Animation>().clip = nextAnimation;
+            gameObject.GetComponent<Animation>().Play();
         }
     }
 
@@ -211,8 +233,13 @@ public class KingSlimeBehaviour : Spawnable {
     }
 
     IEnumerator Die() {
-        //Only animate death for smallest slimes
-        if (this.GetComponent<KingSlimeBehaviour>().currentLevel == maxLevel) {
+		AnimationClip nextAnimation;
+		animations.TryGetValue("Walk", out nextAnimation);
+		gameObject.GetComponent<Animation>().clip = nextAnimation;
+		gameObject.GetComponent<Animation>().Play();
+
+		//Only animate death for smallest slimes
+		if (this.GetComponent<KingSlimeBehaviour>().currentLevel == maxLevel) {
             Quaternion targetRotation = Quaternion.Euler(new Vector3(90, 45, 0));
             rb.transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 2.5F);
 

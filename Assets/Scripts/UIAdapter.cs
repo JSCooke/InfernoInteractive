@@ -6,10 +6,26 @@ using System.Collections.Generic;
 public class UIAdapter : MonoBehaviour
 {
 	public BarScript playerBar, bossBar;
+	public Animator deathA, winA, achievementA;
+	public TimerScript tempTimer;
+
+	public Image tempAchievementImageBox;
+	public Text tempAchievementTextBox;
+
+	//This needs to be altered in this class to show points earned.
+	public Text tempWinText;
+
 
 	void Start() {
 		player = playerBar;
 		boss = bossBar;
+		achievementAnimator = achievementA;
+		winAnimator = winA;
+		deathAnimator = deathA;
+		achievementImageBox = tempAchievementImageBox;
+		achievementTextBox = tempAchievementTextBox;
+		winText = tempWinText;
+		timer = tempTimer;
 	}
 
 	void Update() {
@@ -68,6 +84,10 @@ public class UIAdapter : MonoBehaviour
 		if (!playerDead () && !bossDead()) {
 			playerVal -= hp;
 			PlayerVal = playerVal;
+
+			if (playerDead ()) {
+				die ();
+			}
 		}
 		return PlayerVal;
 	}
@@ -78,6 +98,9 @@ public class UIAdapter : MonoBehaviour
 		if (!bossDead () && !playerDead()) {
 			bossVal -= hp;
 			BossVal = bossVal;
+			if (bossDead ()) {
+				win ();
+			}
 		}
 		return BossVal;
 	}
@@ -117,7 +140,7 @@ public class UIAdapter : MonoBehaviour
 
 	//Returns true if the player is dead.
 	public static bool playerDead() {
-		if (PlayerVal == 0){
+		if (Mathf.Floor(PlayerVal) == 0){
 			return true;
 		}else{
 			return false;
@@ -126,7 +149,7 @@ public class UIAdapter : MonoBehaviour
 
 	//Returns true if the boss is dead.
 	public static bool bossDead() {
-		if (BossVal == 0){
+		if (Mathf.Floor(BossVal) == 0){
 			return true;
 		}else{
 			return false;

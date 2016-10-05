@@ -53,10 +53,7 @@ public class ActivateNewDialog : MonoBehaviour {
             dialogManager.ReloadScript(theText);
             dialogManager.currentLineNumber = startLine;
             dialogManager.endLineNumber = endLine;
-            if(cutscene != null)
-            {
-                dialogManager.SetCutscene(mainCamera, cutsceneController, lineNumber);
-            }
+            dialogManager.SetCutscene(mainCamera, cutsceneController, lineNumber);
             dialogManager.EnableDialogBox();
 
 			if (shouldSpawn == true) {

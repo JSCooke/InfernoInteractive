@@ -168,10 +168,13 @@ public class DialogTextManager : MonoBehaviour {
 
     public void SetCutscene(GameObject mainCamera, QuickCutsceneController sceneController, int lineNumber)
     {
-        _cutscenePresent = true;
-        _mainCamera = mainCamera;
-        _cutsceneController = sceneController;
-        _lineNumber = lineNumber;
-
+        if (sceneController != null) {
+            _cutscenePresent = true;
+            _mainCamera = mainCamera;
+            _cutsceneController = sceneController;
+            _lineNumber = lineNumber;
+        } else {
+            _cutscenePresent = false;
+        }
     }
 }

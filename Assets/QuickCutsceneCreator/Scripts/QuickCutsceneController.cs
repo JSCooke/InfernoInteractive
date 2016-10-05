@@ -588,7 +588,7 @@ public class QuickCutsceneController : MonoBehaviour {
 	public void EndCutscene()
 	{
 		StopCoroutine("PlayCutscene");
-		Time.timeScale = initialTimescale;
+		//Time.timeScale = initialTimescale;
 		Time.fixedDeltaTime = initialFixedDeltaTime;
 		currentNodePosition = 0;
 		playingCutscene = false;

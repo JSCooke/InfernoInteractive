@@ -23,7 +23,9 @@ public class ActivateNewDialog : MonoBehaviour {
     // Use this for initialization
     void Start () {
         dialogManager = FindObjectOfType<DialogTextManager>();
-        cutsceneController = cutscene.GetComponent<QuickCutsceneController>();
+        if (cutscene != null) {
+            cutsceneController = cutscene.GetComponent<QuickCutsceneController>();
+        }
 	}
 	
 	// Update is called once per frame

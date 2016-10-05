@@ -36,7 +36,6 @@ public class KingSlimeBehaviour : Spawnable {
 
     // Use this for initialization
     void Start() {
-
         chargeParticles.enableEmission = false;
         rb = GetComponent<Rigidbody>();
 
@@ -232,6 +231,7 @@ public class KingSlimeBehaviour : Spawnable {
         spawnPoint.z += 20;
         spawnPoint.y += 5;
         Instantiate(this, spawnPoint, Quaternion.identity);
+		UIAdapter.setBossUI (true);
     }
 
 }

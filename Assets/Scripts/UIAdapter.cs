@@ -6,6 +6,8 @@ using System.Collections.Generic;
 public class UIAdapter : MonoBehaviour
 {
 	public BarScript playerBar, bossBar;
+	public Image bar1, bar2;
+	public Image playerPic, bossPic;
 	public Animator deathA, winA, achievementA;
 	public TimerScript tempTimer;
 
@@ -16,7 +18,14 @@ public class UIAdapter : MonoBehaviour
 	public Text tempWinText;
 
 
+	//ben made this
+	public static Image topBar,bottomBar;
+
 	void Start() {
+		topBar = bar1;
+		bottomBar = bar2;
+		playerPortrait = playerPic;
+		bossPortrait = bossPic;
 		player = playerBar;
 		boss = bossBar;
 		achievementAnimator = achievementA;
@@ -32,6 +41,8 @@ public class UIAdapter : MonoBehaviour
 		//print(boss);
 	}
 
+
+	public static Image playerPortrait;
 	public static BarScript player;
 	public static float playerVal = 100;
 	public static float PlayerVal {
@@ -43,6 +54,7 @@ public class UIAdapter : MonoBehaviour
 		}
 	}
 
+	public static Image bossPortrait;
 	public static BarScript boss;
 	public static float bossVal = 100;
 	public static float BossVal {
@@ -154,5 +166,17 @@ public class UIAdapter : MonoBehaviour
 		}else{
 			return false;
 		}
+	}
+
+	public static void setBossUI(bool ui){
+		print ("GotCAlled");
+		print (ui);
+		topBar.gameObject.SetActive (ui);
+		bottomBar.gameObject.SetActive (ui);
+		playerPortrait.gameObject.SetActive (ui);
+		bossPortrait.gameObject.SetActive (ui);
+
+//		bossPortrait.enabled = ui;
+//		boss.enabled = ui;
 	}
 }

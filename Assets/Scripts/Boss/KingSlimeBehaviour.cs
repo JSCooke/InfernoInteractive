@@ -234,7 +234,7 @@ public class KingSlimeBehaviour : Spawnable {
 
     IEnumerator Die() {
 		AnimationClip nextAnimation;
-		animations.TryGetValue("Walk", out nextAnimation);
+		animations.TryGetValue("Dead", out nextAnimation);
 		gameObject.GetComponent<Animation>().clip = nextAnimation;
 		gameObject.GetComponent<Animation>().Play();
 

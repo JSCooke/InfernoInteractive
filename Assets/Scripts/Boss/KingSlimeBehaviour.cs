@@ -34,6 +34,8 @@ public class KingSlimeBehaviour : Spawnable {
     private int currentHealth, maxHealth;
     public int attackRate = 10;
 
+    public GameObject boundary;
+
     // Use this for initialization
     void Start() {
         chargeParticles.enableEmission = false;
@@ -225,12 +227,13 @@ public class KingSlimeBehaviour : Spawnable {
     }
 
     public override void Spawn() {
-		print ("spawning");
+
 		Start ();
         Vector3 spawnPoint = player.transform.position;
         spawnPoint.z += 20;
         spawnPoint.y += 2;
         Instantiate(this, spawnPoint, Quaternion.identity);
+        Instantiate(boundary,new Vector3(0,0,395),Quaternion.identity);
 		UIAdapter.setBossUI (true);
     }
 

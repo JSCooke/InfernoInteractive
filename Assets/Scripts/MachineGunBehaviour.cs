@@ -39,6 +39,10 @@ public class MachineGunBehaviour : ControlStationBehaviour {
 		//print (gun.transform.localRotation.eulerAngles.y);
 
 		if (up && Time.fixedTime > lastShotTime + cooldown) {
+
+            //fail the cannon only achievement
+            AchievementController.updateAchievement("Cannon King", false);
+
             foreach (GameObject spawner in spawners)
             {
                 lastShotTime = Time.fixedTime;

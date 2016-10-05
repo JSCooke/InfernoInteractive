@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Collections;
 
 public class UIAdapter : MonoBehaviour
 {
@@ -127,19 +128,33 @@ public class UIAdapter : MonoBehaviour
 	}
 
 	//Causes an achievement box to pop up.
-	public static void achieve(String achievementText, Sprite achievementSprite){
+	 public static void achieve(String achievementText, Sprite achievementSprite){
+        print(achievementText);
 		achievementTextBox.text = achievementText;	//Change text to whatever achievement value is.
 		achievementImageBox.sprite = achievementSprite;	//Change sprite to whatever achievement sprite is.
-		achievementAnimator.SetTrigger ("Achievement");
-	}
+
+        achievementAnimator.SetTrigger ("Achievement");
+    }
+
 	public static void die(){
 		deathAnimator.SetTrigger ("Death");
 		stopTimer ();
 	}
 	public static void win(){
 		stopTimer ();
-		//More complex scores may be used later. For now, for every second under 10 minutes gets a point.
-		int points = 600 - (timer.getTime() [0] * 60) - (timer.getTime() [1]);
+
+        //if the time taken to win is longer than 70 you fail the achievement
+        if((timer.getTime()[0] * 60) - (timer.getTime()[1]) > 70)
+        {
+            //fail the speed runner achievement
+            AchievementController.updateAchievement("Speedrunner", false);
+        }
+
+        //cycle through all achievements youved gained
+        AchievementController.displayAchievements();
+
+        //More complex scores may be used later. For now, for every second under 10 minutes gets a point.
+        int points = 600 - (timer.getTime() [0] * 60) - (timer.getTime() [1]);
 		//Prevent negative scores
 		if (points < 0) {
 			points = 0;

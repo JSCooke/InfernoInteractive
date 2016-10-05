@@ -51,7 +51,9 @@ public class KingSlimeBehaviour : Spawnable {
 			player = UnityEngine.GameObject.FindGameObjectsWithTag("Player")[0];
         }
 
-		print (UnityEngine.GameObject.FindGameObjectsWithTag("Player"));
+
+
+        print (UnityEngine.GameObject.FindGameObjectsWithTag("Player"));
 
     }
 
@@ -209,7 +211,6 @@ public class KingSlimeBehaviour : Spawnable {
     }
 
     IEnumerator Die() {
-		print ("dead");
         //Only animate death for smallest slimes
         if (this.GetComponent<KingSlimeBehaviour>().currentLevel == maxLevel) {
             Quaternion targetRotation = Quaternion.Euler(new Vector3(90, 45, 0));
@@ -233,7 +234,7 @@ public class KingSlimeBehaviour : Spawnable {
         spawnPoint.z += 20;
         spawnPoint.y += 2;
         Instantiate(this, spawnPoint, Quaternion.identity);
-        Instantiate(boundary,new Vector3(0,0,395),Quaternion.identity);
+        //Instantiate(boundary, new Vector3(0,0,395),Quaternion.identity);
 		UIAdapter.setBossUI (true);
     }
 

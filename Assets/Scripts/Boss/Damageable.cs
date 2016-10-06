@@ -9,9 +9,21 @@ public class Damageable : MonoBehaviour {
 	public string damagedBy; //PlayerProjectile
     public bool dead = false;
 
-    void Start() {
+	private float lastDamageTime = 0;
+	private Animator animator;
+
+	void Start() {
         currentHealth = maxHealth;
-    }
+		animator = GetComponent<Animator>();
+	}
+
+	void Update()
+	{
+		if (Time.fixedTime - lastDamageTime > 0.5)
+		{
+			animator.SetBool("isBlink", false);
+		}
+	}
 
     void OnTriggerEnter(Collider collider){
 		if (collider.gameObject.tag == damagedBy) {
@@ -21,7 +33,10 @@ public class Damageable : MonoBehaviour {
 	}
 
 	public virtual void takeDamage(int damage){
-        currentHealth -= damage;
+		lastDamageTime = Time.fixedTime;
+		animator.SetBool("isBlink", true);
+
+		currentHealth -= damage;
         if (currentHealth <= 0) {
             Destroy(gameObject);
         }

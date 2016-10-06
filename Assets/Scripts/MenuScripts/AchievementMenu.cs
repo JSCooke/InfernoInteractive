@@ -32,6 +32,7 @@ public class AchievementMenu : MonoBehaviour {
 						Color temp = temp2.color;
 						temp.a = 1f;
 						temp2.color = temp;
+
 					}
 
 					//yay you found it
@@ -41,5 +42,6 @@ public class AchievementMenu : MonoBehaviour {
 
 
 		}
+
 	}
 }

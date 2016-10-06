@@ -19,7 +19,7 @@ public class TankCloner : MonoBehaviour {
 			}
 			//set rigidbody to kinematic and disable movement
 			GetComponent<Rigidbody> ().isKinematic = true;
-			GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeAll;
+			//GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeAll;
 
 			//Add proxy movement controllers to the 'real' players so that their movement is determined by the clone ones instead
 			for (int i=0; i<2; i++) {

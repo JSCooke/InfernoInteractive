@@ -1,6 +1,6 @@
 # InfernoInteractive
 
-============ Welcome to TwoMinds ===============
+============ Welcome to TwoMinds ===============  
 To run the game, please double-click the TwoMinds.exe file.
 
 The first scene that will appear is our company splash screen. 

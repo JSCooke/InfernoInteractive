@@ -19,7 +19,7 @@ public class Damageable : MonoBehaviour {
 
 	void Update()
 	{
-		if (Time.fixedTime - lastDamageTime > 0.5)
+		if ((animator != null) && (Time.fixedTime - lastDamageTime > 0.5))
 		{
 			animator.SetBool("isBlink", false);
 		}
@@ -34,7 +34,10 @@ public class Damageable : MonoBehaviour {
 
 	public virtual void takeDamage(int damage){
 		lastDamageTime = Time.fixedTime;
-		animator.SetBool("isBlink", true);
+		if (animator != null)
+		{
+			animator.SetBool("isBlink", true);
+		}
 
 		currentHealth -= damage;
         if (currentHealth <= 0) {

@@ -79,7 +79,7 @@ public class TankController : MonoBehaviour {
     public void takeDamage(int damage) {
 
         //fail the no damage achievement
-		AchievementController.hasBeenDamaged = false;
+		AchievementController.hasBeenDamaged = true;
 
         if (shield.gameObject.activeSelf) {
             lastDamageTime = Time.fixedTime;

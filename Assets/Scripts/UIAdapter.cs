@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
+using System.Threading;
 
 public class UIAdapter : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class UIAdapter : MonoBehaviour
 
 	//This needs to be altered in this class to show points earned.
 	public Text tempWinText;
+
+	public AnimationClip amin;
 
 
 	//ben made this
@@ -152,11 +155,10 @@ public class UIAdapter : MonoBehaviour
 	 * Pass in text and a sprite, and they'll be on the box.
 	 */
 	 public static void achieve(String achievementText, Sprite achievementSprite){
-        print(achievementText);
+		print (achievementText+"changin text to ");
 		achievementTextBox.text = achievementText;	//Change text to whatever achievement value is.
 		achievementImageBox.sprite = achievementSprite;	//Change sprite to whatever achievement sprite is.
-
-        achievementAnimator.SetTrigger ("Achievement");
+		achievementAnimator.SetTrigger ("Achievement");
     }
 	/**
 	 * Calls up the death screen, and stops the timer.
@@ -173,25 +175,31 @@ public class UIAdapter : MonoBehaviour
 	 */
 	public static void win(){
         winAnimator.gameObject.SetActive(true);
+		print ("Winning");
 		stopTimer ();
 
+        List<string> achievementsToDisplay = new List<string>();
 		//update all achievement values
-		if (AchievementController.hasBeenDamaged) {
-			AchievementController.updateAchievement("Untouchable!", AchievementController.hasBeenDamaged);
+		if (!AchievementController.hasBeenDamaged) {
+			AchievementController.updateAchievement("Untouchable!", !AchievementController.hasBeenDamaged);
+            achievementsToDisplay.Add("Untouchable!");
 		}
 		if (AchievementController.hasUsedOnlyCannon) {
 			AchievementController.updateAchievement("Cannon King", AchievementController.hasUsedOnlyCannon);
-		}
-		//if the time taken to win is longer than 70 you fail the achievement
-        if((timer.getTime()[0] * 60) - (timer.getTime()[1]) < 70)
+            achievementsToDisplay.Add("Cannon King");
+
+        }
+        //if the time taken to win is longer than 70 you fail the achievement
+        if ((timer.getTime()[0] * 60) - (timer.getTime()[1]) < 70)
         {
             //fail the speed runner achievement
             AchievementController.updateAchievement("Speedrunner", true);
+            achievementsToDisplay.Add("Speedrunner");
         }
 			
 
         //cycle through all achievements youved gained
-        AchievementController.displayAchievements();
+        AchievementController.displayAchievements(achievementsToDisplay);
 
         //More complex scores may be used later. For now, for every second under 10 minutes gets a point.
         int points = 600 - (timer.getTime() [0] * 60) - (timer.getTime() [1]);

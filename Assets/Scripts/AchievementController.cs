@@ -23,6 +23,8 @@ public class AchievementController : MonoBehaviour {
 	//static dictionary that maps strings to the corresponding achievement sprite
     public static Dictionary<string, Sprite> achievementSprites = new Dictionary<string, Sprite>();
 
+	public static Queue<string> achievementQueue = new Queue<string>();
+
     public static AchievementController instance;
 
     // Use this for initialization
@@ -46,17 +48,21 @@ public class AchievementController : MonoBehaviour {
 			achievementSprites.Add(achievement1, achievement1Sprite);
 		}
 		if (!achievementSprites.ContainsKey (achievement2)) {
-			achievementSprites.Add(achievement2, achievement1Sprite);
+			achievementSprites.Add(achievement2, achievement2Sprite);
 		}
 		if (!achievementSprites.ContainsKey (achievement3)) {
-			achievementSprites.Add(achievement3, achievement1Sprite);
+			achievementSprites.Add(achievement3, achievement3Sprite);
 		}
        
     }
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (UIAdapter.achievementAnimator.GetCurrentAnimatorStateInfo (0).IsName ("Idle") && achievementQueue.Count != 0) {
+			string achievementName = achievementQueue.Dequeue();
+			print (achievementName+" is printing");
+			UIAdapter.achieve (achievementName, achievementSprites [achievementName]);
+		}
 	}
 
     public static void updateAchievement(string achievement, bool value)
@@ -74,12 +80,13 @@ public class AchievementController : MonoBehaviour {
                 print("Inhere");
                 print(entry.Key);
 
-                UIAdapter.achieve(entry.Key, achievementSprites[entry.Key]);
-                
-                //add the static dictionaries to the gamedata
-                GameData.put("Achievements", new AchievementController());
+//                UIAdapter.achieve(entry.Key, achievementSprites[entry.Key]);
+				achievementQueue.Enqueue(entry.Key);
             }
         }
-    }
+
+		//add the static dictionaries to the gamedata
+		GameData.put("Achievements", new AchievementController());
+	}
 
 }

@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
+using System.Threading;
 
 public class UIAdapter : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class UIAdapter : MonoBehaviour
 
 	//This needs to be altered in this class to show points earned.
 	public Text tempWinText;
+
+	public AnimationClip amin;
 
 
 	//ben made this
@@ -127,11 +130,10 @@ public class UIAdapter : MonoBehaviour
 
 	/** 	 * Causes an achievement box to pop up. 	 * Pass in text and a sprite, and they'll be on the box. 	 */
 	 public static void achieve(String achievementText, Sprite achievementSprite){
-        print(achievementText);
+		print (achievementText+"changin text to ");
 		achievementTextBox.text = achievementText;	//Change text to whatever achievement value is.
 		achievementImageBox.sprite = achievementSprite;	//Change sprite to whatever achievement sprite is.
-
-        achievementAnimator.SetTrigger ("Achievement");
+		achievementAnimator.SetTrigger ("Achievement");
     }
 	/** 	 * Calls up the death screen, and stops the timer. 	 */ 
 	public static void die(){
@@ -141,11 +143,11 @@ public class UIAdapter : MonoBehaviour
 
 	/** 	 * Calls up the win screen, stops the timer and calculates the score. 	 * Also checks for achivements. 	 */
 	public static void win(){
+		print ("Winning");
 		stopTimer ();
-
 		//update all achievement values
-		if (AchievementController.hasBeenDamaged) {
-			AchievementController.updateAchievement("Untouchable!", AchievementController.hasBeenDamaged);
+		if (!AchievementController.hasBeenDamaged) {
+			AchievementController.updateAchievement("Untouchable!", !AchievementController.hasBeenDamaged);
 		}
 		if (AchievementController.hasUsedOnlyCannon) {
 			AchievementController.updateAchievement("Cannon King", AchievementController.hasUsedOnlyCannon);

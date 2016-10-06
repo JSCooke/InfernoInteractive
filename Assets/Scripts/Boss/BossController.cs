@@ -13,6 +13,7 @@ public class BossController : Damageable {
 
     public int difficulty = 0;
     public float totalHealth = 0;
+	private bool achievementsDone = false;
 
     // Use this for initialization
     void Start () {
@@ -26,13 +27,6 @@ public class BossController : Damageable {
             difficulty = (int)GameData.get<Difficulty>("difficulty");
         }
         print(GameData.get<Difficulty>("difficulty"));
-    }
-
-	// Update is called once per frame
-	void Update () {
-		if ( UIAdapter.bossDead()) {
-			UIAdapter.win ();
-		}
     }
 
     public override void takeDamage(int damage) {

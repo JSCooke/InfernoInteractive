@@ -2,11 +2,18 @@
 using System.Collections;
 
 public class MovementStationBehaviour : ControlStationBehaviour {
-	public GameObject tank;
+	public UnityEngine.GameObject tank;
     public TankController tankController;
-	public GameObject tankBase;
+	public UnityEngine.GameObject tankBase;
 
 	public float rotationSpeed;
+
+	void Start(){
+		//Auto-find tank references on start
+		tankController = GetComponentInParent<TankController> ();
+		tank = tankController.gameObject;
+		tankBase = tank.transform.Find ("Treads").gameObject;
+	}
 
 	public override void keyHeld(bool up, bool left, bool down, bool right){
 		if (left && !right) {
@@ -16,14 +23,25 @@ public class MovementStationBehaviour : ControlStationBehaviour {
 		if (right && !left) {
 			tankBase.transform.Rotate (0, rotationSpeed * Time.deltaTime, 0);
 		}
+	}
 
-        if(up && !down) {
-            tankController.accelerate();
-        }
+	public override void keyPressed(bool up, bool left, bool down, bool right){
+		if (up) {
+			tankController.accelerate ();
+		}
+		
+		if (down) {
+			tankController.decelerate ();
+		}
+	}
 
-        if (down && !up) {
-            tankController.decelerate();
-        }
-
+	public override void keyReleased(bool up, bool left, bool down, bool right){
+		if (up) {
+			tankController.stopAccelerate ();
+		}
+		
+		if (down) {
+			tankController.stopDecelerate ();
+		}
 	}
 }

@@ -521,7 +521,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160562}
   m_LocalRotation: {x: 0.0000026727428, y: -5.1955072e-12, z: 0.000001943886, w: 1}
-  m_LocalPosition: {x: -14.262187, y: 0.39999887, z: 360.39664}
+  m_LocalPosition: {x: 0, y: 0.5, z: 346.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -1119,9 +1119,9 @@ Rigidbody:
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 2
+  m_Interpolate: 0
   m_Constraints: 116
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!54 &5483262
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -1134,9 +1134,9 @@ Rigidbody:
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 2
+  m_Interpolate: 0
   m_Constraints: 116
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!54 &5485664
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -1149,9 +1149,9 @@ Rigidbody:
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 2
+  m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!65 &6507582
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1247,7 +1247,7 @@ MonoBehaviour:
   - {fileID: 198196, guid: dd6a5ce8d97726642b24da64a47e10d9, type: 2}
   defensiveStations:
   - {fileID: 156960, guid: ad7c4edc7e9c66a4ba2f4dfc4351ea30, type: 2}
-  - {fileID: 156960, guid: ae5af660735501d4ca37dab5cfc89d8a, type: 2}
+  - {fileID: 0}
   - {fileID: 156960, guid: 2266145a219365a4fa27236d61d37414, type: 2}
   startingStation: Movement Control
   stationName: central
@@ -1325,7 +1325,7 @@ MonoBehaviour:
   - {fileID: 198196, guid: dd6a5ce8d97726642b24da64a47e10d9, type: 2}
   defensiveStations:
   - {fileID: 156960, guid: ad7c4edc7e9c66a4ba2f4dfc4351ea30, type: 2}
-  - {fileID: 156960, guid: ae5af660735501d4ca37dab5cfc89d8a, type: 2}
+  - {fileID: 0}
   - {fileID: 156960, guid: 2266145a219365a4fa27236d61d37414, type: 2}
   startingStation: Big Cannon
   stationName: north
@@ -1352,7 +1352,7 @@ MonoBehaviour:
   - {fileID: 198196, guid: dd6a5ce8d97726642b24da64a47e10d9, type: 2}
   defensiveStations:
   - {fileID: 156960, guid: ad7c4edc7e9c66a4ba2f4dfc4351ea30, type: 2}
-  - {fileID: 156960, guid: ae5af660735501d4ca37dab5cfc89d8a, type: 2}
+  - {fileID: 180858, guid: ae5af660735501d4ca37dab5cfc89d8a, type: 2}
   - {fileID: 156960, guid: 2266145a219365a4fa27236d61d37414, type: 2}
   startingStation: Shield
   stationName: south
@@ -1379,7 +1379,7 @@ MonoBehaviour:
   - {fileID: 198196, guid: dd6a5ce8d97726642b24da64a47e10d9, type: 2}
   defensiveStations:
   - {fileID: 156960, guid: ad7c4edc7e9c66a4ba2f4dfc4351ea30, type: 2}
-  - {fileID: 156960, guid: ae5af660735501d4ca37dab5cfc89d8a, type: 2}
+  - {fileID: 0}
   - {fileID: 156960, guid: 2266145a219365a4fa27236d61d37414, type: 2}
   startingStation: Machine Gun
   stationName: west
@@ -1427,7 +1427,7 @@ MonoBehaviour:
   - {fileID: 198196, guid: dd6a5ce8d97726642b24da64a47e10d9, type: 2}
   defensiveStations:
   - {fileID: 156960, guid: ad7c4edc7e9c66a4ba2f4dfc4351ea30, type: 2}
-  - {fileID: 156960, guid: ae5af660735501d4ca37dab5cfc89d8a, type: 2}
+  - {fileID: 0}
   - {fileID: 156960, guid: 2266145a219365a4fa27236d61d37414, type: 2}
   startingStation: Machine Gun
   stationName: east

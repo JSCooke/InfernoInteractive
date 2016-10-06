@@ -195,15 +195,6 @@ public class KingSlimeBehaviour : Spawnable {
         
     }
 
-    void OnTriggerStay(Collider collider) {
-        string collidedTag = collider.gameObject.tag;
-        if (collidedTag == "Player" || collidedTag == "Enemy") {
-            dashing = false;
-            finding = true;
-        }
-
-    }
-
     void duplicate() {
 
         float radius = 2f;

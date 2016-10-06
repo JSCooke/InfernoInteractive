@@ -19,9 +19,10 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		movement ();
-		resetPosition ();
-
+		if (!UIAdapter.playerDead()) {
+			movement ();
+			resetPosition ();
+		}
 	}
 
 	void movement(){

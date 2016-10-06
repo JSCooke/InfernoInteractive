@@ -20,7 +20,7 @@ public class playMenu : MonoBehaviour {
     public void LoadScene(int level)
     {
 		print (level);
-        SceneManager.LoadScene(level);
+        SceneManager.LoadScene(level+1);
     }
 
     public void BackPress()

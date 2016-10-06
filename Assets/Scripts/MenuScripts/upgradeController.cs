@@ -16,8 +16,24 @@ public class upgradeController : MonoBehaviour {
             unlockedStations.Add("Machine Gun");
             unlockedStations.Add("Shield");
             unlockedStations.Add("Movement Control");
-            GameData.put("unlocked stations", unlockedStations);
         }
+
+		foreach (KeyValuePair<string, bool> achievement in AchievementController.achievements) {
+			if (achievement.Value == true) {
+				if (achievement.Key == "Cannon King") {
+					print ("hello adding mach 2 machine");
+					unlockedStations.Add ("Big Cannon Mk2");
+				} else if (achievement.Key == "Speedrunner") {
+					print ("hello adding mach 2 machine");
+					unlockedStations.Add ("Machine Gun Mk2");
+				} else if (achievement.Key == "Untouchable!") {
+					print ("hello adding mach 2 machine");
+					unlockedStations.Add ("Shield Mk2");
+				}
+			}
+		}
+
+		GameData.put("unlocked stations", unlockedStations);
 
         //enable buttons only for stations which have been unlocked
         foreach (Transform t in transform.GetComponentsInChildren<Transform>(true)) {
@@ -26,7 +42,7 @@ public class upgradeController : MonoBehaviour {
                 if (unlockedStations.Contains(t.gameObject.name)) {
                     t.gameObject.SetActive(true);
                 } else {
-                    //Destroy(t.gameObject);
+					t.gameObject.SetActive(false);
                 }
             }
         }

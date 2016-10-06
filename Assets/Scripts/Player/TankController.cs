@@ -36,11 +36,17 @@ public class TankController : MonoBehaviour {
 
 	void FixedUpdate(){
 		if (doAccelerate && !doDecelerate) {
-			rb.AddForce (tankBase.transform.forward * acceleration, ForceMode.Acceleration);
+
+			//Clamping y vector
+			Vector3 movement = tankBase.transform.forward;
+			movement.y = Mathf.Clamp (movement.y, -0.5f, 0.1f);
+			rb.AddForce (movement * acceleration, ForceMode.Acceleration);
 		}
 		if (doDecelerate && !doAccelerate) {
 			rb.AddForce (-tankBase.transform.forward * acceleration, ForceMode.Acceleration);
 		}
+
+		rb.velocity = rb.velocity.normalized * Mathf.Min (topSpeed, rb.velocity.magnitude);
 
 		//Calculate the horizontal speed of the tank (how much it's 'sliding') and apply drag in that direction
 		float horizontalSpeed=Vector3.Project (rb.velocity, tankBase.transform.right).magnitude;

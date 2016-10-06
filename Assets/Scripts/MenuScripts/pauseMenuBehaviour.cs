@@ -59,17 +59,18 @@ public class pauseMenuBehaviour : MonoBehaviour {
     public void mainPress()
     {
         //TODO close the current game
-        Application.LoadLevel(0);
+		SceneManager.LoadScene("Main");
     }
 
     public void resumePress()
     {
 		//UNPAUSE
+		Time.timeScale = 1;
 		this.GetComponent<Canvas> ().enabled = false;
     }
 
     public void restartPress()
     {
-		Application.LoadLevel(1);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

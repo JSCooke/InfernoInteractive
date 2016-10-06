@@ -27,7 +27,7 @@ public class mainMenu : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+       
 
         quitMenu = quitMenu.GetComponent<Canvas>();
         playButton = playButton.GetComponent<Button>();

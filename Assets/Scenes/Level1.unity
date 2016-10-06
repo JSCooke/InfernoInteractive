@@ -3684,7 +3684,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 374623261}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 442ad05748ec1674ca9d303f272ad5fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 97f616dc867441a41aed33c060ffe33b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 105905802}
@@ -3780,7 +3780,7 @@ MonoBehaviour:
   theText: {fileID: 4900000, guid: d937606e41c3768409b36049a1107707, type: 3}
   startLine: 0
   endLine: 0
-  dialogManager: {fileID: 374623262}
+  dialogManager: {fileID: 0}
   destroyWhenActivated: 1
   stopGameMovements: 1
   lineNumber: 2
@@ -5572,7 +5572,7 @@ MonoBehaviour:
   theText: {fileID: 4900000, guid: 1fc52be48fe5097418d59cfdf8113a78, type: 3}
   startLine: 0
   endLine: 0
-  dialogManager: {fileID: 374623262}
+  dialogManager: {fileID: 0}
   destroyWhenActivated: 1
   stopGameMovements: 1
   lineNumber: 1
@@ -8900,6 +8900,10 @@ Prefab:
     - target: {fileID: 11435354, guid: d703a8b7d06214aa490394f28607f124, type: 2}
       propertyPath: m_Interactable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 123422, guid: d703a8b7d06214aa490394f28607f124, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d703a8b7d06214aa490394f28607f124, type: 2}
@@ -15733,6 +15737,10 @@ Prefab:
       propertyPath: m_Interactable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 154570, guid: b0107f5c46f784ad89d51606b936eb23, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0107f5c46f784ad89d51606b936eb23, type: 2}
   m_IsPrefabParent: 0
@@ -16044,7 +16052,7 @@ MonoBehaviour:
   theText: {fileID: 4900000, guid: 8868420ab1c7f6e4a995fff69197a989, type: 3}
   startLine: 0
   endLine: 0
-  dialogManager: {fileID: 374623262}
+  dialogManager: {fileID: 0}
   destroyWhenActivated: 1
   stopGameMovements: 1
   lineNumber: 1

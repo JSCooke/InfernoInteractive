@@ -60,11 +60,11 @@ public class KingSlimeBehaviour : Spawnable {
         print (UnityEngine.GameObject.FindGameObjectsWithTag("Player"));
 
 		//Add animations to dictionary
-        animations.Add("Attack", animationClips[0]);
-        animations.Add("Dead", animationClips[1]);
-        animations.Add("Damage", animationClips[2]);
-        animations.Add("Walk", animationClips[3]);
-        animations.Add("Wait", animationClips[4]);
+        animations["Attack"] = animationClips[0];
+        animations["Dead"] =  animationClips[1];
+        animations["Damage"] =  animationClips[2];
+        animations["Walk"] = animationClips[3];
+        animations["Wait"] = animationClips[4];
     }
 
     // Update is called once per frame

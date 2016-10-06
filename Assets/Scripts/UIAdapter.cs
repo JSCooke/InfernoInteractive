@@ -36,6 +36,9 @@ public class UIAdapter : MonoBehaviour
 		achievementTextBox = tempAchievementTextBox;
 		winText = tempWinText;
 		timer = tempTimer;
+
+        playerVal = 100;
+        bossVal = 100;
 	}
 
 	void Update() {
@@ -79,19 +82,29 @@ public class UIAdapter : MonoBehaviour
 
 	//This needs to be altered in this class to show points earned.
 	public static Text winText;
-	/** 	 * Stops the timer, can be started with startTimer. 	 */ 	
+	/**
+	 * Stops the timer, can be started with startTimer.
+	 */ 	
 	public static void stopTimer(){
 		timer.Stop = true;
 	}
-	/** 	 * Starts the timer, can be stopped with stopTimer. 	 */ 
+	/**
+	 * Starts the timer, can be stopped with stopTimer.
+	 */ 
 	public static void startTimer(){
 		timer.Stop = false;
 	}
-	/** 	 * This returns an array of 2 floats representing the curent time. 	 * The first (index 0) is the minutes, the second (index 1) is the seconds. 	 */ 
+	/**
+	 * This returns an array of 2 floats representing the curent time.
+	 * The first (index 0) is the minutes, the second (index 1) is the seconds.
+	 */ 
 	public static int[] getTime() {
 		return timer.getTime ();
 	}
-	/** 	 * Decreases (negative values will increase) the player's health by the input percentage. 	 * Returns the remaining hp of the player. (Pass in 0 to use this as a getter) 	 */
+	/**
+	 * Decreases (negative values will increase) the player's health by the input percentage.
+	 * Returns the remaining hp of the player. (Pass in 0 to use this as a getter)
+	 */
 	public static float damagePlayer(float hp){
 		if (!playerDead () && !bossDead()) {
 			playerVal -= hp;
@@ -104,7 +117,10 @@ public class UIAdapter : MonoBehaviour
 		return PlayerVal;
 	}
 
-	/** 	 * Reduces (negative increases) the boss's health by the input percentage. 	 * Returns the remaining hp of the boss. (Pass in 0 to use this as a getter) 	 */ 
+	/**
+	 * Reduces (negative increases) the boss's health by the input percentage.
+	 * Returns the remaining hp of the boss. (Pass in 0 to use this as a getter)
+	 */ 
 	public static float damageBoss(float hp){
 		if (!bossDead () && !playerDead()) {
 			bossVal -= hp;
@@ -116,16 +132,25 @@ public class UIAdapter : MonoBehaviour
 		return BossVal;
 	}
 
-	/** 	 * Overload of damagePlayer allowing for players to have max hp other than 100 	 * Pass in the max HP as the second value and it will perform the calculation 	 */
+	/**
+	 * Overload of damagePlayer allowing for players to have max hp other than 100
+	 * Pass in the max HP as the second value and it will perform the calculation
+	 */
 	public static float damageBoss(float damage, float maxHp){
 		return damageBoss (BarScript.Map (damage, 0, maxHp, 0, 100));
 	}
-	/** 	 * Overload of damagePlayer allowing for players to have max hp other than 100 	 * Pass in the max HP as the second value and it will perform the calculation 	 */ 
+	/**
+	 * Overload of damagePlayer allowing for players to have max hp other than 100
+	 * Pass in the max HP as the second value and it will perform the calculation
+	 */ 
 	public static float damagePlayer(float damage, float maxHP) {
 		return damagePlayer(BarScript.Map(damage, 0, maxHP, 0, 100));
 	}
 
-	/** 	 * Causes an achievement box to pop up. 	 * Pass in text and a sprite, and they'll be on the box. 	 */
+	/**
+	 * Causes an achievement box to pop up.
+	 * Pass in text and a sprite, and they'll be on the box.
+	 */
 	 public static void achieve(String achievementText, Sprite achievementSprite){
         print(achievementText);
 		achievementTextBox.text = achievementText;	//Change text to whatever achievement value is.
@@ -133,14 +158,21 @@ public class UIAdapter : MonoBehaviour
 
         achievementAnimator.SetTrigger ("Achievement");
     }
-	/** 	 * Calls up the death screen, and stops the timer. 	 */ 
+	/**
+	 * Calls up the death screen, and stops the timer.
+	 */ 
 	public static void die(){
+        deathAnimator.gameObject.SetActive(true);
 		deathAnimator.SetTrigger ("Death");
 		stopTimer ();
 	}
 
-	/** 	 * Calls up the win screen, stops the timer and calculates the score. 	 * Also checks for achivements. 	 */
+	/**
+	 * Calls up the win screen, stops the timer and calculates the score.
+	 * Also checks for achivements.
+	 */
 	public static void win(){
+        winAnimator.gameObject.SetActive(true);
 		stopTimer ();
 
 		//update all achievement values
@@ -173,7 +205,9 @@ public class UIAdapter : MonoBehaviour
 		winAnimator.SetTrigger ("Win");
 	}
 
-	/** 	 * Returns true if the player is dead. 	 */ 
+	/**
+	 * Returns true if the player is dead.
+	 */ 
 	public static bool playerDead() {
 		if (Mathf.Floor(PlayerVal) == 0){
 			return true;
@@ -182,7 +216,9 @@ public class UIAdapter : MonoBehaviour
 		}
 	}
 
-	/** 	 * Returns true if the boss is dead. 	 */ 
+	/**
+	 * Returns true if the boss is dead.
+	 */ 
 	public static bool bossDead() {
 		if (Mathf.Floor(BossVal) == 0){
 			return true;
@@ -191,7 +227,11 @@ public class UIAdapter : MonoBehaviour
 		}
 	}
 
-	/** 	 * The boss hp is by default invisible. 	 * Call this method and pass in true when a boss is spawned to make the health bar appear. 	 * To make it disappear, pass in false. 	 */ 
+	/**
+	 * The boss hp is by default invisible.
+	 * Call this method and pass in true when a boss is spawned to make the health bar appear.
+	 * To make it disappear, pass in false.
+	 */ 
 	public static void setBossUI(bool ui){
 		print ("GotCAlled");
 		print (ui);

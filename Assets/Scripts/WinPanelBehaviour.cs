@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class WinPanelBehaviour : MonoBehaviour {
 
@@ -15,8 +16,8 @@ public class WinPanelBehaviour : MonoBehaviour {
 
 	public void MenuTextPress()
 	{
-		//TODO close the current game
-		Application.LoadLevel(0);
+        //TODO close the current game
+        SceneManager.LoadScene("Main");
 	}
 
 }

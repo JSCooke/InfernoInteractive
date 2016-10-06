@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class DeathPanelBehaviour : MonoBehaviour {
 
@@ -15,13 +16,13 @@ public class DeathPanelBehaviour : MonoBehaviour {
 
 	public void MenuTextPress()
 	{
-		//TODO close the current game
-		Application.LoadLevel(0);
+        //TODO close the current game
+        SceneManager.LoadScene("Main");
 	}
 
 	public void RetryTextPress()
 	{
-		//TODO close the current game
-		Application.LoadLevel(1);
-	}
+        //TODO close the current game
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

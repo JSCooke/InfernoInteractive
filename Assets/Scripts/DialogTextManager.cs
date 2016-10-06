@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Linq;
 
 public class DialogTextManager : MonoBehaviour {
 
@@ -122,13 +123,13 @@ public class DialogTextManager : MonoBehaviour {
 
             }
 
+            //Dialog has ended
             if (currentLineNumber > endLineNumber)
             {
-                //tank = FindObjectOfType<TankController>();
+
                 tank.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 tank.gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-                //print(tank.gameObject.GetComponent<Rigidbody>().velocity);
-                //print(tank.gameObject.GetComponent<Rigidbody>().angularVelocity);
+
                 DisableDialogBox();
 				if (shouldSpawn == true) {
 					spawningObject.Spawn ();

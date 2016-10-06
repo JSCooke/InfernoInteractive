@@ -37,6 +37,10 @@ public class AchievementMenu : MonoBehaviour {
                                 temp4.a = 0.95f;
                                 temp3.color = temp4;
                             }
+							if (c.gameObject.name == "achieveDescription") {
+								Text text1 = c.gameObject.GetComponent<Text>();
+								text1.text=text1.text.Substring (11);
+							}
                         }
                        
                         //setting the panels alpha

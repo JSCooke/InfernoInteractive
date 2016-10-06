@@ -155,7 +155,6 @@ public class UIAdapter : MonoBehaviour
 	 * Pass in text and a sprite, and they'll be on the box.
 	 */
 	 public static void achieve(String achievementText, Sprite achievementSprite){
-		print (achievementText+"changin text to ");
 		achievementTextBox.text = achievementText;	//Change text to whatever achievement value is.
 		achievementImageBox.sprite = achievementSprite;	//Change sprite to whatever achievement sprite is.
 		achievementAnimator.SetTrigger ("Achievement");
@@ -175,7 +174,6 @@ public class UIAdapter : MonoBehaviour
 	 */
 	public static void win(){
         winAnimator.gameObject.SetActive(true);
-		print ("Winning");
 		stopTimer ();
 
         List<string> achievementsToDisplay = new List<string>();
@@ -207,6 +205,11 @@ public class UIAdapter : MonoBehaviour
 		if (points < 0) {
 			points = 0;
 		}
+
+		////Add player score to leaderboard
+		String player = "JJ";
+		addScoreToLeader(player, (timer.getTime()[0] * 60) + (timer.getTime()[1]));
+
 		winText.text = "You Win!" +
 			"\nYou finished the level in: " + timer.getTime() [0].ToString("D2") + ":" +timer.getTime() [1].ToString("D2") +
 			"\nThis earns you: " + Convert.ToString (points) + " points!";	//This would be fun if we animate it ticking up, as the time ticks down.
@@ -241,7 +244,6 @@ public class UIAdapter : MonoBehaviour
 	 * To make it disappear, pass in false.
 	 */ 
 	public static void setBossUI(bool ui){
-		print ("GotCAlled");
 		print (ui);
 		topBar.gameObject.SetActive (ui);
 		bottomBar.gameObject.SetActive (ui);
@@ -250,5 +252,31 @@ public class UIAdapter : MonoBehaviour
 
 //		bossPortrait.enabled = ui;
 //		boss.enabled = ui;
+	}
+
+	private static void addScoreToLeader(String name, int time){
+		BossController.Difficulty difficulty = GameData.get<BossController.Difficulty>("difficulty");
+		if(difficulty == default(BossController.Difficulty)) {
+			difficulty = BossController.Difficulty.Easy;
+		}
+
+		List<LeaderboardEntry> leaders = GameData.get<List<LeaderboardEntry>>("1" + difficulty); //stands for level number and difficulty
+
+		// current player's score
+		LeaderboardEntry entry = new LeaderboardEntry(name, time);
+
+		if (leaders == null)
+		{
+			leaders = new List<LeaderboardEntry>();
+		}
+
+		leaders.Add(entry);
+		leaders.Sort(delegate (LeaderboardEntry e1, LeaderboardEntry e2) { return e1.time.CompareTo(e2.time); });
+		if (leaders.Count > 6)
+		{
+			leaders.RemoveAt(6);
+		}
+
+		GameData.put("1" + difficulty, leaders);
 	}
 }

@@ -1,14 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using System.Collections.Generic;
 using System.Collections;
 
 public class scoreboard : MonoBehaviour {
 
-    //TODO remove
-    public Dropdown dropdown;
-    public Text inputName;
-    public Text inputTime;
+	public int level;
 
     public Text[] EasyNames;
     public Text[] EasyTimes;
@@ -16,81 +14,58 @@ public class scoreboard : MonoBehaviour {
     public Text[] MedTimes;
     public Text[] HardNames;
     public Text[] HardTimes;
-    public PlayerInfo[] easyPlayerInfo = new PlayerInfo[6];
-    public PlayerInfo[] medPlayerInfo = new PlayerInfo[6];
-    public PlayerInfo[] hardPlayerInfo = new PlayerInfo[6];
 
     void Start () {
-	    for (int i = 0; i < easyPlayerInfo.Length; i++)
-        {
-            easyPlayerInfo[i] = new PlayerInfo();
-            easyPlayerInfo[i].Name = "---";
-            easyPlayerInfo[i].Time = int.MaxValue;
+		List<LeaderboardEntry> easy = GameData.get<List<LeaderboardEntry>>(level.ToString() + "Easy");
+		List<LeaderboardEntry> medium = GameData.get<List<LeaderboardEntry>>(level.ToString() + "Medium");
+		List<LeaderboardEntry> hard = GameData.get<List<LeaderboardEntry>>(level.ToString() + "Hard");
+		
+		if (easy == null) { // initialise the lists if they are empty
+			easy = new List<LeaderboardEntry>();
+		}
+		if (medium == null) {
+			medium = new List<LeaderboardEntry>();
+		}
+		if (hard == null) {
+			hard = new List<LeaderboardEntry>();
+		}
 
-            medPlayerInfo[i] = new PlayerInfo();
-            medPlayerInfo[i].Name = "---";
-            medPlayerInfo[i].Time = int.MaxValue;
+		for (int i = 0; i < 6; i++) {
+			if (i >= easy.Count) {
+				EasyNames[i].text = "----";
+				EasyTimes[i].text = Format(-1);
+			} else {
+				EasyNames[i].text = easy[i].player;
+				EasyTimes[i].text = Format(easy[i].time);
+			}
+			if (i >= medium.Count) {
+				MedNames[i].text = "----";
+				MedTimes[i].text = Format(-1);
+			} else {
+				MedNames[i].text = medium[i].player;
+				MedTimes[i].text = Format(medium[i].time);
+			}
+			if (i >= hard.Count) {
+				HardNames[i].text = "----";
+				HardTimes[i].text = Format(-1);
+			} else {
+				HardNames[i].text = hard[i].player;
+				HardTimes[i].text = Format(hard[i].time);
+			}
+		}
+	}
 
-            hardPlayerInfo[i] = new PlayerInfo();
-            hardPlayerInfo[i].Name = "---";
-            hardPlayerInfo[i].Time = int.MaxValue;
-        }
-    }
-	
-	void Update () {
-
-        easyPlayerInfo = SortArray(easyPlayerInfo);
-        medPlayerInfo = SortArray(medPlayerInfo);
-        hardPlayerInfo = SortArray(hardPlayerInfo);
-
-        for (int i = 0; i < easyPlayerInfo.Length; i++)
-        {
-            EasyNames[i].text = easyPlayerInfo[i].Name;
-            if (easyPlayerInfo[i].Time != int.MaxValue)
-            {
-                EasyTimes[i].text = easyPlayerInfo[i].Time.ToString();
-            }
-
-            MedNames[i].text = medPlayerInfo[i].Name;
-            if (medPlayerInfo[i].Time != int.MaxValue)
-            {
-                MedTimes[i].text = medPlayerInfo[i].Time.ToString();
-            }
-
-            HardNames[i].text = hardPlayerInfo[i].Name;
-            if (hardPlayerInfo[i].Time != int.MaxValue)
-            {
-                HardTimes[i].text = hardPlayerInfo[i].Time.ToString();
-            }
-        }
-    }
-
-    public void addScore()
-    {
-        PlayerInfo[] playerInfo;
-        string Name = inputName.text.ToUpper();
-
-        if (dropdown.value == 0) { playerInfo = easyPlayerInfo; }
-        else if (dropdown.value == 1) { playerInfo = medPlayerInfo; }
-        else { playerInfo = hardPlayerInfo; }
-
-
-
-        if (Name == null || Name.Trim().Length == 0) { Name = "CIA"; }
-
-        playerInfo[5].Name = Name;
-        playerInfo[5].Time = System.Int32.Parse(inputTime.text);
-    }
-
-    PlayerInfo[] SortArray(PlayerInfo[] playerInfo)
-    {
-        playerInfo = playerInfo.OrderBy(x => x.Time).ToArray();
-        return playerInfo;
-    }
-
-    public class PlayerInfo
-    {
-        public string Name;
-        public int Time;
-    }
+	public string Format(int time) {
+		if (time != -1) {
+			int sec = time % 60;
+			int min = (time - sec) / 60;
+			string seconds = sec.ToString();
+			if (seconds.Length == 1)
+			{
+				seconds = "0" + seconds;
+			}
+			return min.ToString() + ":" + seconds;
+		}
+		return "--:--";
+	}
 }

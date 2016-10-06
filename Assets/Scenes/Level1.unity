@@ -528,6 +528,12 @@ SphereCollider:
 GameObject:
   m_PrefabParentObject: {fileID: 160562, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
   m_PrefabInternal: {fileID: 2077571771}
+--- !u!114 &27030129 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11454204, guid: 2bd35607985c25f4296e07df12e2cb95,
+    type: 2}
+  m_PrefabInternal: {fileID: 2077571771}
+  m_Script: {fileID: 11500000, guid: 50fd1a3e1dcfa294791751298d255f13, type: 3}
 --- !u!1 &28193836
 GameObject:
   m_ObjectHideFlags: 0
@@ -3690,7 +3696,7 @@ MonoBehaviour:
   textBox: {fileID: 105905802}
   inputText: {fileID: 727472362}
   dialogueImage: {fileID: 529134744}
-  tank: {fileID: 0}
+  tank: {fileID: 27030129}
   textFile: {fileID: 4900000, guid: a19815e997dc10f4f9bb5f776432b038, type: 3}
   textLines: []
   currentLineNumber: 0
@@ -5331,6 +5337,7 @@ MonoBehaviour:
   tempAchievementImageBox: {fileID: 8059885}
   tempAchievementTextBox: {fileID: 1040534073}
   tempWinText: {fileID: 233430091}
+  amin: {fileID: 0}
 --- !u!4 &522312344
 Transform:
   m_ObjectHideFlags: 0
@@ -16111,9 +16118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d475d23b254544a409cb4662f37f6bdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectiveText: '- Head back to the intersection you passed earlier then find a way
-    to head northt to rescue the last civilian.'
-  shortObjectiveText: Rescue the last civilian!
+  objectiveText: '- Destroy the King Slime'
+  shortObjectiveText: '- Destroy the King Slime'
   objController: {fileID: 1458840333}
   destroyWhenActivated: 1
 --- !u!135 &1571430161
@@ -22496,7 +22502,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 428358, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5.98
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 428358, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_LocalPosition.y
@@ -22504,7 +22510,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 428358, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 344.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 428358, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_LocalRotation.x
@@ -22524,7 +22530,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 428358, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 11406270, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: stationName

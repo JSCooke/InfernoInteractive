@@ -60,7 +60,6 @@ public class DialogTextManager : MonoBehaviour {
         sprites.Add("Civilian 3", Civilian3);
         sprites.Add("Informative text", InformativeText);
 
-        tank = FindObjectOfType<TankController>();
 
         if (textFile != null)
         {
@@ -71,6 +70,7 @@ public class DialogTextManager : MonoBehaviour {
         //if end line isnt inputted default to all lines
         if(endLineNumber == 0)
         {
+            
             endLineNumber = textLines.Length - 1;
         }
 
@@ -124,6 +124,11 @@ public class DialogTextManager : MonoBehaviour {
 
             if (currentLineNumber > endLineNumber)
             {
+                //tank = FindObjectOfType<TankController>();
+                tank.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                tank.gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                //print(tank.gameObject.GetComponent<Rigidbody>().velocity);
+                //print(tank.gameObject.GetComponent<Rigidbody>().angularVelocity);
                 DisableDialogBox();
 				if (shouldSpawn == true) {
 					spawningObject.Spawn ();

@@ -26,6 +26,7 @@ public class TankController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        print(this.gameObject.GetComponent<Rigidbody>().velocity);
 		transform.rotation = Quaternion.Euler (
 			transform.rotation.eulerAngles.x,
 			0,

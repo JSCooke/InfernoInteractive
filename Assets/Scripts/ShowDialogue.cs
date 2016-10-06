@@ -16,6 +16,13 @@ public class ShowDialogue : MonoBehaviour {
 
 	private bool dialogueShown = false;
 
+    void Start() {
+        //If there are bugs, check here
+        if (this.gameObject.name == "LogoCanvas") {
+            StartCoroutine(TimeOut());
+        }
+    }
+
 	void Update()
 	{
 		if (this.GetComponent<Canvas>().enabled)
@@ -50,6 +57,11 @@ public class ShowDialogue : MonoBehaviour {
 		}
 		
 	}
+
+    IEnumerator TimeOut() {
+        yield return new WaitForSeconds(2);
+        goToNext();
+    }
 
 	void goToNext()
 	{

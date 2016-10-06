@@ -9,7 +9,7 @@ public class BossController : Damageable {
 
     //Difficulty affects the number of splits
     public enum Difficulty { Easy = 2, Medium = 3, Hard = 4 };
-    public Difficulty difficultyLevel = Difficulty.Easy;
+    public Difficulty difficultyLevel;
 
     public int difficulty = 0;
     public float totalHealth = 0;
@@ -20,13 +20,13 @@ public class BossController : Damageable {
         dead = false;
         currentHealth = maxHealth;
         difficulty = (int)difficultyLevel;
-
+        
         //set difficulty level if set in menu
         if (GameData.get<Difficulty>("difficulty") != default(Difficulty)) {
             difficultyLevel= GameData.get<Difficulty>("difficulty");
             difficulty = (int)GameData.get<Difficulty>("difficulty");
         }
-        print(GameData.get<Difficulty>("difficulty"));
+
     }
 
     public override void takeDamage(int damage) {

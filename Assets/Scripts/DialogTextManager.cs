@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Linq;
 
 public class DialogTextManager : MonoBehaviour {
 
@@ -60,7 +61,6 @@ public class DialogTextManager : MonoBehaviour {
         sprites.Add("Civilian 3", Civilian3);
         sprites.Add("Informative text", InformativeText);
 
-        tank = FindObjectOfType<TankController>();
 
         if (textFile != null)
         {
@@ -71,6 +71,7 @@ public class DialogTextManager : MonoBehaviour {
         //if end line isnt inputted default to all lines
         if(endLineNumber == 0)
         {
+            
             endLineNumber = textLines.Length - 1;
         }
 
@@ -122,8 +123,13 @@ public class DialogTextManager : MonoBehaviour {
 
             }
 
+            //Dialog has ended
             if (currentLineNumber > endLineNumber)
             {
+
+                tank.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                tank.gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+
                 DisableDialogBox();
 				if (shouldSpawn == true) {
 					spawningObject.Spawn ();

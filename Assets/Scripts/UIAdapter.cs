@@ -10,7 +10,7 @@ public class UIAdapter : MonoBehaviour
 	public BarScript playerBar, bossBar;
 	public Image bar1, bar2;
 	public Image playerPic, bossPic;
-	public Animator deathA, winA, achievementA;
+	public Animator deathA, winA, achievementA, playerA, bossA;
 	public TimerScript tempTimer;
 
 	public Image tempAchievementImageBox;
@@ -35,6 +35,8 @@ public class UIAdapter : MonoBehaviour
 		achievementAnimator = achievementA;
 		winAnimator = winA;
 		deathAnimator = deathA;
+		playerDamageAnimator = playerA;
+		bossDamageAnimator = bossA;
 		achievementImageBox = tempAchievementImageBox;
 		achievementTextBox = tempAchievementTextBox;
 		winText = tempWinText;
@@ -77,6 +79,8 @@ public class UIAdapter : MonoBehaviour
 	public static Animator achievementAnimator;
 	public static Animator deathAnimator;
 	public static Animator winAnimator;
+	public static Animator playerDamageAnimator;
+	public static Animator bossDamageAnimator;
 
 	public static TimerScript timer;
 
@@ -110,6 +114,7 @@ public class UIAdapter : MonoBehaviour
 	 */
 	public static float damagePlayer(float hp){
 		if (!playerDead () && !bossDead()) {
+			playerDamageAnimator.SetTrigger ("playerDamage");
 			playerVal -= hp;
 			PlayerVal = playerVal;
 
@@ -126,6 +131,7 @@ public class UIAdapter : MonoBehaviour
 	 */ 
 	public static float damageBoss(float hp){
 		if (!bossDead () && !playerDead()) {
+			bossDamageAnimator.SetTrigger ("bossDamage");
 			bossVal -= hp;
 			BossVal = bossVal;
 			if (bossDead ()) {
@@ -188,7 +194,7 @@ public class UIAdapter : MonoBehaviour
 
         }
         //if the time taken to win is longer than 70 you fail the achievement
-        if ((timer.getTime()[0] * 60) - (timer.getTime()[1]) < 70)
+        if ((timer.getTime()[0] * 60) + (timer.getTime()[1]) < 70)
         {
             //fail the speed runner achievement
             AchievementController.updateAchievement("Speedrunner", true);

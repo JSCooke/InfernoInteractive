@@ -18,20 +18,23 @@ public class TankController : MonoBehaviour {
 
     public GameObject shield;
 
-    // Use this for initialization
-    void Start() {
+	private Animator animator;
+
+	// Use this for initialization
+	void Start() {
 		rb = GetComponent<Rigidbody> ();
-        currentHealth = maxHealth;
+		animator = GetComponent<Animator>();
+		currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update() {
-		transform.rotation = Quaternion.Euler (
+	// Update is called once per frame
+	void Update()
+	{
+		transform.rotation = Quaternion.Euler(
 			transform.rotation.eulerAngles.x,
 			0,
 			transform.rotation.eulerAngles.z);
-
-    }
+	}
 
 	void FixedUpdate(){
 		if (doAccelerate && !doDecelerate) {
@@ -92,9 +95,10 @@ public class TankController : MonoBehaviour {
 
             if (damage > currentHealth) {
                 damage = currentHealth;
-            }
+			}
+			animator.SetBool("isBlink", true);
 
-            currentHealth = currentHealth - damage;
+			currentHealth = currentHealth - damage;
             UIAdapter.damagePlayer((float)damage, maxHealth);
 
         }

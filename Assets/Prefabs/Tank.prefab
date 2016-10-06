@@ -164,6 +164,8 @@ GameObject:
   - 114: {fileID: 11454204}
   - 114: {fileID: 11424168}
   - 135: {fileID: 13567984}
+  - 111: {fileID: 11146820}
+  - 95: {fileID: 9565946}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Player
@@ -521,7 +523,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 101.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -713,7 +715,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071067}
   m_LocalPosition: {x: -0, y: 0.246, z: -2.87}
   m_LocalScale: {x: 0.4, y: 2, z: 0.4}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_Children: []
   m_Father: {fileID: 477292}
   m_RootOrder: 1
@@ -740,7 +742,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0.54999995, z: 2.45}
   m_LocalScale: {x: 0.1, y: 1, z: 5}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_Children: []
   m_Father: {fileID: 414426}
   m_RootOrder: 2
@@ -754,7 +756,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0784fa7c33217f94fbba1b37972621bd, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -858,7 +860,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0784fa7c33217f94fbba1b37972621bd, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -910,7 +912,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0784fa7c33217f94fbba1b37972621bd, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -936,7 +938,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0784fa7c33217f94fbba1b37972621bd, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1014,7 +1016,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0784fa7c33217f94fbba1b37972621bd, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1224,6 +1226,38 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &9565946
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160562}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 645aaf5d5f0cbad41a0462b36ebab9d1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!111 &11146820
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160562}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 361fc8a72eae4e540b6293f37056ad64, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &11406270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1250,6 +1284,7 @@ MonoBehaviour:
   - {fileID: 156960, guid: ae5af660735501d4ca37dab5cfc89d8a, type: 2}
   - {fileID: 156960, guid: 2266145a219365a4fa27236d61d37414, type: 2}
   startingStation: Movement Control
+  stationName: 
 --- !u!114 &11415026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1327,6 +1362,7 @@ MonoBehaviour:
   - {fileID: 156960, guid: ae5af660735501d4ca37dab5cfc89d8a, type: 2}
   - {fileID: 156960, guid: 2266145a219365a4fa27236d61d37414, type: 2}
   startingStation: Big Cannon
+  stationName: 
 --- !u!114 &11441542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1353,6 +1389,7 @@ MonoBehaviour:
   - {fileID: 156960, guid: ae5af660735501d4ca37dab5cfc89d8a, type: 2}
   - {fileID: 156960, guid: 2266145a219365a4fa27236d61d37414, type: 2}
   startingStation: Shield Mk2
+  stationName: 
 --- !u!114 &11448792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1379,6 +1416,7 @@ MonoBehaviour:
   - {fileID: 156960, guid: ae5af660735501d4ca37dab5cfc89d8a, type: 2}
   - {fileID: 156960, guid: 2266145a219365a4fa27236d61d37414, type: 2}
   startingStation: Machine Gun
+  stationName: 
 --- !u!114 &11454204
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1395,6 +1433,11 @@ MonoBehaviour:
   drag: 5
   topSpeed: 20
   canMove: 1
+  maxHealth: 100
+  damagedBy: Enemy
+  lastDamageTime: 0
+  iFrameTime: 2
+  shield: {fileID: 0}
 --- !u!114 &11470610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1421,6 +1464,7 @@ MonoBehaviour:
   - {fileID: 156960, guid: ae5af660735501d4ca37dab5cfc89d8a, type: 2}
   - {fileID: 156960, guid: 2266145a219365a4fa27236d61d37414, type: 2}
   startingStation: Machine Gun
+  stationName: 
 --- !u!135 &13565340
 SphereCollider:
   m_ObjectHideFlags: 1

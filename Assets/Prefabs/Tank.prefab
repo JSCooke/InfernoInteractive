@@ -521,7 +521,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160562}
   m_LocalRotation: {x: 0.0000026727428, y: -5.1955072e-12, z: 0.000001943886, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 346.77}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -1398,6 +1398,7 @@ MonoBehaviour:
   acceleration: 10
   drag: 5
   topSpeed: 20
+  angleLimit: 45
   canMove: 1
   maxHealth: 100
   damagedBy: Enemy

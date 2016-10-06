@@ -48,9 +48,15 @@ public class KingSlimeBehaviour : Spawnable {
         maxHealth = this.GetComponent<BossController>().maxHealth;
         currentHealth = maxHealth;
 
+        print("kingslime " + this.GetComponent<BossController>().difficulty);
+
         this.GetComponent<BossController>().totalHealth = 100 + (200 * (this.GetComponent<BossController>().difficulty - 1));
 
-		print (player);
+        //Math for medium isn't a round number
+        if (this.GetComponent<BossController>().difficultyLevel == BossController.Difficulty.Medium) {
+            this.GetComponent<BossController>().totalHealth -= 25;
+        }
+
         if (player == null) {
 			player = UnityEngine.GameObject.FindGameObjectsWithTag("Player")[0];
         }
@@ -91,7 +97,7 @@ public class KingSlimeBehaviour : Spawnable {
     void fightPlayer() {
 
         if (charging) {
-            print("charging");
+            //print("charging");
             charge();
 			AnimationClip nextAnimation;
 			animations.TryGetValue("Walk", out nextAnimation);
@@ -99,7 +105,7 @@ public class KingSlimeBehaviour : Spawnable {
 			gameObject.GetComponent<Animation>().Play();
 		}
         else if (dashing) {
-            print("dashing");
+            //print("dashing");
             dashAttack();
 			AnimationClip nextAnimation;
 			animations.TryGetValue("Walk", out nextAnimation);
@@ -107,11 +113,11 @@ public class KingSlimeBehaviour : Spawnable {
 			gameObject.GetComponent<Animation>().Play();
 		}
         else if (finding) {
-            print("finding");
+            //print("finding");
             findRandomPosition();
         }
         else if (roaming) {
-            print("roaming");
+            //print("roaming");
             roam();
             AnimationClip nextAnimation;
             animations.TryGetValue("Wait", out nextAnimation);

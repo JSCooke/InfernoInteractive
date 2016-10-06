@@ -22,6 +22,7 @@ public class TankController : MonoBehaviour {
     void Start() {
 		rb = GetComponent<Rigidbody> ();
         currentHealth = maxHealth;
+		shield = transform.Find ("Shield").gameObject;
     }
 
     // Update is called once per frame

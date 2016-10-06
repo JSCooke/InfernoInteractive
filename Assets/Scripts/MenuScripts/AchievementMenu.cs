@@ -28,10 +28,25 @@ public class AchievementMenu : MonoBehaviour {
 
 					//if the achievement is earned set the alpha of the image to max
 					if (entry.Value == true) {
-						Image temp2 = t.gameObject.GetComponent<Image>();
+                        foreach (Transform c in t) {
+                            print(c.gameObject.name);
+                            //setting the icons alpha
+                            if (c.gameObject.name == "achieveImage") {
+                                Image temp3 = c.gameObject.GetComponent<Image>();
+                                Color temp4 = temp3.color;
+                                temp4.a = 0.95f;
+                                temp3.color = temp4;
+                            }
+                        }
+                       
+                        //setting the panels alpha
+                        Image temp2 = t.gameObject.GetComponent<Image>();
 						Color temp = temp2.color;
 						temp.a = 1f;
-						temp2.color = temp;
+                        temp.r = 0.4f;
+                        temp.g = 1f;
+                        temp.b = 0.45f;
+                        temp2.color = temp;
 
 					}
 

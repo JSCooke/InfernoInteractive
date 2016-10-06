@@ -55,10 +55,6 @@ public class KingSlimeBehaviour : Spawnable {
 			player = UnityEngine.GameObject.FindGameObjectsWithTag("Player")[0];
         }
 
-
-
-        print (UnityEngine.GameObject.FindGameObjectsWithTag("Player"));
-
 		//Add animations to dictionary
         animations["Attack"] = animationClips[0];
         animations["Dead"] =  animationClips[1];
@@ -95,7 +91,7 @@ public class KingSlimeBehaviour : Spawnable {
     void fightPlayer() {
 
         if (charging) {
-            //print("charging");
+            print("charging");
             charge();
 			AnimationClip nextAnimation;
 			animations.TryGetValue("Walk", out nextAnimation);
@@ -103,7 +99,7 @@ public class KingSlimeBehaviour : Spawnable {
 			gameObject.GetComponent<Animation>().Play();
 		}
         else if (dashing) {
-            //print("dashing");
+            print("dashing");
             dashAttack();
 			AnimationClip nextAnimation;
 			animations.TryGetValue("Walk", out nextAnimation);
@@ -111,11 +107,11 @@ public class KingSlimeBehaviour : Spawnable {
 			gameObject.GetComponent<Animation>().Play();
 		}
         else if (finding) {
-            //print("finding");
+            print("finding");
             findRandomPosition();
         }
         else if (roaming) {
-            //print("roaming");
+            print("roaming");
             roam();
             AnimationClip nextAnimation;
             animations.TryGetValue("Wait", out nextAnimation);

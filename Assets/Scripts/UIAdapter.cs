@@ -196,7 +196,7 @@ public class UIAdapter : MonoBehaviour
 
         }
         //if the time taken to win is longer than 70 you fail the achievement
-        if ((timer.getTime()[0] * 60) - (timer.getTime()[1]) < 70)
+        if ((timer.getTime()[0] * 60) + (timer.getTime()[1]) < 70)
         {
             //fail the speed runner achievement
             AchievementController.updateAchievement("Speedrunner", true);

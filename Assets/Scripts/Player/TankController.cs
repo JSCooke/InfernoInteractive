@@ -65,7 +65,7 @@ public class TankController : MonoBehaviour {
 	public void stopAccelerate() {
 		doAccelerate = false;
 	}
-	
+
 	public void stopDecelerate() {
 		doDecelerate = false;
 	}

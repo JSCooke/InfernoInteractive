@@ -39,12 +39,12 @@ public class MachineGunBehaviour : ControlStationBehaviour {
 		//print (gun.transform.localRotation.eulerAngles.y);
 
 		if (up && Time.fixedTime > lastShotTime + cooldown) {
-
             //fail the cannon only achievement
 			AchievementController.hasUsedOnlyCannon = false;
 
             foreach (GameObject spawner in spawners)
             {
+				SoundAdapter.playMachineGunMk1Sound ();
                 lastShotTime = Time.fixedTime;
                 //print(spawner.transform.rotation.eulerAngles);
                 Instantiate(projectile, spawner.transform.position, spawner.transform.rotation);

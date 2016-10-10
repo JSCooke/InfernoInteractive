@@ -11,6 +11,5 @@ public class BoxBehaviour : MonoBehaviour
 	{
 		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY 
 			| RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
-
 	}
 }

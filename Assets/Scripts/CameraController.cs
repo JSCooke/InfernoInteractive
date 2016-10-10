@@ -10,9 +10,13 @@ public class CameraController : MonoBehaviour {
 
 	private Vector3 velocity = Vector3.zero;
 	private Camera camera;
+	public AudioSource bgm;
 	// Use this for initialization
 	void Start () {
 		camera = GetComponent<Camera> ();
+		bgm = GetComponentInChildren<AudioSource> ();
+		bgm.loop = true;
+		bgm.Play();
 	}
 	
 	// Update is called once per frame

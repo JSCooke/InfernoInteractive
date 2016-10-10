@@ -9,6 +9,7 @@ public class MazeUnitBehaviour : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		if (box) { createBox(); }
+		if (hole) { createHole(); }
 	}
 	
 	// Update is called once per frame
@@ -20,9 +21,14 @@ public class MazeUnitBehaviour : MonoBehaviour {
 	{
 		GameObject box = (GameObject)Instantiate(Resources.Load("Box"));
 		box.transform.parent = transform;
-		//print();
 		box.transform.localPosition = new Vector3(0f,3.5f,0f);
-		//UnityEngine.GameObject newStation = (UnityEngine.GameObject)Instantiate(station, transform.position, transform.rotation);
-		//newStation.transform.parent = transform;
+	}
+
+	private void createHole()
+	{
+		transform.Find("Floor").gameObject.SetActive(false);
+		GameObject hole = (GameObject)Instantiate(Resources.Load("Hole"));
+		hole.transform.parent = transform;
+		hole.transform.localPosition = new Vector3(0f, 0f, 0f);
 	}
 }

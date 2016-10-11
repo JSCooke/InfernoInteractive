@@ -6,6 +6,8 @@ using System;
 public class ddrController : MonoBehaviour {
 
 	public GameObject[] spawners;
+	public DiscoLightController discoLightController;
+
 	// Use this for initialization
 	void Start () {
 		spawners = GameObject.FindGameObjectsWithTag("ddrSpawner");
@@ -28,6 +30,9 @@ public class ddrController : MonoBehaviour {
                 other.GetComponent<TankController>().canMove = false;
                 other.attachedRigidbody.velocity = new Vector3(0, 0, 0);
             }
+
+			//start the disco
+			discoLightController.startDisco();
 		}
 
 	}

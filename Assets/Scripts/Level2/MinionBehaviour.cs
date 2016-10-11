@@ -33,6 +33,9 @@ public class MinionBehaviour : MonoBehaviour
 			Die();
 		}
 
+		NavMeshAgent agent = GetComponent<NavMeshAgent>();
+		//agent.Warp(player.transform.position);
+		//agent.destination = player.transform.position;
 	}
 
 	void OnCollisionEnter(Collision collision)

@@ -21,7 +21,8 @@ public class FinalBossBehaviour : Spawnable {
         DEFAULT_ATTACK
     };
 
-    private Action currentAction;
+    //Change to private
+    public Action currentAction;
 
     //Properties of each default attack
     public double chargeDuration = 3;
@@ -70,6 +71,7 @@ public class FinalBossBehaviour : Spawnable {
                 randomNextAction();
                 break;
             case Action.ILLUSION:
+                print("lol");
                 skills[0].activate(Action.ILLUSION);
                 break;
             case Action.SHIELD:
@@ -90,7 +92,7 @@ public class FinalBossBehaviour : Spawnable {
     }
 
     public void randomNextAction() {
-
+        print("asd");
         randSkill = Random.Range(0, 100);
         randSkill = 45;
         

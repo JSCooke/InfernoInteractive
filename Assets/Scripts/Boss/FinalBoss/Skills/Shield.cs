@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Shield : Skill {
 
+    public GameObject shieldGenerator;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -10,8 +12,11 @@ public class Shield : Skill {
 	
 	// Update is called once per frame
 	void Update () {
-	    if (performSkill){
-            invulnerable();
+        if (shieldGenerator) {
+            //print("deactivated");
+            chargeParticles.enableEmission = false;
+            performSkill = false;
+            enemy.GetComponent<FinalBossBehaviour>().randomNextAction();
         }
 	}
 
@@ -19,7 +24,13 @@ public class Shield : Skill {
 
     public Shield(GameObject player, GameObject enemy) : base(player, enemy) { }
 
-    void invulnerable() {
-
+    void OnCollisionEnter(Collision collision) {
+        if (performSkill) {
+            if (collision.gameObject.tag == "PlayerProjectile") {
+                Destroy(collision.gameObject);
+            }
+        }
     }
+
+    
 }

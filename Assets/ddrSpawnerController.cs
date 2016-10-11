@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class ddrSpawnerController : MonoBehaviour {
-	public UnityEngine.GameObject projectile;
+	public UnityEngine.GameObject spawnedObject;
 	public int cooldown;
-	private int lastShotTime;
+	private int lastSpawnTime;
 	public bool canShoot = false;
 
 	// Use this for initialization
@@ -18,9 +18,9 @@ public class ddrSpawnerController : MonoBehaviour {
 
 		// check delta time and spawn randomly
 		if (canShoot) {
-			if (Time.frameCount - lastShotTime > cooldown) {
-				lastShotTime = Time.frameCount;
-				Instantiate (projectile, transform.position, transform.rotation);
+			if (Time.frameCount - lastSpawnTime > cooldown) {
+                lastSpawnTime = Time.frameCount;
+				Instantiate (spawnedObject, transform.position, transform.rotation);
 			}
 		}
 

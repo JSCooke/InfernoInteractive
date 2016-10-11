@@ -1525,7 +1525,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10000
   m_Drag: 30
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1540,7 +1540,7 @@ Animator:
   m_GameObject: {fileID: 149368}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a39d5c20a054b6b4b98fc4b3efc11358, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 714c3836472d60a48818e1200c76f13e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1565,7 +1565,7 @@ MonoBehaviour:
   damagedBy: PlayerProjectile
   dead: 0
   rotationSpeed: 10
-  bossSpeed: 4
+  bossSpeed: 3
   difficultyLevel: 2
   difficulty: 2
   totalHealth: 0
@@ -1581,6 +1581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  attackDistance: 6
 --- !u!136 &13677760
 CapsuleCollider:
   m_ObjectHideFlags: 1

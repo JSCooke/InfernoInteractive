@@ -8,7 +8,7 @@ public abstract class Skill : MonoBehaviour{
     public int damage;
     public ParticleSystem chargeParticles;
     public float chargeStartTime;
-    public float chargeDuration = 1;
+    public float chargeDuration = 3;
     public bool performSkill;
 
     public Skill() {}
@@ -19,36 +19,23 @@ public abstract class Skill : MonoBehaviour{
     }
 
     public void activate(FinalBossBehaviour.Action action) {
-        performSkill = true;
 
         if (performSkill == false) {
-            switch (action) {
-                case FinalBossBehaviour.Action.ILLUSION:
-                    illusion();
-                    break;
-                case FinalBossBehaviour.Action.SHIELD:
-                    shield();
-                    break;
-                case FinalBossBehaviour.Action.LASER:
-                    laser();
-                    break;
-                case FinalBossBehaviour.Action.SNARE:
-                    snare();
-                    break;
-
-            }
+            chargeParticles.enableEmission = true;
+            performSkill = true;
         } 
 
         //Finished charging and started skill
-        if (Time.fixedTime > (chargeStartTime + chargeDuration)) {
-            performSkill = true;
-        }
+        //if (Time.fixedTime > (chargeStartTime + chargeDuration)) {
+        //    performSkill = true;
+        //    chargeParticles.enableEmission = false;
+        //}
         
         
     }
 
     void illusion() {
-        //print("elluding");
+
     }
 
     void shield() {

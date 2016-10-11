@@ -10,10 +10,16 @@ public class Shield : Skill {
 	
 	// Update is called once per frame
 	void Update () {
-	
+	    if (performSkill){
+            invulnerable();
+        }
 	}
 
     public Shield() { }
 
     public Shield(GameObject player, GameObject enemy) : base(player, enemy) { }
+
+    void invulnerable() {
+
+    }
 }

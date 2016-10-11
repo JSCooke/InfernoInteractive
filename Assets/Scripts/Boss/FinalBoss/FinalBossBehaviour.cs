@@ -92,7 +92,7 @@ public class FinalBossBehaviour : Spawnable {
     public void randomNextAction() {
 
         randSkill = Random.Range(0, 100);
-        randSkill = 35;
+        randSkill = 45;
         
 
         if (randSkill <= 30) {  //Stationary

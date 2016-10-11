@@ -118,6 +118,8 @@ public class TankController : MonoBehaviour {
         //fail the no damage achievement
 		AchievementController.hasBeenDamaged = true;
 
+		SoundAdapter.playTankHitSound ();
+
         if (shield.gameObject.activeSelf) {
             lastDamageTime = Time.fixedTime;
             shield.SetActive(false);

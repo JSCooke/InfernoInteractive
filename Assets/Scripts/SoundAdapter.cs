@@ -13,6 +13,8 @@ public class SoundAdapter : MonoBehaviour
 	public static AudioClip myShieldDownSound;
 	public AudioClip bossSquishSound;
 	public static AudioClip myBossSquishSound;
+	public AudioClip tankHitSound;
+	public static AudioClip myTankHitSound;
 
 
 	void Start ()
@@ -22,6 +24,7 @@ public class SoundAdapter : MonoBehaviour
 		myShieldUpSound = shieldUpSound;
 		myShieldDownSound = shieldDownSound;
 		myBossSquishSound = bossSquishSound;
+		myTankHitSound = tankHitSound;
 	}
 
 	public static void playCannonMk1Sound (){
@@ -39,7 +42,9 @@ public class SoundAdapter : MonoBehaviour
 	public static void playBossSquishSound (){
 		AudioSource.PlayClipAtPoint (myBossSquishSound, Camera.main.transform.position, 1);
 	}
-
+	public static void playTankHitSound (){
+		AudioSource.PlayClipAtPoint (myTankHitSound, Camera.main.transform.position, 1);
+	}
 
 	/*
 	 * TO CREATE A NEW SOUND:

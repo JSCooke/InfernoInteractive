@@ -5,11 +5,13 @@ public class MazeUnitBehaviour : MonoBehaviour {
 
 	public bool box;
 	public bool hole;
+	public bool enemies;
 
 	// Use this for initialization
 	void Start () {
 		if (box) { createBox(); }
 		if (hole) { createHole(); }
+		if (enemies) { spawnEnemies(); }
 	}
 	
 	// Update is called once per frame
@@ -30,5 +32,15 @@ public class MazeUnitBehaviour : MonoBehaviour {
 		GameObject hole = (GameObject)Instantiate(Resources.Load("Hole"));
 		hole.transform.parent = transform;
 		hole.transform.localPosition = new Vector3(0f, 0f, 0f);
+	}
+
+	private void spawnEnemies()
+	{
+		GameObject enemy1 = (GameObject)Instantiate(Resources.Load("Zombear"));
+		enemy1.transform.parent = transform;
+		enemy1.transform.localPosition = new Vector3(3f, 0f, 0f);
+		GameObject enemy2 = (GameObject)Instantiate(Resources.Load("Zombear"));
+		enemy2.transform.parent = transform;
+		enemy2.transform.localPosition = new Vector3(-3f, 0f, 0f);
 	}
 }

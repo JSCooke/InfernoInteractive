@@ -15,7 +15,7 @@ public class BossController : Damageable {
     public float totalHealth = 0;
 	private bool achievementsDone = false;
 
-    // Use this for initialization
+    // Use this for initialization 
     void Start () {
         dead = false;
         currentHealth = maxHealth;

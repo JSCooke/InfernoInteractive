@@ -38,7 +38,7 @@ public class BossController : Damageable {
         currentHealth = currentHealth - damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UIAdapter.damageBoss((float)damage, totalHealth);
-
+		SoundAdapter.playBossSquishSound ();
 		if (Mathf.Floor (currentHealth) <= 0) {
 			dead = true;
 		}

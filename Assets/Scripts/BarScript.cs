@@ -20,7 +20,7 @@ public class BarScript : MonoBehaviour {
 	public float Value {
 		set{
 			string[] tmp = valueText.text.Split(':');
-			valueText.text = tmp [0] + ": " + Mathf.RoundToInt(value) + "%";
+			valueText.text = tmp [0] + ": " +Mathf.Floor(value) + "%";
 			fillAmount = value/100;
 		}
 		get{

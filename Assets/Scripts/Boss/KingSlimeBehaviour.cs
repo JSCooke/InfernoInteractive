@@ -129,7 +129,6 @@ public class KingSlimeBehaviour : Spawnable {
     void charge() {
 
         chargeParticles.enableEmission = true;
-
         //Look at the player
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(this.transform.position - player.transform.position), this.GetComponent<BossController>().rotationSpeed * Time.deltaTime);
         playerPosition = player.transform.position;
@@ -145,7 +144,6 @@ public class KingSlimeBehaviour : Spawnable {
 
     void dashAttack() {
         transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime * 6);
-
         if (transform.position == playerPosition) {
             dashing = false;
             finding = true;
@@ -250,6 +248,9 @@ public class KingSlimeBehaviour : Spawnable {
     public override void Spawn() {
 
 		Start ();
+
+		SoundAdapter.playBossSquishSound ();
+
         Vector3 spawnPoint = player.transform.position;
         spawnPoint.z += 20;
         spawnPoint.y += 2;

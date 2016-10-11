@@ -144,6 +144,10 @@ Prefab:
       propertyPath: South
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11458880, guid: 42da7ab058108a94d86a1ce396943f19, type: 2}
+      propertyPath: enemies
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 42da7ab058108a94d86a1ce396943f19, type: 2}
   m_IsPrefabParent: 0
@@ -283,6 +287,10 @@ Prefab:
     - target: {fileID: 11458880, guid: 42da7ab058108a94d86a1ce396943f19, type: 2}
       propertyPath: box
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11458880, guid: 42da7ab058108a94d86a1ce396943f19, type: 2}
+      propertyPath: enemies
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 42da7ab058108a94d86a1ce396943f19, type: 2}
@@ -1122,6 +1130,10 @@ Prefab:
       propertyPath: South
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11458880, guid: 42da7ab058108a94d86a1ce396943f19, type: 2}
+      propertyPath: enemies
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 42da7ab058108a94d86a1ce396943f19, type: 2}
   m_IsPrefabParent: 0
@@ -1307,7 +1319,7 @@ Light:
   serializedVersion: 6
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.41
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -1524,6 +1536,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2360322, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 94fdd5160914b674d90e88bed3827813, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
   m_IsPrefabParent: 0
@@ -1876,6 +1892,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11458880, guid: 42da7ab058108a94d86a1ce396943f19, type: 2}
       propertyPath: box
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11458880, guid: 42da7ab058108a94d86a1ce396943f19, type: 2}
+      propertyPath: hole
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

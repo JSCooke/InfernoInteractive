@@ -35,56 +35,70 @@ public class TankController : MonoBehaviour {
     }
 
 	void FixedUpdate(){
-		if (doAccelerate && !doDecelerate) {
 
-			//Clamping y vector
-			Vector3 movement = tankBase.transform.forward;
-			movement.y = Mathf.Clamp (movement.y, -0.5f, 0.1f);
-			rb.AddForce (movement * acceleration, ForceMode.Acceleration);
-		}
-		if (doDecelerate && !doAccelerate) {
-			rb.AddForce (-tankBase.transform.forward * acceleration, ForceMode.Acceleration);
-		}
+        if (canMove)
+        {
+            if (doAccelerate && !doDecelerate)
+            {
 
-		rb.velocity = rb.velocity.normalized * Mathf.Min (topSpeed, rb.velocity.magnitude);
-
-		//Calculate the horizontal speed of the tank (how much it's 'sliding') and apply drag in that direction
-		float horizontalSpeed=Vector3.Project (rb.velocity, tankBase.transform.right).magnitude;
-		if (Vector3.Angle (rb.velocity, tankBase.transform.right) > 90) {
-			horizontalSpeed *= -1;
-		}
-
-		if (Mathf.Abs(horizontalSpeed) > 1) {
-			rb.AddForce (tankBase.transform.right * horizontalSpeed * -drag, ForceMode.Acceleration);
-		}
-
-        //check if angle with ground plane is >45 degrees, clamp rotation to between -45 and 45 degrees with ground
-        // in both x and z axes
-        if (transform.rotation.eulerAngles.x > angleLimit && transform.rotation.eulerAngles.x < 360 - angleLimit) {
-            if (transform.rotation.eulerAngles.x < 180) {
-                transform.rotation = Quaternion.Euler(
-                    angleLimit,
-                    transform.rotation.eulerAngles.y,
-                    transform.rotation.eulerAngles.z);
-            } else {
-                transform.rotation = Quaternion.Euler(
-                    360 - angleLimit,
-                    transform.rotation.eulerAngles.y,
-                    transform.rotation.eulerAngles.z);
+                //Clamping y vector
+                Vector3 movement = tankBase.transform.forward;
+                movement.y = Mathf.Clamp(movement.y, -0.5f, 0.1f);
+                rb.AddForce(movement * acceleration, ForceMode.Acceleration);
             }
-        }
+            if (doDecelerate && !doAccelerate)
+            {
+                rb.AddForce(-tankBase.transform.forward * acceleration, ForceMode.Acceleration);
+            }
 
-        if (transform.rotation.eulerAngles.z > angleLimit && transform.rotation.eulerAngles.z < 360 - angleLimit) {
-            if (transform.rotation.eulerAngles.z < 180) {
-                transform.rotation = Quaternion.Euler(
-                    transform.rotation.eulerAngles.x,
-                    transform.rotation.eulerAngles.y,
-                    angleLimit);
-            } else {
-                transform.rotation = Quaternion.Euler(
-                    transform.rotation.eulerAngles.x,
-                    transform.rotation.eulerAngles.y,
-                    360 - angleLimit);
+            rb.velocity = rb.velocity.normalized * Mathf.Min(topSpeed, rb.velocity.magnitude);
+
+            //Calculate the horizontal speed of the tank (how much it's 'sliding') and apply drag in that direction
+            float horizontalSpeed = Vector3.Project(rb.velocity, tankBase.transform.right).magnitude;
+            if (Vector3.Angle(rb.velocity, tankBase.transform.right) > 90)
+            {
+                horizontalSpeed *= -1;
+            }
+
+            if (Mathf.Abs(horizontalSpeed) > 1)
+            {
+                rb.AddForce(tankBase.transform.right * horizontalSpeed * -drag, ForceMode.Acceleration);
+            }
+
+            //check if angle with ground plane is >45 degrees, clamp rotation to between -45 and 45 degrees with ground
+            // in both x and z axes
+            if (transform.rotation.eulerAngles.x > angleLimit && transform.rotation.eulerAngles.x < 360 - angleLimit)
+            {
+                if (transform.rotation.eulerAngles.x < 180)
+                {
+                    transform.rotation = Quaternion.Euler(
+                        angleLimit,
+                        transform.rotation.eulerAngles.y,
+                        transform.rotation.eulerAngles.z);
+                }
+                else {
+                    transform.rotation = Quaternion.Euler(
+                        360 - angleLimit,
+                        transform.rotation.eulerAngles.y,
+                        transform.rotation.eulerAngles.z);
+                }
+            }
+
+            if (transform.rotation.eulerAngles.z > angleLimit && transform.rotation.eulerAngles.z < 360 - angleLimit)
+            {
+                if (transform.rotation.eulerAngles.z < 180)
+                {
+                    transform.rotation = Quaternion.Euler(
+                        transform.rotation.eulerAngles.x,
+                        transform.rotation.eulerAngles.y,
+                        angleLimit);
+                }
+                else {
+                    transform.rotation = Quaternion.Euler(
+                        transform.rotation.eulerAngles.x,
+                        transform.rotation.eulerAngles.y,
+                        360 - angleLimit);
+                }
             }
         }
     }

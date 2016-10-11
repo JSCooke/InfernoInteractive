@@ -24,7 +24,10 @@ public class ddrController : MonoBehaviour {
 			print ("In here");
 			foreach (GameObject spawner in spawners) {
 				spawner.GetComponent<ddrSpawnerController> ().canShoot = true;
-			}
+                other.transform.position = transform.position;
+                other.GetComponent<TankController>().canMove = false;
+                other.attachedRigidbody.velocity = new Vector3(0, 0, 0);
+            }
 		}
 
 	}

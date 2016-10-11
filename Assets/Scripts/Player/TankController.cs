@@ -121,6 +121,7 @@ public class TankController : MonoBehaviour {
         if (shield.gameObject.activeSelf) {
             lastDamageTime = Time.fixedTime;
             shield.SetActive(false);
+			SoundAdapter.playShieldDownSound ();
             return;
         }
 

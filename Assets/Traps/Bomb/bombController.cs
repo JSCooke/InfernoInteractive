@@ -6,9 +6,13 @@ public class bombController : MonoBehaviour {
 	public string damagedBy; //PlayerProjectile
 	public TankController tank;
 	public ParticleSystem explosion;
+	public static GameObject myBomb;
+	public GameObject bomb;
 
 	// Use this for initialization
 	void Start () {
+		myBomb = bomb;
+		//tank = GetComponent<TankController> ();
 	}
 	
 	// Update is called once per frame
@@ -36,5 +40,10 @@ public class bombController : MonoBehaviour {
 			}
 			i = i + 1;
 		}
+	}
+
+	//Requires that a bomb is somewhere on the map, and clones it.
+	public static void spawnBomb(Vector3 location){
+		Instantiate (myBomb, location, new Quaternion (0, 0, 0, 0));
 	}
 }

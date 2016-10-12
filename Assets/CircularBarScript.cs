@@ -4,16 +4,24 @@ using System.Collections;
 
 public class CircularBarScript : MonoBehaviour {
 
-    [SerializeField]
-    private Image circularBar;
+    public GameObject enemy;
+    public Image circularBar;
+    public float speed;
 
-	// Use this for initialization
-	void Start () {
+    void Start () {
         circularBar.fillAmount = 1;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-        circularBar.fillAmount = circularBar.fillAmount - (float)0.1*Time.deltaTime;
-	}
+        //Change colour frome green to red
+        circularBar.color = Color.Lerp(Color.red, Color.yellow, circularBar.fillAmount);
+
+        //Make health bar empty/unfill to representing a timer running out
+        circularBar.fillAmount = circularBar.fillAmount - speed*Time.deltaTime;
+
+        //Make the health bar appear below the specified enemy
+        Vector3 newPosition = enemy.transform.position;
+        newPosition.y = (float)1.5;
+        transform.position = Camera.main.WorldToScreenPoint(newPosition);
+    }
 }

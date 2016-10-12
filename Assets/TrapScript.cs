@@ -19,21 +19,26 @@ public class TrapScript : MonoBehaviour {
 
 	void OnTriggerEnter (Collider other) {
 		if (other.gameObject.tag == "Player") {
-			spawnTrap (this.gameObject.transform.position);
+			spawnTrap ();
 			Destroy (this.gameObject);
 		}
 	}
 		
-	void spawnTrap(Vector3 location){
+	void spawnTrap(){
+		Vector3 triggerPos = this.transform.position;
+		Vector3 triggerDirection = this.transform.forward;
+		Quaternion triggerRotation = this.transform.rotation;
+		float spawnDistance = 10;
+		Vector3 spawnPos = triggerPos + triggerDirection*spawnDistance;
+
 		switch (trapType)
 		{
 		case "bomb":
-			location.z += 5;
-			Instantiate (bomb, location, new Quaternion (0, 0, 0, 0));
+			Instantiate (bomb, spawnPos, triggerRotation);
 			break;
 		case "text":
-			location.x += 5;
-			Instantiate (text, location, new Quaternion (0, 0, 0, 0));
+			spawnPos.y = 0;//Text should appear on the ground
+			Instantiate (text, spawnPos, Quaternion.LookRotation(new Vector3(0, -1, 0),new Vector3(0, 1, 0)));
 			break;
 		default:
 			print("Invalid trap");

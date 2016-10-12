@@ -357,10 +357,10 @@ GameObject:
   - 95: {fileID: 9511334}
   - 205: {fileID: 20569776}
   - 114: {fileID: 11468618}
-  - 114: {fileID: 11441712}
   - 136: {fileID: 13677760}
   - 54: {fileID: 5421374}
   - 108: {fileID: 10823960}
+  - 114: {fileID: 11488572}
   m_Layer: 0
   m_Name: Alien
   m_TagString: Enemy
@@ -1582,27 +1582,6 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
---- !u!114 &11441712
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 149368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89935db5bd5ff394eb189967b2392eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 20
-  currentHealth: 0
-  bodyDamage: 5
-  damagedBy: PlayerProjectile
-  dead: 0
-  rotationSpeed: 10
-  bossSpeed: 5
-  difficultyLevel: 2
-  difficulty: 2
-  totalHealth: 0
 --- !u!114 &11468618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1618,6 +1597,27 @@ MonoBehaviour:
   attackDistance: 15
   moveAwayDuration: 2
   moveAwaySpeed: 2
+--- !u!114 &11488572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d23219eb12775074aa52e91bebc8a683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 20
+  currentHealth: 0
+  bodyDamage: 5
+  damagedBy: PlayerProjectile
+  dead: 0
+  rotationSpeed: 10
+  bossSpeed: 5
+  difficultyLevel: 2
+  difficulty: 2
+  totalHealth: 0
 --- !u!136 &13677760
 CapsuleCollider:
   m_ObjectHideFlags: 1

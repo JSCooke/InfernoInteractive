@@ -33,7 +33,7 @@ public class MinionBehaviour : MonoBehaviour
 		rb = GetComponent<Rigidbody>();
 		anim = GetComponent<Animator>();
 
-		maxHealth = this.GetComponent<BossController>().maxHealth;
+		maxHealth = this.GetComponent<MinionController>().maxHealth;
 		currentHealth = maxHealth;
 
 		//Find player in game
@@ -47,10 +47,10 @@ public class MinionBehaviour : MonoBehaviour
 	void Update()
 	{
 		//Update health
-		currentHealth = this.GetComponent<BossController>().currentHealth;
+		currentHealth = this.GetComponent<MinionController>().currentHealth;
 
 		//If not dead, fight player
-		if (this.GetComponent<BossController>().dead)
+		if (this.GetComponent<MinionController>().dead)
 		{
 			Die();
 		} else
@@ -112,7 +112,7 @@ public class MinionBehaviour : MonoBehaviour
 	{
 		//Move towards player and change animation from idle to move
 		anim.SetBool("Move", true);
-		transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime);
+		transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<MinionController>().bossSpeed * Time.deltaTime);
 	}
 
 	private void find()
@@ -122,7 +122,7 @@ public class MinionBehaviour : MonoBehaviour
 		playerPosition = new Vector3(playerPosition.x, 0, playerPosition.z);
 
 		//Look at the player
-		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.transform.position- this.transform.position), this.GetComponent<BossController>().rotationSpeed * Time.deltaTime);
+		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.transform.position- this.transform.position), this.GetComponent<MinionController>().rotationSpeed * Time.deltaTime);
 	}
 
 	void Die()

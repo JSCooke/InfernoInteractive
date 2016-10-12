@@ -122,7 +122,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 416578, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 411710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -299,7 +299,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 416578, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 411710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -436,20 +436,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 405040, guid: 3ae6db4a6bb68444b8bdda927c181d72, type: 2}
       propertyPath: m_RootOrder
-      value: 24
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 109938, guid: 3ae6db4a6bb68444b8bdda927c181d72, type: 2}
       propertyPath: m_Name
       value: RobotTriggerWall_L1
       objectReference: {fileID: 0}
-    - target: {fileID: 6570916, guid: 3ae6db4a6bb68444b8bdda927c181d72, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6570916, guid: 3ae6db4a6bb68444b8bdda927c181d72, type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 11452128, guid: 3ae6db4a6bb68444b8bdda927c181d72, type: 2}
+      propertyPath: countdownBarCanvas
+      value: 
+      objectReference: {fileID: 230041597}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ae6db4a6bb68444b8bdda927c181d72, type: 2}
   m_IsPrefabParent: 0
@@ -1421,7 +1417,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 416578, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 411710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4763,6 +4759,10 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 228997244}
+--- !u!1 &230041597 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 176068, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+  m_PrefabInternal: {fileID: 1028331610}
 --- !u!114 &233430091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5538,7 +5538,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1286620444}
   m_HandleRect: {fileID: 1286620443}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -7089,6 +7089,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6570916, guid: 3ae6db4a6bb68444b8bdda927c181d72, type: 2}
       propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 109938, guid: 3ae6db4a6bb68444b8bdda927c181d72, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9308,7 +9312,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 428358, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5485664, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_Interpolate
@@ -16198,7 +16202,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 416578, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 411710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -16216,6 +16220,10 @@ Prefab:
       propertyPath: m_Name
       value: PatrollingRobotWithHealthBar_Left1
       objectReference: {fileID: 0}
+    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: countdownBarCanvas
+      value: 
+      objectReference: {fileID: 230041597}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
   m_IsPrefabParent: 0
@@ -20059,6 +20067,10 @@ Prefab:
       propertyPath: m_Name
       value: RobotTriggerWall_L2
       objectReference: {fileID: 0}
+    - target: {fileID: 109938, guid: 3ae6db4a6bb68444b8bdda927c181d72, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ae6db4a6bb68444b8bdda927c181d72, type: 2}
   m_IsPrefabParent: 0
@@ -22797,9 +22809,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb8f321aa340b2a49b446a39130a0f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievement1: 43616e6e6f6e204b696e67
-  achievement2: 556e746f75636861626c6521
-  achievement3: 537065656472756e6e6572
+  achievement1: 34333631366536653666366532303462363936653637
+  achievement2: 353536653734366637353633363836313632366336353231
+  achievement3: 35333730363536353634373237353665366536353732
   achievement1Sprite: {fileID: 21300000, guid: 00723b6b579fde546a778f3f46b6f312, type: 3}
   achievement2Sprite: {fileID: 21300000, guid: 7226aab5c04373c4b9fdce6642517e67, type: 3}
   achievement3Sprite: {fileID: 21300000, guid: 6c21bec1d33a5a142a87faf70655434d, type: 3}
@@ -24743,6 +24755,10 @@ Prefab:
       propertyPath: m_Name
       value: RobotTriggerWall_R2
       objectReference: {fileID: 0}
+    - target: {fileID: 109938, guid: 3ae6db4a6bb68444b8bdda927c181d72, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ae6db4a6bb68444b8bdda927c181d72, type: 2}
   m_IsPrefabParent: 0
@@ -25276,7 +25292,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 479290, guid: 1e3a7f369672d2944a8365513c0e3fc4, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 479290, guid: 1e3a7f369672d2944a8365513c0e3fc4, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -25388,7 +25404,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 437172, guid: 00379f7646f0ca84692c5130a26a1177, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 437172, guid: 00379f7646f0ca84692c5130a26a1177, type: 2}
       propertyPath: m_LocalScale.x
@@ -26863,7 +26879,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 416578, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 411710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -28706,7 +28722,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 479290, guid: 1e3a7f369672d2944a8365513c0e3fc4, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 108498, guid: 1e3a7f369672d2944a8365513c0e3fc4, type: 2}
       propertyPath: m_Name
@@ -29688,7 +29704,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 416578, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 411710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: m_LocalPosition.z

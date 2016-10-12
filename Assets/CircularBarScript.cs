@@ -7,6 +7,7 @@ public class CircularBarScript : MonoBehaviour {
     public GameObject enemy;
     public Image circularBar;
     public float speed;
+	public GameObject countdownBarCanvas;
 
     void Start () {
         circularBar.fillAmount = 1;
@@ -23,5 +24,9 @@ public class CircularBarScript : MonoBehaviour {
         Vector3 newPosition = enemy.transform.position;
         newPosition.y = (float)1.5;
         transform.position = Camera.main.WorldToScreenPoint(newPosition);
+
+		if (circularBar.fillAmount == 0) {
+			countdownBarCanvas.SetActive (false);
+		}
     }
 }

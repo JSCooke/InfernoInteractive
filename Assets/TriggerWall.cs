@@ -3,7 +3,9 @@ using System.Collections;
 
 public class TriggerWall : MonoBehaviour {
 
+	public GameObject countdownBarCanvas;
+
 	void OnTriggerEnter(Collider other){
-		print("TRIGGERED");
+		countdownBarCanvas.SetActive (true);
 	}
 }

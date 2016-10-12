@@ -3,6 +3,7 @@ using System.Collections;
 
 public class TrapScript : MonoBehaviour {
 
+	public GameObject button;
 	public GameObject bomb;
 	public string trapType;
 
@@ -18,9 +19,7 @@ public class TrapScript : MonoBehaviour {
 
 	void OnTriggerEnter (Collider other) {
 		if (other.gameObject.tag == "Player") {
-			Vector3 trapLocation = this.gameObject.transform.position;
-			trapLocation.z += 5;
-			spawnTrap (trapLocation);
+			spawnTrap (this.gameObject.transform.position);
 			Destroy (this.gameObject);
 		}
 	}
@@ -29,7 +28,12 @@ public class TrapScript : MonoBehaviour {
 		switch (trapType)
 		{
 		case "bomb":
+			location.z += 5;
 			Instantiate (bomb, location, new Quaternion (0, 0, 0, 0));
+			break;
+		case "button":
+			location.x += 5;
+			Instantiate (button, location, new Quaternion (0, 0, 0, 0));
 			break;
 		default:
 			print("Invalid trap");

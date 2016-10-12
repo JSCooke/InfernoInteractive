@@ -17,10 +17,18 @@ public class UIAdapter : MonoBehaviour
 	public Text tempAchievementTextBox;
 
 	//This needs to be altered in this class to show points earned.
-	public Text tempWinText;
+	public Text tempWinText, tempDieText;
 
-	public AnimationClip amin;
+	private static bool idiot = false;
 
+	public static bool Idiot {
+		get {
+			return idiot;
+		}
+		set {
+			idiot = value;
+		}
+	}
 
 	//ben made this
 	public static Image topBar,bottomBar;
@@ -40,6 +48,7 @@ public class UIAdapter : MonoBehaviour
 		achievementImageBox = tempAchievementImageBox;
 		achievementTextBox = tempAchievementTextBox;
 		winText = tempWinText;
+		dieText = tempDieText;
 		timer = tempTimer;
 
         playerVal = 100;
@@ -89,6 +98,7 @@ public class UIAdapter : MonoBehaviour
 
 	//This needs to be altered in this class to show points earned.
 	public static Text winText;
+	public static Text dieText;
 	/**
 	 * Stops the timer, can be started with startTimer.
 	 */ 	
@@ -169,6 +179,12 @@ public class UIAdapter : MonoBehaviour
 	 * Calls up the death screen, and stops the timer.
 	 */ 
 	public static void die(){
+		if (!idiot) {
+			dieText.text = "You died...";
+		} else {
+			dieText.text = "It's not like we didn't warn you...";
+			Idiot = false;
+		}
         deathAnimator.gameObject.SetActive(true);
 		deathAnimator.SetTrigger ("Death");
 		stopTimer ();

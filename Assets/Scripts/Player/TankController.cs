@@ -27,11 +27,10 @@ public class TankController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-		transform.rotation = Quaternion.Euler (
-			transform.rotation.eulerAngles.x,
-			0,
-			transform.rotation.eulerAngles.z);
-        print(currentHealth);
+        transform.rotation = Quaternion.Euler(
+            transform.rotation.eulerAngles.x,
+            0,
+            transform.rotation.eulerAngles.z);
     }
 
 	void FixedUpdate(){

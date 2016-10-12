@@ -13,6 +13,7 @@ public class MinionBehaviour : MonoBehaviour
 	private double moveAwayStartTime;
 
 	private Rigidbody rb;
+	private Animator anim;
 	private int currentHealth, maxHealth;
 
 	private bool movingTowards = false;
@@ -25,6 +26,7 @@ public class MinionBehaviour : MonoBehaviour
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
+		anim = GetComponent<Animator>();
 
 		maxHealth = this.GetComponent<BossController>().maxHealth;
 		currentHealth = maxHealth;
@@ -94,6 +96,7 @@ public class MinionBehaviour : MonoBehaviour
 
 	private void moveTowards()
 	{
+		anim.SetBool("Move", true);
 		transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime);
 	}
 

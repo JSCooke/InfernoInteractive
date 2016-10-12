@@ -4,6 +4,7 @@ using System.Collections;
 public class TrapScript : MonoBehaviour {
 
 	public GameObject bomb;
+	public string trapType;
 
 	// Use this for initialization
 	void Start () {
@@ -17,15 +18,23 @@ public class TrapScript : MonoBehaviour {
 
 	void OnTriggerEnter (Collider other) {
 		if (other.gameObject.tag == "Player") {
-			Vector3 bombLocation = this.gameObject.transform.position;
-			bombLocation.z += 5;
-			spawnBomb (bombLocation);
+			Vector3 trapLocation = this.gameObject.transform.position;
+			trapLocation.z += 5;
+			spawnTrap (trapLocation);
 			Destroy (this.gameObject);
 		}
 	}
+		
+	void spawnTrap(Vector3 location){
+		switch (trapType)
+		{
+		case "bomb":
+			Instantiate (bomb, location, new Quaternion (0, 0, 0, 0));
+			break;
+		default:
+			print("Invalid trap");
+			break;
+		}
 
-	//Requires that a bomb is somewhere on the map, and clones it.
-	void spawnBomb(Vector3 location){
-		Instantiate (bomb, location, new Quaternion (0, 0, 0, 0));
 	}
 }

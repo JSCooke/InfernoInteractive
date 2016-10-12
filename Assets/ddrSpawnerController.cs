@@ -10,7 +10,7 @@ public class ddrSpawnerController : MonoBehaviour {
     //Difficulty affects the number of splits
     public enum Difficulty { Easy = 4, Medium = 3, Hard = 2 };
     public Difficulty difficultyLevel;
-    private int difficulty = 4;
+    private int difficulty = 2;
 
     // Use this for initialization
     void Start () {
@@ -28,7 +28,7 @@ public class ddrSpawnerController : MonoBehaviour {
 
         print(difficulty);
         print(Random.Range(difficulty-1, difficulty + 1));
-        cooldown *= Random.Range(difficulty-1, difficulty+1);
+        cooldown = Random.Range(difficulty*200, difficulty*500);
 
     }
 	

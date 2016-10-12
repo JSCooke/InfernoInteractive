@@ -3,7 +3,7 @@ using System.Collections;
 
 public class TrapScript : MonoBehaviour {
 
-	public GameObject button;
+	public GameObject text;
 	public GameObject bomb;
 	public string trapType;
 
@@ -31,9 +31,9 @@ public class TrapScript : MonoBehaviour {
 			location.z += 5;
 			Instantiate (bomb, location, new Quaternion (0, 0, 0, 0));
 			break;
-		case "button":
+		case "text":
 			location.x += 5;
-			Instantiate (button, location, new Quaternion (0, 0, 0, 0));
+			Instantiate (text, location, new Quaternion (0, 0, 0, 0));
 			break;
 		default:
 			print("Invalid trap");

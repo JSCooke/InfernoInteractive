@@ -188,8 +188,6 @@ MonoBehaviour:
   smooth: 0
   height: 30
   dampTime: 0.05
-  velocity: {x: 0, y: 0, z: 0}
-  camera: {fileID: 0}
 --- !u!1 &44501146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,7 +1017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1508080a13ca344eab5e25488a49a849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagedBy: 506c6179657250726f6a656374696c65
+  damagedBy: PlayerProjectile
   tank: {fileID: 938111780}
   explosion: {fileID: 19800006, guid: 6aea392f353e04156a230db0fba22230, type: 2}
 --- !u!135 &668480435
@@ -1438,8 +1436,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1015081648}
-  seconds: 0
-  minutes: 0
   stop: 0
 --- !u!114 &1015081647
 MonoBehaviour:
@@ -2304,20 +2300,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d015ae0c5836484595a5308e4bbda6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fillAmount: 1
   lerpSpeed: 5
   content: {fileID: 787162118}
   valueText: {fileID: 1944407151}
-  fullColour:
-    r: 0
-    g: 0
-    b: 1
-    a: 1
-  lowColour:
-    r: 0.47794116
-    g: 0.47794116
-    b: 0.47794116
-    a: 1
+  fullColour: {r: 0, g: 0, b: 1, a: 1}
+  lowColour: {r: 0.47794116, g: 0.47794116, b: 0.47794116, a: 1}
 --- !u!114 &1607229285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3149,20 +3136,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d015ae0c5836484595a5308e4bbda6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fillAmount: 1
   lerpSpeed: 5
   content: {fileID: 963700906}
   valueText: {fileID: 1550599659}
-  fullColour:
-    r: 0
-    g: 1
-    b: 0.13103461
-    a: 1
-  lowColour:
-    r: 0.47794116
-    g: 0.47794116
-    b: 0.47794116
-    a: 1
+  fullColour: {r: 0, g: 1, b: 0.13103461, a: 1}
+  lowColour: {r: 0.47794116, g: 0.47794116, b: 0.47794116, a: 1}
 --- !u!114 &2022320219
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -24,14 +24,14 @@ public class BigCannonBehaviour : ControlStationBehaviour {
 
 	//uncomment below if you want the cabin to move
 
-	//public override void keyHeld(bool up, bool left, bool down, bool right){
-	//	if (left && !right) {
-	//		cabin.transform.Rotate (0, -20 * Time.deltaTime, 0);
-	//	}
-	//
-	//	if (right && !left) {
-	//		cabin.transform.Rotate (0, 20 * Time.deltaTime, 0);
-	//	}
-	//}
+	public override void keyHeld(bool up, bool left, bool down, bool right){
+		if (left && !right) {
+			cabin.transform.Rotate (0, -20 * Time.deltaTime, 0);
+		}
+	
+		if (right && !left) {
+			cabin.transform.Rotate (0, 20 * Time.deltaTime, 0);
+		}
+	}
 
 }

@@ -13,12 +13,17 @@ public class DiscoLightBehaviour : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		if (Time.frameCount % 15 == 0) {
-			var euler = transform.eulerAngles;
-			euler.z = Random.Range (-70f, 70f);
-			euler.x= Random.Range (-70f, 70f);
-			transform.eulerAngles = euler;
+		if (Time.frameCount % 100 == 0) {
+			transform.GetComponent<Light> ().enabled = true;
 		}
+		else if (Time.frameCount % 50 == 0) {
+			transform.GetComponent<Light> ().enabled = false;
+		}
+			transform.Rotate (new Vector3 (1.0f, 0f, 1.0f));
+			//var euler = transform.eulerAngles;
+			//euler.z = Random.Range (-70f, 70f);
+			//euler.x= Random.Range (-70f, 70f);
+			//transform.eulerAngles = euler;
 
 	}
 }

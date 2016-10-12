@@ -125,6 +125,7 @@ public class TankController : MonoBehaviour {
         if (collider.gameObject.tag == damagedBy) {
             takeDamage(collider.gameObject.GetComponent<BossController>().bodyDamage);
         }
+
     }
 
     public void takeDamage(int damage) {
@@ -136,7 +137,7 @@ public class TankController : MonoBehaviour {
             lastDamageTime = Time.fixedTime;
             shield.SetActive(false);
             return;
-        }
+       	 }
 
         if (Time.fixedTime - lastDamageTime > iFrameTime) {
             lastDamageTime = Time.fixedTime;

@@ -16,10 +16,12 @@ public class ddrSpawnerController : MonoBehaviour {
 	void Update () {
 	
 
-		// check delta time and spawn randomly
+		// check delta time and spawn
+		//spawn differently for different difficulties
 		if (canShoot) {
 			if (Time.frameCount - lastSpawnTime > cooldown) {
                 lastSpawnTime = Time.frameCount;
+
 				Instantiate (spawnedObject, transform.position, transform.rotation);
 			}
 		}

@@ -25,12 +25,12 @@ public class CameraController : MonoBehaviour {
 			Vector3 destination = transform.position + delta;
 			transform.position = Vector3.SmoothDamp (transform.position, destination, ref velocity, dampTime);
 		} else {
-			transform.position = target.transform.position + new Vector3 (0, 30, 5);
+			transform.position = target.transform.position + new Vector3 (0, 30, 0);
 
 			transform.rotation = Quaternion.Euler(85, target.transform.rotation.eulerAngles.y, 0);
 
 			//uncomment below to make cabin move with camera
-			//transform.rotation = Quaternion.Euler(85, target.transform.rotation.eulerAngles.y, 0);
+			transform.rotation = Quaternion.Euler(85, target.transform.rotation.eulerAngles.y, 0);
 		
 		}
 	}

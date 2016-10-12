@@ -6,12 +6,12 @@ public class bombController : MonoBehaviour {
 	public string damagedBy; //PlayerProjectile
 	public TankController tank;
 	public ParticleSystem explosion;
-	public static GameObject myBomb;
-	public GameObject bomb;
+//	public static GameObject myBomb;
+//	public GameObject bomb;
 
 	// Use this for initialization
 	void Start () {
-		myBomb = bomb;
+//		myBomb = bomb;
 		//tank = GetComponent<TankController> ();
 	}
 	
@@ -36,14 +36,12 @@ public class bombController : MonoBehaviour {
 		int i = 0;
 		while (i<inRange.Length){
 			if (inRange [i].gameObject.tag == "Player") {
-				tank.takeDamage (50);
+				tank = inRange [i].gameObject.GetComponent<TankController> ();
+				if (tank != null) {
+					tank.takeDamage (50);
+				}
 			}
 			i = i + 1;
 		}
-	}
-
-	//Requires that a bomb is somewhere on the map, and clones it.
-	public static void spawnBomb(Vector3 location){
-		Instantiate (myBomb, location, new Quaternion (0, 0, 0, 0));
 	}
 }

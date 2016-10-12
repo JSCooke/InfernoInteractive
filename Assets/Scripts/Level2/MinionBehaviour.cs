@@ -6,13 +6,18 @@ public class MinionBehaviour : MonoBehaviour
 {
 
 	public UnityEngine.GameObject player = null;
-	public float attackDistance = 5f;
+	public float attackDistance = 10.0f;
+
+	public double moveAwayDuration;
+	public int moveAwaySpeed;
+	private double moveAwayStartTime;
 
 	private Rigidbody rb;
 	private int currentHealth, maxHealth;
 
 	private bool movingTowards = false;
-	//private bool finding = true;
+	private bool movingAway = false;
+	private bool active = false;
 
 	private Vector3 playerPosition;
 
@@ -28,8 +33,6 @@ public class MinionBehaviour : MonoBehaviour
 		{
 			player = UnityEngine.GameObject.FindGameObjectsWithTag("Player")[0];
 		}
-		find();
-		movingTowards = true;
 	}
 
 	// Update is called once per frame
@@ -44,6 +47,15 @@ public class MinionBehaviour : MonoBehaviour
 		{
 			fightPlayer();
 		}
+
+		if (!active)
+		{
+			if (Vector3.Distance(transform.position, playerPosition) <= attackDistance)
+			{
+				active = true;
+				movingTowards = true;
+			}
+		}
 	}
 
 	void OnCollisionEnter(Collision collision)
@@ -52,20 +64,9 @@ public class MinionBehaviour : MonoBehaviour
 		if (collidedTag == "Player")
 		{
 			movingTowards = false;
-		} else
-		{
-			transform.position = transform.position;
-		}
-	}
-
-	IEnumerator OnCollisionExit(Collision collision)
-	{
-		string collidedTag = collision.gameObject.tag;
-		if (collidedTag == "Player")
-		{
-			yield return new WaitForSeconds(1);
-			movingTowards = true;
-		}
+			movingAway = true;
+			moveAwayStartTime = Time.fixedTime;
+		} 
 	}
 
 	private void fightPlayer()
@@ -75,23 +76,34 @@ public class MinionBehaviour : MonoBehaviour
 		if (movingTowards) {
 			moveTowards();
 		}
+		if (movingAway)	{
+			moveAway();
+		}
+	}
+
+	private void moveAway()
+	{
+		transform.Translate(Vector3.left * moveAwaySpeed * Time.deltaTime);
+
+		if (Time.fixedTime > (moveAwayStartTime + moveAwayDuration))
+		{
+			movingAway = false;
+			movingTowards = true;
+		}
 	}
 
 	private void moveTowards()
 	{
-		//if (Vector3.Distance(transform.position, playerPosition) <= attackDistance)
-		//{
-		//	return;
-		//}
-		transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime * 6);
+		transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime);
 	}
 
 	private void find()
 	{
-		//Look at the player
-		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(this.transform.position - player.transform.position), this.GetComponent<BossController>().rotationSpeed * Time.deltaTime);
 		playerPosition = player.transform.position;
 		playerPosition = new Vector3(playerPosition.x, 0, playerPosition.z);
+
+		//Look at the player
+		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.transform.position- this.transform.position), this.GetComponent<BossController>().rotationSpeed * Time.deltaTime);
 	}
 
 	void Die()

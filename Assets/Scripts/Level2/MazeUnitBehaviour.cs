@@ -36,10 +36,12 @@ public class MazeUnitBehaviour : MonoBehaviour {
 
 	private void spawnEnemies()
 	{
-		GameObject enemy1 = (GameObject)Instantiate(Resources.Load("Alien"));
+		GameObject enemyPrefab = (GameObject)(Resources.Load("Alien"));
+		GameObject enemy1 = Instantiate(enemyPrefab);
 		enemy1.transform.parent = transform;
 		enemy1.transform.localPosition = new Vector3(3f, 0f, 0f);
-		GameObject enemy2 = (GameObject)Instantiate(Resources.Load("Alien"));
+
+		GameObject enemy2 = Instantiate(enemyPrefab);
 		enemy2.transform.parent = transform;
 		enemy2.transform.localPosition = new Vector3(-3f, 0f, 0f);
 	}

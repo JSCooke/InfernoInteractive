@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Laser : SkillController {
 
+    public GameObject beam;
+
 	// Use this for initialization
 	void Start () {
 	

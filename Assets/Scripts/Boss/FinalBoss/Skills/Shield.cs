@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Shield : SkillController {
 
-    public GameObject shieldGenerator;
     public bool destroyed;
     public float healAmount;
 
@@ -24,6 +23,7 @@ public class Shield : SkillController {
 
         //If both generators hit simulatenously, shield is deactivated
         if (ShieldGenerator.hitCount == 2) {
+            GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().randomNextAction();
             this.gameObject.SetActive(false);
         }
 	}

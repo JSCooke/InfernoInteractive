@@ -58,41 +58,55 @@ public class FinalBossBehaviour : Spawnable {
             StartCoroutine(Die());
         }
         else {
-            fightPlayer();
+            StartCoroutine(fightPlayer());
         }
 
     }
 
-    void fightPlayer() {
+    IEnumerator fightPlayer() {
 
         switch (currentAction) {
 
             case Action.STATIONARY:
+
+                //Stationary for 3 seconds
+                yield return new WaitForSeconds(2);
                 randomNextAction();
                 break;
+
             case Action.SHIELD:
+
                 skills[0].SetActive(true);
                 break;
+
             case Action.LASER:
+
                 skills[1].SetActive(true);
                 break;
+
             case Action.SNARE:
+
+                
                 skills[2].SetActive(true);
                 break;
+
             case Action.DEFAULT_ATTACK:
+
                 attack();
                 break;
             
         }
 
+        //Return
+        yield return new WaitForSeconds(0);
+
     }
 
     public void randomNextAction() {
         randSkill = Random.Range(0, 100);
-        randSkill = 35;
-        
+        randSkill = 55;
 
-        if (randSkill <= 30) {  //Stationary
+        if (randSkill <= 40) {  //Stationary
 
             currentAction = Action.STATIONARY;
 

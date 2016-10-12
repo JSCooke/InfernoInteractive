@@ -23,7 +23,7 @@ public class HollowWall : MonoBehaviour {
         //}
 
         if (health <= 0) {
-        //    GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().randomNextAction();
+            //GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().randomNextAction();
             this.gameObject.SetActive(false);
             this.health = maxHealth;
         }

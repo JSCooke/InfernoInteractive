@@ -14,7 +14,7 @@ public class ShieldGenerator : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         //Must hit BOTH generators simultaneously (within 0.5s) to deactivate shield
-        if ((Time.fixedTime - lastHitTime) > 0.5) {
+        if (hitCount != 2 && (Time.fixedTime - lastHitTime) > 0.5) {
             hitCount = Mathf.Clamp(hitCount - 1, 0, 2);
         }
     }

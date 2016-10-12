@@ -25,6 +25,7 @@ public class Shield : SkillController {
         if (ShieldGenerator.hitCount == 2) {
             GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().randomNextAction();
             this.gameObject.SetActive(false);
+            ShieldGenerator.hitCount = 0;
         }
 	}
 

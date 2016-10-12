@@ -7,14 +7,14 @@ public class FinalBossBehaviour : Spawnable {
     private Vector3 playerPosition;
 
     private Rigidbody rb;
-    private int currentHealth, maxHealth;
+    private float currentHealth, maxHealth;
 
     private float randSkill;
-    public Skill[] skills = new Skill[4];
+    public GameObject[] skills = new GameObject[3];
 
+    //Different types of skills
     public enum Action {
         STATIONARY,
-        ILLUSION,
         SHIELD,
         LASER,
         SNARE,
@@ -70,18 +70,14 @@ public class FinalBossBehaviour : Spawnable {
             case Action.STATIONARY:
                 randomNextAction();
                 break;
-            case Action.ILLUSION:
-                print("lol");
-                skills[0].activate(Action.ILLUSION);
-                break;
             case Action.SHIELD:
-                skills[1].activate(Action.SHIELD);
+                skills[0].SetActive(true);
                 break;
             case Action.LASER:
-                skills[2].activate(Action.LASER);
+                skills[1].SetActive(true);
                 break;
             case Action.SNARE:
-                skills[3].activate(Action.SNARE);
+                skills[2].SetActive(true);
                 break;
             case Action.DEFAULT_ATTACK:
                 attack();
@@ -92,34 +88,25 @@ public class FinalBossBehaviour : Spawnable {
     }
 
     public void randomNextAction() {
-        print("asd");
         randSkill = Random.Range(0, 100);
-        randSkill = 45;
+        randSkill = 35;
         
 
         if (randSkill <= 30) {  //Stationary
 
             currentAction = Action.STATIONARY;
 
-        } else if (randSkill <= 40) {   //Illusion
-
-            currentAction = Action.ILLUSION;
-            skills[0].chargeStartTime = Time.fixedTime;
-
         } else if(randSkill <= 50) {     //Shield
 
             currentAction = Action.SHIELD;
-            skills[1].chargeStartTime = Time.fixedTime;
 
         } else if (randSkill <= 60) {     //Laser
 
             currentAction = Action.LASER;
-            skills[2].chargeStartTime = Time.fixedTime;
 
         } else if (randSkill <= 70) {     //Snare
 
             currentAction = Action.SNARE;
-            skills[3].chargeStartTime = Time.fixedTime;
         } else if (randSkill <= 100) {     //Attack
             
             charging = true;
@@ -179,5 +166,18 @@ public class FinalBossBehaviour : Spawnable {
         //Wait 1 second for animation to finish
         yield return new WaitForSeconds(1);
         Destroy(this.gameObject);
+    }
+
+    public GameObject getSkill(Action action) {
+
+        for (int i = 0; i < skills.Length; i++) {
+            print(skills[0].GetComponent<SkillController>().action);
+            print(action);
+            if (skills[0].GetComponent<SkillController>().action == action) {
+                return skills[0];
+            }
+        }
+
+        return null;
     }
 }

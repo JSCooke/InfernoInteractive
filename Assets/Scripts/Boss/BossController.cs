@@ -29,7 +29,7 @@ public class BossController : Damageable {
 
     }
 
-    public override void takeDamage(int damage) {
+    public override void takeDamage(float damage) {
 
         if (damage > currentHealth) {
             damage = currentHealth;

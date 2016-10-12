@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Laser : Skill {
+public class Laser : SkillController {
 
 	// Use this for initialization
 	void Start () {

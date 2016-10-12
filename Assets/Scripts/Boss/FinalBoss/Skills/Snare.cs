@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Snare : Skill {
+public class Snare : SkillController {
 
 	// Use this for initialization
 	void Start () {

@@ -6,25 +6,37 @@ public class bombController : MonoBehaviour {
 	public string damagedBy; //PlayerProjectile
 	public TankController tank;
 	public ParticleSystem explosion;
-//	public static GameObject myBomb;
-//	public GameObject bomb;
+	private float timer = 3;
+	public bool timing = true;
+
+	public bool Timing {
+		get {
+			return timing;
+		}
+		set {
+			timing = value;
+		}
+	}
 
 	// Use this for initialization
 	void Start () {
-//		myBomb = bomb;
-		//tank = GetComponent<TankController> ();
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		timer -= Time.deltaTime;
+		print (timer);
+		if (timer <= 0) {
+			
+			explode();
+		}
 	}
 
 	void OnTriggerEnter(Collider collider){
 		if (collider.gameObject.tag == damagedBy) {
 			explode ();
 			Destroy (collider.gameObject);
-			Destroy (this.gameObject);
 		}
 	}
 
@@ -43,5 +55,6 @@ public class bombController : MonoBehaviour {
 			}
 			i = i + 1;
 		}
+		Destroy (this.gameObject);
 	}
 }

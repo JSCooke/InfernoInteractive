@@ -59,6 +59,8 @@ public class ActivateNewDialog : MonoBehaviour {
 			if (shouldSpawn == true) {
 				dialogManager.shouldSpawn = true;
 				dialogManager.spawningObject = spawningObject;
+			} else {
+				dialogManager.shouldSpawn = false;
 			}
 
             //if end line isnt inputted default to all lines

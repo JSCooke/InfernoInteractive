@@ -132,6 +132,8 @@ public class DialogTextManager : MonoBehaviour {
 
                 DisableDialogBox();
 				if (shouldSpawn == true) {
+					print ("in dialogue spawn");
+					print (spawningObject.name);
 					spawningObject.Spawn ();
 				}
             }

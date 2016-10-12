@@ -23,15 +23,18 @@ public class ddrObjectBehaviour : Damageable
 
 		if (collision.gameObject.tag == "Player") {
 			print ("yo Player");
-			Instantiate (explosion, transform.position, transform.rotation);
-			//Damage Player + shake screen
 
+			//Damage Player + shake screen
 			tank = GameObject.Find ("Tank");
 			TankController temp = tank.GetComponent<TankController> ();
 			temp.takeDamage (bodyDamage);
 			Destroy (gameObject);
 		}
 
+	}
+
+	void OnDestroy(){
+		Instantiate (explosion, transform.position, transform.rotation);
 	}
 
 }

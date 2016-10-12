@@ -8,8 +8,6 @@ public class ddrSpawnerController : MonoBehaviour {
 	public bool canShoot = false;
 
     //Difficulty affects the number of splits
-    public enum Difficulty { Easy = 4, Medium = 3, Hard = 2 };
-    public Difficulty difficultyLevel;
     private int difficulty = 2;
 
     // Use this for initialization
@@ -19,17 +17,16 @@ public class ddrSpawnerController : MonoBehaviour {
         
         // uncomment when merged to do difficulty
 
-        if (GameData.get<Difficulty>("difficulty") != default(Difficulty))
+		if (GameData.get<BossController.Difficulty>("difficulty") != default(BossController.Difficulty))
         {
-            difficultyLevel = GameData.get<Difficulty>("difficulty");
-            difficulty = (int)GameData.get<Difficulty>("difficulty");
-            print("difficulty is " + difficulty);
+			difficulty = (int)GameData.get<BossController.Difficulty>("difficulty");
         }
 
-        print(difficulty);
-        print(Random.Range(difficulty-1, difficulty + 1));
-        cooldown = Random.Range(difficulty*200, difficulty*500);
-
+		if (difficulty == 2) {
+			cooldown = Random.Range (cooldown, difficulty * 800);
+		} else {
+			cooldown = Random.Range (cooldown, difficulty * 500);
+		}
     }
 	
 	// Update is called once per frame
@@ -39,6 +36,7 @@ public class ddrSpawnerController : MonoBehaviour {
 		// check delta time and spawn
 		//spawn differently for different difficulties
 		if (canShoot) {
+			
 			if (Time.frameCount - lastSpawnTime > cooldown) {
                 lastSpawnTime = Time.frameCount;
 

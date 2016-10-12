@@ -26,11 +26,11 @@ public class BigCannonBehaviour : ControlStationBehaviour {
 
 	public override void keyHeld(bool up, bool left, bool down, bool right){
 		if (left && !right) {
-			cabin.transform.Rotate (0, -20 * Time.deltaTime, 0);
+			cabin.transform.Rotate (0, -40 * Time.deltaTime, 0);
 		}
 	
 		if (right && !left) {
-			cabin.transform.Rotate (0, 20 * Time.deltaTime, 0);
+			cabin.transform.Rotate (0, 40 * Time.deltaTime, 0);
 		}
 	}
 

@@ -12,7 +12,6 @@ public class objectiveMenuBehaviour : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-		print (objectiveDescription.text);
 
     }
 	

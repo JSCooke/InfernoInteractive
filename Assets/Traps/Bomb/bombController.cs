@@ -8,6 +8,7 @@ public class bombController : MonoBehaviour {
 	public ParticleSystem explosion;
 	private float timer = 3;
 	public bool timing = true;
+	private Rigidbody rb;
 
 	public bool Timing {
 		get {
@@ -20,7 +21,7 @@ public class bombController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		rb = this.GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
@@ -28,14 +29,14 @@ public class bombController : MonoBehaviour {
 		timer -= Time.deltaTime;
 		print (timer);
 		if (timer <= 0) {
-			
 			explode();
 		}
 	}
 
 	void OnTriggerEnter(Collider collider){
 		if (collider.gameObject.tag == damagedBy) {
-			explode ();
+			Vector3 front = collider.transform.forward*5000;
+			rb.AddForce(front);
 			Destroy (collider.gameObject);
 		}
 	}

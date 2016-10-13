@@ -14,10 +14,8 @@ public class MeteorStrike : SkillController {
 	// Update is called once per frame
 	void Update () {
         if (aiming) {
+            aiming = false;
             StartCoroutine(aimAnimation());
-        }
-        else {
-            StartCoroutine(cooldown());
         }
     }
 
@@ -27,7 +25,7 @@ public class MeteorStrike : SkillController {
 
     IEnumerator aimAnimation() {
 
-        float radius = 2f;
+        float radius = 5f;
 
         //this.GetComponent<BossController>().difficulty
         for (int i = 0; i < 2; i++) {
@@ -38,16 +36,17 @@ public class MeteorStrike : SkillController {
             Vector3 newPos = new Vector3(player.transform.position.x + Mathf.Cos(angle) * radius, 0, player.transform.position.z + Mathf.Sin(angle) * radius);
 
             GameObject child = (GameObject)Instantiate(meteor, newPos, Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
         }
 
         //Done charging
-        yield return new WaitForSeconds((float)this.GetComponent<FinalBossBehaviour>().chargeDuration);
-        aiming = false;
+        //(float)this.GetComponent<FinalBossBehaviour>().chargeDuration
+        yield return new WaitForSeconds(3);
+        
+        this.gameObject.SetActive(false);
+        aiming = true;
+        GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().randomNextAction();
+
     }
 
-    IEnumerator cooldown() {
-        GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().randomNextAction();
-        this.gameObject.SetActive(false);
-        yield return new WaitForSeconds((float)this.GetComponent<FinalBossBehaviour>().chargeDuration);
-    }
 }

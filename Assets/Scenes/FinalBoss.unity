@@ -3982,7 +3982,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1863673393
 Transform:
   m_ObjectHideFlags: 0
@@ -4134,14 +4134,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbdb175a6ac6dcb4f8eef0a592f81f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1478667958}
-  enemy: {fileID: 921074180}
+  player: {fileID: 921074180}
+  enemy: {fileID: 1478667958}
   damage: 0
   chargeParticles: {fileID: 0}
   performSkill: 0
   action: 3
-  wall: {fileID: 0}
-  charging: 0
+  wall: {fileID: 169486, guid: 08fe1981148f1d84dae2d2658709a44a, type: 2}
+  charging: 1
   chargeDuration: 2
 --- !u!1 &2029823124
 GameObject:

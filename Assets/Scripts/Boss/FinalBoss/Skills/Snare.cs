@@ -14,10 +14,10 @@ public class Snare : SkillController {
 	
 	// Update is called once per frame
 	void Update () {
+
 	    if (charging) {
+            charging = false;
             StartCoroutine(chargeAnimation());
-        } else {
-            Instantiate(wall, player.transform.position, Quaternion.identity);
         }
 	}
 
@@ -26,12 +26,12 @@ public class Snare : SkillController {
     public Snare(GameObject player, GameObject enemy) : base(player, enemy) {}
 
     IEnumerator chargeAnimation() {
-        chargeParticles.enableEmission = true;
+        //chargeParticles.enableEmission = true;
 
         //Done charging
-        yield return new WaitForSeconds(chargeDuration);
+        yield return new WaitForSeconds(chargeDuration-2);
 
-        chargeParticles.enableEmission = false;
-        charging = false;
+        //chargeParticles.enableEmission = false;
+        Instantiate(wall, player.transform.position, Quaternion.identity);
     }
 }

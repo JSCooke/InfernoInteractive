@@ -86,7 +86,6 @@ public class FinalBossBehaviour : Spawnable {
 
             case Action.SNARE:
 
-                
                 skills[2].SetActive(true);
                 break;
 
@@ -114,7 +113,7 @@ public class FinalBossBehaviour : Spawnable {
 
             currentAction = Action.SHIELD;
 
-        } else if (randSkill <= 60) {     //Laser
+        } else if (randSkill <= 60) {     //Meteor
 
             currentAction = Action.METEOR;
 

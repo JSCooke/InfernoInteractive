@@ -78,7 +78,7 @@ GameObject:
   - 114: {fileID: 11429520}
   - 114: {fileID: 11474670}
   m_Layer: 12
-  m_Name: Big Cannon
+  m_Name: Big Cannon Mk2
   m_TagString: ControlStation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -540,9 +540,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dab7eb9ee6c25049a9a12c101aacaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 197348, guid: 5911cabeb946e8a49b8d14907acc79a6, type: 2}
+  projectile: {fileID: 197348, guid: eb665f0a3f1ad1946951e314d6729d40, type: 2}
   projectileSpawn: {fileID: 125604}
-  cooldown: 20
+  cooldown: 10
 --- !u!198 &19842608
 ParticleSystem:
   m_ObjectHideFlags: 1

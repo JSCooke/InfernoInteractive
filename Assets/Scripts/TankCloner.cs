@@ -16,7 +16,6 @@ public class TankCloner : MonoBehaviour {
 			//If this is a clone, disable all mesh renderers
 			foreach (MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>()) {
 				renderer.enabled = false;
-                
 			}
             //set rigidbody to kinematic and disable movement
             GetComponent<Rigidbody> ().isKinematic = true;

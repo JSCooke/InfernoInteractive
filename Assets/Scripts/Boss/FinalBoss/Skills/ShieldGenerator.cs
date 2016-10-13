@@ -3,8 +3,10 @@ using System.Collections;
 
 public class ShieldGenerator : MonoBehaviour {
 
-    public static float lastHitTime;
-    public static int hitCount = 0;
+    public string damagedBy;
+    public GameObject shield;
+    public float lastHitTime;
+    public int side;    //0 is left and 1 is right
 
     // Use this for initialization
     void Start() {
@@ -14,18 +16,17 @@ public class ShieldGenerator : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         //Must hit BOTH generators simultaneously (within 0.5s) to deactivate shield
-        if (hitCount != 2 && (Time.fixedTime - lastHitTime) > 0.5) {
-            hitCount = Mathf.Clamp(hitCount - 1, 0, 2);
+        if (!shield.GetComponent<Shield>().generatorDestroyed() && (Time.fixedTime - lastHitTime) > 0.5) {
+            shield.GetComponent<Shield>().hitCount[side] = false;
         }
     }
 
-    void OnCollisionEnter(Collision collision) {
-
-        if (collision.gameObject.tag == "PlayerProjectile") {
+    void OnTriggerEnter(Collider collider) {
+        print(side);
+        if (collider.gameObject.tag == damagedBy) {
             lastHitTime = Time.fixedTime;
-            hitCount++;
-            Destroy(collision.gameObject);
+            shield.GetComponent<Shield>().hitCount[side] = true;
+            Destroy(collider.gameObject);
         }
-
     }
 }

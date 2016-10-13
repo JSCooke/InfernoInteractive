@@ -6,9 +6,10 @@ public class Snare : SkillController {
     public GameObject wall;
     public bool charging = true;
     public float chargeDuration;
+    private float startTime;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 	
 	}
 	
@@ -17,7 +18,8 @@ public class Snare : SkillController {
 
 	    if (charging) {
             charging = false;
-            StartCoroutine(chargeAnimation());
+            startTime = UIAdapter.getTimeInSeconds();
+            chargeAnimation();
         }
 	}
 
@@ -25,13 +27,18 @@ public class Snare : SkillController {
 
     public Snare(GameObject player, GameObject enemy) : base(player, enemy) {}
 
-    IEnumerator chargeAnimation() {
+    void chargeAnimation() {
+
         //chargeParticles.enableEmission = true;
 
-        //Done charging
-        yield return new WaitForSeconds(chargeDuration-2);
+        //(float)this.GetComponent<FinalBossBehaviour>().chargeDuration
+        if (UIAdapter.getTimeInSeconds() - startTime > 3) {
+            this.gameObject.SetActive(false);
+            Instantiate(wall, player.transform.position, Quaternion.identity);
 
-        //chargeParticles.enableEmission = false;
-        Instantiate(wall, player.transform.position, Quaternion.identity);
+            //chargeParticles.enableEmission = false;
+        }
+
+        
     }
 }

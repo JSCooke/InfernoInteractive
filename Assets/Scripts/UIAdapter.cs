@@ -108,6 +108,13 @@ public class UIAdapter : MonoBehaviour
 	public static int[] getTime() {
 		return timer.getTime ();
 	}
+    /**
+	 * This returns the time in seconds
+	 */
+    public static int getTimeInSeconds() {
+        return getTime()[0] * 60 + getTime()[1];
+    }
+
 	/**
 	 * Decreases (negative values will increase) the player's health by the input percentage.
 	 * Returns the remaining hp of the player. (Pass in 0 to use this as a getter)

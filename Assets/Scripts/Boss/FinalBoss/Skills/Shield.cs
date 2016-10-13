@@ -24,7 +24,7 @@ public class Shield : SkillController {
 
         //If both generators hit simulatenously, shield is deactivated
         if (generatorDestroyed()) {
-            GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().randomNextAction();
+            GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().randomNextAction(true);
             this.gameObject.SetActive(false);
 
             for (int i = 0; i < hitCount.Length; i++) {

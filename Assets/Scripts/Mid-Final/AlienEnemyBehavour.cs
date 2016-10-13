@@ -3,6 +3,7 @@ using System.Collections;
 
 public class AlienEnemyBehavour : Damageable{
 
+    TankController player;
     UnityEngine.GameObject tank;
     Transform emp;
     NavMeshAgent navagation;
@@ -12,7 +13,11 @@ public class AlienEnemyBehavour : Damageable{
 
     float timeBetweenAttacks = 0.5f;
     float timer;
-    public int attackDamage;
+    int attackDamage;
+
+    int easy = 50;
+    int med = 25;
+    int hard = 20;
 
     bool inRange = false;
 
@@ -23,21 +28,32 @@ public class AlienEnemyBehavour : Damageable{
         if (tank == null)
         {
             tank = UnityEngine.GameObject.FindGameObjectsWithTag("Player")[0];
+            player = tank.GetComponent<TankController>();
         }
+
+        
         emp = GameObject.FindGameObjectWithTag("EMP").transform;
         navagation = GetComponent<NavMeshAgent>();
         capsuleCollider = GetComponent<CapsuleCollider>();
 
-        maxHealth = 50;
+        maxHealth = 100;
         currentHealth = maxHealth;
 
-        //depending on difficulty enemies spawn faster
-        //easy 2 enemies every 3 sec
-        //med 4 enemies every 3 sec
-        //hard 6 enemies every 3 sec
+        int dif = (int)GameData.get<BossController.Difficulty>("difficulty");
 
+        switch (dif)
+        {
+            case 2:
+                attackDamage = easy;
+                break;
+            case 3:
+                attackDamage = med;
+                break;
+            case 4:
+                attackDamage = hard;
+                break;
+        }
         
-
     }
 	
 	// Update is called once per frame
@@ -56,8 +72,9 @@ public class AlienEnemyBehavour : Damageable{
 
         if(timer>=timeBetweenAttacks && inRange && currentHealth > 0)
         {
-
+            Attack();
         }
+       
         
 
     }
@@ -80,6 +97,9 @@ public class AlienEnemyBehavour : Damageable{
 
     void OnCollisonStay(Collider col)
     {
+
+        inRange = true;
+
         if(col.gameObject.tag == "EMP")
         {
             //attack emp
@@ -89,6 +109,12 @@ public class AlienEnemyBehavour : Damageable{
             //attack player
         }
         //else if it is a bullet then destroy
+    }
+
+    void OnCollisonExit(Collider col)
+    {
+
+        inRange = false;
     }
 
     void OnTriggerExit(Collider other)
@@ -118,7 +144,7 @@ public class AlienEnemyBehavour : Damageable{
         timer = 0f;
         if(currentHealth > 0)
         {
-            //tank.takeDamage(attackDamage);
+            player.takeDamage(attackDamage);
             //TODO take damage
         }
 

@@ -16,33 +16,21 @@ public class AlienSpawnManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+      
+        int dif = (int)GameData.get<BossController.Difficulty>("difficulty");
 
-
-        //change spawntime depending on difficulty
-        if(GameData.get<BossController.Difficulty>("difficulty") == null)
+        switch (dif)
         {
-            spawnTime = easy;
-        }else
-        {
-            int dif = (int)GameData.get<BossController.Difficulty>("difficulty");
-
-            switch (dif)
-            {
-                case 2:
-                    spawnTime = easy;
-                    break;
-                case 3:
-                    spawnTime = med;
-                    break;
-                case 4:
-                    spawnTime = hard;
-                    break;
-            }
-
-        }
-
-
-
+            case 2:
+                spawnTime = easy;
+                break;
+            case 3:
+                spawnTime = med;
+                break;
+            case 4:
+                spawnTime = hard;
+                break;
+        }    
 
         //repeat method,start time, time before call again
         InvokeRepeating("Spawn", 0, spawnTime);

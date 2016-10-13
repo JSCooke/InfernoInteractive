@@ -30,7 +30,7 @@ public class HollowWall : MonoBehaviour {
         }
 
         ////Damage over time while snared
-        //GameObject.Find(playerName).GetComponent<TankController>().takeDamage((float)GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossController>().difficulty / 100);
+        GameObject.Find(playerName).GetComponent<TankController>().takeDamage((float)GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossController>().difficulty / 100);
         transform.Rotate(Vector3.down * (rotationSpeed * Time.deltaTime));
     }
 

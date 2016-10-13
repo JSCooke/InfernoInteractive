@@ -27,12 +27,16 @@ public class FinalBossBehaviour : Spawnable {
     //Properties of each default attack
     public double chargeDuration = 3;
     private double chargeStartTime;
-    private bool charging, dashing;
+    private bool charging = true, dashing;
+
+    public GameObject topPosition;
+    private Animator anim;
 
     // Use this for initialization
     void Start() {
         rb = GetComponent<Rigidbody>();
-
+        anim = GetComponent<Animator>();
+        
         maxHealth = this.GetComponent<BossController>().maxHealth;
         currentHealth = maxHealth;
 
@@ -69,7 +73,7 @@ public class FinalBossBehaviour : Spawnable {
 
             case Action.STATIONARY:
 
-                randomNextAction(true);
+                returnToTop();
                 break;
 
             case Action.SHIELD:
@@ -85,6 +89,7 @@ public class FinalBossBehaviour : Spawnable {
             case Action.SNARE:
 
                 skills[2].SetActive(true);
+
                 break;
 
             case Action.DEFAULT_ATTACK:
@@ -96,8 +101,22 @@ public class FinalBossBehaviour : Spawnable {
 
     }
 
-    public void randomNextAction(bool newAction) {
+    void returnToTop() {
 
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(this.transform.position - player.transform.position), this.GetComponent<BossController>().rotationSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, topPosition.transform.position, this.GetComponent<BossController>().bossSpeed * Time.deltaTime);
+
+        if (transform.position == topPosition.transform.position) {
+            transform.LookAt(player.transform);
+            randomNextAction(true);
+        }    
+
+
+
+    }
+
+    public void randomNextAction(bool newAction) {
+        
         if (newAction) {
             randSkill = Random.Range(0, 100);
         }
@@ -106,33 +125,35 @@ public class FinalBossBehaviour : Spawnable {
 
             currentAction = Action.STATIONARY;
 
-        } else if(randSkill <= 50) {     //Shield
+        } else if(randSkill <= 50 && currentHealth <= 50) {     //Shield
 
             currentAction = Action.SHIELD;
 
-        } else if (randSkill <= 60) {     //Meteor
+        } else if (randSkill <= 60 && currentHealth <= 25) {     //Meteor
 
             currentAction = Action.METEOR;
 
-        } else if (randSkill <= 70) {     //Snare
+        } else if (randSkill <= 70 && currentHealth <= 75) {     //Snare
 
             currentAction = Action.SNARE;
+            skills[2].GetComponent<Snare>().startTime = UIAdapter.getTimeInSeconds();
+
         } else if (randSkill <= 100) {     //Attack
             
             charging = true;
             currentAction = Action.DEFAULT_ATTACK;
             
+        } else {
+            randomNextAction(true);
         }
 
-        print(currentAction);
     }
 
     void attack() {
         
         if (charging) {
             charge();
-        }
-        else if (dashing) {
+        } else if (dashing) {
             dashAttack();
         }
     }
@@ -144,7 +165,7 @@ public class FinalBossBehaviour : Spawnable {
         playerPosition = player.transform.position;
 
         //Finished charging and started attacking
-        if (Time.fixedTime > (chargeStartTime + chargeDuration)) {
+        if (UIAdapter.getTimeInSeconds() > (chargeStartTime + chargeDuration)) {
             dashing = true;
             charging = false;
         }
@@ -152,6 +173,7 @@ public class FinalBossBehaviour : Spawnable {
     }
 
     void dashAttack() {
+
         transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime * 6);
 
         if (transform.position == playerPosition) {

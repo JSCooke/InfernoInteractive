@@ -22,7 +22,6 @@ public class ShieldGenerator : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider collider) {
-        print(side);
         if (collider.gameObject.tag == damagedBy) {
             lastHitTime = Time.fixedTime;
             shield.GetComponent<Shield>().hitCount[side] = true;

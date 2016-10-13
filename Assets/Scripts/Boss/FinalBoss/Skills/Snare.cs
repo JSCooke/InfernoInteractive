@@ -6,7 +6,7 @@ public class Snare : SkillController {
     public GameObject wall;
     public bool charging = true;
     public float chargeDuration;
-    private float startTime;
+    public float startTime = 0;
 
     // Use this for initialization
     void Start () {
@@ -17,10 +17,9 @@ public class Snare : SkillController {
 	void Update () {
 
 	    if (charging) {
-            charging = false;
-            startTime = UIAdapter.getTimeInSeconds();
             chargeAnimation();
-        }
+        } 
+
 	}
 
     public Snare() { }
@@ -32,13 +31,13 @@ public class Snare : SkillController {
         //chargeParticles.enableEmission = true;
 
         //(float)this.GetComponent<FinalBossBehaviour>().chargeDuration
-        if (UIAdapter.getTimeInSeconds() - startTime > 3) {
-            this.gameObject.SetActive(false);
+        if (UIAdapter.getTimeInSeconds() - startTime > 1) {
+            charging = false;
             Instantiate(wall, player.transform.position, Quaternion.identity);
 
             //chargeParticles.enableEmission = false;
         }
-
         
     }
+
 }

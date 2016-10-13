@@ -24,8 +24,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109938}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -70, y: 5, z: 55}
-  m_LocalScale: {x: 30, y: 10, z: 0.1}
+  m_LocalPosition: {x: -70, y: 5, z: 95}
+  m_LocalScale: {x: 30, y: 10, z: 80}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,6 +53,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea843303f75befa4ca7bc728bbd9df3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countdownBarCanvases:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -1076,9 +1076,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f757fb65990b5f24c9ad0eefb114d65b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 152962}
+  robot: {fileID: 0}
+  deathAnimation: {fileID: 0}
   circularBar: {fileID: 11408112}
   speed: 0.1
+  countdownBarCanvas: {fileID: 0}
+  startCountdown: 0
 --- !u!114 &11477572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1090,10 +1093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555a71301273de546bb6cdbd5bf0b9bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 10
-  rb: {fileID: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
-  moveLeft: 0
+  offset: 9
 --- !u!114 &11496962
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1109,8 +1109,6 @@ MonoBehaviour:
   speed: 10
   gravity: 10
   animator: {fileID: 9544544}
-  verticalVel: 0
-  controller: {fileID: 0}
 --- !u!143 &14373256
 CharacterController:
   m_ObjectHideFlags: 1

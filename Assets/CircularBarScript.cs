@@ -4,15 +4,17 @@ using System.Collections;
 
 public class CircularBarScript : MonoBehaviour {
 
-    public GameObject enemy;
+    public GameObject robot;
+    public GameObject deathAnimation;
     public Image circularBar;
     public float speed;
-	public Canvas countdownBarCanvas;
+	public GameObject countdownBarCanvas;
     public bool startCountdown;
 
     void Start () {
         circularBar.fillAmount = 1;
         circularBar.color = Color.yellow;
+
     }
 
 	void Update () {
@@ -22,7 +24,7 @@ public class CircularBarScript : MonoBehaviour {
         }
 
         //Make the health bar appear below the specified enemy
-        Vector3 newPosition = enemy.transform.position;
+        Vector3 newPosition = robot.transform.position;
         newPosition.y = (float)1.5;
         transform.position = Camera.main.WorldToScreenPoint(newPosition);
 
@@ -31,15 +33,21 @@ public class CircularBarScript : MonoBehaviour {
         {
             countdownBarCanvas.GetComponent<Canvas>().enabled = false;
             ((CircularBarScript)countdownBarCanvas.GetComponentInChildren(typeof(CircularBarScript))).startCountdown = false;
+            circularBar.fillAmount = 1;
+
+            //robot.SetActive(false);
+            //Destroy(robot);
+            //Instantiate(deathAnimation, transform.position, transform.rotation);            
         }
     }
 
     void StartCountdownHealthBar()
     {
-        //Change colour frome green to red
+        //Change colour from green to red
         circularBar.color = Color.Lerp(Color.red, Color.yellow, circularBar.fillAmount);
 
         //Make health bar empty/unfill to representing a timer running out
         circularBar.fillAmount = circularBar.fillAmount - speed * Time.deltaTime;
     }
+
 }

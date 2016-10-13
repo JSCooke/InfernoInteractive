@@ -6,24 +6,30 @@ public class TriggerWall : MonoBehaviour {
 	public GameObject[] countdownBarCanvases;
 
 	void OnTriggerEnter(Collider other){
-
-        for(int i = 0; i< countdownBarCanvases.Length; i++)
+        if (other.tag == "Player")
         {
-            countdownBarCanvases[i].GetComponent<Canvas>().enabled = true;
+            for (int i = 0; i < countdownBarCanvases.Length; i++)
+            {
+                countdownBarCanvases[i].GetComponent<Canvas>().enabled = true;
 
-            //Start the robot's health bar countdown by getting script and enabling countdown boolean
-            ((CircularBarScript)countdownBarCanvases[i].GetComponentInChildren(typeof(CircularBarScript))).startCountdown = true;
+                //Start the robot's health bar countdown by getting script and enabling countdown boolean
+                ((CircularBarScript)countdownBarCanvases[i].GetComponentInChildren(typeof(CircularBarScript))).startCountdown = true;
+            }
         }
   	}
 
-    void OnTriggerExit()
+    void OnTriggerExit(Collider other)
     {
-        for (int i = 0; i < countdownBarCanvases.Length; i++)
+        if (other.tag == "Player")
         {
-            //Reset all initial values when exiting the trigger field
-            countdownBarCanvases[i].GetComponent<Canvas>().enabled = false;
-            ((CircularBarScript)countdownBarCanvases[i].GetComponentInChildren(typeof(CircularBarScript))).startCountdown = false;
-            ((CircularBarScript)countdownBarCanvases[i].GetComponentInChildren(typeof(CircularBarScript))).circularBar.fillAmount = 1;
+            for (int i = 0; i < countdownBarCanvases.Length; i++)
+            {
+                //Reset all initial values when exiting the trigger field
+                countdownBarCanvases[i].GetComponent<Canvas>().enabled = false;
+                ((CircularBarScript)countdownBarCanvases[i].GetComponentInChildren(typeof(CircularBarScript))).startCountdown = false;
+                ((CircularBarScript)countdownBarCanvases[i].GetComponentInChildren(typeof(CircularBarScript))).circularBar.fillAmount = 1;
+            }
         }
+
     }
 }

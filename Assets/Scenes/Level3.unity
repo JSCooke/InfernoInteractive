@@ -147,7 +147,11 @@ Prefab:
     - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: countdownBarCanvas
       value: 
-      objectReference: {fileID: 1830730858}
+      objectReference: {fileID: 1830730854}
+    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: robot
+      value: 
+      objectReference: {fileID: 15687293}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
   m_IsPrefabParent: 0
@@ -253,6 +257,10 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!1 &15687293 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 152962, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+  m_PrefabInternal: {fileID: 1737173}
 --- !u!114 &16045243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,7 +340,11 @@ Prefab:
     - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: countdownBarCanvas
       value: 
-      objectReference: {fileID: 186995518}
+      objectReference: {fileID: 186995514}
+    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: robot
+      value: 
+      objectReference: {fileID: 912123877}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
   m_IsPrefabParent: 0
@@ -1466,7 +1478,11 @@ Prefab:
     - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: countdownBarCanvas
       value: 
-      objectReference: {fileID: 1634680349}
+      objectReference: {fileID: 1634680345}
+    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: robot
+      value: 
+      objectReference: {fileID: 405932417}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
   m_IsPrefabParent: 0
@@ -4292,11 +4308,6 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 176068, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
   m_PrefabInternal: {fileID: 16596893}
---- !u!223 &186995518 stripped
-Canvas:
-  m_PrefabParentObject: {fileID: 22369950, guid: 7eae877e010a90b459c4d9f474e9762e,
-    type: 2}
-  m_PrefabInternal: {fileID: 16596893}
 --- !u!1001 &188437747
 Prefab:
   m_ObjectHideFlags: 0
@@ -4803,11 +4814,6 @@ CanvasRenderer:
 --- !u!1 &230041597 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 176068, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-  m_PrefabInternal: {fileID: 1028331610}
---- !u!223 &230041601 stripped
-Canvas:
-  m_PrefabParentObject: {fileID: 22369950, guid: 7eae877e010a90b459c4d9f474e9762e,
-    type: 2}
   m_PrefabInternal: {fileID: 1028331610}
 --- !u!114 &233430091
 MonoBehaviour:
@@ -6690,6 +6696,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 405286784}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &405932417 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146362, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+  m_PrefabInternal: {fileID: 72021660}
 --- !u!1 &407185967
 GameObject:
   m_ObjectHideFlags: 0
@@ -11909,6 +11919,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1cbe74508e287c94fa765e1f7479e176, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &665797161 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 152962, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+  m_PrefabInternal: {fileID: 1884319373}
 --- !u!114 &668914255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13797,11 +13811,6 @@ CanvasRenderer:
 GameObject:
   m_PrefabParentObject: {fileID: 176068, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
   m_PrefabInternal: {fileID: 2065624993}
---- !u!223 &821896188 stripped
-Canvas:
-  m_PrefabParentObject: {fileID: 22369950, guid: 7eae877e010a90b459c4d9f474e9762e,
-    type: 2}
-  m_PrefabInternal: {fileID: 2065624993}
 --- !u!1 &826165642
 GameObject:
   m_ObjectHideFlags: 0
@@ -14958,6 +14967,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 910523074}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &912123877 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 152962, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+  m_PrefabInternal: {fileID: 16596893}
 --- !u!1 &912921198
 GameObject:
   m_ObjectHideFlags: 0
@@ -15837,11 +15850,6 @@ MeshFilter:
 GameObject:
   m_PrefabParentObject: {fileID: 176068, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
   m_PrefabInternal: {fileID: 1884319373}
---- !u!223 &975005911 stripped
-Canvas:
-  m_PrefabParentObject: {fileID: 22369950, guid: 7eae877e010a90b459c4d9f474e9762e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1884319373}
 --- !u!224 &975154085
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16307,7 +16315,7 @@ Prefab:
     - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: countdownBarCanvas
       value: 
-      objectReference: {fileID: 230041601}
+      objectReference: {fileID: 230041597}
     - target: {fileID: 22369950, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: m_Enabled
       value: 0
@@ -16320,6 +16328,14 @@ Prefab:
       propertyPath: m_TagString
       value: CircularHealthBar
       objectReference: {fileID: 0}
+    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: robot
+      value: 
+      objectReference: {fileID: 1227671726}
+    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: deathAnimation
+      value: 
+      objectReference: {fileID: 100008, guid: c466276509f8b40a59f02d115254fc25, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
   m_IsPrefabParent: 0
@@ -18691,6 +18707,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 59234cdca8471fe42ab77e0807ad6222, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1227671726 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 152962, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+  m_PrefabInternal: {fileID: 1028331610}
 --- !u!1 &1228821227
 GameObject:
   m_ObjectHideFlags: 0
@@ -20735,6 +20755,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1405107844}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1412041193 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 152962, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+  m_PrefabInternal: {fileID: 2065624993}
 --- !u!1 &1412664295
 GameObject:
   m_ObjectHideFlags: 0
@@ -24016,11 +24040,6 @@ MeshFilter:
 GameObject:
   m_PrefabParentObject: {fileID: 176068, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
   m_PrefabInternal: {fileID: 72021660}
---- !u!223 &1634680349 stripped
-Canvas:
-  m_PrefabParentObject: {fileID: 22369950, guid: 7eae877e010a90b459c4d9f474e9762e,
-    type: 2}
-  m_PrefabInternal: {fileID: 72021660}
 --- !u!1 &1636749857
 GameObject:
   m_ObjectHideFlags: 0
@@ -26081,11 +26100,6 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 176068, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
   m_PrefabInternal: {fileID: 1737173}
---- !u!223 &1830730858 stripped
-Canvas:
-  m_PrefabParentObject: {fileID: 22369950, guid: 7eae877e010a90b459c4d9f474e9762e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1737173}
 --- !u!1 &1839522461
 GameObject:
   m_ObjectHideFlags: 0
@@ -26918,7 +26932,11 @@ Prefab:
     - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: countdownBarCanvas
       value: 
-      objectReference: {fileID: 975005911}
+      objectReference: {fileID: 975005907}
+    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: robot
+      value: 
+      objectReference: {fileID: 665797161}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
   m_IsPrefabParent: 0
@@ -29751,7 +29769,11 @@ Prefab:
     - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: countdownBarCanvas
       value: 
-      objectReference: {fileID: 821896188}
+      objectReference: {fileID: 821896184}
+    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: robot
+      value: 
+      objectReference: {fileID: 1412041193}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
   m_IsPrefabParent: 0

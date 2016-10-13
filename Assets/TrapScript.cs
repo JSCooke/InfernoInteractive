@@ -6,6 +6,7 @@ public class TrapScript : MonoBehaviour {
 	public GameObject text;
 	public GameObject bomb;
 	public GameObject shroom;
+	public GameObject confetti;
 	public string trapType;
 
 	// Use this for initialization
@@ -50,6 +51,9 @@ public class TrapScript : MonoBehaviour {
 				Instantiate (shroom, spawnPos, triggerRotation);
 				i++;
 			}
+			break;
+		case "confetti":
+			Instantiate (confetti, spawnPos, triggerRotation);
 			break;
 		default:
 			print("Invalid trap");

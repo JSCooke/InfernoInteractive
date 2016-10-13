@@ -14,6 +14,7 @@ public class Damageable : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider collider){
+		print (collider);
 		if (collider.gameObject.tag == damagedBy) {
             takeDamage (collider.gameObject.GetComponent<ProjectileController>().damage);
 			Destroy (collider.gameObject);

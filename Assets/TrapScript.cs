@@ -5,6 +5,7 @@ public class TrapScript : MonoBehaviour {
 
 	public GameObject text;
 	public GameObject bomb;
+	public GameObject shroom;
 	public string trapType;
 
 	// Use this for initialization
@@ -39,6 +40,16 @@ public class TrapScript : MonoBehaviour {
 		case "text":
 			spawnPos.y = 0;//Text should appear on the ground
 			Instantiate (text, spawnPos, Quaternion.LookRotation(new Vector3(0, -1, 0),new Vector3(0, 1, 0)));
+			break;
+		case "shroom":
+			spawnPos.y = 0;
+			int i = 0;
+			while (i < Random.Range(1,4)){
+				spawnPos.x += Random.Range (-10, 10);
+				spawnPos.z += Random.Range (-10, 10);
+				Instantiate (shroom, spawnPos, triggerRotation);
+				i++;
+			}
 			break;
 		default:
 			print("Invalid trap");

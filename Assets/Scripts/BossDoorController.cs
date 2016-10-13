@@ -34,11 +34,11 @@ public class BossDoorController : MonoBehaviour {
             leftDoor.transform.localPosition = Vector3.MoveTowards(leftDoor.transform.localPosition, leftDoorClosedPosition, speed * Time.deltaTime);
             rightDoor.transform.localPosition = Vector3.MoveTowards(rightDoor.transform.localPosition, rightDoorClosedPosition, speed * Time.deltaTime);
         }
-	}
+    }
 
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider other)
     {
-        if(redOrb && greenOrb)
+        if(other.tag == "Player" && redOrb && greenOrb)
         {
             open = true;
         }

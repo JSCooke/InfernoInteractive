@@ -12,6 +12,7 @@ public class CircularBarScript : MonoBehaviour {
     public bool startCountdown;
     public GameObject door;
     public GameObject orb;
+    public GameObject redLight, greenLight;
 
     void Start () {
         circularBar.fillAmount = 1;
@@ -40,7 +41,11 @@ public class CircularBarScript : MonoBehaviour {
             robot.SetActive(false);
             //Explosion animation
             Instantiate(deathAnimation, robot.transform.position, robot.transform.rotation);
+            for(int i = 0; i < 10; i++) {
+                Instantiate(deathAnimation, robot.transform.position + (Random.RandomRange(-20, 20) * Vector3.forward) + (Random.RandomRange(-20, 20) * Vector3.left), robot.transform.rotation);
+            }
             DropOrb();
+            UIAdapter.damagePlayer(5);
         }
     }
 
@@ -55,18 +60,23 @@ public class CircularBarScript : MonoBehaviour {
 
     void DropOrb()
     {
-        Collider[] colliders = Physics.OverlapSphere(robot.transform.position, 10f);
+        Collider[] colliders = Physics.OverlapSphere(robot.transform.position, 100f);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject.tag == "Player")
             {
                 if (this.tag.Equals("Left"))
                 {
-                    ((BossDoorController)door.GetComponent(typeof(BossDoorController))).redOrb = false;                    
+                    ((BossDoorController)door.GetComponent(typeof(BossDoorController))).redOrb = false;
+                    UIAdapter.setRedOrbActive(false);
+                    redLight.SetActive(true);
+                    
                 }
                 else
                 {
                     ((BossDoorController)door.GetComponent(typeof(BossDoorController))).greenOrb = false;
+                    UIAdapter.setGreenOrbActive(false);
+                    greenLight.SetActive(true);
                 }
                 orb.SetActive(true);
             }

@@ -20,6 +20,7 @@ public class CircularBarScript : MonoBehaviour {
 	void Update () {
         
 		if (startCountdown) {
+            robot.SetActive(true);
             StartCountdownHealthBar();
         }
 
@@ -35,9 +36,9 @@ public class CircularBarScript : MonoBehaviour {
             ((CircularBarScript)countdownBarCanvas.GetComponentInChildren(typeof(CircularBarScript))).startCountdown = false;
             circularBar.fillAmount = 1;
 
-            //robot.SetActive(false);
+            robot.SetActive(false);
             //Destroy(robot);
-            //Instantiate(deathAnimation, transform.position, transform.rotation);            
+            Instantiate(deathAnimation, robot.transform.position, robot.transform.rotation);            
         }
     }
 

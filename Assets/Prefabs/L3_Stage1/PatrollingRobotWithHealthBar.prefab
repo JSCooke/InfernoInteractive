@@ -148,7 +148,7 @@ GameObject:
   - 114: {fileID: 11447710}
   m_Layer: 5
   m_Name: CircularHealthBar
-  m_TagString: Untagged
+  m_TagString: CircularHealthBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -328,7 +328,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152962}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.618184, y: 0, z: -1.0359917}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -342,7 +342,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.618184, y: -1.2780399, z: 1.0359917}
+  m_LocalPosition: {x: -70, y: 2, z: 75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -1076,11 +1076,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f757fb65990b5f24c9ad0eefb114d65b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robot: {fileID: 0}
-  deathAnimation: {fileID: 0}
+  robot: {fileID: 152962}
+  deathAnimation: {fileID: 100008, guid: c466276509f8b40a59f02d115254fc25, type: 2}
   circularBar: {fileID: 11408112}
   speed: 0.1
-  countdownBarCanvas: {fileID: 0}
+  countdownBarCanvas: {fileID: 176068}
   startCountdown: 0
 --- !u!114 &11477572
 MonoBehaviour:

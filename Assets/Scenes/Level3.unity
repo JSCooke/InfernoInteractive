@@ -1482,7 +1482,7 @@ Prefab:
     - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: robot
       value: 
-      objectReference: {fileID: 405932417}
+      objectReference: {fileID: 1563047040}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
   m_IsPrefabParent: 0
@@ -5590,7 +5590,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1286620444}
   m_HandleRect: {fileID: 1286620443}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -6696,10 +6696,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 405286784}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &405932417 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 146362, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-  m_PrefabInternal: {fileID: 72021660}
 --- !u!1 &407185967
 GameObject:
   m_ObjectHideFlags: 0
@@ -16296,46 +16292,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 411710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 181508, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: m_Name
       value: PatrollingRobotWithHealthBar_Left1
       objectReference: {fileID: 0}
-    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: countdownBarCanvas
-      value: 
-      objectReference: {fileID: 230041597}
-    - target: {fileID: 22369950, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: startCountdown
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 146362, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: m_TagString
-      value: CircularHealthBar
-      objectReference: {fileID: 0}
-    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: robot
-      value: 
-      objectReference: {fileID: 1227671726}
-    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: deathAnimation
-      value: 
-      objectReference: {fileID: 100008, guid: c466276509f8b40a59f02d115254fc25, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
   m_IsPrefabParent: 0
@@ -18707,10 +18667,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 59234cdca8471fe42ab77e0807ad6222, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1227671726 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 152962, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-  m_PrefabInternal: {fileID: 1028331610}
 --- !u!1 &1228821227
 GameObject:
   m_ObjectHideFlags: 0
@@ -23155,6 +23111,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1560429382}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1563047040 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 152962, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+  m_PrefabInternal: {fileID: 72021660}
 --- !u!1 &1570098694
 GameObject:
   m_ObjectHideFlags: 0

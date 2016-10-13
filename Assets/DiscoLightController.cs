@@ -26,4 +26,10 @@ public class DiscoLightController : MonoBehaviour {
 			Instantiate (spawnedObject, temp, Random.rotation);
 		}
 	}
+
+	public void endDisco(){
+		foreach (GameObject lights in GameObject.FindGameObjectsWithTag("DiscoLight")) {
+			Destroy (lights);
+		}
+	}
 }

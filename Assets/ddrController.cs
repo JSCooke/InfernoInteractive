@@ -8,7 +8,7 @@ public class ddrController : MonoBehaviour {
 	public GameObject[] spawners;
 	public DiscoLightController discoLightController;
 
-	//Dialogue shit
+	//Dialogue things
 	public TextAsset theText;
 
 	public int startLine = 0;
@@ -50,6 +50,7 @@ public class ddrController : MonoBehaviour {
 				dialogManager.ReloadScript(theText);
 				dialogManager.currentLineNumber = startLine;
 				dialogManager.endLineNumber = endLine;
+				dialogManager.stopGameMovements = stopGameMovements;
 				dialogManager.EnableDialogBox();
 
 				if (shouldSpawn == true) {

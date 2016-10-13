@@ -34,6 +34,7 @@ public class FinalBossBehaviour : Spawnable {
     public Dictionary<string, float> animationTimes = new Dictionary<string, float>();
     public Animator anim;
 
+    public int frameCount = 0;
     public float topPause = 1f;
 
     // Use this for initialization

@@ -7,10 +7,11 @@ public class tipsGenerator : MonoBehaviour {
 
     public Text tipText;
 
-	// Use this for initialization
 	void Start () {
+		//Array of tips
         string[] tips = GenerateTips();
 
+		//Randomly select a tip and display it
         System.Random rnd = new System.Random();
         int index = rnd.Next(tips.Length);
 
@@ -19,6 +20,7 @@ public class tipsGenerator : MonoBehaviour {
 
     string[] GenerateTips()
     {
+		//Tips shown in the game
         string[] tips = new string[9];
 
         tips[0] = "Difficulty levels can be changed in he settings menu ";

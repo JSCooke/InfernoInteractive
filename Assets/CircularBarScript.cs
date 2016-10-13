@@ -37,8 +37,9 @@ public class CircularBarScript : MonoBehaviour {
             circularBar.fillAmount = 1;
 
             robot.SetActive(false);
-            //Destroy(robot);
-            Instantiate(deathAnimation, robot.transform.position, robot.transform.rotation);            
+            //Explosion animation
+            Instantiate(deathAnimation, robot.transform.position, robot.transform.rotation);
+            DropOrb();
         }
     }
 
@@ -51,4 +52,17 @@ public class CircularBarScript : MonoBehaviour {
         circularBar.fillAmount = circularBar.fillAmount - speed * Time.deltaTime;
     }
 
+    void DropOrb()
+    {
+        Collider[] colliders = Physics.OverlapSphere(robot.transform.position, 10f);
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i].gameObject.tag == "Player")
+            {
+                print("OMG HAHAHAHAHAHAHAAHHAHAHH :D");
+                //TODO: Drop Orb
+                //colliders[i].gameObject.GetComponent<TankController>();
+            }
+        }
+    }
 }

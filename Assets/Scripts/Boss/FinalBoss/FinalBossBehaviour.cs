@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class FinalBossBehaviour : Spawnable {
 
@@ -30,12 +31,14 @@ public class FinalBossBehaviour : Spawnable {
     private bool charging = true, dashing;
 
     public GameObject topPosition;
-    private Animator anim;
+    public Dictionary<string, float> animationTimes = new Dictionary<string, float>();
+    public Animator anim;
+
+    public float topPause = 1f;
 
     // Use this for initialization
     void Start() {
         rb = GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();
         
         maxHealth = this.GetComponent<BossController>().maxHealth;
         currentHealth = maxHealth;
@@ -43,8 +46,19 @@ public class FinalBossBehaviour : Spawnable {
         if (player == null) {
             player = UnityEngine.GameObject.FindGameObjectsWithTag("Player")[0];
         }
-        
+
+        //Add animation times to dictionary
+        animationTimes["Attack"] = 1.8f;
+        animationTimes["Dead"] = 1;
+        animationTimes["Idle"] = 1;
+        animationTimes["Roar"] = 1;
+        animationTimes["Run"] = 1;
+        animationTimes["Spawn"] = 3.8f;
+
+        anim = this.gameObject.GetComponent<Animator>();
+
         currentAction = Action.STATIONARY;
+
     }
 
     // Update is called once per frame
@@ -65,6 +79,7 @@ public class FinalBossBehaviour : Spawnable {
             fightPlayer();
         }
 
+
     }
 
     void fightPlayer() {
@@ -72,8 +87,12 @@ public class FinalBossBehaviour : Spawnable {
         switch (currentAction) {
 
             case Action.STATIONARY:
-
-                returnToTop();
+                
+                //Spawning is done
+                if (Time.fixedTime > animationTimes["Spawn"]) { 
+                    returnToTop();
+                }
+                
                 break;
 
             case Action.SHIELD:
@@ -103,54 +122,66 @@ public class FinalBossBehaviour : Spawnable {
 
     void returnToTop() {
 
+        anim.SetBool("Run", true);
+        anim.SetBool("Attack", false);
+
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(this.transform.position - player.transform.position), this.GetComponent<BossController>().rotationSpeed * Time.deltaTime);
         transform.position = Vector3.MoveTowards(transform.position, topPosition.transform.position, this.GetComponent<BossController>().bossSpeed * Time.deltaTime);
 
         if (transform.position == topPosition.transform.position) {
             transform.LookAt(player.transform);
-            randomNextAction(true);
-        }    
 
+            anim.SetBool("Run", false);
+            anim.SetBool("Idle", true);
 
+            if (UIAdapter.getTimeInSeconds() - chargeStartTime > topPause) {
+                anim.SetBool("Idle", false);
+                randomNextAction(true);
+            }
+            
+        }
 
     }
 
     public void randomNextAction(bool newAction) {
-        
+
         if (newAction) {
             randSkill = Random.Range(0, 100);
-        }
 
-        if (randSkill <= 40) {  //Stationary
+            if (randSkill <= 40) {  //Stationary
+                chargeStartTime = UIAdapter.getTimeInSeconds();
+                currentAction = Action.STATIONARY;
 
-            currentAction = Action.STATIONARY;
+            }
+            else if (randSkill <= 50 && currentHealth <= 50) {     //Shield
 
-        } else if(randSkill <= 50 && currentHealth <= 50) {     //Shield
+                currentAction = Action.SHIELD;
 
-            currentAction = Action.SHIELD;
+            }
+            else if (randSkill <= 60 && currentHealth <= 25) {     //Meteor
 
-        } else if (randSkill <= 60 && currentHealth <= 25) {     //Meteor
+                currentAction = Action.METEOR;
 
-            currentAction = Action.METEOR;
+            }
+            else if (randSkill <= 70 && currentHealth <= 75) {     //Snare
 
-        } else if (randSkill <= 70 && currentHealth <= 75) {     //Snare
+                currentAction = Action.SNARE;
+                skills[2].GetComponent<Snare>().startTime = UIAdapter.getTimeInSeconds();
 
-            currentAction = Action.SNARE;
-            skills[2].GetComponent<Snare>().startTime = UIAdapter.getTimeInSeconds();
+            }
+            else {     //Attack
 
-        } else if (randSkill <= 100) {     //Attack
-            
-            charging = true;
-            currentAction = Action.DEFAULT_ATTACK;
-            
-        } else {
-            randomNextAction(true);
+                charging = true;
+                chargeStartTime = UIAdapter.getTimeInSeconds();
+                currentAction = Action.DEFAULT_ATTACK;
+
+            }
         }
 
     }
 
     void attack() {
-        
+
         if (charging) {
             charge();
         } else if (dashing) {
@@ -160,25 +191,36 @@ public class FinalBossBehaviour : Spawnable {
 
     void charge() {
 
-        //Look at the player
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.transform.position - this.transform.position), this.GetComponent<BossController>().rotationSpeed * Time.deltaTime);
-        playerPosition = player.transform.position;
-
         //Finished charging and started attacking
         if (UIAdapter.getTimeInSeconds() > (chargeStartTime + chargeDuration)) {
             dashing = true;
             charging = false;
+            chargeStartTime = UIAdapter.getTimeInSeconds();
+        } else {
+            //Look at the player
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.transform.position - this.transform.position), this.GetComponent<BossController>().rotationSpeed * Time.deltaTime);
+            playerPosition = player.transform.position;
         }
 
     }
 
     void dashAttack() {
 
-        transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime * 6);
+        anim.SetBool("Run", true);
+
+        transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime * 3);
 
         if (transform.position == playerPosition) {
-            dashing = false;
-            currentAction = Action.STATIONARY;
+
+            anim.SetBool("Attack", true);
+            anim.SetBool("Run", false);
+            
+
+            if (UIAdapter.getTimeInSeconds() - chargeStartTime > animationTimes["Attack"]) {
+                dashing = false;
+                currentAction = Action.STATIONARY;
+            }
+            
         }
     }
 
@@ -187,8 +229,14 @@ public class FinalBossBehaviour : Spawnable {
         string collidedTag = collision.gameObject.tag;
 
         if (collidedTag == "Player") {
-            dashing = false;
-            currentAction = Action.STATIONARY;
+
+            anim.SetBool("Attack", true);
+            anim.SetBool("Run", false);
+
+            if (UIAdapter.getTimeInSeconds() - chargeStartTime > animationTimes["Attack"]) {
+                dashing = false;
+                currentAction = Action.STATIONARY;
+            }
         }
 
     }

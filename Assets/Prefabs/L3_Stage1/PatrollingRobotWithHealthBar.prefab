@@ -148,7 +148,7 @@ GameObject:
   - 114: {fileID: 11447710}
   m_Layer: 5
   m_Name: CircularHealthBar
-  m_TagString: CircularHealthBar
+  m_TagString: Left
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -284,7 +284,7 @@ GameObject:
   - 4: {fileID: 416578}
   m_Layer: 0
   m_Name: PatrollingRobotWithHealthBar
-  m_TagString: Untagged
+  m_TagString: Right
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -342,7 +342,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -70, y: 2, z: 75}
+  m_LocalPosition: {x: 70, y: 2, z: 75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -1082,6 +1082,7 @@ MonoBehaviour:
   speed: 0.1
   countdownBarCanvas: {fileID: 176068}
   startCountdown: 0
+  door: {fileID: 0}
 --- !u!114 &11477572
 MonoBehaviour:
   m_ObjectHideFlags: 1

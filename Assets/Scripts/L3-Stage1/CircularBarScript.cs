@@ -10,11 +10,11 @@ public class CircularBarScript : MonoBehaviour {
     public float speed;
 	public GameObject countdownBarCanvas;
     public bool startCountdown;
+    public GameObject door;
 
     void Start () {
         circularBar.fillAmount = 1;
         circularBar.color = Color.yellow;
-
     }
 
 	void Update () {
@@ -59,9 +59,14 @@ public class CircularBarScript : MonoBehaviour {
         {
             if (colliders[i].gameObject.tag == "Player")
             {
-                print("Drop Orb Code To Implement");
-                //TODO: Drop Orb
-                //colliders[i].gameObject.GetComponent<TankController>();
+                if (this.tag.Equals("Left"))
+                {
+                    ((BossDoorController)door.GetComponent(typeof(BossDoorController))).redOrb = false;
+                }
+                else
+                {
+                    ((BossDoorController)door.GetComponent(typeof(BossDoorController))).greenOrb = false;
+                }
             }
         }
     }

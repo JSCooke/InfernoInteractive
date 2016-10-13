@@ -15,7 +15,6 @@ public class Collectable : MonoBehaviour {
             }
             else
             {
-
                 ((BossDoorController)door.GetComponent(typeof(BossDoorController))).greenOrb = true;
             }
                         

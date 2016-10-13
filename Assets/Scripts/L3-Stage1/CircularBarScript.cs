@@ -11,6 +11,7 @@ public class CircularBarScript : MonoBehaviour {
 	public GameObject countdownBarCanvas;
     public bool startCountdown;
     public GameObject door;
+    public GameObject orb;
 
     void Start () {
         circularBar.fillAmount = 1;
@@ -61,12 +62,13 @@ public class CircularBarScript : MonoBehaviour {
             {
                 if (this.tag.Equals("Left"))
                 {
-                    ((BossDoorController)door.GetComponent(typeof(BossDoorController))).redOrb = false;
+                    ((BossDoorController)door.GetComponent(typeof(BossDoorController))).redOrb = false;                    
                 }
                 else
                 {
                     ((BossDoorController)door.GetComponent(typeof(BossDoorController))).greenOrb = false;
                 }
+                orb.SetActive(true);
             }
         }
     }

@@ -152,6 +152,18 @@ Prefab:
       propertyPath: robot
       value: 
       objectReference: {fileID: 15687293}
+    - target: {fileID: 181508, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: m_TagString
+      value: Left
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 318432484}
+    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: orb
+      value: 
+      objectReference: {fileID: 1457276621}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
   m_IsPrefabParent: 0
@@ -345,6 +357,18 @@ Prefab:
       propertyPath: robot
       value: 
       objectReference: {fileID: 912123877}
+    - target: {fileID: 181508, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: m_TagString
+      value: Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 318432484}
+    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: orb
+      value: 
+      objectReference: {fileID: 1280540879}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
   m_IsPrefabParent: 0
@@ -1484,6 +1508,22 @@ Prefab:
       propertyPath: robot
       value: 
       objectReference: {fileID: 1563047040}
+    - target: {fileID: 181508, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: m_TagString
+      value: Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 318432484}
+    - target: {fileID: 146362, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: m_TagString
+      value: Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: orb
+      value: 
+      objectReference: {fileID: 1280540879}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
   m_IsPrefabParent: 0
@@ -11930,10 +11970,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1cbe74508e287c94fa765e1f7479e176, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &665797161 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 152962, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-  m_PrefabInternal: {fileID: 1884319373}
 --- !u!114 &668914255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16307,6 +16343,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 318432484}
+    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: orb
+      value: 
+      objectReference: {fileID: 1457276621}
     - target: {fileID: 181508, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: m_Name
       value: PatrollingRobotWithHealthBar_Left1
@@ -20816,10 +20860,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1405107844}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1412041193 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 152962, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-  m_PrefabInternal: {fileID: 2065624993}
 --- !u!1 &1412664295
 GameObject:
   m_ObjectHideFlags: 0
@@ -26988,34 +27028,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 411710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 318432484}
+    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: orb
+      value: 
+      objectReference: {fileID: 1457276621}
     - target: {fileID: 181508, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: m_Name
       value: PatrollingRobotWithHealthBar_Left3
       objectReference: {fileID: 0}
-    - target: {fileID: 181508, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 13682236, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: m_Height
+      value: 50
       objectReference: {fileID: 0}
-    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: countdownBarCanvas
-      value: 
-      objectReference: {fileID: 975005907}
-    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: robot
-      value: 
-      objectReference: {fileID: 665797161}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
   m_IsPrefabParent: 0
@@ -29825,34 +29853,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 411710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 318432484}
     - target: {fileID: 181508, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: m_Name
       value: PatrollingRobotWithHealthBar_Right1
       objectReference: {fileID: 0}
-    - target: {fileID: 181508, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: orb
+      value: 
+      objectReference: {fileID: 1280540879}
+    - target: {fileID: 146362, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: m_TagString
+      value: Right
       objectReference: {fileID: 0}
-    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: countdownBarCanvas
-      value: 
-      objectReference: {fileID: 821896184}
-    - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: robot
-      value: 
-      objectReference: {fileID: 1412041193}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
   m_IsPrefabParent: 0

@@ -58,7 +58,6 @@ GameObject:
   - 4: {fileID: 452216}
   - 33: {fileID: 3389196}
   - 23: {fileID: 2341266}
-  - 64: {fileID: 6431622}
   m_Layer: 0
   m_Name: polySurface34
   m_TagString: Untagged
@@ -92,7 +91,6 @@ GameObject:
   - 4: {fileID: 439014}
   - 33: {fileID: 3384054}
   - 23: {fileID: 2332718}
-  - 64: {fileID: 6427592}
   - 95: {fileID: 9536394}
   m_Layer: 0
   m_Name: droid_eye
@@ -111,7 +109,6 @@ GameObject:
   - 4: {fileID: 434310}
   - 33: {fileID: 3361348}
   - 23: {fileID: 2302686}
-  - 64: {fileID: 6462222}
   m_Layer: 0
   m_Name: polySurface33
   m_TagString: Untagged
@@ -163,6 +160,7 @@ GameObject:
   - 4: {fileID: 411710}
   - 54: {fileID: 5423402}
   - 114: {fileID: 11477572}
+  - 136: {fileID: 13682236}
   m_Layer: 0
   m_Name: PatrollingRobot
   m_TagString: Untagged
@@ -213,7 +211,6 @@ GameObject:
   - 4: {fileID: 429808}
   - 33: {fileID: 3398732}
   - 23: {fileID: 2375506}
-  - 64: {fileID: 6465336}
   m_Layer: 0
   m_Name: polySurface34
   m_TagString: Untagged
@@ -265,7 +262,6 @@ GameObject:
   - 4: {fileID: 440524}
   - 33: {fileID: 3353424}
   - 23: {fileID: 2341070}
-  - 64: {fileID: 6497008}
   - 95: {fileID: 9532016}
   m_Layer: 0
   m_Name: droid_glass
@@ -284,7 +280,7 @@ GameObject:
   - 4: {fileID: 416578}
   m_Layer: 0
   m_Name: PatrollingRobotWithHealthBar
-  m_TagString: Right
+  m_TagString: Left
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -299,7 +295,6 @@ GameObject:
   - 4: {fileID: 491904}
   - 33: {fileID: 3316458}
   - 23: {fileID: 2340822}
-  - 64: {fileID: 6494350}
   m_Layer: 0
   m_Name: polySurface35
   m_TagString: Untagged
@@ -342,7 +337,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 70, y: 2, z: 75}
+  m_LocalPosition: {x: -70, y: 2, z: 115}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -744,78 +739,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &6427592
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 137534}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 4300000, guid: 925663d834ddbbf4f82ff75669dd582b, type: 3}
---- !u!64 &6431622
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 132296}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 4300004, guid: ad20472c3cfa95745bd5a2cb294b86ee, type: 3}
---- !u!64 &6462222
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 141048}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 4300004, guid: bf3b2542bf69c9242bf234063ffb5f79, type: 3}
---- !u!64 &6465336
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 169104}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 4300004, guid: ad20472c3cfa95745bd5a2cb294b86ee, type: 3}
---- !u!64 &6494350
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188990}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 4300004, guid: 059a268740995204ebe6dc23a7f85c9a, type: 3}
---- !u!64 &6497008
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 179918}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 4300000, guid: 9f690b6d081c82240b27593124ae15d1, type: 3}
 --- !u!95 &9509334
 Animator:
   serializedVersion: 3
@@ -1083,6 +1006,7 @@ MonoBehaviour:
   countdownBarCanvas: {fileID: 176068}
   startCountdown: 0
   door: {fileID: 0}
+  orb: {fileID: 0}
 --- !u!114 &11477572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1110,6 +1034,19 @@ MonoBehaviour:
   speed: 10
   gravity: 10
   animator: {fileID: 9544544}
+--- !u!136 &13682236
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152962}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 50
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &14373256
 CharacterController:
   m_ObjectHideFlags: 1

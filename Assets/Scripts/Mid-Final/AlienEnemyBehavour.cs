@@ -6,20 +6,27 @@ public class AlienEnemyBehavour : Damageable{
     TankController player;
     UnityEngine.GameObject tank;
     Transform emp;
+    public EMPBehaviour empObj;
     NavMeshAgent navagation;
     bool toEMP = true;
+
+    public ParticleSystem chargeParticles;
 
     CapsuleCollider capsuleCollider;
 
     float timeBetweenAttacks = 0.5f;
     float timer;
+
     int attackDamage;
+    int easyAttack = 5;
+    int medAttack = 10;
+    int hardAttack = 15;
 
-    int easy = 50;
-    int med = 25;
-    int hard = 20;
+    int damageTaken;
+    int easyDamageTaken = 100;
+    int medDamageTaken = 50;
+    int hardDamageTaken = 25;
 
-    bool inRange = false;
 
 
     // Use this for initialization
@@ -31,10 +38,15 @@ public class AlienEnemyBehavour : Damageable{
             player = tank.GetComponent<TankController>();
         }
 
-        
-        emp = GameObject.FindGameObjectWithTag("EMP").transform;
+
+
+        emp = empObj.transform;
+
+
         navagation = GetComponent<NavMeshAgent>();
         capsuleCollider = GetComponent<CapsuleCollider>();
+
+        chargeParticles.enableEmission = false;
 
         maxHealth = 100;
         currentHealth = maxHealth;
@@ -44,13 +56,16 @@ public class AlienEnemyBehavour : Damageable{
         switch (dif)
         {
             case 2:
-                attackDamage = easy;
+                damageTaken = easyDamageTaken;
+                attackDamage = easyAttack;
                 break;
             case 3:
-                attackDamage = med;
+                damageTaken = medDamageTaken;
+                attackDamage = medAttack;
                 break;
             case 4:
-                attackDamage = hard;
+                damageTaken = hardDamageTaken;
+                attackDamage = hardAttack;
                 break;
         }
         
@@ -69,14 +84,7 @@ public class AlienEnemyBehavour : Damageable{
         }
 
         timer += Time.deltaTime;
-
-        if(timer>=timeBetweenAttacks && inRange && currentHealth > 0)
-        {
-            Attack();
-        }
-       
         
-
     }
 
     void OnTriggerEnter(Collider other)
@@ -95,58 +103,83 @@ public class AlienEnemyBehavour : Damageable{
        
     }
 
-    void OnCollisonStay(Collider col)
+    void OnCollisionStay(Collision collisionInfo)
     {
+       if(collisionInfo.gameObject.tag == "Player" || collisionInfo.gameObject.tag == "EMP")
+        {           
+            if (timer >= timeBetweenAttacks && currentHealth > 0)
+            {
+                if (collisionInfo.gameObject.tag == "Player")
+                {
+                    Debug.Log("en attack player");
+                    Attack(true);
+                    //attack plauer
+                }
+                else if (collisionInfo.gameObject.tag == "EMP")
+                {
+                    Debug.Log("en attack emp");
+                    Attack(false);
+                    //attack emp
+                }
 
-        inRange = true;
+            }
 
-        if(col.gameObject.tag == "EMP")
-        {
-            //attack emp
         }
-        else if(col.gameObject.tag == "Player")
-        {
-            //attack player
-        }
-        //else if it is a bullet then destroy
+
+        
+        
     }
 
-    void OnCollisonExit(Collider col)
-    {
 
-        inRange = false;
-    }
 
     void OnTriggerExit(Collider other)
     {
 
         if (other.gameObject.tag == "PlayerProjectile")
         {
+            Debug.Log("en got hit");
             Destroy(other.gameObject);
+            takeDamage(damageTaken);
+            //Destroy(other.gameObject);
         }
     }
 
 
-    public void TakeDamage (int amount)
+    void takeDamage (int amount)
     {
         currentHealth -= amount;
 
         //if dead
         if (currentHealth <= 0)
         {
+            dead = true;
+            Destroy(gameObject);
             //turn to trigger so shots can pass through
             capsuleCollider.isTrigger = true;
+            
         }
     }
 
-    void Attack()
+    void Attack(bool isPlayer)
     {
         timer = 0f;
         if(currentHealth > 0)
         {
-            player.takeDamage(attackDamage);
+            chargeParticles.enableEmission = true;
+
+            if(isPlayer)
+            {
+                player.takeDamage(attackDamage);
+            }
+            else
+            {
+                empObj.takeDamage(attackDamage);
+            }
+            
+            
             //TODO take damage
         }
+        chargeParticles.enableEmission = false;
 
     }
 

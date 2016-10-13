@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EMPBehaviour : UIAdapter {
+public class EMPBehaviour : Damageable
+{
 
     
 
@@ -17,6 +18,11 @@ public class EMPBehaviour : UIAdapter {
        
 	
 	}
+
+    public void takeDamage(int amount)
+    {
+        
+    }
 
     /**
  * Reduces (negative increases) the boss's health by the input percentage.

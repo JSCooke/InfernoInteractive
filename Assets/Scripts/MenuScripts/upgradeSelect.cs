@@ -4,6 +4,7 @@ using System.Collections;
 
 public class upgradeSelect : MonoBehaviour {
 
+	//All control station canvases
     public GameObject AttackStation;
     public GameObject DefenseStation;
     public GameObject MovementStation;
@@ -12,6 +13,7 @@ public class upgradeSelect : MonoBehaviour {
 
     void Start()
     {
+		//Show Northern station upgrades on start
         AttackStation.SetActive(true);
         DefenseStation.SetActive(false);
         MovementStation.SetActive(false);
@@ -21,6 +23,7 @@ public class upgradeSelect : MonoBehaviour {
 
     public void DisplayAttackUpgrades()
     {
+		//Display Northern station upgrades
         AttackStation.SetActive(true);
         DefenseStation.SetActive(false);
         MovementStation.SetActive(false);
@@ -30,7 +33,8 @@ public class upgradeSelect : MonoBehaviour {
 
     public void DisplayDefenseUpgrades()
     {
-        AttackStation.SetActive(false);
+		//Display Southern station upgrades
+		AttackStation.SetActive(false);
         DefenseStation.SetActive(true);
         MovementStation.SetActive(false);
         LeftStation.SetActive(false);
@@ -39,7 +43,8 @@ public class upgradeSelect : MonoBehaviour {
 
     public void DisplayMovementUpgrades()
     {
-        AttackStation.SetActive(false);
+		//Display Central station upgrades
+		AttackStation.SetActive(false);
         DefenseStation.SetActive(false);
         MovementStation.SetActive(true);
         LeftStation.SetActive(false);
@@ -48,7 +53,8 @@ public class upgradeSelect : MonoBehaviour {
 
     public void DisplayLeftUpgrades()
     {
-        AttackStation.SetActive(false);
+		//Display Western station upgrades
+		AttackStation.SetActive(false);
         DefenseStation.SetActive(false);
         MovementStation.SetActive(false);
         LeftStation.SetActive(true);
@@ -57,7 +63,8 @@ public class upgradeSelect : MonoBehaviour {
 
     public void DisplayRightUpgrades()
     {
-        AttackStation.SetActive(false);
+		//Display Eastern station upgrades
+		AttackStation.SetActive(false);
         DefenseStation.SetActive(false);
         MovementStation.SetActive(false);
         LeftStation.SetActive(false);

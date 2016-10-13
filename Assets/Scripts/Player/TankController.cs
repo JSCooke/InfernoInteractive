@@ -121,9 +121,9 @@ public class TankController : MonoBehaviour {
 		doDecelerate = false;
 	}
 
-    void OnTriggerEnter(Collider collider) {
+    void OnTriggerStay(Collider collider) {
         if (collider.gameObject.tag == damagedBy) {
-            takeDamage(collider.gameObject.GetComponent<BossController>().bodyDamage);
+            takeDamage(collider.gameObject.GetComponent<MinionController>().bodyDamage);
         }
 
     }

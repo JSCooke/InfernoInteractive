@@ -1058,7 +1058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &195574
 GameObject:
   m_ObjectHideFlags: 1
@@ -1317,7 +1317,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192104}
   m_LocalRotation: {x: -0.7071049, y: -0.0000013745387, z: 0.0000013745314, w: 0.70710874}
-  m_LocalPosition: {x: -1.7391244, y: -0.42999995, z: -6.741104}
+  m_LocalPosition: {x: 0, y: -0, z: 0.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
   m_Children: []
@@ -1389,7 +1389,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195878}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: -2, y: 0.6500001, z: 0}
+  m_LocalPosition: {x: -1.7, y: 0.6500001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_Children: []
@@ -1467,7 +1467,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122184}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
-  m_LocalPosition: {x: 0, y: 0.6500001, z: -2}
+  m_LocalPosition: {x: 0, y: 0.6500001, z: -1.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
   m_Children: []
@@ -1506,7 +1506,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171742}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 2, y: 0.6500001, z: 0}
+  m_LocalPosition: {x: 1.7, y: 0.6500001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_Children: []
@@ -1842,7 +1842,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6500001, z: 2}
+  m_LocalPosition: {x: 0, y: 0.6500001, z: 1.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -2070,7 +2070,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0784fa7c33217f94fbba1b37972621bd, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2148,7 +2148,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0784fa7c33217f94fbba1b37972621bd, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2434,7 +2434,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0784fa7c33217f94fbba1b37972621bd, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2746,7 +2746,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0784fa7c33217f94fbba1b37972621bd, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2928,7 +2928,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0784fa7c33217f94fbba1b37972621bd, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -4865,11 +4865,11 @@ MonoBehaviour:
   allowOffensive: 0
   allowDefensive: 1
   movementStations:
-  - {fileID: 156926, guid: b42230a4927ff9244a3408db806d3a24, type: 2}
+  - {fileID: 183346, guid: b42230a4927ff9244a3408db806d3a24, type: 2}
   offensiveStations:
-  - {fileID: 198196, guid: d932126627cb1fd4ebba9e1b6f31cf30, type: 2}
-  - {fileID: 118382, guid: 6d2ea1f19abbb434cbeb31b294720caf, type: 2}
-  - {fileID: 124550, guid: 8298c161395e8ec4e8a45652b9853dd8, type: 2}
+  - {fileID: 130584, guid: d932126627cb1fd4ebba9e1b6f31cf30, type: 2}
+  - {fileID: 163938, guid: 6d2ea1f19abbb434cbeb31b294720caf, type: 2}
+  - {fileID: 163938, guid: 8298c161395e8ec4e8a45652b9853dd8, type: 2}
   - {fileID: 198196, guid: dd6a5ce8d97726642b24da64a47e10d9, type: 2}
   defensiveStations:
   - {fileID: 156960, guid: ad7c4edc7e9c66a4ba2f4dfc4351ea30, type: 2}
@@ -4906,11 +4906,11 @@ MonoBehaviour:
   allowOffensive: 1
   allowDefensive: 0
   movementStations:
-  - {fileID: 156926, guid: b42230a4927ff9244a3408db806d3a24, type: 2}
+  - {fileID: 183346, guid: b42230a4927ff9244a3408db806d3a24, type: 2}
   offensiveStations:
-  - {fileID: 198196, guid: d932126627cb1fd4ebba9e1b6f31cf30, type: 2}
-  - {fileID: 118382, guid: 6d2ea1f19abbb434cbeb31b294720caf, type: 2}
-  - {fileID: 124550, guid: 8298c161395e8ec4e8a45652b9853dd8, type: 2}
+  - {fileID: 130584, guid: d932126627cb1fd4ebba9e1b6f31cf30, type: 2}
+  - {fileID: 163938, guid: 6d2ea1f19abbb434cbeb31b294720caf, type: 2}
+  - {fileID: 163938, guid: 8298c161395e8ec4e8a45652b9853dd8, type: 2}
   - {fileID: 198196, guid: dd6a5ce8d97726642b24da64a47e10d9, type: 2}
   defensiveStations:
   - {fileID: 156960, guid: ad7c4edc7e9c66a4ba2f4dfc4351ea30, type: 2}
@@ -4933,11 +4933,11 @@ MonoBehaviour:
   allowOffensive: 1
   allowDefensive: 0
   movementStations:
-  - {fileID: 156926, guid: b42230a4927ff9244a3408db806d3a24, type: 2}
+  - {fileID: 183346, guid: b42230a4927ff9244a3408db806d3a24, type: 2}
   offensiveStations:
-  - {fileID: 198196, guid: d932126627cb1fd4ebba9e1b6f31cf30, type: 2}
-  - {fileID: 118382, guid: 6d2ea1f19abbb434cbeb31b294720caf, type: 2}
-  - {fileID: 124550, guid: 8298c161395e8ec4e8a45652b9853dd8, type: 2}
+  - {fileID: 130584, guid: d932126627cb1fd4ebba9e1b6f31cf30, type: 2}
+  - {fileID: 163938, guid: 6d2ea1f19abbb434cbeb31b294720caf, type: 2}
+  - {fileID: 163938, guid: 8298c161395e8ec4e8a45652b9853dd8, type: 2}
   - {fileID: 198196, guid: dd6a5ce8d97726642b24da64a47e10d9, type: 2}
   defensiveStations:
   - {fileID: 156960, guid: ad7c4edc7e9c66a4ba2f4dfc4351ea30, type: 2}
@@ -5015,11 +5015,11 @@ MonoBehaviour:
   allowOffensive: 0
   allowDefensive: 0
   movementStations:
-  - {fileID: 156926, guid: b42230a4927ff9244a3408db806d3a24, type: 2}
+  - {fileID: 183346, guid: b42230a4927ff9244a3408db806d3a24, type: 2}
   offensiveStations:
-  - {fileID: 198196, guid: d932126627cb1fd4ebba9e1b6f31cf30, type: 2}
-  - {fileID: 118382, guid: 6d2ea1f19abbb434cbeb31b294720caf, type: 2}
-  - {fileID: 124550, guid: 8298c161395e8ec4e8a45652b9853dd8, type: 2}
+  - {fileID: 130584, guid: d932126627cb1fd4ebba9e1b6f31cf30, type: 2}
+  - {fileID: 163938, guid: 6d2ea1f19abbb434cbeb31b294720caf, type: 2}
+  - {fileID: 163938, guid: 8298c161395e8ec4e8a45652b9853dd8, type: 2}
   - {fileID: 198196, guid: dd6a5ce8d97726642b24da64a47e10d9, type: 2}
   defensiveStations:
   - {fileID: 156960, guid: ad7c4edc7e9c66a4ba2f4dfc4351ea30, type: 2}
@@ -5136,17 +5136,17 @@ MonoBehaviour:
   allowOffensive: 1
   allowDefensive: 0
   movementStations:
-  - {fileID: 156926, guid: b42230a4927ff9244a3408db806d3a24, type: 2}
+  - {fileID: 183346, guid: b42230a4927ff9244a3408db806d3a24, type: 2}
   offensiveStations:
-  - {fileID: 198196, guid: d932126627cb1fd4ebba9e1b6f31cf30, type: 2}
-  - {fileID: 118382, guid: 6d2ea1f19abbb434cbeb31b294720caf, type: 2}
-  - {fileID: 124550, guid: 8298c161395e8ec4e8a45652b9853dd8, type: 2}
+  - {fileID: 130584, guid: d932126627cb1fd4ebba9e1b6f31cf30, type: 2}
+  - {fileID: 163938, guid: 6d2ea1f19abbb434cbeb31b294720caf, type: 2}
+  - {fileID: 163938, guid: 8298c161395e8ec4e8a45652b9853dd8, type: 2}
   - {fileID: 198196, guid: dd6a5ce8d97726642b24da64a47e10d9, type: 2}
   defensiveStations:
   - {fileID: 156960, guid: ad7c4edc7e9c66a4ba2f4dfc4351ea30, type: 2}
   - {fileID: 0}
   - {fileID: 156960, guid: 2266145a219365a4fa27236d61d37414, type: 2}
-  startingStation: Big Cannon
+  startingStation: Machine Gun Mk2
   stationName: north
 --- !u!114 &11443656
 MonoBehaviour:

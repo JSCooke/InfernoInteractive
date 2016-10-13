@@ -3,19 +3,24 @@ using System.Collections;
 
 public class Collectable : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public GameObject door;
+    public string colourOfOrb;
 
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Player") {
-            Destroy(this.gameObject);
+
+            if(colourOfOrb.Equals("red"))
+            {
+                ((BossDoorController)door.GetComponent(typeof(BossDoorController))).redOrb = true;
+            }
+            else
+            {
+
+                ((BossDoorController)door.GetComponent(typeof(BossDoorController))).greenOrb = true;
+            }
+                        
+            //Do not destroy orb in case player drops orb and reappearing needs to occur
+            this.gameObject.SetActive(false);
         }
     }
 

@@ -5,6 +5,8 @@ public class BossDoorController : MonoBehaviour {
     public bool open;
     public GameObject leftDoor, rightDoor;
     public float speed, openOffset;
+    public bool redOrb = false;
+    public bool greenOrb = false;
 
     private Vector3 leftDoorOpenPosition, rightDoorOpenPosition, leftDoorClosedPosition, rightDoorClosedPosition;
 	// Use this for initialization
@@ -33,4 +35,12 @@ public class BossDoorController : MonoBehaviour {
             rightDoor.transform.localPosition = Vector3.MoveTowards(rightDoor.transform.localPosition, rightDoorClosedPosition, speed * Time.deltaTime);
         }
 	}
+
+    void OnTriggerEnter()
+    {
+        if(redOrb && greenOrb)
+        {
+            open = true;
+        }
+    }
 }

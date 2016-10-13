@@ -16,7 +16,7 @@ public class FinalBossBehaviour : Spawnable {
     public enum Action {
         STATIONARY,
         SHIELD,
-        LASER,
+        METEOR,
         SNARE,
         DEFAULT_ATTACK
     };
@@ -79,7 +79,7 @@ public class FinalBossBehaviour : Spawnable {
                 skills[0].SetActive(true);
                 break;
 
-            case Action.LASER:
+            case Action.METEOR:
 
                 skills[1].SetActive(true);
                 break;
@@ -104,7 +104,7 @@ public class FinalBossBehaviour : Spawnable {
 
     public void randomNextAction() {
         randSkill = Random.Range(0, 100);
-        randSkill = 0;
+        randSkill = 55;
 
         if (randSkill <= 40) {  //Stationary
 
@@ -116,7 +116,7 @@ public class FinalBossBehaviour : Spawnable {
 
         } else if (randSkill <= 60) {     //Laser
 
-            currentAction = Action.LASER;
+            currentAction = Action.METEOR;
 
         } else if (randSkill <= 70) {     //Snare
 

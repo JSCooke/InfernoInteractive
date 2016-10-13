@@ -28,8 +28,6 @@ public class Snare : SkillController {
     IEnumerator chargeAnimation() {
         chargeParticles.enableEmission = true;
 
-
-
         //Done charging
         yield return new WaitForSeconds(chargeDuration);
 

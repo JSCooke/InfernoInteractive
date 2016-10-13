@@ -198,9 +198,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de4956a1c6374894bae2bd4a616a6b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gotoX: 50
+  gotoX: 110
   gotoY: 0
-  gotoZ: 200
+  gotoZ: -10
 --- !u!135 &13517326
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -208,7 +208,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195278}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 6
@@ -7666,7 +7666,7 @@ ParticleSystem:
         rgba: 2751398027
       minMaxState: 1
     startSize:
-      scalar: 4
+      scalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -7677,18 +7677,18 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 0.75
+          value: 0.6666667
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minMaxState: 3
     startRotationX:
       scalar: 1

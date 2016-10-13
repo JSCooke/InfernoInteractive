@@ -49,16 +49,27 @@ public class FinalBossBehaviour : Spawnable {
 
         //Add animation times to dictionary
         animationTimes["Attack"] = 1.8f;
-        animationTimes["Dead"] = 1;
-        animationTimes["Idle"] = 1;
-        animationTimes["Roar"] = 1;
-        animationTimes["Run"] = 1;
+        animationTimes["Dead"] = 1.0f;
+        animationTimes["Idle"] = 1.0f;
+        animationTimes["Roar"] = 1.0f;
+        animationTimes["Run"] = 1.0f;
         animationTimes["Spawn"] = 3.8f;
 
         anim = this.gameObject.GetComponent<Animator>();
 
+        resetAnimator();
+
         currentAction = Action.STATIONARY;
 
+    }
+
+    public void resetAnimator() {
+        anim.SetBool("Attack", false);
+        anim.SetBool("Dead", false);
+        anim.SetBool("Idle", false);
+        anim.SetBool("Roar", false);
+        anim.SetBool("Run", false);
+        anim.SetBool("Spawn", false);
     }
 
     // Update is called once per frame
@@ -97,17 +108,38 @@ public class FinalBossBehaviour : Spawnable {
 
             case Action.SHIELD:
 
-                skills[0].SetActive(true);
+                resetAnimator();
+
+                if (Time.fixedTime - chargeStartTime > chargeDuration) {
+                    skills[0].SetActive(true);
+                } else {
+                    anim.SetBool("Roar", true);
+                }
+                
                 break;
 
             case Action.METEOR:
 
-                skills[1].SetActive(true);
+                resetAnimator();
+
+                if (Time.fixedTime - chargeStartTime > chargeDuration) {
+                    skills[1].SetActive(true);
+                }
+                else {
+                    anim.SetBool("Roar", true);
+                }
                 break;
 
             case Action.SNARE:
 
-                skills[2].SetActive(true);
+                resetAnimator();
+
+                if (Time.fixedTime - chargeStartTime > chargeDuration) {
+                    skills[2].SetActive(true);
+                }
+                else {
+                    anim.SetBool("Roar", true);
+                }
 
                 break;
 
@@ -122,8 +154,8 @@ public class FinalBossBehaviour : Spawnable {
 
     void returnToTop() {
 
+        resetAnimator();
         anim.SetBool("Run", true);
-        anim.SetBool("Attack", false);
 
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(this.transform.position - player.transform.position), this.GetComponent<BossController>().rotationSpeed * Time.deltaTime);
         transform.position = Vector3.MoveTowards(transform.position, topPosition.transform.position, this.GetComponent<BossController>().bossSpeed * Time.deltaTime);
@@ -131,11 +163,13 @@ public class FinalBossBehaviour : Spawnable {
         if (transform.position == topPosition.transform.position) {
             transform.LookAt(player.transform);
 
-            anim.SetBool("Run", false);
+            resetAnimator();
             anim.SetBool("Idle", true);
 
+
+
             if (UIAdapter.getTimeInSeconds() - chargeStartTime > topPause) {
-                anim.SetBool("Idle", false);
+                resetAnimator();
                 randomNextAction(true);
             }
             
@@ -147,9 +181,10 @@ public class FinalBossBehaviour : Spawnable {
 
         if (newAction) {
             randSkill = Random.Range(0, 100);
+            chargeStartTime = UIAdapter.getTimeInSeconds();
 
             if (randSkill <= 40) {  //Stationary
-                chargeStartTime = UIAdapter.getTimeInSeconds();
+                
                 currentAction = Action.STATIONARY;
 
             }
@@ -172,11 +207,12 @@ public class FinalBossBehaviour : Spawnable {
             else {     //Attack
 
                 charging = true;
-                chargeStartTime = UIAdapter.getTimeInSeconds();
                 currentAction = Action.DEFAULT_ATTACK;
 
             }
         }
+
+        currentAction = Action.SHIELD;
 
     }
 
@@ -206,15 +242,16 @@ public class FinalBossBehaviour : Spawnable {
 
     void dashAttack() {
 
+        resetAnimator();
         anim.SetBool("Run", true);
 
         transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime * 3);
 
         if (transform.position == playerPosition) {
 
+            resetAnimator();
             anim.SetBool("Attack", true);
-            anim.SetBool("Run", false);
-            
+
 
             if (UIAdapter.getTimeInSeconds() - chargeStartTime > animationTimes["Attack"]) {
                 dashing = false;
@@ -230,8 +267,8 @@ public class FinalBossBehaviour : Spawnable {
 
         if (collidedTag == "Player") {
 
+            resetAnimator();
             anim.SetBool("Attack", true);
-            anim.SetBool("Run", false);
 
             if (UIAdapter.getTimeInSeconds() - chargeStartTime > animationTimes["Attack"]) {
                 dashing = false;
@@ -242,8 +279,9 @@ public class FinalBossBehaviour : Spawnable {
     }
 
     IEnumerator Die() {
-        Quaternion targetRotation = Quaternion.Euler(new Vector3(90, 45, 0));
-        rb.transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 2.5F);
+
+        resetAnimator();
+        anim.SetBool("Dead", true);
 
         //Wait 1 second for animation to finish
         yield return new WaitForSeconds(1);

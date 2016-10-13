@@ -12,6 +12,7 @@ GameObject:
   - 65: {fileID: 6574058}
   - 23: {fileID: 2363050}
   - 54: {fileID: 5495600}
+  - 114: {fileID: 11481622}
   m_Layer: 0
   m_Name: Box
   m_TagString: Box
@@ -92,6 +93,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11481622
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f822a556017eec9489b36799d571aa72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: PlayerProjectile
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

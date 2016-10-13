@@ -7,10 +7,11 @@ public class TeleportController : MonoBehaviour {
 	public int gotoY;
 	public int gotoZ;
 
-	public GameObject tank;
-
-	public void OnTriggerEnter() {
-		tank.transform.position = new Vector3(gotoX, gotoY, gotoZ);
+	public void OnTriggerEnter(Collider other) {
+		if (other.gameObject.tag == "Player")
+		{
+			other.transform.position = new Vector3(gotoX, gotoY, gotoZ);
+		}
 	}
 	
 }

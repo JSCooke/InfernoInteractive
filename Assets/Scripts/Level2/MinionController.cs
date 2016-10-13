@@ -19,7 +19,6 @@ public class MinionController : Damageable {
 	void Start()
 	{
 		dead = false;
-		currentHealth = maxHealth;
 		difficulty = (int)difficultyLevel;
 
 		//set difficulty level if set in menu
@@ -29,6 +28,9 @@ public class MinionController : Damageable {
 			difficulty = (int)GameData.get<Difficulty>("difficulty");
 		}
 
+		//Scale health with difficulty
+		maxHealth = maxHealth * (difficulty - 1);
+		currentHealth = maxHealth;
 	}
 
 	public override void takeDamage(int damage)

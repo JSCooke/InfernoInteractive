@@ -6,6 +6,7 @@ public class ddrSystemStartBehaviour : Spawnable {
 	public GameObject[] spawners, ddrEnemies;
 	public GameObject tank;
 	public DiscoLightController discoLightController;
+	public GameObject teleporter;
 	public int startTime;
 
 	//Dialogue things
@@ -83,6 +84,9 @@ public class ddrSystemStartBehaviour : Spawnable {
 
 				//DIALOGUE SECtiON
 
+
+				//spawn teleporter
+				teleporter.SetActive(true);
 			}
 		}
 	}

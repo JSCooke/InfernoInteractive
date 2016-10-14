@@ -32,5 +32,11 @@ public class MovementStationBehaviour : ControlStationBehaviour {
 		if (right) {
             wheelController.rotation += 1;
 		}
+        if(!left && !right) {
+            tank.GetComponent<Rigidbody>().angularVelocity = new Vector3(
+                tank.GetComponent<Rigidbody>().angularVelocity.x,
+                tank.GetComponent<Rigidbody>().angularVelocity.y/wheelController.turnDampFactor,
+                tank.GetComponent<Rigidbody>().angularVelocity.z);
+        }
 	}
 }

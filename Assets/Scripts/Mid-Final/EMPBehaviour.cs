@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class EMPBehaviour : Damageable
@@ -6,13 +7,21 @@ public class EMPBehaviour : Damageable
     float healthIncreamentTime = 1f;
     float timer;
 
-    
+    public Image bossPic;
+
+    int empIncreaseValue = 1;
+
+
 
     // Use this for initialization
     void Start () {
+
+        UIAdapter.bossPortrait = bossPic;
+        UIAdapter.bossVal = 1;
+
         timer = 0f;
         maxHealth = 100;
-        currentHealth = 0;
+        currentHealth = 1;
     }
 	
 	// Update is called once per frame
@@ -32,42 +41,32 @@ public class EMPBehaviour : Damageable
     public void takeDamage(int amount)
     {
         //damage
-        currentHealth = currentHealth - amount;
+        int health = currentHealth - amount;
 
-        if (currentHealth < 0)
+        if (health < 1)
         {
-            currentHealth = 0;
+            currentHealth = 1;
+            amount = currentHealth - 1;
         }
 
+        UIAdapter.damageBoss((float)amount);
+
         timer = 0f;
+
+        Debug.Log("emp health " + currentHealth);
+
     }
 
     void increaseHealth()
     {
-        currentHealth = currentHealth + 1;
+        currentHealth = currentHealth + empIncreaseValue;
+        UIAdapter.damageBoss((float)-empIncreaseValue);
         if (currentHealth >= 100)
         {
-            //win
+            UIAdapter.win();
         }
+
+        Debug.Log("emp health " + currentHealth);
     }
 
-    /**
- * Reduces (negative increases) the boss's health by the input percentage.
- * Returns the remaining hp of the boss. (Pass in 0 to use this as a getter)
- */
-    //override
-    //public static float damageBoss(float hp)
-    //{
-    //    if (!bossDead() && !playerDead())
-    //    {
-    //        bossDamageAnimator.SetTrigger("bossDamage");
-    //        bossVal -= hp;
-    //        BossVal = bossVal;
-    //        if (bossDead())
-    //        {
-    //            win();
-    //        }
-    //    }
-    //    return BossVal;
-    //}
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BossDoorController : MonoBehaviour {
     public bool open;
@@ -7,6 +8,7 @@ public class BossDoorController : MonoBehaviour {
     public float speed, openOffset;
     public bool redOrb = false;
     public bool greenOrb = false;
+    private bool achievementUnlocked = false;
 
     private Vector3 leftDoorOpenPosition, rightDoorOpenPosition, leftDoorClosedPosition, rightDoorClosedPosition;
 	// Use this for initialization
@@ -41,6 +43,16 @@ public class BossDoorController : MonoBehaviour {
         if(other.tag == "Player" && redOrb && greenOrb)
         {
             open = true;
+
+            //Check if player met achievement criteria
+            if (!AchievementController.hasBeenDamagedL3 && !achievementUnlocked) {
+                AchievementController.updateAchievement("Orb Master", true);
+                List<string> achievementsToDisplay = new List<string>();
+                achievementsToDisplay.Add("Orb Master");
+                AchievementController.displayAchievements(achievementsToDisplay);
+                achievementUnlocked = true;
+            }
+            
         }
     }
 }

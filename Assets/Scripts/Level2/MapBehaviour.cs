@@ -3,6 +3,7 @@ using System.Collections;
 
 public class MapBehaviour : MonoBehaviour {
 
+	public int id;
 	public float rotateSpeed = 1;
 	public float translateSpeed = 1;
 	public float translateAmplitude = 1;
@@ -20,4 +21,15 @@ public class MapBehaviour : MonoBehaviour {
 
 		transform.position = _startPosition + new Vector3(0.0f, translateAmplitude * Mathf.Sin(Time.time * translateSpeed), 0.0f);
 	}
+
+	public void OnTriggerEnter()
+	{
+		// TODO "pick up" map
+
+		if (id == 3) // last map to collect
+		{
+			UIAdapter.win();
+		}
+	}
+
 }

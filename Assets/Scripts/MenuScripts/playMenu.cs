@@ -43,9 +43,9 @@ public class playMenu : MonoBehaviour {
     {
 		//List of level descriptions
         descriptions[0] = "Defeat Slime Boss";
-        descriptions[1] = "Pirate Level";
-        descriptions[2] = "Navigate the Maze";
-        descriptions[3] = "Separated";
-        descriptions[4] = "Final Chase";
+        descriptions[1] = "Navigate the Maze";
+        descriptions[2] = "Chase away the Invaders";
+        descriptions[3] = "[To Remove]";
+        descriptions[4] = "[To Remove]";
     }
 }

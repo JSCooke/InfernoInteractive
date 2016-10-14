@@ -8,8 +8,6 @@ public class EMPBehaviour : Damageable
 
     
 
-
-
     // Use this for initialization
     void Start () {
         timer = 0f;
@@ -19,9 +17,11 @@ public class EMPBehaviour : Damageable
 	
 	// Update is called once per frame
 	void Update () {
+        
+        timer += Time.deltaTime;
 
         //increase
-       if(timer >= healthIncreamentTime)
+        if (timer >= healthIncreamentTime)
         {
             increaseHealth();
             timer = 0f;

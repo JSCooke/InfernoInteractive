@@ -34,8 +34,9 @@ public class AlienEnemyBehavour : Damageable{
     int hardDamageTaken = 20;
 
 
-    int MaxDist = 3;
+    int MaxDist = 25;
     int MinDist = 1;
+    bool playerInRange = false;
 
 
 
@@ -92,21 +93,35 @@ public class AlienEnemyBehavour : Damageable{
 	// Update is called once per frame
 	void Update () {
 
-        //check if close to emp
-        transform.LookAt(emp);
-
-        if (Vector3.Distance(transform.position, emp.position) <= MaxDist /*>= MinDist*/)
-        {
-            toEMP = true;
-        }
-
-        //check if close to emp
+        //check if close to tank
         transform.LookAt(tankPosition);
 
-        if (Vector3.Distance(transform.position, tankPosition.position) <= MaxDist /*>= MinDist*/)
+        if (toEMP)
         {
-            toEMP = false;
+            if (Vector3.Distance(transform.position, tankPosition.position) <= MaxDist /*>= MinDist*/)
+            {
+                toEMP = false;
+                playerInRange = true;
+            }
+
         }
+        else
+        {
+            //if going to player and player no longer in range
+            if (Vector3.Distance(transform.position, tankPosition.position) > MaxDist /*>= MinDist*/)
+            {               
+                toEMP = true;
+                playerInRange = false;
+
+            }
+
+
+            
+        }
+
+        
+
+        
 
 
         //if (Vector3.Distance(transform.position, player.transform.position) <= MaxDist)

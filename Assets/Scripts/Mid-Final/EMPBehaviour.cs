@@ -52,7 +52,7 @@ public class EMPBehaviour : Damageable
         //damage
         int health = currentHealth - amount;
 
-        if (health < 1)
+        if (health < 0)
         {
             currentHealth = 1;
             amount = currentHealth - 1;

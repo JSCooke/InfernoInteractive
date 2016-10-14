@@ -27,6 +27,8 @@ public class UIAdapter : MonoBehaviour
         isEMP = true;
     }
 
+    public GameObject tempRedOrbIndicator, tempGreenOrbIndicator;
+    public static GameObject redOrbIndicator, greenOrbIndicator;
 
     //ben made this
     public static Image topBar,bottomBar;
@@ -50,6 +52,9 @@ public class UIAdapter : MonoBehaviour
 
         playerVal = 100;
         bossVal = 100;
+
+        redOrbIndicator = tempRedOrbIndicator;
+        greenOrbIndicator = tempGreenOrbIndicator;
 	}
 
 	void Update() {
@@ -141,13 +146,18 @@ public class UIAdapter : MonoBehaviour
 	 * Returns the remaining hp of the boss. (Pass in 0 to use this as a getter)
 	 */ 
 	public static float damageBoss(float hp){
-		if (!bossDead () && !playerDead()) {
+		if ((!bossDead ()|| isEMP) && !playerDead()) {
             if(bossDamageAnimator!= null && hp>0)
             {
 			    bossDamageAnimator.SetTrigger ("bossDamage");
 
             }
 			bossVal -= hp;
+
+            if (bossVal <= 0)
+            {
+                bossVal = 0;
+            }
 
 			BossVal = bossVal;
 			if (bossDead ()&&!isEMP) {
@@ -276,7 +286,21 @@ public class UIAdapter : MonoBehaviour
 //		boss.enabled = ui;
 	}
 
-	private static void addScoreToLeader(String name, int time){
+    /**
+     * Turns the red orb indicator on or off
+     */
+    public static void setRedOrbActive(bool active) {
+        redOrbIndicator.SetActive(active);
+    }
+
+    /**
+     * Turns the green orb indicator on or off
+     */
+    public static void setGreenOrbActive(bool active) {
+       greenOrbIndicator.SetActive(active);
+    }
+
+    private static void addScoreToLeader(String name, int time){
 		BossController.Difficulty difficulty = GameData.get<BossController.Difficulty>("difficulty");
 		if(difficulty == default(BossController.Difficulty)) {
 			difficulty = BossController.Difficulty.Easy;

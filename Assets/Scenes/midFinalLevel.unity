@@ -710,7 +710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad56edfc99e0a5b4da6eeab63c74967c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tank: {fileID: 1419083011}
+  tank: {fileID: 0}
   enemy: {fileID: 154764, guid: 334c07ca9c2e176489a803c48a2c1a43, type: 2}
   spawnTime: 3
   spawnPoints:
@@ -1165,7 +1165,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 36.9725, y: -287.4355, z: -252.0575}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &308857166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,6 +1530,8 @@ MonoBehaviour:
   tempAchievementTextBox: {fileID: 885842724}
   tempWinText: {fileID: 1806850377}
   amin: {fileID: 0}
+  tempRedOrbIndicator: {fileID: 0}
+  tempGreenOrbIndicator: {fileID: 0}
 --- !u!4 &433221038
 Transform:
   m_ObjectHideFlags: 0
@@ -4185,7 +4187,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 15.330899, y: -84.5252, z: -90.6972}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1001 &1419083009
 Prefab:
   m_ObjectHideFlags: 0
@@ -4228,16 +4230,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1419083010 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 160562, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-  m_PrefabInternal: {fileID: 1419083009}
---- !u!114 &1419083011 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11454204, guid: 2bd35607985c25f4296e07df12e2cb95,
-    type: 2}
-  m_PrefabInternal: {fileID: 1419083009}
-  m_Script: {fileID: 11500000, guid: 50fd1a3e1dcfa294791751298d255f13, type: 3}
 --- !u!1 &1442300604
 GameObject:
   m_ObjectHideFlags: 0
@@ -4325,7 +4317,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 89.9051, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &1442300610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4337,7 +4329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855b9376c142a8349878d739c22b00fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1419083010}
+  target: {fileID: 1785891441}
   smooth: 0
   height: 30
   dampTime: 0.05
@@ -5180,6 +5172,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!1 &1785891441 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 147470, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+  m_PrefabInternal: {fileID: 1419083009}
 --- !u!1 &1806850375
 GameObject:
   m_ObjectHideFlags: 0

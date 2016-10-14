@@ -34,6 +34,10 @@ public class AlienEnemyBehavour : Damageable{
     int hardDamageTaken = 20;
 
 
+    int MaxDist = 3;
+    int MinDist = 1;
+
+
 
     // Use this for initialization
     void Start () {
@@ -87,6 +91,30 @@ public class AlienEnemyBehavour : Damageable{
 	
 	// Update is called once per frame
 	void Update () {
+
+        //check if close to emp
+        transform.LookAt(emp);
+
+        if (Vector3.Distance(transform.position, emp.position) <= MaxDist /*>= MinDist*/)
+        {
+            toEMP = true;
+        }
+
+        //check if close to emp
+        transform.LookAt(tankPosition);
+
+        if (Vector3.Distance(transform.position, tankPosition.position) <= MaxDist /*>= MinDist*/)
+        {
+            toEMP = false;
+        }
+
+
+        //if (Vector3.Distance(transform.position, player.transform.position) <= MaxDist)
+        //{
+            
+        //    player.GetComponent<TankController>().takeDamage(4);
+
+        //}
 
         if (toEMP)
         {

@@ -51,7 +51,7 @@ public class bombController : MonoBehaviour {
 			if (inRange [i].gameObject.tag == "Player") {
 				tank = inRange [i].gameObject.GetComponent<TankController> ();
 				if (tank != null) {
-					tank.takeDamage (50);
+					tank.takeDamage (15);
 				}
 			}
 			i = i + 1;

@@ -34,7 +34,7 @@ public class forestGuardScript : Damageable {
 		if(Vector3.Distance(transform.position,player.transform.position) <= MaxDist)
 		{
 			guardAnimator.SetTrigger("Attack");
-			player.GetComponent<TankController> ().takeDamage (4);
+			player.GetComponent<TankController> ().takeDamage (1);
 
 		} 
 	}

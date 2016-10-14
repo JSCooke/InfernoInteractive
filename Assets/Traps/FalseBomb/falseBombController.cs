@@ -5,7 +5,7 @@ public class falseBombController : MonoBehaviour {
 
 	public string damagedBy; //PlayerProjectile
 	public ParticleSystem explosion;
-	private float timer = 3;
+	private float timer = 1;
 	public bool timing = true;
 
 	public bool Timing {

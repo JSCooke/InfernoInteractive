@@ -9,10 +9,24 @@ public class TrapScript : MonoBehaviour {
 	public GameObject confetti;
 	public GameObject minion;
 	public string trapType;
+	private int spawnNum;
+
+	public BossController.Difficulty difficultyTest;
 
 	// Use this for initialization
 	void Start () {
-	
+		//difficultyTest = GameData.get<BossController.Difficulty> ("difficulty");
+		switch (difficultyTest) {
+		case BossController.Difficulty.Easy:
+			spawnNum = 1;
+			break;
+		case BossController.Difficulty.Medium:
+			spawnNum = 3;
+			break;
+		case BossController.Difficulty.Hard:
+			spawnNum = 5;
+			break;
+		}
 	}
 	
 	// Update is called once per frame
@@ -33,20 +47,26 @@ public class TrapScript : MonoBehaviour {
 		Quaternion triggerRotation = this.transform.rotation;
 		float spawnDistance = 10;
 		Vector3 spawnPos = triggerPos + triggerDirection*spawnDistance;
-
+		spawnPos.y = 0;
+		int i = 0;
 		switch (trapType)
 		{
 		case "bomb":
-			Instantiate (bomb, spawnPos, triggerRotation);
+			spawnPos.y = 0.5f; //Bombs will fall through floor without this
+			while (i < Random.Range (1, spawnNum)) {
+				Instantiate (bomb, spawnPos, triggerRotation);
+				spawnPos.x += Random.Range (-2, 2);
+				spawnPos.z += Random.Range (-2, 2);
+				i++;
+			}
 			break;
 		case "text":
-			spawnPos.y = 0;//Text should appear on the ground
+			spawnPos = triggerPos + triggerDirection * spawnDistance * (2 / spawnNum);	//Make text spawn further away from trigger on lower difficulties	
+			spawnPos.y = 0;
 			Instantiate (text, spawnPos, Quaternion.LookRotation(new Vector3(0, -1, 0),new Vector3(0, 1, 0)));
 			break;
 		case "shroom":
-			spawnPos.y = 0;
-			int i = 0;
-			while (i < Random.Range(1,4)){
+			while (i < Random.Range(1,spawnNum)){
 				spawnPos.x += Random.Range (-10, 10);
 				spawnPos.z += Random.Range (-10, 10);
 				Instantiate (shroom, spawnPos, triggerRotation);
@@ -54,13 +74,21 @@ public class TrapScript : MonoBehaviour {
 			}
 			break;
 		case "confetti":
-			Instantiate (confetti, spawnPos, triggerRotation);
+			spawnPos.y = 0.5f; //Bombs will fall through floor without this
+			while (i < Random.Range(1,spawnNum)){
+				Instantiate (confetti, spawnPos, triggerRotation);
+				spawnPos.x += Random.Range (-2, 2);
+				spawnPos.z += Random.Range (-2, 2);
+				i++;
+			}
 			break;
 		case "minion":
-			spawnPos.y = 0;
-			Instantiate (minion, spawnPos, triggerRotation);
-			spawnPos.x += 5;
-			Instantiate (minion, spawnPos, triggerRotation);
+			while (i < Random.Range(1,spawnNum)){
+				Instantiate (minion, spawnPos, triggerRotation);
+				spawnPos.x += Random.Range (-2, 2);
+				spawnPos.z += Random.Range (-2, 2);
+				i++;
+			}
 			break;
 		default:
 			print("Invalid trap");

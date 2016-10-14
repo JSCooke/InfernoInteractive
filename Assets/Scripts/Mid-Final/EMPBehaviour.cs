@@ -11,13 +11,16 @@ public class EMPBehaviour : Damageable
 
     int empIncreaseValue = 1;
 
+    bool win = false;
+
 
 
     // Use this for initialization
     void Start () {
 
-        UIAdapter.bossPortrait = bossPic;
+        UIAdapter.changeEMP();
         UIAdapter.bossVal = 1;
+
 
         timer = 0f;
         maxHealth = 100;
@@ -29,12 +32,18 @@ public class EMPBehaviour : Damageable
         
         timer += Time.deltaTime;
 
-        //increase
-        if (timer >= healthIncreamentTime)
+        if (!win)
         {
-            increaseHealth();
-            timer = 0f;
+            //increase
+            if (timer >= healthIncreamentTime)
+            {
+                increaseHealth();
+                timer = 0f;
+            }
         }
+
+
+        
 	
 	}
 
@@ -63,7 +72,9 @@ public class EMPBehaviour : Damageable
         UIAdapter.damageBoss((float)-empIncreaseValue);
         if (currentHealth >= 100)
         {
+            win = true;
             UIAdapter.win();
+
         }
 
         Debug.Log("emp health " + currentHealth);

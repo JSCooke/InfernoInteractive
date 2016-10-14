@@ -20,10 +20,16 @@ public class UIAdapter : MonoBehaviour
 	public Text tempWinText;
 
 	public AnimationClip amin;
+    private static bool isEMP = false;
+
+    public static void changeEMP()
+    {
+        isEMP = true;
+    }
 
 
-	//ben made this
-	public static Image topBar,bottomBar;
+    //ben made this
+    public static Image topBar,bottomBar;
 
 	void Start() {
 		topBar = bar1;
@@ -75,8 +81,9 @@ public class UIAdapter : MonoBehaviour
 		}
 	}
 
-	//Perhaps make a general animator?
-	public static Animator achievementAnimator;
+
+    //Perhaps make a general animator?
+    public static Animator achievementAnimator;
 	public static Animator deathAnimator;
 	public static Animator winAnimator;
 	public static Animator playerDamageAnimator;
@@ -113,16 +120,16 @@ public class UIAdapter : MonoBehaviour
 	 * Returns the remaining hp of the player. (Pass in 0 to use this as a getter)
 	 */
 	public static float damagePlayer(float hp){
-		if (!playerDead () && !bossDead()) {
+		if (!playerDead () && (!bossDead() || isEMP)) {
 
-            if (playerDamageAnimator != null)
+            if (playerDamageAnimator != null && hp>0)
             {
 			playerDamageAnimator.SetTrigger ("playerDamage");
             }
 			playerVal -= hp;
 			PlayerVal = playerVal;
 
-			if (playerDead ()) {
+			if (playerDead()) {
 				die ();
 			}
 		}
@@ -135,7 +142,7 @@ public class UIAdapter : MonoBehaviour
 	 */ 
 	public static float damageBoss(float hp){
 		if (!bossDead () && !playerDead()) {
-            if(bossDamageAnimator!= null)
+            if(bossDamageAnimator!= null && hp>0)
             {
 			    bossDamageAnimator.SetTrigger ("bossDamage");
 
@@ -143,7 +150,7 @@ public class UIAdapter : MonoBehaviour
 			bossVal -= hp;
 
 			BossVal = bossVal;
-			if (bossDead ()) {
+			if (bossDead ()&&!isEMP) {
 				win ();
 			}
 		}

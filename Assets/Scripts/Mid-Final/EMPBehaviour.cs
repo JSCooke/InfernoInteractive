@@ -33,15 +33,18 @@ public class EMPBehaviour : Damageable
     {
         //damage
         currentHealth = currentHealth - amount;
+
+        if (currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
+
         timer = 0f;
-        Debug.Log("damaged emp health " + currentHealth);
     }
 
     void increaseHealth()
     {
         currentHealth = currentHealth + 1;
-        Debug.Log("emp current health " + currentHealth);
-
         if (currentHealth >= 100)
         {
             //win

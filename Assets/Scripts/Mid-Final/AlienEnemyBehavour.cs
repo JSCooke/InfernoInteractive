@@ -3,11 +3,16 @@ using System.Collections;
 
 public class AlienEnemyBehavour : Damageable{
 
-    public UnityEngine.GameObject player;
+    GameObject player;
     TankController tank;
     Transform tankPosition;
+
+
     Transform emp;
-    public EMPBehaviour empObj;
+    EMPBehaviour empBehave;
+    GameObject empObj;
+
+
     NavMeshAgent navagation;
     bool toEMP = true;
 
@@ -37,19 +42,15 @@ public class AlienEnemyBehavour : Damageable{
 
         if (player == null)
         {
-            player = UnityEngine.GameObject.FindGameObjectsWithTag("Player")[0];
+            player = GameObject.Find("Tank");
         }
 
         tankPosition = player.transform;
-        tank = player.gameObject.GetComponent<TankController>();
-            //tank = UnityEngine.GameObject.FindGameObjectsWithTag("Player")[0];
-            //player = tank.GetComponent<TankController>();
-        
+        tank = player.GetComponent<TankController>();
 
-
-
+        empObj = GameObject.Find("EMP");
         emp = empObj.transform;
-
+        empBehave = empObj.GetComponent<EMPBehaviour>();
 
         navagation = GetComponent<NavMeshAgent>();
         capsuleCollider = GetComponent<CapsuleCollider>();
@@ -181,7 +182,7 @@ public class AlienEnemyBehavour : Damageable{
             }
             else
             {
-                empObj.takeDamage(1);
+                empBehave.takeDamage(1);
             }
 
         }

@@ -134,7 +134,8 @@ public class TankController : MonoBehaviour {
             }
 
             currentHealth = currentHealth - damage;
-            UIAdapter.damagePlayer((float)damage, maxHealth);
+            //UIAdapter.damagePlayer((float)damage, maxHealth);
+            //TODO add in UI
 
         }
 

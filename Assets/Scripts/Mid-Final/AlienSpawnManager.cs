@@ -42,8 +42,7 @@ public class AlienSpawnManager : MonoBehaviour {
         //if tank health is not 0 then
 
         int spawnPointIndex = Random.RandomRange(0, spawnPoints.Length);
-
-
+        
         Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
     }
 	

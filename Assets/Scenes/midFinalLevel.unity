@@ -1323,6 +1323,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 1.6, z: 1.6}
   m_Center: {x: -0.6, y: 0, z: -0.000000059604645}
+--- !u!114 &669398147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 669398140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c573ff0b09bc25048ab4c983dddb6bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
+  bodyDamage: 0
+  damagedBy: 
+  dead: 0
 --- !u!4 &777016542 stripped
 Transform:
   m_PrefabParentObject: {fileID: 440520, guid: a1a384c7bae0b03459d8c4304d405b03, type: 2}
@@ -2455,7 +2471,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 428358, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -12.4
       objectReference: {fileID: 0}
     - target: {fileID: 428358, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5599,6 +5615,8 @@ MonoBehaviour:
   bodyDamage: 0
   damagedBy: 
   dead: 0
+  player: {fileID: 1419083011}
+  empObj: {fileID: 669398147}
   chargeParticles: {fileID: 1758353785}
 --- !u!111 &2085592456
 Animation:

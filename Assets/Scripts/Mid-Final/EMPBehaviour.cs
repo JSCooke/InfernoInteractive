@@ -3,25 +3,49 @@ using System.Collections;
 
 public class EMPBehaviour : Damageable
 {
+    float healthIncreamentTime = 1f;
+    float timer;
 
     
 
 
-	// Use this for initialization
-	void Start () {
-        
-	
-	}
+
+    // Use this for initialization
+    void Start () {
+        timer = 0f;
+        maxHealth = 100;
+        currentHealth = 0;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-       
+
+        //increase
+       if(timer >= healthIncreamentTime)
+        {
+            increaseHealth();
+            timer = 0f;
+        }
 	
 	}
 
     public void takeDamage(int amount)
     {
-        
+        //damage
+        currentHealth = currentHealth - amount;
+        timer = 0f;
+        Debug.Log("damaged emp health " + currentHealth);
+    }
+
+    void increaseHealth()
+    {
+        currentHealth = currentHealth + 1;
+        Debug.Log("emp current health " + currentHealth);
+
+        if (currentHealth >= 100)
+        {
+            //win
+        }
     }
 
     /**

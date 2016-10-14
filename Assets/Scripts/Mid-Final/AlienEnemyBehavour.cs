@@ -3,8 +3,9 @@ using System.Collections;
 
 public class AlienEnemyBehavour : Damageable{
 
-    TankController player;
-    UnityEngine.GameObject tank;
+    public UnityEngine.GameObject player;
+    TankController tank;
+    Transform tankPosition;
     Transform emp;
     public EMPBehaviour empObj;
     NavMeshAgent navagation;
@@ -23,20 +24,27 @@ public class AlienEnemyBehavour : Damageable{
     int hardAttack = 15;
 
     int damageTaken;
-    int easyDamageTaken = 100;
-    int medDamageTaken = 50;
-    int hardDamageTaken = 25;
+    int easyDamageTaken = 50;
+    int medDamageTaken = 25;
+    int hardDamageTaken = 20;
 
 
 
     // Use this for initialization
     void Start () {
 
-        if (tank == null)
+        //TODO fix so that get proper player
+
+        if (player == null)
         {
-            tank = UnityEngine.GameObject.FindGameObjectsWithTag("Player")[0];
-            player = tank.GetComponent<TankController>();
+            player = UnityEngine.GameObject.FindGameObjectsWithTag("Player")[0];
         }
+
+        tankPosition = player.transform;
+        tank = player.gameObject.GetComponent<TankController>();
+            //tank = UnityEngine.GameObject.FindGameObjectsWithTag("Player")[0];
+            //player = tank.GetComponent<TankController>();
+        
 
 
 
@@ -67,6 +75,11 @@ public class AlienEnemyBehavour : Damageable{
                 damageTaken = hardDamageTaken;
                 attackDamage = hardAttack;
                 break;
+            default:    //default easy
+                damageTaken = easyDamageTaken;
+                attackDamage = easyAttack;
+                break;
+
         }
         
     }
@@ -80,7 +93,7 @@ public class AlienEnemyBehavour : Damageable{
         }
         else
         {
-            navagation.SetDestination(tank.transform.position);
+            navagation.SetDestination(tankPosition.position);
         }
 
         timer += Time.deltaTime;
@@ -121,33 +134,29 @@ public class AlienEnemyBehavour : Damageable{
                     Attack(false);
                     //attack emp
                 }
-
             }
-
-        }
-
-        
-        
+        }  
     }
 
 
 
     void OnTriggerExit(Collider other)
     {
+        //TODO
+        //check if collider calling is a coluumn or a sphere collider
+        //if col check projectile
 
         if (other.gameObject.tag == "PlayerProjectile")
         {
-            Debug.Log("en got hit");
-            Destroy(other.gameObject);
             takeDamage(damageTaken);
-            //Destroy(other.gameObject);
+            Destroy(other.gameObject);
         }
     }
 
 
     void takeDamage (int amount)
     {
-        currentHealth -= amount;
+        currentHealth = currentHealth - amount;
 
         //if dead
         if (currentHealth <= 0)
@@ -156,7 +165,6 @@ public class AlienEnemyBehavour : Damageable{
             Destroy(gameObject);
             //turn to trigger so shots can pass through
             capsuleCollider.isTrigger = true;
-            
         }
     }
 
@@ -169,15 +177,13 @@ public class AlienEnemyBehavour : Damageable{
 
             if(isPlayer)
             {
-                player.takeDamage(attackDamage);
+                tank.takeDamage(attackDamage);
             }
             else
             {
-                empObj.takeDamage(attackDamage);
+                empObj.takeDamage(1);
             }
-            
-            
-            //TODO take damage
+
         }
         chargeParticles.enableEmission = false;
 

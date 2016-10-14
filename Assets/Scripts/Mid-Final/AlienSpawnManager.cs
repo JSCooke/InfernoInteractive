@@ -8,9 +8,9 @@ public class AlienSpawnManager : MonoBehaviour {
     public float spawnTime = 5f;
     public Transform[] spawnPoints;
 
-    float easy = 10f;
-    float med = 8f;
-    float hard = 5f;
+    float easy = 30f;
+    float med = 20f;
+    float hard = 10f;
 
 
 

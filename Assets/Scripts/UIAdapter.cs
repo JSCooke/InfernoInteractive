@@ -180,7 +180,7 @@ public class UIAdapter : MonoBehaviour
 	 */ 
 	public static void die(){
 		if (!idiot) {
-			dieText.text = "You died...";
+
 		} else {
 			dieText.text = "It's not like we didn't warn you...";
 			Idiot = false;

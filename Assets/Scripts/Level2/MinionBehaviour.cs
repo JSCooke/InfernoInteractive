@@ -2,12 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class MinionBehaviour : MonoBehaviour
+public class MinionBehaviour : Damageable
 {
 	//Reference to player object
 	public UnityEngine.GameObject player = null;
 	//Distance at which minions should start moving
 	public float attackDistance = 10.0f;
+
+	public float rotationSpeed = 5;
+	public float speed;
 
 	//Fields to specify how to move away from player
 	public double moveAwayDuration;
@@ -17,7 +20,6 @@ public class MinionBehaviour : MonoBehaviour
 	//Properties of minion
 	private Rigidbody rb;
 	private Animator anim;
-	private int currentHealth, maxHealth;
 
 	//Booleans for minion's state
 	private bool movingTowards = false;
@@ -27,30 +29,40 @@ public class MinionBehaviour : MonoBehaviour
 	//Position of player in game
 	private Vector3 playerPosition;
 
+	public enum Difficulty { Easy = 2, Medium = 3, Hard = 4 };
+	public Difficulty difficultyLevel;
+	public int difficulty = 0;
+
 	// Use this for initialization
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
 		anim = GetComponent<Animator>();
 
-		maxHealth = this.GetComponent<MinionController>().maxHealth;
+		difficulty = (int)difficultyLevel;
+		//set difficulty level if set in menu
+		if (GameData.get<Difficulty>("difficulty") != default(Difficulty))
+		{
+			difficultyLevel = GameData.get<Difficulty>("difficulty");
+			difficulty = (int)GameData.get<Difficulty>("difficulty");
+		}
+
+		//Scale health with difficulty
+		maxHealth = maxHealth * (difficulty - 1);
 		currentHealth = maxHealth;
 
 		//Find player in game
 		if (player == null)
 		{
-			player = UnityEngine.GameObject.FindGameObjectsWithTag("Player")[0];
+			player = GameObject.Find("Tank");
 		}
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		//Update health
-		currentHealth = this.GetComponent<MinionController>().currentHealth;
-
 		//If not dead, fight player
-		if (this.GetComponent<MinionController>().dead)
+		if (dead)
 		{
 			Die();
 		} else
@@ -75,6 +87,7 @@ public class MinionBehaviour : MonoBehaviour
 		string collidedTag = collision.gameObject.tag;
 		if (collidedTag == "Player")
 		{
+			player.GetComponent<TankController>().takeDamage(bodyDamage);
 			movingTowards = false;
 			movingAway = true;
 			moveAwayStartTime = Time.fixedTime;
@@ -112,7 +125,7 @@ public class MinionBehaviour : MonoBehaviour
 	{
 		//Move towards player and change animation from idle to move
 		anim.SetBool("Move", true);
-		transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<MinionController>().bossSpeed * Time.deltaTime);
+		transform.position = Vector3.MoveTowards(transform.position, playerPosition, speed * Time.deltaTime);
 	}
 
 	private void find()
@@ -122,11 +135,28 @@ public class MinionBehaviour : MonoBehaviour
 		playerPosition = new Vector3(playerPosition.x, 0, playerPosition.z);
 
 		//Look at the player
-		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.transform.position- this.transform.position), this.GetComponent<MinionController>().rotationSpeed * Time.deltaTime);
+		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.transform.position- this.transform.position), rotationSpeed * Time.deltaTime);
 	}
 
 	void Die()
 	{
 		Destroy(this.gameObject);
+	}
+
+	public override void takeDamage(int damage)
+	{
+
+		if (damage > currentHealth)
+		{
+			damage = currentHealth;
+		}
+
+		currentHealth = currentHealth - damage;
+		currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+		if (Mathf.Floor(currentHealth) <= 0)
+		{
+			dead = true;
+		}
 	}
 }

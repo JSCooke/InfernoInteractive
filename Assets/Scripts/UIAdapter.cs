@@ -127,10 +127,10 @@ public class UIAdapter : MonoBehaviour
 			playerDamageAnimator.SetTrigger ("playerDamage");
 			playerVal -= hp;
 			PlayerVal = playerVal;
-
-			if (playerDead ()) {
-				die ();
-			}
+		}
+		if (playerDead())
+		{
+			die();
 		}
 		return PlayerVal;
 	}

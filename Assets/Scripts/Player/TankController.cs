@@ -123,7 +123,7 @@ public class TankController : MonoBehaviour {
 
     void OnTriggerStay(Collider collider) {
         if (collider.gameObject.tag == damagedBy) {
-            takeDamage(collider.gameObject.GetComponent<MinionController>().bodyDamage);
+            takeDamage(collider.gameObject.GetComponent<BossController>().bodyDamage);
         }
 
     }

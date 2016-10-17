@@ -31,11 +31,12 @@ public class FinalBossBehaviour : Spawnable {
     private bool charging = true, dashing;
 
     public GameObject topPosition;
-    public Dictionary<string, float> animationTimes = new Dictionary<string, float>();
+    public Dictionary<string, int> animationTimes = new Dictionary<string, int>();
     public Animator anim;
 
     public int frameCount = 0;
     public float topPause = 1f;
+    private int delay = 20;
 
     // Use this for initialization
     void Start() {
@@ -49,12 +50,18 @@ public class FinalBossBehaviour : Spawnable {
         }
 
         //Add animation times to dictionary
-        animationTimes["Attack"] = 1.8f;
-        animationTimes["Dead"] = 1.0f;
-        animationTimes["Idle"] = 1.0f;
-        animationTimes["Roar"] = 1.0f;
-        animationTimes["Run"] = 1.0f;
-        animationTimes["Spawn"] = 3.8f;
+        animationTimes["Attack"] = 25 + delay;
+        animationTimes["Dead"] = 27 + delay;
+        animationTimes["Idle"] = 58 + delay;
+        animationTimes["Roar"] = 47 + delay;
+        animationTimes["Run"] = 28 + delay;
+        animationTimes["Spawn"] = 52 + delay;
+        //animationTimes["Attack"] = 115;
+        //animationTimes["Dead"] = 115;
+        //animationTimes["Idle"] = 220;
+        //animationTimes["Roar"] = 200;
+        //animationTimes["Run"] = 115;
+        //animationTimes["Spawn"] = 220;
 
         anim = this.gameObject.GetComponent<Animator>();
 
@@ -85,7 +92,7 @@ public class FinalBossBehaviour : Spawnable {
         currentHealth = this.GetComponent<BossController>().currentHealth;
 
         if (this.GetComponent<BossController>().dead) {
-            StartCoroutine(Die());
+            Die();
         }
         else {
             fightPlayer();
@@ -96,22 +103,30 @@ public class FinalBossBehaviour : Spawnable {
 
     void fightPlayer() {
 
+        frameCount++;
+        
         switch (currentAction) {
-
+            
             case Action.STATIONARY:
-                
+
                 //Spawning is done
-                if (Time.fixedTime > animationTimes["Spawn"]) { 
+                if (frameCount > animationTimes["Spawn"]) {
+                    animationTimes["Spawn"] = -1;
+
+                    if (!anim.GetBool("Run") && !anim.GetBool("Idle")) {
+                        frameCount = 0;
+                    }
+                    
                     returnToTop();
                 }
                 
                 break;
 
             case Action.SHIELD:
-
+                print(frameCount);
                 resetAnimator();
 
-                if (Time.fixedTime - chargeStartTime > chargeDuration) {
+                if (frameCount > animationTimes["Roar"]) {
                     skills[0].SetActive(true);
                 } else {
                     anim.SetBool("Roar", true);
@@ -123,7 +138,7 @@ public class FinalBossBehaviour : Spawnable {
 
                 resetAnimator();
 
-                if (Time.fixedTime - chargeStartTime > chargeDuration) {
+                if (frameCount > animationTimes["Roar"]) {
                     skills[1].SetActive(true);
                 }
                 else {
@@ -132,11 +147,13 @@ public class FinalBossBehaviour : Spawnable {
                 break;
 
             case Action.SNARE:
-
+                print(frameCount);
                 resetAnimator();
 
-                if (Time.fixedTime - chargeStartTime > chargeDuration) {
+                if (frameCount > animationTimes["Roar"]) {
+
                     skills[2].SetActive(true);
+
                 }
                 else {
                     anim.SetBool("Roar", true);
@@ -155,6 +172,7 @@ public class FinalBossBehaviour : Spawnable {
 
     void returnToTop() {
 
+        //print("top");
         resetAnimator();
         anim.SetBool("Run", true);
 
@@ -162,18 +180,18 @@ public class FinalBossBehaviour : Spawnable {
         transform.position = Vector3.MoveTowards(transform.position, topPosition.transform.position, this.GetComponent<BossController>().bossSpeed * Time.deltaTime);
 
         if (transform.position == topPosition.transform.position) {
-            transform.LookAt(player.transform);
 
             resetAnimator();
             anim.SetBool("Idle", true);
+            transform.LookAt(player.transform);
 
-
-
-            if (UIAdapter.getTimeInSeconds() - chargeStartTime > topPause) {
+            if (frameCount > animationTimes["Idle"]) {
                 resetAnimator();
                 randomNextAction(true);
             }
             
+        } else {
+            frameCount = 0;
         }
 
     }
@@ -182,7 +200,6 @@ public class FinalBossBehaviour : Spawnable {
 
         if (newAction) {
             randSkill = Random.Range(0, 100);
-            chargeStartTime = UIAdapter.getTimeInSeconds();
 
             if (randSkill <= 40) {  //Stationary
                 
@@ -208,12 +225,14 @@ public class FinalBossBehaviour : Spawnable {
             else {     //Attack
 
                 charging = true;
+                chargeStartTime = UIAdapter.getTimeInSeconds();
                 currentAction = Action.DEFAULT_ATTACK;
 
             }
         }
 
-        currentAction = Action.SHIELD;
+        print(currentAction);   
+        frameCount = 0;
 
     }
 
@@ -232,7 +251,7 @@ public class FinalBossBehaviour : Spawnable {
         if (UIAdapter.getTimeInSeconds() > (chargeStartTime + chargeDuration)) {
             dashing = true;
             charging = false;
-            chargeStartTime = UIAdapter.getTimeInSeconds();
+            frameCount = 0;
         } else {
             //Look at the player
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.transform.position - this.transform.position), this.GetComponent<BossController>().rotationSpeed * Time.deltaTime);
@@ -243,22 +262,22 @@ public class FinalBossBehaviour : Spawnable {
 
     void dashAttack() {
 
-        resetAnimator();
-        anim.SetBool("Run", true);
-
-        transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime * 3);
-
         if (transform.position == playerPosition) {
 
             resetAnimator();
             anim.SetBool("Attack", true);
 
-
-            if (UIAdapter.getTimeInSeconds() - chargeStartTime > animationTimes["Attack"]) {
+            if (frameCount > animationTimes["Attack"]) {
                 dashing = false;
                 currentAction = Action.STATIONARY;
             }
             
+        } else {
+            resetAnimator();
+            anim.SetBool("Run", true);
+
+            transform.position = Vector3.MoveTowards(transform.position, playerPosition, this.GetComponent<BossController>().bossSpeed * Time.deltaTime * 3);
+            frameCount = 0;
         }
     }
 
@@ -271,7 +290,7 @@ public class FinalBossBehaviour : Spawnable {
             resetAnimator();
             anim.SetBool("Attack", true);
 
-            if (UIAdapter.getTimeInSeconds() - chargeStartTime > animationTimes["Attack"]) {
+            if (frameCount > animationTimes["Attack"]) {
                 dashing = false;
                 currentAction = Action.STATIONARY;
             }
@@ -279,13 +298,12 @@ public class FinalBossBehaviour : Spawnable {
 
     }
 
-    IEnumerator Die() {
+    void Die() {
 
         resetAnimator();
-        anim.SetBool("Dead", true);
+        //anim.SetBool("Dead", true);
 
         //Wait 1 second for animation to finish
-        yield return new WaitForSeconds(1);
         Destroy(this.gameObject);
     }
 

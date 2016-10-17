@@ -24,9 +24,11 @@ public class HollowWall : MonoBehaviour {
 
         if (health <= 0) {
             GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().randomNextAction(true);
+            GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().frameCount = 0;
             Destroy(this.gameObject);
             this.health = maxHealth;
             GameObject.Find("Snare").GetComponent<Snare>().charging = true;
+            GameObject.Find("Snare").GetComponent<Snare>().gameObject.SetActive(false);
         }
 
         ////Damage over time while snared

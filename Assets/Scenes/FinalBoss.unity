@@ -1509,7 +1509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &508162838
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4959,6 +4959,7 @@ MonoBehaviour:
   chargeDuration: 1
   topPosition: {fileID: 1372142920}
   anim: {fileID: 0}
+  frameCount: 0
   topPause: 1
 --- !u!54 &1478667960
 Rigidbody:
@@ -4995,7 +4996,7 @@ MonoBehaviour:
   bossSpeed: 8
   difficultyLevel: 2
   difficulty: 0
-  totalHealth: 0
+  totalHealth: 100
 --- !u!65 &1478667962
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5152,7 +5153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1585456020
 RectTransform:
   m_ObjectHideFlags: 0

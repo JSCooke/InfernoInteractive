@@ -25,6 +25,7 @@ public class Shield : SkillController {
         //If both generators hit simulatenously, shield is deactivated
         if (generatorDestroyed()) {
             GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().randomNextAction(true);
+            GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().frameCount = 0;
             this.gameObject.SetActive(false);
 
             for (int i = 0; i < hitCount.Length; i++) {
@@ -44,7 +45,7 @@ public class Shield : SkillController {
     }
 
     void healSelf() {
-        //GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossController>().takeDamage(healAmount);
+        GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossController>().takeDamage(healAmount);
     }
 
     void OnTriggerEnter(Collider collider) {

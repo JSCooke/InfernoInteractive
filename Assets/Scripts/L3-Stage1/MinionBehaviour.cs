@@ -7,7 +7,7 @@ public class MinionBehaviour : Damageable {
     public int stunDuration;
     private Rigidbody rb;
     private Vector3 originalPosition;
-    private bool moveLeft;
+    private bool moveLeft, canChangeDirection=true;
     private float speed = 5f;
     private int difficulty;
     private float startTime;
@@ -42,8 +42,13 @@ public class MinionBehaviour : Damageable {
         if (Time.frameCount >= startTime && stunTimeRemaining <= 0) {
             //Checks if the current position has moved further than the offset
             //If so, move in the opposite direction
-            if ((transform.position - originalPosition).magnitude > offset) {
+            if ((transform.position - originalPosition).magnitude > offset && canChangeDirection) {
+                canChangeDirection = false;
                 moveLeft = !moveLeft;
+            }
+
+            if ((transform.position - originalPosition).magnitude < offset) {
+                canChangeDirection = true;
             }
 
             //Move left or right depending on the boolean set above

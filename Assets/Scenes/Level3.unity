@@ -8027,6 +8027,47 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 483793122}
+--- !u!1 &488479735
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 488479737}
+  - 65: {fileID: 488479736}
+  m_Layer: 0
+  m_Name: Ceiling
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &488479736
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 488479735}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 200, y: 10, z: 200}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &488479737
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 488479735}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 15, z: 80}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
 --- !u!1 &488771408
 GameObject:
   m_ObjectHideFlags: 0
@@ -16620,10 +16661,6 @@ Prefab:
       propertyPath: orb
       value: 
       objectReference: {fileID: 1457276621}
-    - target: {fileID: 181508, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: m_Name
-      value: PatrollingRobotWithHealthBar_Left1
-      objectReference: {fileID: 0}
     - target: {fileID: 11447710, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
       propertyPath: redLight
       value: 
@@ -16632,13 +16669,9 @@ Prefab:
       propertyPath: greenLight
       value: 
       objectReference: {fileID: 1296038013}
-    - target: {fileID: 11477572, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: damagedBy
-      value: PlayerProjectile
-      objectReference: {fileID: 0}
-    - target: {fileID: 11477572, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
-      propertyPath: stunDuration
-      value: 40
+    - target: {fileID: 181508, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
+      propertyPath: m_Name
+      value: PatrollingRobotWithHealthBar_Left1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}

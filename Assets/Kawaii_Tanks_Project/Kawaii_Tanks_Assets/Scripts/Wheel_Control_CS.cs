@@ -47,7 +47,7 @@ public class Wheel_Control_CS : MonoBehaviour {
 	
 	void Update () {
         rotation = Mathf.Clamp(rotation, -turnClamp, turnClamp);
-        leftRate = Mathf.Clamp(-speed - rotation, -2.0f, 2.0f);
-		rightRate = Mathf.Clamp(speed - rotation, -2.0f, 2.0f);
+        leftRate = Mathf.Clamp(-speed - rotation, -2.0f, 2.0f)/2;
+		rightRate = Mathf.Clamp(speed - rotation, -2.0f, 2.0f)/2;
     }
 }

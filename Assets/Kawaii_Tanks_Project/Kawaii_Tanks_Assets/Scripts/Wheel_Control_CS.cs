@@ -18,6 +18,7 @@ public class Wheel_Control_CS : MonoBehaviour {
 
     public float speed;
     public float rotation;
+    public float turnDampFactor;
 
 	bool isParkingBrake = false ;
 	float lagCount ;

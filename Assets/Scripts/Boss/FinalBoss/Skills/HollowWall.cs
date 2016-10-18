@@ -8,6 +8,7 @@ public class HollowWall : MonoBehaviour {
     private float rotationSpeed = 50f;
     public float health = 50f;
     public string playerName = "Tank";
+    private float damage = 1f;
 
 	// Use this for initialization
 	void Start () {
@@ -22,14 +23,19 @@ public class HollowWall : MonoBehaviour {
         //    rotationSpeed = (GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossController>().difficulty - 1) * baseRotationSpeed;
         //}
 
+        //Damage over time depends on difficulty. 0.02 for easy, 0.03 for medium, 0.04 for hard
+        if (damage != (GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossController>().difficulty / 100)) {
+            damage = GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossController>().difficulty / 100;
+        }
+
         if (health <= 0) {
             Destroy(this.gameObject);
             this.health = maxHealth;
             GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().newAction = true;
         }
-
-        ////Damage over time while snared
-        GameObject.Find(playerName).GetComponent<TankController>().takeDamage((float)GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossController>().difficulty / 100);
+        damage = 0.02f;
+        //Damage over time while snared
+        GameObject.Find(playerName).GetComponent<TankController>().takeDamage(damage);
         transform.Rotate(Vector3.down * (rotationSpeed * Time.deltaTime));
     }
 

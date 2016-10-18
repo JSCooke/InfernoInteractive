@@ -19,6 +19,10 @@ public class SoundAdapter : MonoBehaviour
 	public static AudioClip myBombSound;
 	public AudioClip confettiSound;
 	public static AudioClip myConfettiSound;
+	public AudioClip minionSound;
+	public static AudioClip myMinionSound;
+	public AudioClip minionSwordSound;
+	public static AudioClip myMinionSwordSound;
 
 	public AudioSource BGM;
 	public static AudioSource myBGM;
@@ -54,6 +58,8 @@ public class SoundAdapter : MonoBehaviour
 		myTankHitSound = tankHitSound;
 		myBombSound = bombSound;
 		myConfettiSound = confettiSound;
+		myMinionSound = minionSound;
+		myMinionSwordSound = minionSwordSound;
 
 		myBGM = BGM;
 	}
@@ -86,6 +92,12 @@ public class SoundAdapter : MonoBehaviour
 	}
 	public static void playConfettiSound (){
 		AudioSource.PlayClipAtPoint (myConfettiSound, Camera.main.transform.position, soundVolume);
+	}
+	public static void playMinionSound (){
+		AudioSource.PlayClipAtPoint (myMinionSound, Camera.main.transform.position, soundVolume);
+	}
+	public static void playSwordSound (){
+		AudioSource.PlayClipAtPoint (myMinionSwordSound, Camera.main.transform.position, soundVolume);
 	}
 
 	/*

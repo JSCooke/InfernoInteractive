@@ -21,10 +21,14 @@ public class SlamController : StateMachineBehaviour {
         GameObject player = enemy.GetComponent<FinalBossBehaviour>().player;
 
         GameObject shockWaveInstantiated = (GameObject)Instantiate(shockWave, enemy.transform.position, Quaternion.identity);
-        ParticleSystem shockwave = shockWaveInstantiated.GetComponent<ParticleSystem>();
+
+        ParticleSystem shockwaveEffect = shockWaveInstantiated.GetComponentsInChildren<ParticleSystem>()[0];
         Vector3 relativePos = player.transform.position - shockWaveInstantiated.transform.position;
         Quaternion rotation = Quaternion.LookRotation(relativePos);
-        shockwave.startRotation = rotation.eulerAngles.y;
+        shockwaveEffect.startRotation = Mathf.Deg2Rad * rotation.eulerAngles.y;
+        shockwaveEffect.startLifetime = 1;
+        shockwaveEffect.startSize = 30;
+        shockwaveEffect.Play();
 
         shockWaveInstantiated.transform.LookAt(player.transform.position, shockWaveInstantiated.transform.up);
     }

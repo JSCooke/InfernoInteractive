@@ -10,8 +10,8 @@ public class TankController : MonoBehaviour {
 	private Rigidbody rb;
     private Wheel_Control_CS wheelController;
 
-    public int maxHealth = 100;
-    private int currentHealth;
+    public float maxHealth = 100;
+    private float currentHealth;
     public string damagedBy = "Enemy";
     public float lastDamageTime;
     public float iFrameTime = 2;
@@ -28,6 +28,7 @@ public class TankController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
     }
 
 	void FixedUpdate(){
@@ -62,8 +63,7 @@ public class TankController : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter(Collider collider) {
-
+    void OnTriggerStay(Collider collider) {
         if (collider.gameObject.tag == damagedBy) {
             if (collider.gameObject.GetComponent<BossController>() != null) {
                 takeDamage(collider.gameObject.GetComponent<BossController>().bodyDamage);
@@ -74,7 +74,7 @@ public class TankController : MonoBehaviour {
         
     }
 
-    public void takeDamage(int damage) {
+    public void takeDamage(float damage) {
 
         //fail the no damage achievement
 		AchievementController.hasBeenDamaged = true;
@@ -87,9 +87,7 @@ public class TankController : MonoBehaviour {
             return;
         }
 
-        if (Time.fixedTime - lastDamageTime > iFrameTime) {
-            lastDamageTime = Time.fixedTime;
-
+        if (damage < 1) {
             if (damage > currentHealth) {
                 damage = currentHealth;
             }
@@ -98,7 +96,20 @@ public class TankController : MonoBehaviour {
 			SoundAdapter.playTankHitSound ();
             UIAdapter.damagePlayer((float)damage, maxHealth);
 
+        } else {
+            if (Time.fixedTime - lastDamageTime > iFrameTime) {
+                lastDamageTime = Time.fixedTime;
+
+                if (damage > currentHealth) {
+                    damage = currentHealth;
+                }
+
+                currentHealth = currentHealth - damage;
+                UIAdapter.damagePlayer((float)damage, maxHealth);
+
+            }
         }
+
 
     }
 

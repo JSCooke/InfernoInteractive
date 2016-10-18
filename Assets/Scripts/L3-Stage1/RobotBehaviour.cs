@@ -60,7 +60,7 @@ public class RobotBehaviour : Damageable {
         }
     }
 
-    public override void takeDamage(int damage) {
+    public override void takeDamage(float damage) {
         stunTimeRemaining = stunDuration;
     }
 }

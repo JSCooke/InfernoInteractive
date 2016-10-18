@@ -16,7 +16,7 @@ public class AlienSpawnManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-      
+        spawnPoints = GetComponentsInChildren<Transform>();
         int dif = (int)GameData.get<BossController.Difficulty>("difficulty");
 
         switch (dif)

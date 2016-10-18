@@ -3,12 +3,14 @@ using System.Collections;
 
 public class SlamController : StateMachineBehaviour {
 
-    public GameObject enemy;
-    public GameObject shockWave;
+    public GameObject enemy, player, shockWave;
+    public Vector3 playerPosition;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         enemy = GameObject.Find("FinalBoss");
+        player = GameObject.Find("Tank");
+        playerPosition = player.transform.position;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -20,12 +22,15 @@ public class SlamController : StateMachineBehaviour {
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 
         GameObject player = enemy.GetComponent<FinalBossBehaviour>().player;
+        Vector3 spawnPoint = enemy.transform.position;
+        spawnPoint.z -= 6;
+        GameObject shockWaveInstantiated = (GameObject)Instantiate(shockWave, spawnPoint, Quaternion.identity);
 
-        GameObject shockWaveInstantiated = (GameObject)Instantiate(shockWave, enemy.transform.position, Quaternion.identity);
-        shockWaveInstantiated.transform.LookAt(player.transform.position);
+        shockWaveInstantiated.GetComponent<Slam>().target = playerPosition;
+        shockWaveInstantiated.transform.LookAt(playerPosition);
         shockWaveInstantiated.transform.RotateAround(shockWaveInstantiated.transform.position, shockWaveInstantiated.transform.up, 180f);
-        enemy.GetComponent<FinalBossBehaviour>().anim.SetBool("Slam", false);
 
+        enemy.GetComponent<FinalBossBehaviour>().anim.SetBool("Slam", false);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here

@@ -28,7 +28,7 @@ public class FinalBossBehaviour : Spawnable {
 
     // Use this for initialization
     void Start() {
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
         
         maxHealth = this.GetComponent<BossController>().maxHealth;
         currentHealth = maxHealth;
@@ -43,8 +43,8 @@ public class FinalBossBehaviour : Spawnable {
 
     // Update is called once per frame
     void Update() {
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
+        //rb.velocity = Vector3.zero;
+        //rb.angularVelocity = Vector3.zero;
 
         if (Time.timeScale == 0) {
             return;
@@ -71,13 +71,14 @@ public class FinalBossBehaviour : Spawnable {
     }
 
     void fightPlayer() {
-
+        print(newAction);
         if (newAction) {
 
             newAction = false;
             float randSkill = Random.Range(0, 100);
+            randSkill = 101;
 
-            if (randSkill <= 30 && !lastSkillsUsed.Contains(Action.SLAM)) {  //Slam
+            if (randSkill <= 30) {  //Slam
                 print("Slam");
                 updateQueue(Action.SLAM);
                 anim.SetBool("Slam", true);
@@ -99,7 +100,7 @@ public class FinalBossBehaviour : Spawnable {
 
             } else {     //Stationary
                 //print("Stationary");
-                anim.SetBool("Stationary", true);
+                anim.SetBool("Slam", true);
                 //anim.SetBool("Snare", true);
             }
 

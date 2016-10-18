@@ -2049,6 +2049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd60c1d7b6e149b9b9c4f0ccb4a7413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
   playerBar: {fileID: 1824975302}
   bossBar: {fileID: 1955489845}
   bar1: {fileID: 1824975304}
@@ -2064,6 +2065,7 @@ MonoBehaviour:
   tempAchievementImageBox: {fileID: 51427715}
   tempAchievementTextBox: {fileID: 885842724}
   tempWinText: {fileID: 1806850377}
+  tempDieText: {fileID: 0}
   amin: {fileID: 0}
   tempRedOrbIndicator: {fileID: 0}
   tempGreenOrbIndicator: {fileID: 0}
@@ -2368,7 +2370,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &642149935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2856,6 +2858,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 90837800}
   m_RootOrder: 6
+--- !u!1 &739699499 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 184066, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+  m_PrefabInternal: {fileID: 1419083009}
 --- !u!1 &749215031
 GameObject:
   m_ObjectHideFlags: 0
@@ -3302,7 +3308,7 @@ MonoBehaviour:
   textBox: {fileID: 246390214}
   inputText: {fileID: 1410360771}
   dialogueImage: {fileID: 2130231112}
-  tank: {fileID: 0}
+  tank: {fileID: 1785891444}
   textFile: {fileID: 4900000, guid: 4748765cbaabcbc42a46fe73fc10760b, type: 3}
   textLines: []
   currentLineNumber: 0
@@ -3694,7 +3700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &914762518
 Transform:
   m_ObjectHideFlags: 0
@@ -5669,7 +5675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855b9376c142a8349878d739c22b00fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1785891441}
+  target: {fileID: 739699499}
   smooth: 0
   height: 30
   dampTime: 0.05
@@ -6446,93 +6452,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1691299902}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1715272162
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1715272163}
-  - 20: {fileID: 1715272167}
-  - 124: {fileID: 1715272166}
-  - 92: {fileID: 1715272165}
-  - 81: {fileID: 1715272164}
-  m_Layer: 0
-  m_Name: Camera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1715272163
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1715272162}
-  m_LocalRotation: {x: -0.10355369, y: 0.0067308526, z: -0.0049592275, w: -0.99458873}
-  m_LocalPosition: {x: 31.299862, y: 34.13991, z: -91.83437}
-  m_LocalScale: {x: 1, y: 1, z: -4.223463}
-  m_LocalEulerAnglesHint: {x: 11.8912, y: -360.7238, z: -719.50397}
-  m_Children: []
-  m_Father: {fileID: 2106271025}
-  m_RootOrder: 2
---- !u!81 &1715272164
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1715272162}
-  m_Enabled: 1
---- !u!92 &1715272165
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1715272162}
-  m_Enabled: 1
---- !u!124 &1715272166
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1715272162}
-  m_Enabled: 1
---- !u!20 &1715272167
-Camera:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1715272162}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 16.12541
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
 --- !u!1 &1747709730
 GameObject:
   m_ObjectHideFlags: 0
@@ -6609,10 +6528,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1747709730}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1785891441 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 147470, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-  m_PrefabInternal: {fileID: 1419083009}
 --- !u!114 &1785891444 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11490178, guid: 2bd35607985c25f4296e07df12e2cb95,
@@ -8218,67 +8133,13 @@ GameObject:
   m_Component:
   - 4: {fileID: 2106271025}
   - 114: {fileID: 2106271024}
-  - 114: {fileID: 2106271023}
-  - 114: {fileID: 2106271022}
   m_Layer: 0
   m_Name: StartCutScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &2106271022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400002, guid: 1a326faa0abcc6e479695891c4eea56b,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2106271021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa35df5a5b2e50d4895dd215ac13bb57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  midCutsceneAnimators:
-  - {fileID: 0}
-  - {fileID: 0}
-  animStartAtTransition: 0000000004000000
-  midCutsceneAnimatorVariables:
-  - 43757272656e746c79496e4375747363656e65
-  - 43757272656e746c79496e4375747363656e65
-  midCutsceneAnimatorVarChoices: 0000000000000000
-  midCutsceneAnimatorVariableTargets: 0100
-  actionStartDelay:
-  - 1
-  - 0
-  showEvent: 0101
-  cutsceneEventAmount: 3
---- !u!114 &2106271023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400004, guid: 1a326faa0abcc6e479695891c4eea56b,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2106271021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83762343950d47149ba0b6719579fb61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  navActions: 00000000
-  navAgents:
-  - {fileID: 0}
-  showEvent: 01
-  cutsceneEventAmount: 3
-  startAtTransition: 00000000
-  actionStartDelay:
-  - 0
-  navDestinations:
-  - {fileID: 0}
-  navAgentSpeed:
-  - 2.5
-  - 3.5
-  preCalcPaths: 0
+  m_IsActive: 1
 --- !u!114 &2106271024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8291,78 +8152,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962786ae95591f84f9cb8957af5b8727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCutsceneCam: {fileID: 1715272167}
-  mainAudioPoints:
-  - {fileID: 0}
-  cutsceneAnimators:
-  - {fileID: 0}
-  - {fileID: 0}
-  cutsceneAnimatorVariables:
-  - 496e4375747363656e65
-  - 57616c6b696e67
-  cutsceneAnimatorVarChoices: 0000000001000000
-  cutsceneAnimatorVariableTargets: 0000
-  cutsceneAudio:
-  - {fileID: 8300000, guid: f10bc42dd0c7a44438ed32bce0868313, type: 3}
-  disableWhileInCutscene:
-  - {fileID: 0}
+  mainCutsceneCam: {fileID: 1442300608}
+  mainAudioPoints: []
+  cutsceneAnimators: []
+  cutsceneAnimatorVariables: []
+  cutsceneAnimatorVarChoices: 
+  cutsceneAnimatorVariableTargets: 
+  cutsceneAudio: []
+  disableWhileInCutscene: []
   cutsceneCameraPoints:
   - {fileID: 2106271025}
   - {fileID: 690705015}
   - {fileID: 385530461}
-  - {fileID: 1715272163}
   cutsceneMidPoints:
-  - {fileID: 1715272163}
-  - {fileID: 1938394354}
   - {fileID: 385530461}
+  - {fileID: 1938394354}
   - {fileID: 690705015}
   cutsceneCubicMidPoints:
-  - {fileID: 1715272163}
+  - {fileID: 385530461}
   - {fileID: 702600573}
-  curveChoice: 0000
-  lerpCurveChoice: 0000
+  - {fileID: 690705015}
+  curveChoice: 00
+  lerpCurveChoice: 00
   cutsceneEventKeyTime:
-  - 0.9
   - 0
   cutsceneEventTimescale:
-  - 0.021
-  - 0.55
-  cutsceneEventZoom: 0101
+  - 0.001
+  cutsceneEventZoom: 00
   cutsceneEventZoomAmount:
-  - 75
   - 75
   useDeltaTime: 1
   cutsceneEventZoomSpeed:
   - 1.98
-  - 1.98
   broadcastMessageString:
   - 
-  - 
-  broadcastMessageChoice: 0000
+  broadcastMessageChoice: 00
   broadcastMessageTarget:
   - {fileID: 0}
-  - {fileID: 0}
   doUpdate: 0
-  doShake: 0001
+  doShake: 00
   cameraShakeAmount:
-  - 0.1
   - 0.1
   smoothFollowTarget:
   - {fileID: 0}
-  - {fileID: 0}
-  smoothFollow: 0000
-  cutsceneCameraSpeedOptions: 0800000008000000
+  smoothFollow: 00
+  cutsceneCameraSpeedOptions: 04000000
   customMovementSpeed:
-  - 2
-  - 3
+  - 30000
   customRotationSpeed:
-  - 9.65
-  - 2
+  - 30000
   customCurveMovementSpeed:
   - 3
-  - 6.7
-  curveNodeCount: 0901000024030000
-  cutsceneCameraRotationSpeedOptions: 0800000008000000
+  curveNodeCount: 09010000
+  cutsceneCameraRotationSpeedOptions: 06000000
   playingCutscene: 0
   showPathType: 3
   currentNodes: []
@@ -8379,7 +8221,6 @@ Transform:
   m_Children:
   - {fileID: 690705015}
   - {fileID: 385530461}
-  - {fileID: 1715272163}
   m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!1 &2115005697

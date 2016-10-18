@@ -126,7 +126,7 @@ public class UIAdapter : MonoBehaviour
 	 */
 	public static float damagePlayer(float hp){
 		if (!playerDead () && !bossDead()) {
-			//playerDamageAnimator.SetTrigger ("playerDamage");
+			playerDamageAnimator.SetTrigger ("playerDamage");
 			playerVal -= hp;
 			PlayerVal = playerVal;
 
@@ -143,7 +143,7 @@ public class UIAdapter : MonoBehaviour
 	 */ 
 	public static float damageBoss(float hp){
 		if (!bossDead () && !playerDead()) {
-			//bossDamageAnimator.SetTrigger ("bossDamage");
+			bossDamageAnimator.SetTrigger ("bossDamage");
 			bossVal -= hp;
 			BossVal = bossVal;
 			if (bossDead ()) {

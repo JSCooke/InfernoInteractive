@@ -4456,6 +4456,12 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 449506, guid: c04bdda845329ad4ca2003872a1e4b82, type: 2}
   m_PrefabInternal: {fileID: 183794277}
+--- !u!114 &187338106 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11490178, guid: 2bd35607985c25f4296e07df12e2cb95,
+    type: 2}
+  m_PrefabInternal: {fileID: 1639290227}
+  m_Script: {fileID: 11500000, guid: 50fd1a3e1dcfa294791751298d255f13, type: 3}
 --- !u!4 &191408754 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400684, guid: 42da7ab058108a94d86a1ce396943f19, type: 2}
@@ -12202,6 +12208,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 437022, guid: de863afb481be364ea04e5a347f5967f, type: 2}
   m_PrefabInternal: {fileID: 462452362}
+--- !u!1 &462819942 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 184066, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+  m_PrefabInternal: {fileID: 1639290227}
 --- !u!4 &468509626 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400684, guid: 8c7d68d6b27157142af73b30d8d3ca1f, type: 2}
@@ -12666,10 +12676,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 481922, guid: d93ec03b51f37fd4d905a60a08a4fbbc, type: 2}
   m_PrefabInternal: {fileID: 490061300}
---- !u!1 &490325628 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 168724, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-  m_PrefabInternal: {fileID: 1639290227}
 --- !u!1 &494208286
 GameObject:
   m_ObjectHideFlags: 0
@@ -16719,7 +16725,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &757757792 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400684, guid: 42da7ab058108a94d86a1ce396943f19, type: 2}
@@ -30037,7 +30043,7 @@ MonoBehaviour:
   textBox: {fileID: 338166281}
   inputText: {fileID: 1250910671}
   dialogueImage: {fileID: 1461795608}
-  tank: {fileID: 1639290231}
+  tank: {fileID: 187338106}
   textFile: {fileID: 4900000, guid: a19815e997dc10f4f9bb5f776432b038, type: 3}
   textLines: []
   currentLineNumber: 0
@@ -33609,7 +33615,7 @@ Transform:
   - {fileID: 1693039269}
   - {fileID: 878535533}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &1538250132 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400684, guid: 42da7ab058108a94d86a1ce396943f19, type: 2}
@@ -33867,6 +33873,8 @@ MonoBehaviour:
   tempAchievementTextBox: {fileID: 213689073}
   tempWinText: {fileID: 1182747916}
   tempDieText: {fileID: 1567983720}
+  tempRedOrbIndicator: {fileID: 0}
+  tempGreenOrbIndicator: {fileID: 0}
 --- !u!4 &1548059479
 Transform:
   m_ObjectHideFlags: 0
@@ -35942,16 +35950,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1639290228 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 160562, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-  m_PrefabInternal: {fileID: 1639290227}
---- !u!114 &1639290231 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11454204, guid: 2bd35607985c25f4296e07df12e2cb95,
-    type: 2}
-  m_PrefabInternal: {fileID: 1639290227}
-  m_Script: {fileID: 11500000, guid: 50fd1a3e1dcfa294791751298d255f13, type: 3}
 --- !u!4 &1640530516 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400684, guid: 42da7ab058108a94d86a1ce396943f19, type: 2}
@@ -37358,7 +37356,7 @@ Prefab:
     - target: {fileID: 11492380, guid: d69dc23fcf077dd40b4b564b77db2409, type: 2}
       propertyPath: tank
       value: 
-      objectReference: {fileID: 1639290228}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d69dc23fcf077dd40b4b564b77db2409, type: 2}
   m_IsPrefabParent: 0
@@ -41440,7 +41438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855b9376c142a8349878d739c22b00fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 490325628}
+  target: {fileID: 462819942}
   smooth: 0
   height: 0
   dampTime: 0

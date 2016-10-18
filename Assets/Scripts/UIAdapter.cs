@@ -19,6 +19,9 @@ public class UIAdapter : MonoBehaviour
 	//This needs to be altered in this class to show points earned.
 	public Text tempWinText, tempDieText;
 
+	public GameObject tempRedOrbIndicator, tempGreenOrbIndicator;
+	public static GameObject redOrbIndicator, greenOrbIndicator;
+
 	private static bool idiot = false;
 
 	public static bool Idiot {
@@ -53,6 +56,9 @@ public class UIAdapter : MonoBehaviour
 
         playerVal = 100;
         bossVal = 100;
+
+		redOrbIndicator = tempRedOrbIndicator;
+		greenOrbIndicator = tempGreenOrbIndicator;
 	}
 
 	void Update() {
@@ -300,5 +306,19 @@ public class UIAdapter : MonoBehaviour
 		}
 
 		GameData.put("1" + difficulty, leaders);
+	}
+
+	/**
+	 * Turns the red orb indicator on or off
+	 */
+	public static void setRedOrbActive(bool active){
+		redOrbIndicator.SetActive (active);
+	}
+
+	/**
+	 * Turns the green orb indicator on or off
+	 */
+	public static void setGreenOrbActive(bool active){
+		greenOrbIndicator.SetActive (active);
 	}
 }

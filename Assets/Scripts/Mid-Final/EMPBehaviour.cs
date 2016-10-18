@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 public class EMPBehaviour : Damageable
 {
+
+    public GameObject exitDoor;
+
     float healthIncreamentTime = 1f;
     float timer;
 
@@ -23,7 +26,6 @@ public class EMPBehaviour : Damageable
         timer = 0f;
         maxHealth = 100;
         currentHealth = 0;
-        //UIAdapter.bossVal = 1;
     }
 
     // Update is called once per frame
@@ -89,6 +91,7 @@ public class EMPBehaviour : Damageable
             }
             //TODO Pop up dialogue to get them to drive  to exit
             //open top door
+            exitDoor.SetActive(false);
         }
     }
 

@@ -46,8 +46,8 @@ public class Control : MonoBehaviour
 		{
 			animator.SetBool ("Moving" , false);
 		}
-		
-		if(Input.GetKey("space")) 
+
+		if(true) 
 		{
 			animator.SetBool ("Angry" , true);
 		}
@@ -69,9 +69,11 @@ public class Control : MonoBehaviour
 
 	void Update()
 	{	
-		UpdateMovement();
-		AnimationControl();
+		//UpdateMovement();
+		//AnimationControl();
 
+		//Set animation for robot
+		animator.SetBool ("Angry" , true);
 
 		if ( controller.isGrounded )
 			verticalVel = 0f;// Remove any persistent velocity after landing

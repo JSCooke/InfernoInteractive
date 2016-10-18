@@ -3,6 +3,9 @@ using System.Collections;
 
 public class AlienEnemyBehavour : Damageable{
 
+    public float attackRange;
+    public GameObject projectile;
+
     GameObject player;
     TankController tank;
     Transform tankPosition;
@@ -104,7 +107,6 @@ public class AlienEnemyBehavour : Damageable{
             if (Vector3.Distance(transform.position, tankPosition.position) <= MaxDist /*>= MinDist*/)
             {
                 toEMP = false;
-                transform.LookAt(tankPosition);
             }
         }
         else
@@ -113,25 +115,33 @@ public class AlienEnemyBehavour : Damageable{
             if (Vector3.Distance(transform.position, tankPosition.position) > MaxDist /*>= MinDist*/)
             {               
                 toEMP = true;
-                transform.LookAt(emp);
             }                       
         }
 
         if (toEMP)
         {
+            transform.forward = Vector3.RotateTowards(transform.forward, emp.position - transform.position, speed * Time.deltaTime, speed * Time.deltaTime);
             float step = speed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, emp.position, step);
+            //if out of range, move towards the target
+            if ((transform.position - emp.position).magnitude > attackRange) {
+                transform.position = Vector3.MoveTowards(transform.position, emp.position, step);
+            } else if (timer >= timeBetweenAttacks) {
+                Attack(false);
+            }
         }
         else
         {
+            transform.forward = Vector3.RotateTowards(transform.forward, tankPosition.position - transform.position, speed * Time.deltaTime, speed * Time.deltaTime);
             float step = speed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, tankPosition.position, step);
+            if ((transform.position - tankPosition.position).magnitude > attackRange) {
+                transform.position = Vector3.MoveTowards(transform.position, tankPosition.position, step);
+            } else if (timer >= timeBetweenAttacks) {
+                Attack(true);
+            }
         }
 
         timer += Time.deltaTime;
-        
     }
-    
 
     void OnTriggerEnter(Collider other)
     {
@@ -159,48 +169,6 @@ public class AlienEnemyBehavour : Damageable{
         }
     }
 
-    void OnCollisionStay(Collision collisionInfo)
-    {
-       if(collisionInfo.gameObject.tag == "Player")
-        {           
-            if (timer >= timeBetweenAttacks && currentHealth > 0)
-            {
-                Attack(true);
-            }
-        }  
-    }
-
-
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "PlayerProjectile")
-        {
-            takeDamage(damageTaken);
-            Destroy(other.gameObject);
-        }
-    }
-
-
-    void takeDamage (int amount)
-    {
-        currentHealth = currentHealth - amount;
-
-        //if dead
-        if (currentHealth <= 0)
-        {
-            dead = true;
-            death();
-        }
-    }
-
-    public void death()
-    {
-        Destroy(gameObject);
-        //turn to trigger so shots can pass through
-        capsuleCollider.isTrigger = true;
-    }
-
     void Attack(bool isPlayer)
     {
         timer = 0f;
@@ -209,11 +177,13 @@ public class AlienEnemyBehavour : Damageable{
 
             if(isPlayer)
             {
-                tank.takeDamage(attackDamage);
+                //tank.takeDamage(attackDamage);
+                Instantiate(projectile, transform.position, transform.rotation);
             }
             else
             {
-                empBehave.takeDamage(1);
+                //empBehave.takeDamage(1);
+                Instantiate(projectile, transform.position, transform.rotation);
             }
 
         }

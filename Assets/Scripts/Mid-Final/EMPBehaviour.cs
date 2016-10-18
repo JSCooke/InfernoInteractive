@@ -112,7 +112,7 @@ public class EMPBehaviour : Damageable
         AlienEnemyBehavour[] en = GameObject.FindObjectsOfType<AlienEnemyBehavour>();
         for (int i = 0; i < en.Length; i++)
         {
-            en[i].death();
+            Destroy(en[i].gameObject);
         }
 
         //stop spawning

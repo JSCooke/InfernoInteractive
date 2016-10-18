@@ -76,7 +76,7 @@ public class UIAdapter : MonoBehaviour
 			return bossVal;
 		}
 		set { 
-			boss.Value = bossVal;
+			//boss.Value = bossVal;
 		}
 	}
 

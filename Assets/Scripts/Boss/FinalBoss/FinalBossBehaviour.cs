@@ -102,7 +102,7 @@ public class FinalBossBehaviour : Spawnable {
             } else {     //Stationary
                 print("Stationary");
                 //anim.SetBool("Stationary", true);
-                anim.SetBool("Meteor", true);
+                anim.SetBool("Snare", true);
             }
 
         }

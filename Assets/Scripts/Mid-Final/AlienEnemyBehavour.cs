@@ -15,13 +15,13 @@ public class AlienEnemyBehavour : Damageable{
 
     NavMeshAgent navagation;
     bool toEMP = true;
-
-    public ParticleSystem chargeParticles;
-
+    
     CapsuleCollider capsuleCollider;
 
     float timeBetweenAttacks = 0.5f;
     float timer;
+
+    float speed;
 
     int attackDamage;
     int easyAttack = 5;
@@ -35,8 +35,7 @@ public class AlienEnemyBehavour : Damageable{
 
 
     int MaxDist = 25;
-    int MinDist = 1;
-    bool playerInRange = false;
+    int MinDist = 2;
 
 
 
@@ -59,9 +58,7 @@ public class AlienEnemyBehavour : Damageable{
 
         navagation = GetComponent<NavMeshAgent>();
         capsuleCollider = GetComponent<CapsuleCollider>();
-
-        chargeParticles.enableEmission = false;
-
+        
         maxHealth = 100;
         currentHealth = maxHealth;
 
@@ -72,38 +69,43 @@ public class AlienEnemyBehavour : Damageable{
             case 2:
                 damageTaken = easyDamageTaken;
                 attackDamage = easyAttack;
+                speed = 5f;
                 break;
             case 3:
                 damageTaken = medDamageTaken;
                 attackDamage = medAttack;
+                speed = 10f;
                 break;
             case 4:
                 damageTaken = hardDamageTaken;
                 attackDamage = hardAttack;
+                speed = 15f;
                 break;
             default:    //default easy
                 damageTaken = easyDamageTaken;
                 attackDamage = easyAttack;
+                speed = 5f;
                 break;
-
         }
-        
+
+        //move to emp
+        float step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, emp.position, step);
+        //navagation.SetDestination(emp.position);
+
     }
-	
-	// Update is called once per frame
-	void Update () {
 
-        //check if close to tank
-        transform.LookAt(tankPosition);
+    // Update is called once per frame
+    void Update () {        
 
+        //check which
         if (toEMP)
         {
             if (Vector3.Distance(transform.position, tankPosition.position) <= MaxDist /*>= MinDist*/)
             {
                 toEMP = false;
-                playerInRange = true;
+                transform.LookAt(tankPosition);
             }
-
         }
         else
         {
@@ -111,38 +113,27 @@ public class AlienEnemyBehavour : Damageable{
             if (Vector3.Distance(transform.position, tankPosition.position) > MaxDist /*>= MinDist*/)
             {               
                 toEMP = true;
-                playerInRange = false;
-
-            }
-
-
-            
+                transform.LookAt(emp);
+            }                       
         }
-
-        
-
-        
-
-
-        //if (Vector3.Distance(transform.position, player.transform.position) <= MaxDist)
-        //{
-            
-        //    player.GetComponent<TankController>().takeDamage(4);
-
-        //}
 
         if (toEMP)
         {
-            navagation.SetDestination(emp.position);
+            float step = speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, emp.position, step);
         }
         else
         {
-            navagation.SetDestination(tankPosition.position);
+            float step = speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, tankPosition.position, step);
         }
 
         timer += Time.deltaTime;
         
     }
+
+
+    //void checkNearTank(
 
     void OnTriggerEnter(Collider other)
     {
@@ -155,28 +146,29 @@ public class AlienEnemyBehavour : Damageable{
         else if( other.gameObject.tag == "EMP")
         {
             toEMP = true;
-        }
-
-       
+        }       
     }
 
     void OnCollisionStay(Collision collisionInfo)
     {
+
+
+        Debug.Log("collided with " + collisionInfo.gameObject.tag);
+
        if(collisionInfo.gameObject.tag == "Player" || collisionInfo.gameObject.tag == "EMP")
         {           
             if (timer >= timeBetweenAttacks && currentHealth > 0)
             {
+
                 if (collisionInfo.gameObject.tag == "Player")
                 {
                     Debug.Log("en attack player");
                     Attack(true);
-                    //attack plauer
                 }
                 else if (collisionInfo.gameObject.tag == "EMP")
                 {
                     Debug.Log("en attack emp");
                     Attack(false);
-                    //attack emp
                 }
             }
         }  
@@ -217,7 +209,6 @@ public class AlienEnemyBehavour : Damageable{
         timer = 0f;
         if(currentHealth > 0)
         {
-            chargeParticles.enableEmission = true;
 
             if(isPlayer)
             {
@@ -229,7 +220,6 @@ public class AlienEnemyBehavour : Damageable{
             }
 
         }
-        chargeParticles.enableEmission = false;
 
     }
 

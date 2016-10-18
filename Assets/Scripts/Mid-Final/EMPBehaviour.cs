@@ -60,10 +60,7 @@ public class EMPBehaviour : Damageable
 
         UIAdapter.damageBoss((float)amount);
 
-        timer = 0f;
-
-        Debug.Log("emp health " + currentHealth);
-
+        timer = 0f;        
     }
 
     void increaseHealth()
@@ -74,10 +71,9 @@ public class EMPBehaviour : Damageable
         {
             win = true;
             UIAdapter.win();
+            UIAdapter.stopTimer();
 
         }
-
-        Debug.Log("emp health " + currentHealth);
     }
 
 }

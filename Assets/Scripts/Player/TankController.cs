@@ -132,9 +132,9 @@ public class TankController : MonoBehaviour {
 
         //fail the no damage achievement
 		AchievementController.hasBeenDamaged = true;
-
         if (shield.gameObject.activeSelf) {
             lastDamageTime = Time.fixedTime;
+			SoundAdapter.playShieldDownSound ();
             shield.SetActive(false);
             return;
        	 }
@@ -147,6 +147,7 @@ public class TankController : MonoBehaviour {
             }
 
             currentHealth = currentHealth - damage;
+			SoundAdapter.playTankHitSound ();
             UIAdapter.damagePlayer((float)damage, maxHealth);
 
         }

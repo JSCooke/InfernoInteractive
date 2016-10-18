@@ -73,7 +73,7 @@ public class EMPBehaviour : Damageable
         if (currentHealth >= 100)
         {
             win = true;
-            UIAdapter.win();
+            //TODO Pop up dialogue to get them to drive  to exit
         }
     }
 

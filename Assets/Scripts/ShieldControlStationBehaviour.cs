@@ -46,6 +46,7 @@ public class ShieldControlStationBehaviour : ControlStationBehaviour {
 		if (cooldownRemaining <= 0) {
 			AchievementController.hasUsedShield = true;
 			shieldDurationRemaining = shieldDuration;
+			SoundAdapter.playShieldUpSound ();
 			shield.SetActive (true);
 			cooldownRemaining = cooldown;
 		}

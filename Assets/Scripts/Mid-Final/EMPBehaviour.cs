@@ -25,7 +25,7 @@ public class EMPBehaviour : Damageable
         UIAdapter.changeEMP();
         timer = 0f;
         maxHealth = 100;
-        currentHealth = 80;
+        currentHealth = 0;
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class EMPBehaviour : Damageable
 
         if (first)
         {
-            UIAdapter.bossVal = 80;
+            UIAdapter.bossVal = 0;
             first = false;
         }
 
@@ -42,12 +42,18 @@ public class EMPBehaviour : Damageable
 
         if (!win)
         {
+            Debug.Log("not win yet");
             //increase
             if (timer >= healthIncreamentTime)
             {
+                Debug.Log("im in here !!!");
                 increaseHealth();
                 timer = 0f;
             }
+        }
+        else
+        {
+            winFuntion();
         }
     }
 
@@ -61,6 +67,10 @@ public class EMPBehaviour : Damageable
         {
             currentHealth = 1;
             amount = currentHealth - 1;
+        }
+        else
+        {
+            currentHealth = health;
         }
 
         UIAdapter.damageBoss((float)amount);
@@ -80,31 +90,37 @@ public class EMPBehaviour : Damageable
         if (currentHealth >= 100)
         {
             win = true;
-            
-            //if emp has never taken damage then unlock achievement
-            if (!damaged)
-            {
-                AchievementController.updateAchievement("EMP Saver", true);
-                List<string> achievementsToDisplay = new List<string>();
-                achievementsToDisplay.Add("EMP Saver");
-                AchievementController.displayAchievements(achievementsToDisplay);
-            }
-            //TODO Pop up dialogue to get them to drive  to exit
-
-            //kill all attack robots
-            AlienEnemyBehavour[] en = GameObject.FindObjectsOfType<AlienEnemyBehavour>();
-            for(int i=0;i<en.Length;i++)
-            {
-                en[i].death();
-            }
-
-            //stop spawning
-            AlienSpawnManager alienMan = GameObject.FindObjectOfType<AlienSpawnManager>();
-            alienMan.stopSpawn();
-
-            //open top door
-            exitDoor.SetActive(false);
         }
+    }
+
+    void winFuntion()
+    {
+
+        Debug.Log("win");
+
+        //if emp has never taken damage then unlock achievement
+        if (!damaged)
+        {
+            AchievementController.updateAchievement("EMP Saver", true);
+            List<string> achievementsToDisplay = new List<string>();
+            achievementsToDisplay.Add("EMP Saver");
+            AchievementController.displayAchievements(achievementsToDisplay);
+        }
+        //TODO Pop up dialogue to get them to drive  to exit
+
+        //kill all attack robots
+        AlienEnemyBehavour[] en = GameObject.FindObjectsOfType<AlienEnemyBehavour>();
+        for (int i = 0; i < en.Length; i++)
+        {
+            en[i].death();
+        }
+
+        //stop spawning
+        AlienSpawnManager alienMan = GameObject.FindObjectOfType<AlienSpawnManager>();
+        alienMan.stopSpawn();
+
+        //open top door
+        exitDoor.SetActive(false);
     }
 
 }

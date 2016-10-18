@@ -3,12 +3,13 @@ using System.Collections;
 
 public class SnareController : StateMachineBehaviour {
 
-    public GameObject wall;
+    public GameObject wall, enemy, player;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-    //
-    //}
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+        enemy = GameObject.Find("FinalBoss");
+        player = GameObject.Find("Tank");
+    }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
@@ -18,8 +19,8 @@ public class SnareController : StateMachineBehaviour {
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 
-        GameObject player = GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().player;
         Instantiate(wall, player.transform.position, Quaternion.identity);
+        enemy.GetComponent<FinalBossBehaviour>().anim.SetBool("Snare", false);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here

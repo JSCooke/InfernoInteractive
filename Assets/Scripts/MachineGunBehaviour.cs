@@ -47,7 +47,6 @@ public class MachineGunBehaviour : ControlStationBehaviour {
             {
                 lastShotTime = Time.fixedTime;
                 //print(spawner.transform.rotation.eulerAngles);
-				SoundAdapter.playMachineGunMk1Sound();
                 Instantiate(projectile, spawner.transform.position, spawner.transform.rotation);
             }
 		}

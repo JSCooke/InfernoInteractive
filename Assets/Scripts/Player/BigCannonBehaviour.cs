@@ -18,7 +18,6 @@ public class BigCannonBehaviour : ControlStationBehaviour {
     public override void keyPressed(bool up, bool left, bool down, bool right) {
         if (up && Time.frameCount - lastShotTime > cooldown) {
             lastShotTime = Time.frameCount;
-			SoundAdapter.playCannonMk1Sound ();
             Instantiate(projectile, projectileSpawn.transform.position, projectileSpawn.transform.rotation);
         }
     }

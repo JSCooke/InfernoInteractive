@@ -62,9 +62,14 @@ public class TankController : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter(Collider collider) {
+    void OnTriggerStay(Collider collider) {
         if (collider.gameObject.tag == damagedBy) {
             takeDamage(collider.gameObject.GetComponent<BossController>().bodyDamage);
+        }
+
+        if (collider.gameObject.tag == "Slam") {
+            takeDamage(collider.gameObject.GetComponent<BossController>().bodyDamage);
+            Destroy(collider.gameObject);
         }
     }
 

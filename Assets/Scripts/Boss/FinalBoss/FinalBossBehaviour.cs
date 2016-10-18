@@ -38,7 +38,7 @@ public class FinalBossBehaviour : Spawnable {
         }
 
         anim = this.gameObject.GetComponent<Animator>();
-        newAction = true;
+
     }
 
     // anim.SetBool("Run", true);
@@ -64,7 +64,11 @@ public class FinalBossBehaviour : Spawnable {
     }
 
     void updateQueue(Action action) {
-        lastSkillsUsed.Dequeue();
+
+        if (lastSkillsUsed.Count == 2) {
+            lastSkillsUsed.Dequeue();
+        }
+        
         lastSkillsUsed.Enqueue(action);
     }
 

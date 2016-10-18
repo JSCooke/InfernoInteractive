@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SlamController : StateMachineBehaviour {
-
-    public GameObject shockWave;
+public class SpawnController : StateMachineBehaviour {
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
@@ -17,16 +15,7 @@ public class SlamController : StateMachineBehaviour {
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
-        GameObject player = enemy.GetComponent<FinalBossBehaviour>().player;
-
-        GameObject shockWaveInstantiated = (GameObject)Instantiate(shockWave, enemy.transform.position, Quaternion.identity);
-        ParticleSystem shockwave = shockWaveInstantiated.GetComponent<ParticleSystem>();
-        Vector3 relativePos = player.transform.position - shockWaveInstantiated.transform.position;
-        Quaternion rotation = Quaternion.LookRotation(relativePos);
-        shockwave.startRotation = rotation.eulerAngles.y;
-
-        shockWaveInstantiated.transform.LookAt(player.transform.position, shockWaveInstantiated.transform.up);
+        GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().newAction = true;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here

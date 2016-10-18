@@ -86,12 +86,12 @@ public class FinalBossBehaviour : Spawnable {
 
             } else if (randSkill <= 40 && currentHealth <= 25 && !lastSkillsUsed.Contains(Action.METEOR)) {     //Meteor
                 print("Meteor");
-                updateQueue(Action.SHIELD);
+                updateQueue(Action.METEOR);
                 anim.SetBool("Meteor", true);
 
             } else if (randSkill <= 50 && currentHealth <= 50 && !lastSkillsUsed.Contains(Action.SHIELD)) {     //Shield
                 print("Shield");
-                updateQueue(Action.METEOR);
+                updateQueue(Action.SHIELD);
                 anim.SetBool("Shield", true);
 
             } else if (randSkill <= 60 && currentHealth <= 75 && !lastSkillsUsed.Contains(Action.SNARE)) {     //Snare
@@ -102,7 +102,7 @@ public class FinalBossBehaviour : Spawnable {
             } else {     //Stationary
                 print("Stationary");
                 //anim.SetBool("Stationary", true);
-                anim.SetBool("Shield", true);
+                anim.SetBool("Meteor", true);
             }
 
         }

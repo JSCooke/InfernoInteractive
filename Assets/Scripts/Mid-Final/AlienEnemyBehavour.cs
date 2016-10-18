@@ -131,9 +131,7 @@ public class AlienEnemyBehavour : Damageable{
         timer += Time.deltaTime;
         
     }
-
-
-    //void checkNearTank(
+    
 
     void OnTriggerEnter(Collider other)
     {
@@ -149,27 +147,29 @@ public class AlienEnemyBehavour : Damageable{
         }       
     }
 
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "EMP")
+        {
+            if (timer >= timeBetweenAttacks && currentHealth > 0)
+            {
+                Debug.Log("en attack emp");
+                Attack(false);
+            }
+        }
+    }
+
     void OnCollisionStay(Collision collisionInfo)
     {
-
-
         Debug.Log("collided with " + collisionInfo.gameObject.tag);
 
-       if(collisionInfo.gameObject.tag == "Player" || collisionInfo.gameObject.tag == "EMP")
+       if(collisionInfo.gameObject.tag == "Player")
         {           
             if (timer >= timeBetweenAttacks && currentHealth > 0)
             {
-
-                if (collisionInfo.gameObject.tag == "Player")
-                {
-                    Debug.Log("en attack player");
-                    Attack(true);
-                }
-                else if (collisionInfo.gameObject.tag == "EMP")
-                {
-                    Debug.Log("en attack emp");
-                    Attack(false);
-                }
+                Debug.Log("en attack player");
+                Attack(true);
             }
         }  
     }
@@ -178,10 +178,6 @@ public class AlienEnemyBehavour : Damageable{
 
     void OnTriggerExit(Collider other)
     {
-        //TODO
-        //check if collider calling is a coluumn or a sphere collider
-        //if col check projectile
-
         if (other.gameObject.tag == "PlayerProjectile")
         {
             takeDamage(damageTaken);

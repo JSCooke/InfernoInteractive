@@ -16,7 +16,8 @@ public class EMPBehaviour : Damageable
 
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 
         UIAdapter.changeEMP();
         UIAdapter.bossVal = 1;
@@ -26,10 +27,11 @@ public class EMPBehaviour : Damageable
         maxHealth = 100;
         currentHealth = 1;
     }
-	
-	// Update is called once per frame
-	void Update () {
-        
+
+    // Update is called once per frame
+    void Update()
+    {
+
         timer += Time.deltaTime;
 
         if (!win)
@@ -41,11 +43,7 @@ public class EMPBehaviour : Damageable
                 timer = 0f;
             }
         }
-
-
-        
-	
-	}
+    }
 
     public void takeDamage(int amount)
     {
@@ -60,7 +58,7 @@ public class EMPBehaviour : Damageable
 
         UIAdapter.damageBoss((float)amount);
 
-        timer = 0f;        
+        timer = 0f;
     }
 
     void increaseHealth()
@@ -71,8 +69,6 @@ public class EMPBehaviour : Damageable
         {
             win = true;
             UIAdapter.win();
-            UIAdapter.stopTimer();
-
         }
     }
 

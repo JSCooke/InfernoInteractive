@@ -15,7 +15,29 @@ public class SoundAdapter : MonoBehaviour
 	public static AudioClip myBossSquishSound;
 	public AudioClip tankHitSound;
 	public static AudioClip myTankHitSound;
+	public AudioSource BGM;
+	public static AudioSource myBGM;
+	public static float soundVolume = 1;
 
+	public float Soundvolume {
+		get {
+			return soundVolume;
+		}
+		set {
+			soundVolume = value;
+		}
+	}
+
+	public static float musicVolume = 1;
+
+	public float MusicVolume {
+		get {
+			return musicVolume;
+		}
+		set {
+			musicVolume = value;
+		}
+	}
 
 	void Start ()
 	{
@@ -25,25 +47,31 @@ public class SoundAdapter : MonoBehaviour
 		myShieldDownSound = shieldDownSound;
 		myBossSquishSound = bossSquishSound;
 		myTankHitSound = tankHitSound;
+		myBGM = BGM;
+	}
+
+	void Update()
+	{
+		myBGM.volume = musicVolume;
 	}
 
 	public static void playCannonMk1Sound (){
-		AudioSource.PlayClipAtPoint (myCannonMk1Sound, Camera.main.transform.position, 1);
+		AudioSource.PlayClipAtPoint (myCannonMk1Sound, Camera.main.transform.position, soundVolume);
 	}
 	public static void playMachineGunMk1Sound (){
-		AudioSource.PlayClipAtPoint (myMachineGunMk1Sound, Camera.main.transform.position, 1);
+		AudioSource.PlayClipAtPoint (myMachineGunMk1Sound, Camera.main.transform.position, soundVolume);
 	}
 	public static void playShieldUpSound (){
-		AudioSource.PlayClipAtPoint (myShieldUpSound, Camera.main.transform.position, 1);
+		AudioSource.PlayClipAtPoint (myShieldUpSound, Camera.main.transform.position, soundVolume);
 	}
 	public static void playShieldDownSound (){
-		AudioSource.PlayClipAtPoint (myShieldDownSound, Camera.main.transform.position, 1);
+		AudioSource.PlayClipAtPoint (myShieldDownSound, Camera.main.transform.position, soundVolume);
 	}
 	public static void playBossSquishSound (){
-		AudioSource.PlayClipAtPoint (myBossSquishSound, Camera.main.transform.position, 1);
+		AudioSource.PlayClipAtPoint (myBossSquishSound, Camera.main.transform.position, soundVolume);
 	}
 	public static void playTankHitSound (){
-		AudioSource.PlayClipAtPoint (myTankHitSound, Camera.main.transform.position, 1);
+		AudioSource.PlayClipAtPoint (myTankHitSound, Camera.main.transform.position, soundVolume);
 	}
 
 	/*

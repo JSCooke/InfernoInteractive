@@ -3377,7 +3377,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1726741643}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.91222143
+  m_Size: 0.976694
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4721,7 +4721,7 @@ Transform:
   m_Children:
   - {fileID: 1624284877}
   - {fileID: 1296058062}
-  - {fileID: 2083390266}
+  - {fileID: 1627737114}
   m_Father: {fileID: 0}
   m_RootOrder: 6
 --- !u!1001 &167838465
@@ -5872,6 +5872,72 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: --:--
+--- !u!1001 &215202952
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 453382453}
+    m_Modifications:
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 88.68594
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -566.8904
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -24.341644
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.9170197
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.398842
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -47.0116
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265018, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 32ef12e18086848468a5ab04ffa7043a, type: 3}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &218450083
 Prefab:
   m_ObjectHideFlags: 0
@@ -12363,7 +12429,8 @@ Transform:
   m_LocalPosition: {x: -0, y: 38.6, z: -69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 47.9884, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 2092582801}
   m_Father: {fileID: 680731401}
   m_RootOrder: 0
 --- !u!1 &453730717
@@ -26503,12 +26570,23 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1737222166}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
-  m_WholeNumbers: 1
-  m_Value: 50
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2092582803}
+        m_MethodName: set_MusicVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1001 &953735165
@@ -34994,11 +35072,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69bdb2e05a4aa3489502fefe3c33579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NorthStation: {fileID: 2083390270}
-  EastStation: {fileID: 2083390268}
-  WestStation: {fileID: 2083390269}
-  CentralStation: {fileID: 2083390271}
-  SouthStation: {fileID: 2083390267}
+  NorthStation: {fileID: 0}
+  EastStation: {fileID: 0}
+  WestStation: {fileID: 0}
+  CentralStation: {fileID: 0}
+  SouthStation: {fileID: 0}
 --- !u!114 &1296058065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44864,6 +44942,10 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!4 &1627737114 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 407324, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+  m_PrefabInternal: {fileID: 2083390265}
 --- !u!1001 &1628316451
 Prefab:
   m_ObjectHideFlags: 0
@@ -56048,12 +56130,23 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1832661787}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
-  m_WholeNumbers: 1
-  m_Value: 50
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2092582803}
+        m_MethodName: set_Soundvolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1001 &2046582583
@@ -56799,30 +56892,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &2083390266 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 428358, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-  m_PrefabInternal: {fileID: 2083390265}
---- !u!1 &2083390267 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 108196, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-  m_PrefabInternal: {fileID: 2083390265}
---- !u!1 &2083390268 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 123700, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-  m_PrefabInternal: {fileID: 2083390265}
---- !u!1 &2083390269 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 161866, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-  m_PrefabInternal: {fileID: 2083390265}
---- !u!1 &2083390270 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 192272, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-  m_PrefabInternal: {fileID: 2083390265}
---- !u!1 &2083390271 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 170978, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-  m_PrefabInternal: {fileID: 2083390265}
 --- !u!1001 &2092043430
 Prefab:
   m_ObjectHideFlags: 0
@@ -56885,6 +56954,16 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 420416, guid: 79356e7faa58d2d4fb0ba9a9458bcd18, type: 2}
   m_PrefabInternal: {fileID: 2092043430}
+--- !u!4 &2092582801 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+  m_PrefabInternal: {fileID: 215202952}
+--- !u!114 &2092582803 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11415726, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8,
+    type: 2}
+  m_PrefabInternal: {fileID: 215202952}
+  m_Script: {fileID: 11500000, guid: e1914351ef2934a3981d1a3a440a121b, type: 3}
 --- !u!1001 &2095202407
 Prefab:
   m_ObjectHideFlags: 0

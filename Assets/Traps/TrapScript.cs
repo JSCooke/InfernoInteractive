@@ -61,7 +61,7 @@ public class TrapScript : MonoBehaviour {
 			}
 			break;
 		case "text":
-			spawnPos = triggerPos + triggerDirection * spawnDistance * (2 / spawnNum);	//Make text spawn further away from trigger on lower difficulties	
+			spawnPos = triggerPos + triggerDirection * spawnDistance * (Mathf.Min(1.5f,2 / spawnNum));	//Make text spawn further away from trigger on lower difficulties	
 			spawnPos.y = 0;
 			Instantiate (text, spawnPos, Quaternion.LookRotation(new Vector3(0, -1, 0),new Vector3(0, 1, 0)));
 			break;

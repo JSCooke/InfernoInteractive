@@ -1609,6 +1609,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11492380, guid: d69dc23fcf077dd40b4b564b77db2409, type: 2}
+      propertyPath: gotoY
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d69dc23fcf077dd40b4b564b77db2409, type: 2}
   m_IsPrefabParent: 0
@@ -26102,6 +26106,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11492380, guid: d69dc23fcf077dd40b4b564b77db2409, type: 2}
+      propertyPath: gotoY
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d69dc23fcf077dd40b4b564b77db2409, type: 2}
   m_IsPrefabParent: 0
@@ -26180,7 +26188,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 282446135}
   m_HandleRect: {fileID: 282446134}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -33457,6 +33465,10 @@ Prefab:
       propertyPath: gotoZ
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 11492380, guid: d69dc23fcf077dd40b4b564b77db2409, type: 2}
+      propertyPath: gotoY
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d69dc23fcf077dd40b4b564b77db2409, type: 2}
   m_IsPrefabParent: 0
@@ -33857,6 +33869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd60c1d7b6e149b9b9c4f0ccb4a7413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 2
   playerBar: {fileID: 1948493630}
   bossBar: {fileID: 32614857}
   bar1: {fileID: 1948493629}
@@ -35947,6 +35960,18 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 407324, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 210
+      objectReference: {fileID: 0}
+    - target: {fileID: 407324, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 407324, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
   m_IsPrefabParent: 0
@@ -37356,6 +37381,10 @@ Prefab:
     - target: {fileID: 11492380, guid: d69dc23fcf077dd40b4b564b77db2409, type: 2}
       propertyPath: tank
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492380, guid: d69dc23fcf077dd40b4b564b77db2409, type: 2}
+      propertyPath: gotoY
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d69dc23fcf077dd40b4b564b77db2409, type: 2}

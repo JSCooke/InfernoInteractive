@@ -21,7 +21,7 @@ public class FinalBossBehaviour : Spawnable {
         SLAM
     };
 
-    private Animator anim;
+    public Animator anim;
 
     public bool newAction;
     private Queue lastSkillsUsed = new Queue();
@@ -84,13 +84,13 @@ public class FinalBossBehaviour : Spawnable {
                 updateQueue(Action.SLAM);
                 anim.SetBool("Slam", true);
 
-            } else if (randSkill <= 40 && currentHealth <= 25 && !lastSkillsUsed.Contains(Action.SHIELD)) {     //Shield
-                print("Shield");
+            } else if (randSkill <= 40 && currentHealth <= 25 && !lastSkillsUsed.Contains(Action.METEOR)) {     //Meteor
+                print("Meteor");
                 updateQueue(Action.SHIELD);
                 anim.SetBool("Meteor", true);
 
-            } else if (randSkill <= 50 && currentHealth <= 50 && !lastSkillsUsed.Contains(Action.METEOR)) {     //Meteor
-                print("Meteor");
+            } else if (randSkill <= 50 && currentHealth <= 50 && !lastSkillsUsed.Contains(Action.SHIELD)) {     //Shield
+                print("Shield");
                 updateQueue(Action.METEOR);
                 anim.SetBool("Shield", true);
 

@@ -24,6 +24,7 @@ public class SlamController : StateMachineBehaviour {
         GameObject shockWaveInstantiated = (GameObject)Instantiate(shockWave, enemy.transform.position, Quaternion.identity);
         shockWaveInstantiated.transform.LookAt(player.transform.position);
         shockWaveInstantiated.transform.RotateAround(shockWaveInstantiated.transform.position, shockWaveInstantiated.transform.up, 180f);
+        enemy.GetComponent<FinalBossBehaviour>().anim.SetBool("Slam", false);
 
     }
 

@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Snare : SkillController {
+public class Snare : MonoBehaviour {
 
-    public GameObject wall;
+    public GameObject wall, player;
     public bool charging = true;
     public float chargeDuration;
     public float startTime = 0;
@@ -23,8 +23,6 @@ public class Snare : SkillController {
 	}
 
     public Snare() { }
-
-    public Snare(GameObject player, GameObject enemy) : base(player, enemy) {}
 
     void chargeAnimation() {
 

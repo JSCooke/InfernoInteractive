@@ -4,7 +4,7 @@ using System.Collections;
 public class Meteor : MonoBehaviour {
 
     public Transform target;
-    public float meteorSpeed = 5f;
+    public float meteorSpeed = 12f;
 
     // Use this for initialization
     void Start() {
@@ -17,6 +17,7 @@ public class Meteor : MonoBehaviour {
 
         if (transform.position == target.position) {
             Destroy(this.transform.parent.gameObject);
+            GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().newAction = true;
         }
     }
 }

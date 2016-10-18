@@ -190,10 +190,15 @@ public class AlienEnemyBehavour : Damageable{
         if (currentHealth <= 0)
         {
             dead = true;
-            Destroy(gameObject);
-            //turn to trigger so shots can pass through
-            capsuleCollider.isTrigger = true;
+            death();
         }
+    }
+
+    public void death()
+    {
+        Destroy(gameObject);
+        //turn to trigger so shots can pass through
+        capsuleCollider.isTrigger = true;
     }
 
     void Attack(bool isPlayer)

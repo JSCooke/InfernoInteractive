@@ -25,7 +25,7 @@ public class EMPBehaviour : Damageable
         UIAdapter.changeEMP();
         timer = 0f;
         maxHealth = 100;
-        currentHealth = 0;
+        currentHealth = 80;
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class EMPBehaviour : Damageable
 
         if (first)
         {
-            UIAdapter.bossVal = 0;
+            UIAdapter.bossVal = 80;
             first = false;
         }
 
@@ -90,6 +90,18 @@ public class EMPBehaviour : Damageable
                 AchievementController.displayAchievements(achievementsToDisplay);
             }
             //TODO Pop up dialogue to get them to drive  to exit
+
+            //kill all attack robots
+            AlienEnemyBehavour[] en = GameObject.FindObjectsOfType<AlienEnemyBehavour>();
+            for(int i=0;i<en.Length;i++)
+            {
+                en[i].death();
+            }
+
+            //stop spawning
+            AlienSpawnManager alienMan = GameObject.FindObjectOfType<AlienSpawnManager>();
+            alienMan.stopSpawn();
+
             //open top door
             exitDoor.SetActive(false);
         }

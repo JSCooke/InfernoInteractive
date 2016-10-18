@@ -45,6 +45,11 @@ public class AlienSpawnManager : MonoBehaviour {
         
         Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
     }
+
+    public void stopSpawn()
+    {
+        CancelInvoke();
+    }
 	
 	
 }

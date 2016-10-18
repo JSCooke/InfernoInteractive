@@ -20,7 +20,9 @@ public class Slam : MonoBehaviour {
 
         if (collider.gameObject.tag == "Player") {
             collider.gameObject.GetComponent<TankController>().takeDamage(damage);
+            //print(damage);
             Destroy(this.gameObject);
+            GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().newAction = true;
         }
     }
 

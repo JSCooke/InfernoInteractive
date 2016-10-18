@@ -13,37 +13,37 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Slam
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Shield
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Snare
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Meteor
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Die
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -93,6 +93,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wall: {fileID: 161590, guid: 08fe1981148f1d84dae2d2658709a44a, type: 2}
+  enemy: {fileID: 143624, guid: b3eb533b9bc967249aa63bf26b719b07, type: 2}
+  player: {fileID: 147470, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
 --- !u!114 &11474302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -141,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 147470, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+  enemy: {fileID: 143624, guid: b3eb533b9bc967249aa63bf26b719b07, type: 2}
   meteor: {fileID: 176082, guid: c5fac3b06feb46c49b005f6323b6f89b, type: 2}
 --- !u!1101 &110101134
 AnimatorStateTransition:

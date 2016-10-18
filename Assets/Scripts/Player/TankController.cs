@@ -28,6 +28,7 @@ public class TankController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
     }
 
 	void FixedUpdate(){
@@ -98,7 +99,7 @@ public class TankController : MonoBehaviour {
                 }
 
                 currentHealth = currentHealth - damage;
-                //UIAdapter.damagePlayer((float)damage, maxHealth);
+                UIAdapter.damagePlayer((float)damage, maxHealth);
 
             }
         }

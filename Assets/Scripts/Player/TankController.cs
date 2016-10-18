@@ -18,10 +18,23 @@ public class TankController : MonoBehaviour {
 
     public GameObject shield;
 
-    // Use this for initialization
-    void Start() {
+	public int CurrentHealth
+	{
+		get
+		{
+			return currentHealth;
+		}
+
+		set
+		{
+			currentHealth = value;
+		}
+	}
+
+	// Use this for initialization
+	void Start() {
 		rb = GetComponent<Rigidbody> ();
-        currentHealth = maxHealth;
+        CurrentHealth = maxHealth;
 		shield = transform.Find ("Shield").gameObject;
     }
 
@@ -133,20 +146,21 @@ public class TankController : MonoBehaviour {
         //fail the no damage achievement
 		AchievementController.hasBeenDamaged = true;
 
-        if (shield.gameObject.activeSelf) {
+        if (shield != null && shield.gameObject.activeSelf) {
             lastDamageTime = Time.fixedTime;
             shield.SetActive(false);
             return;
-       	 }
+       	}
 
-        if (Time.fixedTime - lastDamageTime > iFrameTime) {
+        if (Time.fixedTime - lastDamageTime >= iFrameTime) {
+
             lastDamageTime = Time.fixedTime;
 
-            if (damage > currentHealth) {
-                damage = currentHealth;
+            if (damage > CurrentHealth) {
+                damage = CurrentHealth;
             }
 
-            currentHealth = currentHealth - damage;
+            CurrentHealth = CurrentHealth - damage;
             UIAdapter.damagePlayer((float)damage, maxHealth);
 
         }

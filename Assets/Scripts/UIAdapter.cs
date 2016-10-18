@@ -123,7 +123,7 @@ public class UIAdapter : MonoBehaviour
 	 * Returns the remaining hp of the player. (Pass in 0 to use this as a getter)
 	 */
 	public static float damagePlayer(float hp){
-		if (!playerDead () && !bossDead()) {
+		if (!playerDead () && !bossDead() && playerDamageAnimator != null) {
 			playerDamageAnimator.SetTrigger ("playerDamage");
 			playerVal -= hp;
 			PlayerVal = playerVal;
@@ -140,7 +140,7 @@ public class UIAdapter : MonoBehaviour
 	 * Returns the remaining hp of the boss. (Pass in 0 to use this as a getter)
 	 */ 
 	public static float damageBoss(float hp){
-		if (!bossDead () && !playerDead()) {
+		if (!bossDead () && !playerDead() && bossDamageAnimator != null) {
 			bossDamageAnimator.SetTrigger ("bossDamage");
 			bossVal -= hp;
 			BossVal = bossVal;

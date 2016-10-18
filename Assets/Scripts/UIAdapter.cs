@@ -21,6 +21,8 @@ public class UIAdapter : MonoBehaviour
 
 	public AnimationClip amin;
 
+    public GameObject tempRedOrbIndicator, tempGreenOrbIndicator;
+    public static GameObject redOrbIndicator, greenOrbIndicator;
 
 	//ben made this
 	public static Image topBar,bottomBar;
@@ -44,6 +46,9 @@ public class UIAdapter : MonoBehaviour
 
         playerVal = 100;
         bossVal = 100;
+
+        redOrbIndicator = tempRedOrbIndicator;
+        greenOrbIndicator = tempGreenOrbIndicator;
 	}
 
 	void Update() {
@@ -267,7 +272,21 @@ public class UIAdapter : MonoBehaviour
 //		boss.enabled = ui;
 	}
 
-	private static void addScoreToLeader(String name, int time){
+    /**
+     * Turns the red orb indicator on or off
+     */
+    public static void setRedOrbActive(bool active) {
+        redOrbIndicator.SetActive(active);
+    }
+
+    /**
+     * Turns the green orb indicator on or off
+     */
+    public static void setGreenOrbActive(bool active) {
+       greenOrbIndicator.SetActive(active);
+    }
+
+    private static void addScoreToLeader(String name, int time){
 		BossController.Difficulty difficulty = GameData.get<BossController.Difficulty>("difficulty");
 		if(difficulty == default(BossController.Difficulty)) {
 			difficulty = BossController.Difficulty.Easy;

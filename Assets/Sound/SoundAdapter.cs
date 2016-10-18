@@ -15,6 +15,9 @@ public class SoundAdapter : MonoBehaviour
 	public static AudioClip myBossSquishSound;
 	public AudioClip tankHitSound;
 	public static AudioClip myTankHitSound;
+	public AudioClip bombSound;
+	public static AudioClip myBombSound;
+
 	public AudioSource BGM;
 	public static AudioSource myBGM;
 	public static float soundVolume = 1;
@@ -48,6 +51,7 @@ public class SoundAdapter : MonoBehaviour
 		myBossSquishSound = bossSquishSound;
 		myTankHitSound = tankHitSound;
 		myBGM = BGM;
+		myBombSound = bombSound;
 	}
 
 	void Update()
@@ -67,11 +71,14 @@ public class SoundAdapter : MonoBehaviour
 	public static void playShieldDownSound (){
 		AudioSource.PlayClipAtPoint (myShieldDownSound, Camera.main.transform.position, soundVolume);
 	}
-	public static void playBossSquishSound (){
-		AudioSource.PlayClipAtPoint (myBossSquishSound, Camera.main.transform.position, soundVolume);
-	}
 	public static void playTankHitSound (){
 		AudioSource.PlayClipAtPoint (myTankHitSound, Camera.main.transform.position, soundVolume);
+	}
+	public static void playBombSound(){
+		AudioSource.PlayClipAtPoint(myBombSound, Camera.main.transform.position, soundVolume);
+	}
+	public static void playBossSquishSound (Vector3 location){
+		AudioSource.PlayClipAtPoint (myBossSquishSound, Camera.main.transform.position, soundVolume);
 	}
 
 	/*

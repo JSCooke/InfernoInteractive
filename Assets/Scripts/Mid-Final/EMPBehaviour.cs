@@ -1,19 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EMPBehaviour : Damageable
 {
     float healthIncreamentTime = 1f;
     float timer;
 
-    public Image bossPic;
-
     int empIncreaseValue = 1;
 
     bool win = false;
-
     bool first = true;
+    bool damaged = false;
 
 
 
@@ -52,6 +51,7 @@ public class EMPBehaviour : Damageable
 
     public void takeDamage(int amount)
     {
+        
         //damage
         int health = currentHealth - amount;
 
@@ -62,8 +62,13 @@ public class EMPBehaviour : Damageable
         }
 
         UIAdapter.damageBoss((float)amount);
-
         timer = 0f;
+
+        //player not get achevement
+        if (!damaged)
+        {
+            damaged = true;
+        }
     }
 
     void increaseHealth()
@@ -73,7 +78,17 @@ public class EMPBehaviour : Damageable
         if (currentHealth >= 100)
         {
             win = true;
+            
+            //if emp has never taken damage then unlock achievement
+            if (!damaged)
+            {
+                AchievementController.updateAchievement("EMP Saver", true);
+                List<string> achievementsToDisplay = new List<string>();
+                achievementsToDisplay.Add("EMP Saver");
+                AchievementController.displayAchievements(achievementsToDisplay);
+            }
             //TODO Pop up dialogue to get them to drive  to exit
+            //open top door
         }
     }
 

@@ -874,8 +874,11 @@ MonoBehaviour:
   maxHealth: 0
   currentHealth: 0
   bodyDamage: 0
-  damagedBy: 
+  damagedBy: PlayerProjectile
   dead: 0
+  unkillable: 0
+  attackRange: 50
+  projectile: {fileID: 142270, guid: 8cb5157a9d705d84d81df161cd4c3832, type: 2}
 --- !u!114 &11495068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -927,8 +930,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
-  m_Radius: 2
+  m_Height: 0
+  m_Radius: 0
   m_SlopeLimit: 180
   m_StepOffset: 0.3
   m_SkinWidth: 1.5

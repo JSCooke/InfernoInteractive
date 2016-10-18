@@ -44,6 +44,7 @@ public class ShieldControlStationBehaviour : ControlStationBehaviour {
 	public override void onAttachPlayer(UnityEngine.GameObject player){
 		print (cooldownRemaining);
 		if (cooldownRemaining <= 0) {
+			AchievementController.hasUsedShield = true;
 			shieldDurationRemaining = shieldDuration;
 			shield.SetActive (true);
 			cooldownRemaining = cooldown;

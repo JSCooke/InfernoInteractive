@@ -3,6 +3,7 @@ using System.Collections;
 
 public class SlamController : StateMachineBehaviour {
 
+    public GameObject enemy;
     public GameObject shockWave;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -17,7 +18,7 @@ public class SlamController : StateMachineBehaviour {
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
+
         GameObject player = enemy.GetComponent<FinalBossBehaviour>().player;
 
         GameObject shockWaveInstantiated = (GameObject)Instantiate(shockWave, enemy.transform.position, Quaternion.identity);

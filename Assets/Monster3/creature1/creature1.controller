@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a7dfdbcce485084d8f33c6d2b320c8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 143624, guid: b3eb533b9bc967249aa63bf26b719b07, type: 2}
   shockWave: {fileID: 111830, guid: f0702c2d6cd5db84c8d81c297d101ed2, type: 2}
 --- !u!114 &11445096
 MonoBehaviour:
@@ -103,6 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60b22f91f8b74b4fb32c1948a0dc237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
 --- !u!114 &11474892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -114,6 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2703b6c465939a43ba324adf40f287d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 143624, guid: b3eb533b9bc967249aa63bf26b719b07, type: 2}
 --- !u!114 &11480512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ba84fecbcdb1c4aa97e2827b09fa59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 143624, guid: b3eb533b9bc967249aa63bf26b719b07, type: 2}
 --- !u!114 &11495784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bffdbae6401b5ab4e9f44404ddbb7c6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 147470, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
   meteor: {fileID: 176082, guid: c5fac3b06feb46c49b005f6323b6f89b, type: 2}
 --- !u!1101 &110101134
 AnimatorStateTransition:

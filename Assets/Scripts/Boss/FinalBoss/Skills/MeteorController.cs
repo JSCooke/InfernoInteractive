@@ -3,6 +3,7 @@ using System.Collections;
 
 public class MeteorController : StateMachineBehaviour {
 
+    public GameObject player;
     public GameObject meteor;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state

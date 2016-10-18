@@ -77,7 +77,7 @@ public class FinalBossBehaviour : Spawnable {
 
             newAction = false;
             float randSkill = Random.Range(0, 100);
-            randSkill = 101;
+            randSkill = 30;
 
             if (randSkill <= 30 && !lastSkillsUsed.Contains(Action.SLAM)) {  //Slam
                 print("Slam");

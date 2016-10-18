@@ -41,8 +41,6 @@ public class FinalBossBehaviour : Spawnable {
 
     }
 
-    // anim.SetBool("Run", true);
-
     // Update is called once per frame
     void Update() {
         rb.velocity = Vector3.zero;
@@ -58,6 +56,7 @@ public class FinalBossBehaviour : Spawnable {
             Die();
         }
         else {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.transform.position - this.transform.position), this.GetComponent<BossController>().rotationSpeed * Time.deltaTime);
             fightPlayer();
         }
 
@@ -78,7 +77,8 @@ public class FinalBossBehaviour : Spawnable {
 
             newAction = false;
             float randSkill = Random.Range(0, 100);
-            randSkill = 0;
+            randSkill = 101;
+
             if (randSkill <= 30 && !lastSkillsUsed.Contains(Action.SLAM)) {  //Slam
                 print("Slam");
                 updateQueue(Action.SLAM);
@@ -101,8 +101,8 @@ public class FinalBossBehaviour : Spawnable {
 
             } else {     //Stationary
                 print("Stationary");
-                anim.SetBool("Stationary", true);
-
+                //anim.SetBool("Stationary", true);
+                anim.SetBool("Meteor", true);
             }
 
         }

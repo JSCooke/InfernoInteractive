@@ -63,13 +63,9 @@ public class TankController : MonoBehaviour {
     }
 
     void OnTriggerStay(Collider collider) {
+        
         if (collider.gameObject.tag == damagedBy) {
             takeDamage(collider.gameObject.GetComponent<BossController>().bodyDamage);
-        }
-
-        if (collider.gameObject.tag == "Slam") {
-            takeDamage(collider.gameObject.GetComponent<BossController>().bodyDamage);
-            Destroy(collider.gameObject);
         }
     }
 
@@ -102,7 +98,7 @@ public class TankController : MonoBehaviour {
                 }
 
                 currentHealth = currentHealth - damage;
-                UIAdapter.damagePlayer((float)damage, maxHealth);
+                //UIAdapter.damagePlayer((float)damage, maxHealth);
 
             }
         }

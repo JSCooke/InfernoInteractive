@@ -27,9 +27,10 @@ public class forestGuardScript : Damageable {
 			Vector3 transPos = transform.position + transform.forward*MoveSpeed*Time.deltaTime;
 			transPos.y = 0;
 			transform.position = transPos;
-			if (Vector3.Distance (transform.position, player.transform.position) >= MaxDist) {
+			if (Vector3.Distance (transform.position, player.transform.position) >= MaxDist+1) {
 				backpedal = false;
 			}
+			return;
 		}
 		transform.LookAt(player.transform);
 

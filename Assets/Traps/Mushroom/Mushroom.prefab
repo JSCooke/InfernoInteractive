@@ -82,7 +82,7 @@ GameObject:
   - 54: {fileID: 5405962}
   m_Layer: 0
   m_Name: Mushroom
-  m_TagString: Untagged
+  m_TagString: Mushroom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -383,6 +383,7 @@ MonoBehaviour:
   bodyDamage: 0
   damagedBy: PlayerProjectile
   dead: 0
+  unkillable: 0
   explosion: {fileID: 19800004, guid: 5f1bb8a375b43468695dd78801497e3e, type: 2}
 --- !u!135 &13510678
 SphereCollider:

@@ -35,7 +35,7 @@ public class bombController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider collider){
 		if (collider.gameObject.tag == damagedBy) {
-			Vector3 front = collider.transform.forward*5000;
+			Vector3 front = collider.transform.forward*10000;
 			rb.AddForce(front);
 			Destroy (collider.gameObject);
 		}

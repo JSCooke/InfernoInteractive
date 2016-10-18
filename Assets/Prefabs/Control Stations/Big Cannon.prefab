@@ -217,7 +217,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125604}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.662, z: 6.689}
+  m_LocalPosition: {x: -0, y: 0.5, z: 5.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -243,8 +243,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 104840}
   m_LocalRotation: {x: -0.048286702, y: 0.00000009386385, z: -0.0000019416177, w: 0.99883354}
-  m_LocalPosition: {x: 0, y: -2.03, z: -1.07}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: -1.86, z: 0.73}
+  m_LocalScale: {x: 2, y: 2, z: 1.1507267}
   m_LocalEulerAnglesHint: {x: -5.5354, y: 0, z: -0.0002}
   m_Children: []
   m_Father: {fileID: 481770}
@@ -542,7 +542,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 197348, guid: 5911cabeb946e8a49b8d14907acc79a6, type: 2}
   projectileSpawn: {fileID: 125604}
+  cabin: {fileID: 0}
+  tank: {fileID: 0}
+  tankController: {fileID: 0}
   cooldown: 20
+  rotationSpeed: 0
 --- !u!198 &19842608
 ParticleSystem:
   m_ObjectHideFlags: 1

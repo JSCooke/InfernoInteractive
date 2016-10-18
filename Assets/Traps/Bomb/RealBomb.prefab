@@ -238,7 +238,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!111 &11123418
 Animation:
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagedBy: PlayerProjectile
-  tank: {fileID: 11454204, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+  tank: {fileID: 0}
   explosion: {fileID: 19800008, guid: c466276509f8b40a59f02d115254fc25, type: 2}
   timing: 1
 --- !u!135 &13520664
@@ -280,7 +280,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.75
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &13549770
 SphereCollider:

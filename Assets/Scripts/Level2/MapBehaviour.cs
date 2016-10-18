@@ -23,11 +23,11 @@ public class MapBehaviour : MonoBehaviour {
 		transform.position = _startPosition + new Vector3(0.0f, translateAmplitude * Mathf.Sin(Time.time * translateSpeed), 0.0f);
 	}
 
-	public void OnTriggerEnter()
+	public void OnTriggerEnter(Collider other)
 	{
 		// TODO "pick up" map
 
-		if (id == 3) // last map to collect
+		if (id == 3 && other.gameObject.tag == "Player") // last map to collect and it's actually the player hitting it
 		{
 			UIAdapter.win();
 		}

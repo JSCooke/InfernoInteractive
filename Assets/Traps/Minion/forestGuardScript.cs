@@ -7,8 +7,9 @@ public class forestGuardScript : Damageable {
 	public Animator guardAnimator;
 	public GameObject player;
 	int MoveSpeed = 4;
-	int MaxDist = 6;
-	int MinDist = 4;
+	int MaxDist = 8;
+	int MinDist = 6;
+	private bool backpedal = false;
 
 	void Start () 
 	{
@@ -21,6 +22,16 @@ public class forestGuardScript : Damageable {
 
 	void Update () 
 	{
+		if (backpedal) {
+			transform.rotation = Quaternion.LookRotation(transform.position - player.transform.position);
+			Vector3 transPos = transform.position + transform.forward*MoveSpeed*Time.deltaTime;
+			transPos.y = 0;
+			transform.position = transPos;
+			if (Vector3.Distance (transform.position, player.transform.position) >= MaxDist+1) {
+				backpedal = false;
+			}
+			return;
+		}
 		transform.LookAt(player.transform);
 
 		if(Vector3.Distance(transform.position,player.transform.position) >= MinDist){
@@ -35,7 +46,7 @@ public class forestGuardScript : Damageable {
 		{
 			guardAnimator.SetTrigger("Attack");
 			player.GetComponent<TankController> ().takeDamage (1);
-
+			backpedal = true;
 		} 
 	}
 

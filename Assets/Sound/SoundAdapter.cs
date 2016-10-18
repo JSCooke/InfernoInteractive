@@ -28,22 +28,22 @@ public class SoundAdapter : MonoBehaviour
 	}
 
 	public static void playCannonMk1Sound (){
-		AudioSource.PlayClipAtPoint (myCannonMk1Sound, Camera.main.transform.position, 1);
+		//AudioSource.PlayClipAtPoint (myCannonMk1Sound, Camera.main.transform.position, 1);
 	}
 	public static void playMachineGunMk1Sound (){
-		AudioSource.PlayClipAtPoint (myMachineGunMk1Sound, Camera.main.transform.position, 1);
+		//AudioSource.PlayClipAtPoint (myMachineGunMk1Sound, Camera.main.transform.position, 1);
 	}
 	public static void playShieldUpSound (){
-		AudioSource.PlayClipAtPoint (myShieldUpSound, Camera.main.transform.position, 1);
+		//AudioSource.PlayClipAtPoint (myShieldUpSound, Camera.main.transform.position, 1);
 	}
 	public static void playShieldDownSound (){
-		AudioSource.PlayClipAtPoint (myShieldDownSound, Camera.main.transform.position, 1);
+		//AudioSource.PlayClipAtPoint (myShieldDownSound, Camera.main.transform.position, 1);
 	}
 	public static void playBossSquishSound (){
-		AudioSource.PlayClipAtPoint (myBossSquishSound, Camera.main.transform.position, 1);
+		//AudioSource.PlayClipAtPoint (myBossSquishSound, Camera.main.transform.position, 1);
 	}
 	public static void playTankHitSound (){
-		AudioSource.PlayClipAtPoint (myTankHitSound, Camera.main.transform.position, 1);
+		//AudioSource.PlayClipAtPoint (myTankHitSound, Camera.main.transform.position, 1);
 	}
 
 	/*

@@ -154,7 +154,6 @@ public class AlienEnemyBehavour : Damageable{
         {
             if (timer >= timeBetweenAttacks && currentHealth > 0)
             {
-                Debug.Log("en attack emp");
                 Attack(false);
             }
         }
@@ -162,13 +161,10 @@ public class AlienEnemyBehavour : Damageable{
 
     void OnCollisionStay(Collision collisionInfo)
     {
-        Debug.Log("collided with " + collisionInfo.gameObject.tag);
-
        if(collisionInfo.gameObject.tag == "Player")
         {           
             if (timer >= timeBetweenAttacks && currentHealth > 0)
             {
-                Debug.Log("en attack player");
                 Attack(true);
             }
         }  

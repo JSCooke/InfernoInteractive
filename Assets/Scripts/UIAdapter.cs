@@ -159,6 +159,8 @@ public class UIAdapter : MonoBehaviour
                 bossVal = 0;
             }
 
+            Debug.Log("emp health val " + bossVal);
+
 			BossVal = bossVal;
 			if (bossDead ()&&!isEMP) {
 				win ();

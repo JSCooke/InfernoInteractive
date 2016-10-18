@@ -13,24 +13,29 @@ public class EMPBehaviour : Damageable
 
     bool win = false;
 
+    bool first = true;
+
 
 
     // Use this for initialization
     void Start()
     {
-
         UIAdapter.changeEMP();
-        UIAdapter.bossVal = 1;
-
-
         timer = 0f;
         maxHealth = 100;
-        currentHealth = 1;
+        currentHealth = 0;
+        //UIAdapter.bossVal = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (first)
+        {
+            UIAdapter.bossVal = 0;
+            first = false;
+        }
 
         timer += Time.deltaTime;
 

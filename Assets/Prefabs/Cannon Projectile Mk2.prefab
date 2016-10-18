@@ -72,9 +72,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74977bd4b01b1f547850b027e25943c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 18
+  speed: 30
   damage: 70
-  endAnimation: {fileID: 159630, guid: 78aa05b4bb417da4da7c46a9f74fd412, type: 2}
+  inherentVelocity: {x: 0, y: 0, z: 0}
 --- !u!135 &13504904
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -85,7 +85,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.8
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &19872372
 ParticleSystem:

@@ -10,15 +10,18 @@ public class AchievementController : MonoBehaviour {
     public string achievement1 = "Cannon King";
     public string achievement2 = "Untouchable!";
     public string achievement3 = "Speedrunner";
-
-	public static bool hasBeenDamaged = false;
-	public static bool hasUsedOnlyCannon = true;
+    public string achievement4 = "Orb Master";
+    
+    public static bool hasBeenDamaged = false;
+    public static bool hasBeenDamagedL3 = false;
+    public static bool hasUsedOnlyCannon = true;
 
     public Sprite achievement1Sprite;
     public Sprite achievement2Sprite;
     public Sprite achievement3Sprite;
+    public Sprite achievement4Sprite;
 
-	//static dictionary that stores the state of achievements, true if the achievement has been achieved
+    //static dictionary that stores the state of achievements, true if the achievement has been achieved
     public static Dictionary<string, bool> achievements = new Dictionary<string, bool>();
 	//static dictionary that maps strings to the corresponding achievement sprite
     public static Dictionary<string, Sprite> achievementSprites = new Dictionary<string, Sprite>();
@@ -34,7 +37,7 @@ public class AchievementController : MonoBehaviour {
 
         instance = this;
 
-		//setup hashmap with achievements being fale
+		//setup hashmap with achievements being false
 		if (!achievements.ContainsKey (achievement1)) {
 			achievements.Add(achievement1, false);
 		}
@@ -44,9 +47,13 @@ public class AchievementController : MonoBehaviour {
 		if (!achievements.ContainsKey (achievement3)) {
 			achievements.Add(achievement3, false);
 		}
+        if (!achievements.ContainsKey(achievement4))
+        {
+            achievements.Add(achievement4, false);
+        }
 
-		//set up string to sprite mapping
-		if (!achievementSprites.ContainsKey (achievement1)) {
+        //set up string to sprite mapping
+        if (!achievementSprites.ContainsKey (achievement1)) {
 			achievementSprites.Add(achievement1, achievement1Sprite);
 		}
 		if (!achievementSprites.ContainsKey (achievement2)) {
@@ -55,7 +62,10 @@ public class AchievementController : MonoBehaviour {
 		if (!achievementSprites.ContainsKey (achievement3)) {
 			achievementSprites.Add(achievement3, achievement3Sprite);
 		}
-       
+        if (!achievementSprites.ContainsKey(achievement4))
+        {
+            achievementSprites.Add(achievement4, achievement4Sprite);
+        }
     }
 	
 	// Update is called once per frame

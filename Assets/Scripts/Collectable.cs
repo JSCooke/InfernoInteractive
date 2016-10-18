@@ -9,7 +9,7 @@ public class Collectable : MonoBehaviour {
     public GameObject redLight, greenLight;
 
     void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.tag == "Player") {
+        if (collision.gameObject.GetComponentInParent<TankController>() != null) {
 
             if(colourOfOrb.Equals("red"))
             {

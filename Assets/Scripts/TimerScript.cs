@@ -20,6 +20,7 @@ public class TimerScript : MonoBehaviour {
 
 	public void Start(){
 		stop = false;
+        text = GetComponent<Text>();
 	}
 
 	public void Update(){

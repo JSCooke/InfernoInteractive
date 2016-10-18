@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MapBehaviour : MonoBehaviour {
 
@@ -29,6 +30,19 @@ public class MapBehaviour : MonoBehaviour {
 		if (id == 3) // last map to collect
 		{
 			UIAdapter.win();
+		}
+
+		//see if the box acheivement is achieved
+		if (id == 1) {
+			List<string> achievementsToDisplay = new List<string> ();
+			if (!AchievementController.hasFailedBoxStage) {
+				AchievementController.updateAchievement ("Puzzle Master", !AchievementController.hasFailedBoxStage);
+				achievementsToDisplay.Add ("Puzzle Master");
+			
+				//cycle through all achievements youved gained
+				AchievementController.displayAchievements(achievementsToDisplay);
+			}
+
 		}
 	}
 

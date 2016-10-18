@@ -21,16 +21,9 @@ public class SlamController : StateMachineBehaviour {
         GameObject player = enemy.GetComponent<FinalBossBehaviour>().player;
 
         GameObject shockWaveInstantiated = (GameObject)Instantiate(shockWave, enemy.transform.position, Quaternion.identity);
+        shockWaveInstantiated.transform.LookAt(player.transform.position);
+        shockWaveInstantiated.transform.RotateAround(shockWaveInstantiated.transform.position, shockWaveInstantiated.transform.up, 180f);
 
-        ParticleSystem shockwaveEffect = shockWaveInstantiated.GetComponentsInChildren<ParticleSystem>()[0];
-        Vector3 relativePos = player.transform.position - shockWaveInstantiated.transform.position;
-        Quaternion rotation = Quaternion.LookRotation(relativePos);
-        shockwaveEffect.startRotation = Mathf.Deg2Rad * rotation.eulerAngles.y;
-        shockwaveEffect.startLifetime = 1;
-        shockwaveEffect.startSize = 30;
-        shockwaveEffect.Play();
-
-        shockWaveInstantiated.transform.LookAt(player.transform.position, shockWaveInstantiated.transform.up);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here

@@ -32,7 +32,7 @@ public class KingSlimeBehaviour : Spawnable {
     public double chargeDuration = 3;
     private double chargeStartTime;
 
-    private int currentHealth, maxHealth;
+    private float currentHealth, maxHealth;
     public int attackRate = 10;
 
     public GameObject boundary;

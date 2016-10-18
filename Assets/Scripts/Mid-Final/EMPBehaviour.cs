@@ -57,11 +57,11 @@ public class EMPBehaviour : Damageable
         }
     }
 
-    public void takeDamage(int amount)
+    public void takeDamage(float amount)
     {
         
         //damage
-        int health = currentHealth - amount;
+        float health = currentHealth - amount;
 
         if (health < 0)
         {

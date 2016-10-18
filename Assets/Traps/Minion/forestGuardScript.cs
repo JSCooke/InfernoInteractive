@@ -50,7 +50,7 @@ public class forestGuardScript : Damageable {
 		} 
 	}
 
-	public override void takeDamage(int damage){
+	public override void takeDamage(float damage){
 		currentHealth -= damage;
 		if (currentHealth <= 0) {
 			Instantiate(explosion, this.gameObject.transform.position, new Quaternion(0,0,0,0));

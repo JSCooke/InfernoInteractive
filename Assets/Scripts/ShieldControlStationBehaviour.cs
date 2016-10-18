@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class ShieldControlStationBehaviour : ControlStationBehaviour {
-	public UnityEngine.GameObject shield;
+	public UnityEngine.GameObject shield, cabin;
+	public TankController tankController;
 	public TextMesh cooldownIndicator;
 	public float cooldown, shieldDuration;
 	public Color blue, red;
@@ -12,6 +13,14 @@ public class ShieldControlStationBehaviour : ControlStationBehaviour {
 	void Start () {
 		//Find the shield in the tank object
 		shield = GetComponentInParent<TankController> ().transform.Find ("Shield").gameObject;
+		foreach (Transform t in GetComponentInParent<TankController>().GetComponentsInChildren<Transform>()) {
+			if (t.gameObject.name == "Shield") {
+				shield = t.gameObject;
+				shield.SetActive (false);
+			}
+		}
+		tankController = GetComponentInParent<TankController> ();
+		cabin = tankController.transform.Find ("Cabin").gameObject;
 	}
 	
 	// Update is called once per frame
@@ -36,9 +45,11 @@ public class ShieldControlStationBehaviour : ControlStationBehaviour {
 		print (cooldownRemaining);
 		if (cooldownRemaining <= 0) {
 			shieldDurationRemaining = shieldDuration;
+			SoundAdapter.playShieldUpSound ();
 			shield.SetActive (true);
 			cooldownRemaining = cooldown;
 		}
 		player.GetComponent<PlayerController> ().detach ();
 	}
+		
 }

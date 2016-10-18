@@ -47,7 +47,7 @@ public class MachineGunBehaviour : ControlStationBehaviour {
             foreach (GameObject spawner in spawners)
             {
                 lastShotTime = Time.fixedTime;
-
+				SoundAdapter.playMachineGunMk1Sound();
                 //Instantiate the shot
                 GameObject shot = (GameObject)Instantiate(projectile, spawner.transform.position, spawner.transform.rotation);
 

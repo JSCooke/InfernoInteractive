@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Shield : SkillController {
+public class Shield : MonoBehaviour {
 
     public bool destroyed;
-    public float healAmount;
+    public float healAmount = -0.01f;
     public bool[] hitCount = new bool[2];
     public string damagedBy;
 
@@ -24,19 +24,18 @@ public class Shield : SkillController {
 
         //If both generators hit simulatenously, shield is deactivated
         if (generatorDestroyed()) {
-            GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().randomNextAction(true);
-            GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().frameCount = 0;
+
             this.gameObject.SetActive(false);
 
             for (int i = 0; i < hitCount.Length; i++) {
                 hitCount[i] = false;
             }
+
+            GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().newAction = true;
         }
 	}
 
-    public Shield() { }
-
-    public Shield(GameObject player, GameObject enemy) : base(player, enemy) { }
+    public Shield() {}
 
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "PlayerProjectile") {

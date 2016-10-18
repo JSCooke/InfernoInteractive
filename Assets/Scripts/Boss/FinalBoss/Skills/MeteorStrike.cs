@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MeteorStrike : SkillController {
+public class MeteorStrike : MonoBehaviour {
 
-    public GameObject meteor;
+    public GameObject meteor, player;
     public bool aiming  = true;
     private float startTime;
 
@@ -24,8 +24,6 @@ public class MeteorStrike : SkillController {
     }
 
     public MeteorStrike() { }
-
-    public MeteorStrike(GameObject player, GameObject enemy) : base(player, enemy) { }
 
     void aimAnimation() {
 
@@ -50,7 +48,7 @@ public class MeteorStrike : SkillController {
         if (UIAdapter.getTimeInSeconds() - startTime > 3) {
             this.gameObject.SetActive(false);
             aiming = true;
-            GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().randomNextAction(true);
+           // GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().randomNextAction(true);
         }
     }
 

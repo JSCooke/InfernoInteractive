@@ -4,7 +4,7 @@ using System.Collections;
 public class HollowWall : MonoBehaviour {
 
     private static float maxHealth = 50f;
-    public float baseRotationSpeed;
+    public float baseRotationSpeed = 50f;
     private float rotationSpeed = 50f;
     public float health = 50f;
     public string playerName = "Tank";
@@ -23,12 +23,9 @@ public class HollowWall : MonoBehaviour {
         //}
 
         if (health <= 0) {
-            GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().randomNextAction(true);
-            GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().frameCount = 0;
             Destroy(this.gameObject);
             this.health = maxHealth;
-            GameObject.Find("Snare").GetComponent<Snare>().charging = true;
-            GameObject.Find("Snare").GetComponent<Snare>().gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().newAction = true;
         }
 
         ////Damage over time while snared

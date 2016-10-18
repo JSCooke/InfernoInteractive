@@ -31,17 +31,6 @@ public class TankController : MonoBehaviour {
     }
 
 	void FixedUpdate(){
-
-        //Calculate the horizontal speed of the tank (how much it's 'sliding') and apply drag in that direction
-        float horizontalSpeed = Vector3.Project(rb.velocity, tankBase.transform.right).magnitude;
-        if (Vector3.Angle(rb.velocity, tankBase.transform.right) > 90) {
-            horizontalSpeed *= -1;
-        }
-
-        if (Mathf.Abs(horizontalSpeed) > 1) {
-            rb.AddForce(tankBase.transform.right * horizontalSpeed * -drag, ForceMode.Acceleration);
-        }
-
         //check if angle with ground plane is >45 degrees, clamp rotation to between -45 and 45 degrees with ground
         // in both x and z axes
         if (transform.rotation.eulerAngles.x > angleLimit && transform.rotation.eulerAngles.x < 360 - angleLimit) {
@@ -83,6 +72,7 @@ public class TankController : MonoBehaviour {
 
         //fail the no damage achievement
 		AchievementController.hasBeenDamaged = true;
+        AchievementController.hasBeenDamagedL3 = true;
 
         if (shield.gameObject.activeSelf) {
             lastDamageTime = Time.fixedTime;

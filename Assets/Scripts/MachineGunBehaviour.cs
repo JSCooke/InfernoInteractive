@@ -7,7 +7,7 @@ public class MachineGunBehaviour : ControlStationBehaviour {
 
 	private float lastShotTime;
     private List<GameObject> spawners;
-
+    private GameObject tank;
     void Start() {
         spawners = new List<GameObject>();
         foreach (Transform transform in gun.transform) {
@@ -15,6 +15,7 @@ public class MachineGunBehaviour : ControlStationBehaviour {
                 spawners.Add(transform.gameObject);
             }
         }
+        tank = GetComponentInParent<TankController>().gameObject;
     }
 
 	public override void keyHeld(bool up, bool left, bool down, bool right){
@@ -46,8 +47,13 @@ public class MachineGunBehaviour : ControlStationBehaviour {
             foreach (GameObject spawner in spawners)
             {
                 lastShotTime = Time.fixedTime;
-                //print(spawner.transform.rotation.eulerAngles);
-                Instantiate(projectile, spawner.transform.position, spawner.transform.rotation);
+
+                //Instantiate the shot
+                GameObject shot = (GameObject)Instantiate(projectile, spawner.transform.position, spawner.transform.rotation);
+
+                //Set its inherent velocity to be the velocity of the tank as it shot the projectile
+                Vector3 inherentVelocity = tank.GetComponent<Rigidbody>().velocity;
+                shot.GetComponent<ProjectileController>().inherentVelocity = inherentVelocity;
             }
 		}
 	}

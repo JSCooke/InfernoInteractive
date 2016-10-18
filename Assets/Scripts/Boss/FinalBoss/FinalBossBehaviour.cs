@@ -51,7 +51,6 @@ public class FinalBossBehaviour : Spawnable {
         }
 
         currentHealth = this.GetComponent<BossController>().currentHealth;
-
         if (this.GetComponent<BossController>().dead) {
             Die();
         }
@@ -77,7 +76,6 @@ public class FinalBossBehaviour : Spawnable {
 
             newAction = false;
             float randSkill = Random.Range(0, 100);
-            randSkill = 101;
 
             if (randSkill <= 30 && !lastSkillsUsed.Contains(Action.SLAM)) {  //Slam
                 print("Slam");
@@ -101,8 +99,8 @@ public class FinalBossBehaviour : Spawnable {
 
             } else {     //Stationary
                 //print("Stationary");
-                //anim.SetBool("Stationary", true);
-                anim.SetBool("Slam", true);
+                anim.SetBool("Stationary", true);
+                //anim.SetBool("Snare", true);
             }
 
         }
@@ -110,11 +108,7 @@ public class FinalBossBehaviour : Spawnable {
     }
 
     void Die() {
-
         anim.SetBool("Dead", true);
-
-        //Wait 1 second for animation to finish
-        Destroy(this.gameObject);
     }
 
 }

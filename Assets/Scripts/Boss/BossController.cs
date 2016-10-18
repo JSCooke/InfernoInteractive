@@ -30,13 +30,14 @@ public class BossController : Damageable {
     }
 
     public override void takeDamage(float damage) {
-
+        //print(damage);
         if (damage > currentHealth) {
             damage = currentHealth;
         }
         
         currentHealth = currentHealth - damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
         UIAdapter.damageBoss((float)damage, totalHealth);
 
 		if (Mathf.Floor (currentHealth) <= 0) {

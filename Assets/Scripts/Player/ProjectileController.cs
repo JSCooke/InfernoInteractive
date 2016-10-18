@@ -4,7 +4,7 @@ using System.Collections;
 public class ProjectileController : MonoBehaviour {
     public float speed;
 	public int damage;
-
+	public GameObject endAnimation;
     public Vector3 inherentVelocity;
 	// Use this for initialization
 	void Start () {
@@ -18,5 +18,9 @@ public class ProjectileController : MonoBehaviour {
             transform.position += inherentVelocity * Time.deltaTime;
         }
     }
+
+	void OnDestroy(){
+		Instantiate (endAnimation, transform.position, transform.rotation);
+	}
 
 }

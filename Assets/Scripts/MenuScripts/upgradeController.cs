@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 public class upgradeController : MonoBehaviour {
 
+	//All control stations
     public GameObject NorthStation, EastStation, WestStation, CentralStation, SouthStation;
 
-	// Use this for initialization
 	void Start () {
         //check which stations has been unlocked
         HashSet<string> unlockedStations = GameData.get<HashSet<string>>("unlocked stations");
@@ -50,9 +50,10 @@ public class upgradeController : MonoBehaviour {
 
     public void AssignStation(GameObject Upgrade)
     {
+		//Get the name of station that's being assigned to
         string StationName = Upgrade.transform.parent.name;
 
-
+		//Set station upgrade to that of the name selected by the user and store the selected upgrade in game memory
         if (StationName == "NorthStation")
         {
             NorthStation.GetComponent<ControlStationMountController>().station = Upgrade.name;

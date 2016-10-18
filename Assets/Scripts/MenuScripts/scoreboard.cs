@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Collections;
 
 public class scoreboard : MonoBehaviour {
-
+	
 	public int level;
 
     public Text[] EasyNames;

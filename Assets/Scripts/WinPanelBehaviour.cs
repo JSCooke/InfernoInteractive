@@ -4,20 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class WinPanelBehaviour : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-	public void MenuTextPress()
+	// load scene according to button click
+	public void LoadScene(int level)
 	{
-        //TODO close the current game
-        SceneManager.LoadScene("Main");
+		SceneManager.LoadScene(level + 1);
 	}
 
 }

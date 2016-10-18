@@ -7,6 +7,7 @@ using System.Threading;
 
 public class UIAdapter : MonoBehaviour
 {
+	public int level;
 	public BarScript playerBar, bossBar;
 	public Image bar1, bar2;
 	public Image playerPic, bossPic;
@@ -17,7 +18,7 @@ public class UIAdapter : MonoBehaviour
 	public Text tempAchievementTextBox;
 
 	//This needs to be altered in this class to show points earned.
-	public Text tempWinText;
+	public Text tempWinText, tempDieText;
 
 	public AnimationClip amin;
     private static bool isEMP = false;
@@ -27,13 +28,25 @@ public class UIAdapter : MonoBehaviour
         isEMP = true;
     }
 
-    public GameObject tempRedOrbIndicator, tempGreenOrbIndicator;
-    public static GameObject redOrbIndicator, greenOrbIndicator;
+	public GameObject tempRedOrbIndicator, tempGreenOrbIndicator;
+	public static GameObject redOrbIndicator, greenOrbIndicator;
+
+	private static bool idiot = false;
+
+	public static bool Idiot {
+		get {
+			return idiot;
+		}
+		set {
+			idiot = value;
+		}
+	}
 
     //ben made this
     public static Image topBar,bottomBar;
 
 	void Start() {
+		currentLevel = level;
 		topBar = bar1;
 		bottomBar = bar2;
 		playerPortrait = playerPic;
@@ -48,20 +61,21 @@ public class UIAdapter : MonoBehaviour
 		achievementImageBox = tempAchievementImageBox;
 		achievementTextBox = tempAchievementTextBox;
 		winText = tempWinText;
+		dieText = tempDieText;
 		timer = tempTimer;
 
         playerVal = 100;
         bossVal = 100;
 
-        redOrbIndicator = tempRedOrbIndicator;
-        greenOrbIndicator = tempGreenOrbIndicator;
+		redOrbIndicator = tempRedOrbIndicator;
+		greenOrbIndicator = tempGreenOrbIndicator;
 	}
 
 	void Update() {
 		//print(boss);
 	}
 
-
+	public static int currentLevel;
 	public static Image playerPortrait;
 	public static BarScript player;
 	public static float playerVal = 100;
@@ -101,6 +115,7 @@ public class UIAdapter : MonoBehaviour
 
 	//This needs to be altered in this class to show points earned.
 	public static Text winText;
+	public static Text dieText;
 	/**
 	 * Stops the timer, can be started with startTimer.
 	 */ 	
@@ -133,10 +148,10 @@ public class UIAdapter : MonoBehaviour
             }
 			playerVal -= hp;
 			PlayerVal = playerVal;
-
-			if (playerDead()) {
-				die ();
-			}
+		}
+		if (playerDead())
+		{
+			die();
 		}
 		return PlayerVal;
 	}
@@ -197,6 +212,12 @@ public class UIAdapter : MonoBehaviour
 	 * Calls up the death screen, and stops the timer.
 	 */ 
 	public static void die(){
+		if (!idiot) {
+			dieText.text = "You died...";
+		} else {
+			dieText.text = "It's not like we didn't warn you...";
+			Idiot = false;
+		}
         deathAnimator.gameObject.SetActive(true);
 		deathAnimator.SetTrigger ("Death");
 		stopTimer ();
@@ -241,7 +262,9 @@ public class UIAdapter : MonoBehaviour
 		}
 
 		////Add player score to leaderboard
+		//TODO prompt user for team name
 		String player = "JJ";
+
 		addScoreToLeader(player, (timer.getTime()[0] * 60) + (timer.getTime()[1]));
 
 		winText.text = "You Win!" +
@@ -288,27 +311,13 @@ public class UIAdapter : MonoBehaviour
 //		boss.enabled = ui;
 	}
 
-    /**
-     * Turns the red orb indicator on or off
-     */
-    public static void setRedOrbActive(bool active) {
-        redOrbIndicator.SetActive(active);
-    }
-
-    /**
-     * Turns the green orb indicator on or off
-     */
-    public static void setGreenOrbActive(bool active) {
-       greenOrbIndicator.SetActive(active);
-    }
-
-    private static void addScoreToLeader(String name, int time){
+	private static void addScoreToLeader(String name, int time){
 		BossController.Difficulty difficulty = GameData.get<BossController.Difficulty>("difficulty");
 		if(difficulty == default(BossController.Difficulty)) {
 			difficulty = BossController.Difficulty.Easy;
 		}
 
-		List<LeaderboardEntry> leaders = GameData.get<List<LeaderboardEntry>>("1" + difficulty); //stands for level number and difficulty
+		List<LeaderboardEntry> leaders = GameData.get<List<LeaderboardEntry>>(currentLevel.ToString() + difficulty); //stands for level number and difficulty
 
 		// current player's score
 		LeaderboardEntry entry = new LeaderboardEntry(name, time);
@@ -325,6 +334,20 @@ public class UIAdapter : MonoBehaviour
 			leaders.RemoveAt(6);
 		}
 
-		GameData.put("1" + difficulty, leaders);
+		GameData.put(currentLevel.ToString() + difficulty, leaders);
+	}
+
+	/**
+	 * Turns the red orb indicator on or off
+	 */
+	public static void setRedOrbActive(bool active){
+		redOrbIndicator.SetActive (active);
+	}
+
+	/**
+	 * Turns the green orb indicator on or off
+	 */
+	public static void setGreenOrbActive(bool active){
+		greenOrbIndicator.SetActive (active);
 	}
 }

@@ -44,7 +44,9 @@ public class ShieldControlStationBehaviour : ControlStationBehaviour {
 	public override void onAttachPlayer(UnityEngine.GameObject player){
 		print (cooldownRemaining);
 		if (cooldownRemaining <= 0) {
+			//make the user fail the achievement
 			AchievementController.hasUsedShield = true;
+
 			shieldDurationRemaining = shieldDuration;
 			SoundAdapter.playShieldUpSound ();
 			shield.SetActive (true);

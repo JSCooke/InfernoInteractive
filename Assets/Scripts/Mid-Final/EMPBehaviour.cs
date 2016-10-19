@@ -42,11 +42,11 @@ public class EMPBehaviour : Damageable
 
         if (!win)
         {
-            Debug.Log("not win yet");
+            //Debug.Log("not win yet");
             //increase
             if (timer >= healthIncreamentTime)
             {
-                Debug.Log("im in here !!!");
+                //Debug.Log("im in here !!!");
                 increaseHealth();
                 timer = 0f;
             }

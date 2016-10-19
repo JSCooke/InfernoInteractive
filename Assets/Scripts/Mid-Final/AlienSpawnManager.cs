@@ -11,8 +11,6 @@ public class AlienSpawnManager : MonoBehaviour {
     float med = 15f;
     float hard = 10f;
 
-
-
     // Use this for initialization
     void Start () {
         spawnPoints = GetComponentsInChildren<Transform>();
@@ -43,10 +41,10 @@ public class AlienSpawnManager : MonoBehaviour {
     void Spawn()
     {
         //if tank health is not 0 then
-
-        int spawnPointIndex = Random.RandomRange(0, spawnPoints.Length);
-        
-        Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+        int spawnPointIndex = Random.Range(0, spawnPoints.Length);
+        Vector3 spawnPoint = spawnPoints[spawnPointIndex].position;
+        print(spawnPoint);
+        Instantiate(enemy, spawnPoint, spawnPoints[spawnPointIndex].rotation);
     }
 
     public void stopSpawn()

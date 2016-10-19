@@ -6,7 +6,6 @@ public class TankCloner : MonoBehaviour {
 	public bool isClone = false;
 	//Make a clone of the tank which doesn't move to use for simulating in-tank physics
 	void Start () {
-		print (isClone);
 		if (!isClone) {
             //If this is the original, make a copy
             UnityEngine.GameObject clone = (UnityEngine.GameObject)Instantiate(gameObject, new Vector3(this.transform.position.x, -1000, this.transform.position.z), new Quaternion());
@@ -17,8 +16,8 @@ public class TankCloner : MonoBehaviour {
 			foreach (MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>()) {
 				renderer.enabled = false;
 			}
-			//set rigidbody to kinematic and disable movement
-			GetComponent<Rigidbody> ().isKinematic = true;
+            //set rigidbody to kinematic and disable movement
+            GetComponent<Rigidbody> ().isKinematic = true;
 			//GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeAll;
 
 			//Add proxy movement controllers to the 'real' players so that their movement is determined by the clone ones instead

@@ -21,4 +21,8 @@ public class SettingsMenu : MonoBehaviour {
             GameData.put("difficulty", BossController.Difficulty.Hard);
         }
     }
+	void Start() {
+		GameObject.Find ("musicSlider").GetComponent<UnityEngine.UI.Slider> ().value = SoundAdapter.musicVolume;
+		GameObject.Find ("soundSlider").GetComponent<UnityEngine.UI.Slider> ().value = SoundAdapter.soundVolume;
+	}
 }

@@ -32,9 +32,14 @@ public class SoundAdapter : MonoBehaviour
 
 	public AudioSource BGM;
 	public static AudioSource myBGM;
+	public AudioClip discoBGM;
+	public static AudioClip myDiscoBGM;
+	public AudioClip normalBGM;
+	public static AudioClip myNormalBGM;
+
 	public static float soundVolume = 1;
 
-	public float Soundvolume {
+	public float SoundVolume {
 		get {
 			return soundVolume;
 		}
@@ -69,8 +74,12 @@ public class SoundAdapter : MonoBehaviour
 		myPopSound = popSound;
 		myFrogSound = frogSound;
 		myFrogAttackSound = frogAttackSound;
+		myNormalBGM = normalBGM;
+		myDiscoBGM = discoBGM;
 
 		myBGM = BGM;
+		myBGM.clip = myNormalBGM;
+		myBGM.Play ();
 	}
 
 	void Update()
@@ -118,6 +127,14 @@ public class SoundAdapter : MonoBehaviour
 		AudioSource.PlayClipAtPoint (myFrogAttackSound, Camera.main.transform.position, soundVolume);
 	}
 
+	public static void startDisco(){
+		myBGM.clip = myDiscoBGM;
+		myBGM.Play ();
+	}
+	public static void endDisco(){
+		myBGM.clip = myNormalBGM;
+		myBGM.Play ();
+	}
 	/*
 	 * TO CREATE A NEW SOUND:
 	 * 

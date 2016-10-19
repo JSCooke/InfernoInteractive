@@ -32,7 +32,7 @@ public class tipsGenerator : MonoBehaviour {
         tips[6] = "Once the shield is activated, you do not need to stay in the station";
         tips[7] = "Each boss has a different set of strengths and weaknesses";
         tips[8] = "Change they way you fight by customising your tank in the Customise menu";
-		tips[9] = "Move slowly in areas you aren't familiar with"
+		tips[9] = "Move slowly in areas you aren't familiar with";
 
         return tips;
     }

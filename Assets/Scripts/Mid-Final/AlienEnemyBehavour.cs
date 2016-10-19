@@ -21,7 +21,7 @@ public class AlienEnemyBehavour : Damageable{
     
     CapsuleCollider capsuleCollider;
 
-    float timeBetweenAttacks = 0.5f;
+    public float timeBetweenAttacks;
     float timer;
 
     float speed;
@@ -140,6 +140,11 @@ public class AlienEnemyBehavour : Damageable{
         }
 
         timer += Time.deltaTime;
+
+        transform.rotation = Quaternion.Euler(new Vector3(
+            0,
+            transform.rotation.eulerAngles.y,
+            0));
     }
 
     void OnTriggerEnter(Collider other)

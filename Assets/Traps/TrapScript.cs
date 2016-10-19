@@ -45,7 +45,7 @@ public class TrapScript : MonoBehaviour {
 		Vector3 triggerPos = this.transform.position;
 		Vector3 triggerDirection = this.transform.forward;
 		Quaternion triggerRotation = this.transform.rotation;
-		float spawnDistance = 10;
+		float spawnDistance = 15;
 		Vector3 spawnPos = triggerPos + triggerDirection*spawnDistance;
 		spawnPos.y = 0;
 		int i = 0;

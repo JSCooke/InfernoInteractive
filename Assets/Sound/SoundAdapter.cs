@@ -29,6 +29,8 @@ public class SoundAdapter : MonoBehaviour
 	public static AudioClip myFrogSound;
 	public AudioClip frogAttackSound;
 	public static AudioClip myFrogAttackSound;
+	public AudioClip collectSound;
+	public static AudioClip myCollectSound;
 
 	public AudioSource BGM;
 	public static AudioSource myBGM;
@@ -76,6 +78,7 @@ public class SoundAdapter : MonoBehaviour
 		myFrogAttackSound = frogAttackSound;
 		myNormalBGM = normalBGM;
 		myDiscoBGM = discoBGM;
+		myCollectSound = collectSound;
 
 		myBGM = BGM;
 		myBGM.clip = myNormalBGM;
@@ -125,6 +128,9 @@ public class SoundAdapter : MonoBehaviour
 	}
 	public static void playFrogAttackSound(){
 		AudioSource.PlayClipAtPoint (myFrogAttackSound, Camera.main.transform.position, soundVolume);
+	}
+	public static void playCollectSound(){
+		AudioSource.PlayClipAtPoint (myCollectSound, Camera.main.transform.position, soundVolume);
 	}
 
 	public static void startDisco(){

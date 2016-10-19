@@ -37,6 +37,10 @@ public class AlienSpawnManager : MonoBehaviour {
 	
 	}
 
+    void OnTriggerEnter(Collider other) {
+        print(other);
+    }
+
     void Spawn()
     {
         //if tank health is not 0 then

@@ -93,7 +93,7 @@ public class AlienEnemyBehavour : Damageable{
 
         //move to emp
         float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, emp.position, step);
+        //transform.position = Vector3.MoveTowards(transform.position, emp.position, step);
         //navagation.SetDestination(emp.position);
 
     }
@@ -158,16 +158,17 @@ public class AlienEnemyBehavour : Damageable{
     }
 
 
-    void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "EMP")
-        {
-            if (timer >= timeBetweenAttacks && currentHealth > 0)
-            {
-                Attack(false);
-            }
-        }
-    }
+    //public override void OnTriggerStay(Collider other)
+    //{
+    //    base.OnTriggerStay(other);
+    //    if (other.gameObject.tag == "EMP")
+    //    {
+    //        if (timer >= timeBetweenAttacks && currentHealth > 0)
+    //        {
+    //            Attack(false);
+    //        }
+    //    }
+    //}
 
     void Attack(bool isPlayer)
     {
@@ -177,17 +178,12 @@ public class AlienEnemyBehavour : Damageable{
 
             if(isPlayer)
             {
-                //tank.takeDamage(attackDamage);
                 Instantiate(projectile, transform.position, transform.rotation);
             }
             else
             {
-                //empBehave.takeDamage(1);
                 Instantiate(projectile, transform.position, transform.rotation);
             }
-
         }
-
     }
-
 }

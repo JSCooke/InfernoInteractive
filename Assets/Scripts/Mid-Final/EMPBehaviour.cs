@@ -57,7 +57,7 @@ public class EMPBehaviour : Damageable
         }
     }
 
-    public void takeDamage(float amount)
+    public override void takeDamage(float amount)
     {
         
         //damage

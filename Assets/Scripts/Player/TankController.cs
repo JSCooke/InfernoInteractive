@@ -69,6 +69,7 @@ public class TankController : MonoBehaviour {
                 takeDamage(collider.gameObject.GetComponent<BossController>().bodyDamage);
             } else {
                 takeDamage(collider.gameObject.GetComponent<ProjectileController>().damage);
+                Destroy(collider.gameObject);
             }
         }
         
@@ -87,7 +88,7 @@ public class TankController : MonoBehaviour {
             return;
         }
 
-        if (damage < 1) {
+        if (damage <= 1) {
             if (damage > currentHealth) {
                 damage = currentHealth;
             }

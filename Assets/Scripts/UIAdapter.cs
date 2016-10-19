@@ -9,21 +9,22 @@ using UnityEngine.SceneManagement;
 public class UIAdapter : MonoBehaviour
 {
 	public int level;
+
+	//All UI components are passed in as fields
 	public BarScript playerBar, bossBar;
 	public Image bar1, bar2;
 	public Image playerPic, bossPic;
 	public Animator deathA, winA, achievementA, playerA, bossA;
 	public TimerScript tempTimer;
-
 	public Image tempAchievementImageBox;
 	public Text tempAchievementTextBox;
-
-	//This needs to be altered in this class to show points earned.
 	public Text tempWinText, tempDieText;
+	public GameObject tempLeaderboardCanvas;
 
 	public GameObject tempRedOrbIndicator, tempGreenOrbIndicator;
 	public static GameObject redOrbIndicator, greenOrbIndicator;
 
+	//Used for when the player dies to an extremely obvoius trap
 	private static bool idiot = false;
 
 	public static bool Idiot {
@@ -37,36 +38,6 @@ public class UIAdapter : MonoBehaviour
 
 	//ben made this
 	public static Image topBar,bottomBar;
-
-	void Start() {
-		currentLevel = level;
-		topBar = bar1;
-		bottomBar = bar2;
-		playerPortrait = playerPic;
-		bossPortrait = bossPic;
-		player = playerBar;
-		boss = bossBar;
-		achievementAnimator = achievementA;
-		winAnimator = winA;
-		deathAnimator = deathA;
-		playerDamageAnimator = playerA;
-		bossDamageAnimator = bossA;
-		achievementImageBox = tempAchievementImageBox;
-		achievementTextBox = tempAchievementTextBox;
-		winText = tempWinText;
-		dieText = tempDieText;
-		timer = tempTimer;
-
-        playerVal = 100;
-        bossVal = 100;
-
-		redOrbIndicator = tempRedOrbIndicator;
-		greenOrbIndicator = tempGreenOrbIndicator;
-	}
-
-	void Update() {
-		//print(boss);
-	}
 
 	public static int currentLevel;
 	public static Image playerPortrait;
@@ -105,9 +76,44 @@ public class UIAdapter : MonoBehaviour
 	public static Image achievementImageBox;
 	public static Text achievementTextBox;
 
+	public static Canvas leaderboardCanvas;
+
 	//This needs to be altered in this class to show points earned.
 	public static Text winText;
 	public static Text dieText;
+
+
+	void Start() {
+		//Assign all variables passed in to the static variables.
+		currentLevel = level;
+		topBar = bar1;
+		bottomBar = bar2;
+		playerPortrait = playerPic;
+		bossPortrait = bossPic;
+		player = playerBar;
+		boss = bossBar;
+		achievementAnimator = achievementA;
+		winAnimator = winA;
+		deathAnimator = deathA;
+		playerDamageAnimator = playerA;
+		bossDamageAnimator = bossA;
+		achievementImageBox = tempAchievementImageBox;
+		achievementTextBox = tempAchievementTextBox;
+		winText = tempWinText;
+		dieText = tempDieText;
+		timer = tempTimer;
+		leaderboardCanvas = tempLeaderboardCanvas.GetComponent<Canvas>();
+
+		playerVal = 100;
+		bossVal = 100;
+
+		redOrbIndicator = tempRedOrbIndicator;
+		greenOrbIndicator = tempGreenOrbIndicator;
+	}
+
+	void Update() {
+		//print(boss);
+	}
 	/**
 	 * Stops the timer, can be started with startTimer.
 	 */ 	
@@ -240,10 +246,11 @@ public class UIAdapter : MonoBehaviour
 
 		////Add player score to leaderboard
 		//TODO prompt user for team name
-		String player = "JJ";
-
-		addScoreToLeader(player, (timer.getTime()[0] * 60) + (timer.getTime()[1]));
-
+		if (isHighScore((timer.getTime()[0] * 60) + (timer.getTime()[1])))
+		{
+			UIAdapter.leaderboardCanvas.enabled = true;
+		}
+		
 		winText.text = "You Win!" +
 			"\nYou finished the level in: " + timer.getTime() [0].ToString("D2") + ":" +timer.getTime() [1].ToString("D2") +
 			"\nThis earns you: " + Convert.ToString (points) + " points!";	//This would be fun if we animate it ticking up, as the time ticks down.
@@ -288,7 +295,9 @@ public class UIAdapter : MonoBehaviour
 //		boss.enabled = ui;
 	}
 
-	private static void addScoreToLeader(String name, int time){
+	public static void addScoreToLeader(String name){
+		int time = (timer.getTime()[0] * 60) + (timer.getTime()[1]);
+
 		BossController.Difficulty difficulty = GameData.get<BossController.Difficulty>("difficulty");
 		if(difficulty == default(BossController.Difficulty)) {
 			difficulty = BossController.Difficulty.Easy;
@@ -312,6 +321,23 @@ public class UIAdapter : MonoBehaviour
 		}
 
 		GameData.put(currentLevel.ToString() + difficulty, leaders);
+	}
+
+	private static Boolean isHighScore(int time)
+	{
+		BossController.Difficulty difficulty = GameData.get<BossController.Difficulty>("difficulty");
+		if (difficulty == default(BossController.Difficulty))
+		{
+			difficulty = BossController.Difficulty.Easy;
+		}
+
+		List<LeaderboardEntry> leaders = GameData.get<List<LeaderboardEntry>>(currentLevel.ToString() + difficulty); //stands for level number and difficulty
+
+		if ((leaders == null) || (leaders.Count < 6) || (time < leaders[leaders.Count - 1].time))
+		{
+			return true;
+		}
+		return false;
 	}
 
 	/**

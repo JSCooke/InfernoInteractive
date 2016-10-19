@@ -22,6 +22,7 @@ public class SettingsMenu : MonoBehaviour {
         }
     }
 	void Start() {
+		//Adjust sound adapter values based on the slider.
 		GameObject.Find ("musicSlider").GetComponent<UnityEngine.UI.Slider> ().value = SoundAdapter.musicVolume;
 		GameObject.Find ("soundSlider").GetComponent<UnityEngine.UI.Slider> ().value = SoundAdapter.soundVolume;
 	}

@@ -19,6 +19,7 @@ public class UIAdapter : MonoBehaviour
 	public Image tempAchievementImageBox;
 	public Text tempAchievementTextBox;
 	public Text tempWinText, tempDieText;
+	public GameObject tempLeaderboardCanvas;
 
 	public GameObject tempRedOrbIndicator, tempGreenOrbIndicator;
 	public static GameObject redOrbIndicator, greenOrbIndicator;
@@ -75,6 +76,8 @@ public class UIAdapter : MonoBehaviour
 	public static Image achievementImageBox;
 	public static Text achievementTextBox;
 
+	public static Canvas leaderboardCanvas;
+
 	//This needs to be altered in this class to show points earned.
 	public static Text winText;
 	public static Text dieText;
@@ -99,6 +102,7 @@ public class UIAdapter : MonoBehaviour
 		winText = tempWinText;
 		dieText = tempDieText;
 		timer = tempTimer;
+		leaderboardCanvas = tempLeaderboardCanvas.GetComponent<Canvas>();
 
 		playerVal = 100;
 		bossVal = 100;
@@ -242,10 +246,11 @@ public class UIAdapter : MonoBehaviour
 
 		////Add player score to leaderboard
 		//TODO prompt user for team name
-		String player = "JJ";
-
-		addScoreToLeader(player, (timer.getTime()[0] * 60) + (timer.getTime()[1]));
-
+		if (isHighScore((timer.getTime()[0] * 60) + (timer.getTime()[1])))
+		{
+			UIAdapter.leaderboardCanvas.enabled = true;
+		}
+		
 		winText.text = "You Win!" +
 			"\nYou finished the level in: " + timer.getTime() [0].ToString("D2") + ":" +timer.getTime() [1].ToString("D2") +
 			"\nThis earns you: " + Convert.ToString (points) + " points!";	//This would be fun if we animate it ticking up, as the time ticks down.
@@ -290,7 +295,9 @@ public class UIAdapter : MonoBehaviour
 //		boss.enabled = ui;
 	}
 
-	private static void addScoreToLeader(String name, int time){
+	public static void addScoreToLeader(String name){
+		int time = (timer.getTime()[0] * 60) + (timer.getTime()[1]);
+
 		BossController.Difficulty difficulty = GameData.get<BossController.Difficulty>("difficulty");
 		if(difficulty == default(BossController.Difficulty)) {
 			difficulty = BossController.Difficulty.Easy;
@@ -314,6 +321,23 @@ public class UIAdapter : MonoBehaviour
 		}
 
 		GameData.put(currentLevel.ToString() + difficulty, leaders);
+	}
+
+	private static Boolean isHighScore(int time)
+	{
+		BossController.Difficulty difficulty = GameData.get<BossController.Difficulty>("difficulty");
+		if (difficulty == default(BossController.Difficulty))
+		{
+			difficulty = BossController.Difficulty.Easy;
+		}
+
+		List<LeaderboardEntry> leaders = GameData.get<List<LeaderboardEntry>>(currentLevel.ToString() + difficulty); //stands for level number and difficulty
+
+		if ((leaders == null) || (leaders.Count < 6) || (time < leaders[leaders.Count - 1].time))
+		{
+			return true;
+		}
+		return false;
 	}
 
 	/**

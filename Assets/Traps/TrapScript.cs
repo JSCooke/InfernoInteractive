@@ -15,6 +15,7 @@ public class TrapScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//Set difficulty
 		if (GameData.get<BossController.Difficulty> ("difficulty") != default(BossController.Difficulty)) {
 			difficulty = GameData.get<BossController.Difficulty> ("difficulty");
 			switch (difficulty) {
@@ -33,13 +34,9 @@ public class TrapScript : MonoBehaviour {
 		}
 
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
 	void OnTriggerEnter (Collider other) {
+		//Create the trap when the player hits the trigger
 		if (other.gameObject.tag == "Player") {
 			spawnTrap ();
 			Destroy (this.gameObject);
@@ -47,18 +44,19 @@ public class TrapScript : MonoBehaviour {
 	}
 		
 	void spawnTrap(){
+		//Spawn traps in front of the trigger
 		Vector3 triggerPos = this.transform.position;
 		Vector3 triggerDirection = this.transform.forward;
 		Quaternion triggerRotation = this.transform.rotation;
 		float spawnDistance = 15;
 		Vector3 spawnPos = triggerPos + triggerDirection*spawnDistance;
-		spawnPos.y = 0;
+		spawnPos.y = 0; //Traps need to spwan on the ground
 		int i = 0;
 		switch (trapType)
 		{
 		case "bomb":
 			spawnPos.y = 0.5f; //Bombs will fall through floor without this
-			while (i < spawnNum) {
+			while (i < spawnNum) {	//Spawn more based on difficulty
 				Instantiate (bomb, spawnPos, triggerRotation);
 				spawnPos.x += Random.Range (-2, 2);
 				spawnPos.z += Random.Range (-2, 2);
@@ -71,10 +69,10 @@ public class TrapScript : MonoBehaviour {
 			Instantiate (text, spawnPos, Quaternion.LookRotation(new Vector3(0, -1, 0),new Vector3(0, 1, 0)));
 			break;
 		case "shroom":
-			while (i < spawnNum){
+			while (i < spawnNum){	//Spawn more based on difficulty
 				spawnPos = triggerPos + triggerDirection*spawnDistance*2;
 				spawnPos.y = 0;
-				if (i % 2 == 0) {
+				if (i % 2 == 0) {	//Prevent mushrooms appearing a long way from thier intended location
 					spawnPos.x += Random.Range (i, 10);
 					spawnPos.z += Random.Range (i, 10);
 				} else {
@@ -87,7 +85,7 @@ public class TrapScript : MonoBehaviour {
 			break;
 		case "confetti":
 			spawnPos.y = 0.5f; //Bombs will fall through floor without this
-			while (i < spawnNum){
+			while (i < spawnNum){	//Spawn more based on difficulty
 				Instantiate (confetti, spawnPos, triggerRotation);
 				spawnPos.x += Random.Range (-2, 2);
 				spawnPos.z += Random.Range (-2, 2);
@@ -95,7 +93,7 @@ public class TrapScript : MonoBehaviour {
 			}
 			break;
 		case "minion":
-			while (i < spawnNum){
+			while (i < spawnNum){	//Spawn more based on difficulty
 				Instantiate (minion, spawnPos, triggerRotation);
 				spawnPos.x += Random.Range (-2, 2);
 				spawnPos.z += Random.Range (-2, 2);

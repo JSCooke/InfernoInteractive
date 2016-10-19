@@ -9,8 +9,8 @@ public class SE_Control_CS : MonoBehaviour {
 	[ Tooltip ( "Maximum Speed of this tank." ) ] public float maxSpeed = 7.0f ;
 	[ Tooltip ( "Minimum Pitch" ) ] public float minPitch = 1.0f ;
 	[ Tooltip ( "Maximum Pitch" ) ] public float maxPitch = 2.0f ;
-	[ Tooltip ( "Minimum Volume" ) ] public float minVolume = 0.1f ;
-	[ Tooltip ( "Maximum Volume" ) ] public float maxVolume = 0.3f ;
+	[ Tooltip ( "Minimum Volume" ) ] public float minVolume = 0f ;
+	[ Tooltip ( "Maximum Volume" ) ] public float maxVolume = SoundAdapter.soundVolume;
 	[ Tooltip ( "Reference Right wheel." ) ] public Rigidbody rightReferenceWheel ;
 	[ Tooltip ( "Reference Left wheel." ) ]public Rigidbody leftReferenceWheel ;
 
@@ -47,6 +47,6 @@ public class SE_Control_CS : MonoBehaviour {
 		float targetRate = ( leftVelocity + rightVelocity ) / 2.0f / maxSpeed ;
 		currentRate = Mathf.MoveTowards ( currentRate , targetRate , 0.02f ) ;
 		thisAudioSource.pitch = Mathf.Lerp ( minPitch , maxPitch , currentRate ) ;
-		thisAudioSource.volume = Mathf.Lerp ( minVolume , maxVolume , currentRate ) ;
+		thisAudioSource.volume = Mathf.Lerp ( 0 , SoundAdapter.soundVolume, currentRate ) ;
 	}
 }

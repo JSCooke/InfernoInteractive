@@ -106,13 +106,19 @@ public class SoundAdapter : MonoBehaviour
 		AudioSource.PlayClipAtPoint (myShieldDownSound, Camera.main.transform.position, soundVolume);
 	}
 	public static void playTankHitSound (){
-		AudioSource.PlayClipAtPoint (myTankHitSound, Camera.main.transform.position, soundVolume);
+		if (myTankHitSound != null)
+		{
+			AudioSource.PlayClipAtPoint(myTankHitSound, Camera.main.transform.position, soundVolume);
+		}
 	}
 	public static void playBombSound(){
 		AudioSource.PlayClipAtPoint(myBombSound, Camera.main.transform.position, soundVolume);
 	}
 	public static void playBossHitSound (){
-		AudioSource.PlayClipAtPoint (myBossHitSound, Camera.main.transform.position, soundVolume);
+		if (myBossHitSound != null)
+		{
+			AudioSource.PlayClipAtPoint(myBossHitSound, Camera.main.transform.position, soundVolume);
+		}
 	}
 	public static void playConfettiSound (){
 		AudioSource.PlayClipAtPoint (myConfettiSound, Camera.main.transform.position, soundVolume);

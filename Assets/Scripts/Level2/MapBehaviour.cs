@@ -26,7 +26,7 @@ public class MapBehaviour : MonoBehaviour {
 	public void OnTriggerEnter(Collider other)
 	{
 		// TODO "pick up" map
-
+		SoundAdapter.playCollectSound();
 		if (id == 3 && other.gameObject.tag == "Player") // last map to collect and it's actually the player hitting it
 		{
 			UIAdapter.win();

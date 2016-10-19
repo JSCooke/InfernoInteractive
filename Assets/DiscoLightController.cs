@@ -19,7 +19,7 @@ public class DiscoLightController : MonoBehaviour {
 	}
 
 	public void startDisco(){
-
+		SoundAdapter.altTrack ();
 		for (int i = 0; i < numOfLights; i++) {
 			Vector3 temp = transform.position;
 			temp.y = 20f;
@@ -28,6 +28,7 @@ public class DiscoLightController : MonoBehaviour {
 	}
 
 	public void endDisco(){
+		SoundAdapter.normalTrack ();
 		foreach (GameObject lights in GameObject.FindGameObjectsWithTag("DiscoLight")) {
 			Destroy (lights);
 		}

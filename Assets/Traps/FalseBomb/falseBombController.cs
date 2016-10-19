@@ -40,6 +40,7 @@ public class falseBombController : MonoBehaviour {
 
 	void explode(){
 		//Play some explosion and some sound.
+		SoundAdapter.playConfettiSound();
 		Instantiate(explosion,gameObject.transform.position, new Quaternion(0,0,0,0));
 		Destroy (this.gameObject);
 	}

@@ -87,6 +87,7 @@ public class MinionBehaviour : Damageable
 		string collidedTag = collision.gameObject.tag;
 		if (collidedTag == "Player")
 		{
+			SoundAdapter.playFrogAttackSound ();
 			player.GetComponent<TankController>().takeDamage(bodyDamage);
 			movingTowards = false;
 			movingAway = true;
@@ -145,7 +146,7 @@ public class MinionBehaviour : Damageable
 
 	public override void takeDamage(int damage)
 	{
-
+		SoundAdapter.playFrogSound ();
 		if (damage > currentHealth)
 		{
 			damage = currentHealth;

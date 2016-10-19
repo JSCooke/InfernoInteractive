@@ -899,7 +899,7 @@ public class QuickCutsceneController : MonoBehaviour {
 	{
 		AudioSource[] aSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
 		foreach (AudioSource aSource in aSources) {
-			aSource.pitch = Time.timeScale;
+			aSource.pitch = 1;
 		}
 	}
 

@@ -255,6 +255,7 @@ public class KingSlimeBehaviour : Spawnable {
         spawnPoint.y += 2;
         Instantiate(this, spawnPoint, Quaternion.identity);
         Instantiate(boundary, new Vector3(0,0,340),Quaternion.identity);
+		SoundAdapter.altTrack ();
 		UIAdapter.setBossUI (true);
     }
 

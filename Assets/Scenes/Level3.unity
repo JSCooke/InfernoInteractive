@@ -6543,6 +6543,9 @@ MonoBehaviour:
   bar2: {fileID: 1363427942}
   playerPic: {fileID: 1934087531}
   bossPic: {fileID: 2087487584}
+  playerAngry: {fileID: 0}
+  playerNeutral: {fileID: 0}
+  playerHappy: {fileID: 0}
   deathA: {fileID: 1395979216}
   winA: {fileID: 9557682, guid: b0107f5c46f784ad89d51606b936eb23, type: 2}
   achievementA: {fileID: 9512890, guid: 8f88e23c44661440c9f57b02358ce5f4, type: 2}
@@ -9584,6 +9587,60 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 330237973}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &337268852
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1846196927}
+    m_Modifications:
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 88.68595
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -322.72293
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -506.49622
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.6755902
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7372774
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11415726, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: bossHitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a93a5d359ecd74fe3ad12dd68b68e4d0, type: 3}
+    - target: {fileID: 11415726, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: normalBGM
+      value: 
+      objectReference: {fileID: 8300000, guid: 7cbd60e6f5b3eb04c9902dd681b02c96, type: 3}
+    - target: {fileID: 11415726, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: altBGM
+      value: 
+      objectReference: {fileID: 8300000, guid: ce93b23614c577845b7cb9487248f75f, type: 3}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &344405812
 GameObject:
   m_ObjectHideFlags: 0
@@ -14808,7 +14865,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 407324, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 161.6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 407324, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_LocalRotation.x
@@ -20818,6 +20875,10 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!4 &761349217 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+  m_PrefabInternal: {fileID: 337268852}
 --- !u!1 &764395702
 GameObject:
   m_ObjectHideFlags: 0
@@ -36548,11 +36609,17 @@ MonoBehaviour:
   achievement1: Cannon King
   achievement2: Untouchable!
   achievement3: Speedrunner
+  achievement7: Puzzle Master
+  achievement8: Who needs a shield
+  achievement9: Traps? what traps?
   achievement4: Orb Master
   achievement1Sprite: {fileID: 0}
   achievement2Sprite: {fileID: 0}
   achievement3Sprite: {fileID: 0}
   achievement4Sprite: {fileID: 0}
+  achievement7Sprite: {fileID: 0}
+  achievement8Sprite: {fileID: 0}
+  achievement9Sprite: {fileID: 0}
 --- !u!4 &1542593501
 Transform:
   m_ObjectHideFlags: 0
@@ -42252,7 +42319,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 25, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 85, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 761349217}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &1846196928

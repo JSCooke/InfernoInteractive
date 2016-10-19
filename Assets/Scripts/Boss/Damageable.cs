@@ -14,7 +14,7 @@ public class Damageable : MonoBehaviour {
         currentHealth = maxHealth;
     }
 
-    void OnTriggerStay(Collider collider){
+    public virtual void OnTriggerStay(Collider collider){
 		if (collider.gameObject.tag == damagedBy) {
             takeDamage (collider.gameObject.GetComponent<ProjectileController>().damage);
 			Destroy (collider.gameObject);

@@ -76,6 +76,8 @@ public class ddrController : MonoBehaviour {
 
 			//start the disco
 			discoLightController.startDisco();
+			//reset the shield checking achievement
+			AchievementController.hasUsedShield = false;
 		}
 
 	}

@@ -23,7 +23,7 @@ public class forestGuardScript : Damageable {
 
 	void Update () 
 	{
-		if (backpedal) {
+		if (backpedal) {	//Move away from the player if too close - stops them getting stuck above/below the tank
 			transform.rotation = Quaternion.LookRotation(transform.position - player.transform.position);
 			Vector3 transPos = transform.position + transform.forward*MoveSpeed*Time.deltaTime;
 			transPos.y = 0;
@@ -34,7 +34,7 @@ public class forestGuardScript : Damageable {
 			return;
 		}
 		transform.LookAt(player.transform);
-
+		//If far away, move towards the player
 		if(Vector3.Distance(transform.position,player.transform.position) >= MinDist){
 
 			Vector3 transPos = transform.position + transform.forward*MoveSpeed*Time.deltaTime;
@@ -43,6 +43,7 @@ public class forestGuardScript : Damageable {
 			guardAnimator.SetBool ("Moving", true);
 
 		}
+		//If close to player, attack.
 		if(Vector3.Distance(transform.position,player.transform.position) <= MaxDist)
 		{
 			guardAnimator.SetTrigger("Attack");

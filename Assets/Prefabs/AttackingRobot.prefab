@@ -878,6 +878,7 @@ MonoBehaviour:
   unkillable: 0
   attackRange: 20
   projectile: {fileID: 142270, guid: 8cb5157a9d705d84d81df161cd4c3832, type: 2}
+  timeBetweenAttacks: 2
 --- !u!114 &11495068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -903,7 +904,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1
-  m_Height: 9
+  m_Height: 15
   m_Direction: 1
   m_Center: {x: 0, y: 2, z: 0}
 --- !u!143 &14360186

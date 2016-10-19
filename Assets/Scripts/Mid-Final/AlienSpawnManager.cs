@@ -3,7 +3,6 @@ using System.Collections;
 
 public class AlienSpawnManager : MonoBehaviour {
 
-    public TankController tank;
     public GameObject enemy;
     public float spawnTime = 5f;
     public Transform[] spawnPoints;

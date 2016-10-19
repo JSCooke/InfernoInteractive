@@ -4,7 +4,7 @@ using System.Collections;
 public class Shield : MonoBehaviour {
 
     public bool destroyed;
-    private float healAmount = -1f;
+    private float healAmount = -0.02f;
     public bool[] hitCount = new bool[2];
     public string damagedBy;
 

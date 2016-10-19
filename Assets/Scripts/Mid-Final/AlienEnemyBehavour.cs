@@ -45,7 +45,6 @@ public class AlienEnemyBehavour : Damageable{
     // Use this for initialization
     void Start () {
 
-        //TODO fix so that get proper player
 
         if (player == null)
         {

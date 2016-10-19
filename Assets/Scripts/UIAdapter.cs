@@ -227,16 +227,6 @@ public class UIAdapter : MonoBehaviour
 				achievementsToDisplay.Add ("Speedrunner");
 			}
 		}
-			
-		//Achievements for level 2
-		if (SceneManager.GetActiveScene ().buildIndex == 3) {
-			//update all achievement values
-			if (!AchievementController.hasUsedShield) {
-				AchievementController.updateAchievement ("Who needs a shield", !AchievementController.hasUsedShield);
-				achievementsToDisplay.Add ("Who needs a shield");
-			}
-
-		}
 
         //cycle through all achievements youved gained
         AchievementController.displayAchievements(achievementsToDisplay);

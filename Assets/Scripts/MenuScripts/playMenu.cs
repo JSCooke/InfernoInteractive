@@ -45,7 +45,5 @@ public class playMenu : MonoBehaviour {
         descriptions[0] = "Defeat Slime Boss";
         descriptions[1] = "Navigate the Maze";
         descriptions[2] = "Chase away the Invaders";
-        descriptions[3] = "[To Remove]";
-        descriptions[4] = "[To Remove]";
     }
 }

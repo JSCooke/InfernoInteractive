@@ -21,7 +21,7 @@ public class tipsGenerator : MonoBehaviour {
     string[] GenerateTips()
     {
 		//Tips shown in the game
-        string[] tips = new string[9];
+        string[] tips = new string[10];
 
         tips[0] = "Difficulty levels can be changed in the settings menu ";
         tips[1] = "Objectives can be viewed in the pause menu";

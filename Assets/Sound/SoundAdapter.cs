@@ -11,8 +11,8 @@ public class SoundAdapter : MonoBehaviour
 	public static AudioClip myShieldUpSound;
 	public AudioClip shieldDownSound;
 	public static AudioClip myShieldDownSound;
-	public AudioClip bossSquishSound;
-	public static AudioClip myBossSquishSound;
+	public AudioClip bossHitSound;
+	public static AudioClip myBossHitSound;
 	public AudioClip tankHitSound;
 	public static AudioClip myTankHitSound;
 	public AudioClip bombSound;
@@ -31,11 +31,13 @@ public class SoundAdapter : MonoBehaviour
 	public static AudioClip myFrogAttackSound;
 	public AudioClip collectSound;
 	public static AudioClip myCollectSound;
+	public AudioClip fenceSound;
+	public static AudioClip myFenceSound;
 
 	public AudioSource BGM;
 	public static AudioSource myBGM;
-	public AudioClip discoBGM;
-	public static AudioClip myDiscoBGM;
+	public AudioClip altBGM;
+	public static AudioClip myAltBGM;
 	public AudioClip normalBGM;
 	public static AudioClip myNormalBGM;
 
@@ -67,7 +69,7 @@ public class SoundAdapter : MonoBehaviour
 		myMachineGunMk1Sound = machineGunMk1Sound;
 		myShieldUpSound = shieldUpSound;
 		myShieldDownSound = shieldDownSound;
-		myBossSquishSound = bossSquishSound;
+		myBossHitSound = bossHitSound;
 		myTankHitSound = tankHitSound;
 		myBombSound = bombSound;
 		myConfettiSound = confettiSound;
@@ -77,8 +79,9 @@ public class SoundAdapter : MonoBehaviour
 		myFrogSound = frogSound;
 		myFrogAttackSound = frogAttackSound;
 		myNormalBGM = normalBGM;
-		myDiscoBGM = discoBGM;
+		myAltBGM = altBGM;
 		myCollectSound = collectSound;
+		myFenceSound = fenceSound;
 
 		myBGM = BGM;
 		myBGM.clip = myNormalBGM;
@@ -108,8 +111,8 @@ public class SoundAdapter : MonoBehaviour
 	public static void playBombSound(){
 		AudioSource.PlayClipAtPoint(myBombSound, Camera.main.transform.position, soundVolume);
 	}
-	public static void playBossSquishSound (){
-		AudioSource.PlayClipAtPoint (myBossSquishSound, Camera.main.transform.position, soundVolume);
+	public static void playBossHitSound (){
+		AudioSource.PlayClipAtPoint (myBossHitSound, Camera.main.transform.position, soundVolume);
 	}
 	public static void playConfettiSound (){
 		AudioSource.PlayClipAtPoint (myConfettiSound, Camera.main.transform.position, soundVolume);
@@ -132,12 +135,15 @@ public class SoundAdapter : MonoBehaviour
 	public static void playCollectSound(){
 		AudioSource.PlayClipAtPoint (myCollectSound, Camera.main.transform.position, soundVolume);
 	}
+	public static void playFenceSound(){
+		AudioSource.PlayClipAtPoint (myFenceSound, Camera.main.transform.position, soundVolume);
+	}
 
-	public static void startDisco(){
-		myBGM.clip = myDiscoBGM;
+	public static void altTrack(){
+		myBGM.clip = myAltBGM;
 		myBGM.Play ();
 	}
-	public static void endDisco(){
+	public static void normalTrack(){
 		myBGM.clip = myNormalBGM;
 		myBGM.Play ();
 	}

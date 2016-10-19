@@ -13,7 +13,7 @@ public class ActivateNewDialog : MonoBehaviour {
 
     public DialogTextManager dialogManager;
 
-    public bool destroyWhenActivated = true;
+    public bool destroyWhenActivated;
 
     public bool stopGameMovements;
 
@@ -37,7 +37,7 @@ public class ActivateNewDialog : MonoBehaviour {
 	
 	}
 
-    void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
         if(other.name == "Tank")
         {

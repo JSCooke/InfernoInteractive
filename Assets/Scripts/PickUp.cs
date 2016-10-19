@@ -5,6 +5,7 @@ public class PickUp : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") {
+			SoundAdapter.playCollectSound ();
             Destroy(this.gameObject);
         }
        

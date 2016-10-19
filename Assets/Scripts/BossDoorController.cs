@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class BossDoorController : MonoBehaviour {
     public bool open;
-    public GameObject leftDoor, rightDoor;
+    public GameObject leftDoor, rightDoor, dialogObjectiveZone;
     public float speed, openOffset;
     public bool redOrb = false;
     public bool greenOrb = false;
@@ -52,7 +52,9 @@ public class BossDoorController : MonoBehaviour {
                 AchievementController.displayAchievements(achievementsToDisplay);
                 achievementUnlocked = true;
             }
-            
+
+            //Enable the dialog and objective zone
+            dialogObjectiveZone.SetActive(true);
         }
     }
 }

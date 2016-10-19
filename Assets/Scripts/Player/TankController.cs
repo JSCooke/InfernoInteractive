@@ -64,10 +64,15 @@ public class TankController : MonoBehaviour {
     }
 
     void OnTriggerStay(Collider collider) {
-        
         if (collider.gameObject.tag == damagedBy) {
-            takeDamage(collider.gameObject.GetComponent<BossController>().bodyDamage);
+            if (collider.gameObject.GetComponent<BossController>() != null) {
+                takeDamage(collider.gameObject.GetComponent<BossController>().bodyDamage);
+            } else {
+                takeDamage(collider.gameObject.GetComponent<ProjectileController>().damage);
+                Destroy(collider.gameObject);
+            }
         }
+        
     }
 
     public void takeDamage(float damage) {
@@ -78,16 +83,18 @@ public class TankController : MonoBehaviour {
 
         if (shield.gameObject.activeSelf) {
             lastDamageTime = Time.fixedTime;
+			SoundAdapter.playShieldDownSound ();
             shield.SetActive(false);
             return;
         }
 
-        if (damage < 1) {
+        if (damage <= 1) {
             if (damage > currentHealth) {
                 damage = currentHealth;
             }
 
             currentHealth = currentHealth - damage;
+			SoundAdapter.playTankHitSound ();
             UIAdapter.damagePlayer((float)damage, maxHealth);
 
         } else {

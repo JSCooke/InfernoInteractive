@@ -36,9 +36,19 @@ public class BossController : Damageable {
         }
         
         currentHealth = currentHealth - damage;
+
+        float tempHealth = currentHealth;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
-        UIAdapter.damageBoss((float)damage, totalHealth);
+        if (currentHealth == tempHealth) {
+            UIAdapter.damageBoss((float)damage, maxHealth);
+        }
+
+        //if (currentHealth >= maxHealth ) {
+        //    return;
+        //} else {
+        //    UIAdapter.damageBoss((float)damage, maxHealth);
+        //}
 
 		if (Mathf.Floor (currentHealth) <= 0) {
 			dead = true;

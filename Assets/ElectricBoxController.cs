@@ -16,6 +16,7 @@ public class ElectricBoxController : MonoBehaviour {
 	void Update () {
         if (hitTime != 0 && Time.frameCount > hitTime + explosionDelay) {
             Instantiate(explosion, transform.position, Quaternion.Euler(0,0,0));
+			SoundAdapter.playConfettiSound ();
             Destroy(gameObject);
         }
 	}

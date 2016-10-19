@@ -26,15 +26,31 @@ public class MapBehaviour : MonoBehaviour {
 	public void OnTriggerEnter(Collider other)
 	{
 		// TODO "pick up" map
-		SoundAdapter.playCollectSound();
+
+	
 		if (id == 3 && other.gameObject.tag == "Player") // last map to collect and it's actually the player hitting it
 		{
 			UIAdapter.win();
+
+			//check for the trap master achievement
+			List<string> achievementsToDisplay = new List<string> ();
+			if (!AchievementController.hasBeenDamagedByTraps) {
+				AchievementController.updateAchievement ("Traps? what traps?", !AchievementController.hasBeenDamagedByTraps);
+				achievementsToDisplay.Add ("Traps? what traps?");
+
+				//cycle through all achievements youved gained
+				AchievementController.displayAchievements(achievementsToDisplay);
+
+			}
+			SoundAdapter.playCollectSound();
+			Destroy(this.gameObject);
+
 		}
 
 		//see if the box acheivement is achieved
 		if (id == 1 && other.gameObject.tag == "Player") {
-			Destroy(this.gameObject);
+
+			//check for the puzzle achievement
 			List<string> achievementsToDisplay = new List<string> ();
 			if (!AchievementController.hasFailedBoxStage) {
 				AchievementController.updateAchievement ("Puzzle Master", !AchievementController.hasFailedBoxStage);
@@ -44,6 +60,8 @@ public class MapBehaviour : MonoBehaviour {
 				AchievementController.displayAchievements(achievementsToDisplay);
 
 			}
+			SoundAdapter.playCollectSound();
+			Destroy(this.gameObject);
 
 		}
 	}

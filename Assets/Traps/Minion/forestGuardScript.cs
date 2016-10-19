@@ -48,6 +48,7 @@ public class forestGuardScript : Damageable {
 			guardAnimator.SetTrigger("Attack");
 			SoundAdapter.playSwordSound ();
 			player.GetComponent<TankController> ().takeDamage (1);
+			AchievementController.hasBeenDamagedByTraps = true;
 			backpedal = true;
 		} 
 	}

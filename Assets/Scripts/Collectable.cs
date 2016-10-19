@@ -13,12 +13,14 @@ public class Collectable : MonoBehaviour {
 
             if(colourOfOrb.Equals("red"))
             {
-                ((BossDoorController)door.GetComponent(typeof(BossDoorController))).redOrb = true;
+				SoundAdapter.playCollectSound ();
+				((BossDoorController)door.GetComponent(typeof(BossDoorController))).redOrb = true;
                 UIAdapter.setRedOrbActive(true);
                 redLight.SetActive(false);
             }
             else
             {
+				SoundAdapter.playCollectSound ();
                 ((BossDoorController)door.GetComponent(typeof(BossDoorController))).greenOrb = true;
                 UIAdapter.setGreenOrbActive(true);
                 greenLight.SetActive(false);

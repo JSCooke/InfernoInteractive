@@ -42,7 +42,10 @@ public class BossDoorController : MonoBehaviour {
     {
         if(other.tag == "Player" && redOrb && greenOrb)
         {
-            open = true;
+			if (!open) {
+				SoundAdapter.playSwordSound ();
+			}
+			open = true;
 
             //Check if player met achievement criteria
             if (!AchievementController.hasBeenDamagedL3 && !achievementUnlocked) {

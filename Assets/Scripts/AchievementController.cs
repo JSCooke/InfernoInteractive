@@ -27,6 +27,7 @@ public class AchievementController : MonoBehaviour {
 	//level 2
 	public static bool hasFailedBoxStage = false;
 	public static bool hasUsedShield = false;
+	public static bool hasBeenDamagedByTraps = false;
 
 	//level 3
 	public static bool hasBeenDamagedL3 = false;

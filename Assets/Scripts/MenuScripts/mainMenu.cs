@@ -24,6 +24,9 @@ public class mainMenu : MonoBehaviour {
     
 	public Canvas settingsMenu;
 	public Button settingsButton;
+
+    public new GameObject camera;
+    private MeshRenderer[] menus;
     
 
     void Start () {
@@ -38,6 +41,8 @@ public class mainMenu : MonoBehaviour {
         quitButton = quitButton.GetComponent<Button>();
         quitMenu.enabled = false;
 
+        //Start menu is the in the second index
+        menus = camera.GetComponentsInChildren<MeshRenderer>();
 
 		//turn off all other canvas
 		playMenu.enabled = false;
@@ -66,7 +71,9 @@ public class mainMenu : MonoBehaviour {
     public void CustomisePress()
     {
 		customiseMenu.enabled = true;
-		this.GetComponent<Canvas> ().enabled = false;
+        this.GetComponent<Canvas> ().enabled = false;
+        menus[0].enabled = true;
+        menus[1].enabled = false;
     }
 
     //Use this when "Achievements" is pressed

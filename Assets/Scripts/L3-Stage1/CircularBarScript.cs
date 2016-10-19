@@ -40,6 +40,7 @@ public class CircularBarScript : MonoBehaviour {
 
             robot.SetActive(false);
             //Explosion animation
+			SoundAdapter.playBombSound();
             Instantiate(deathAnimation, robot.transform.position, robot.transform.rotation);
             for(int i = 0; i < 10; i++) {
                 Instantiate(deathAnimation, robot.transform.position + (Random.RandomRange(-20, 20) * Vector3.forward) + (Random.RandomRange(-20, 20) * Vector3.left), robot.transform.rotation);

@@ -9,21 +9,21 @@ using UnityEngine.SceneManagement;
 public class UIAdapter : MonoBehaviour
 {
 	public int level;
+
+	//All UI components are passed in as fields
 	public BarScript playerBar, bossBar;
 	public Image bar1, bar2;
 	public Image playerPic, bossPic;
 	public Animator deathA, winA, achievementA, playerA, bossA;
 	public TimerScript tempTimer;
-
 	public Image tempAchievementImageBox;
 	public Text tempAchievementTextBox;
-
-	//This needs to be altered in this class to show points earned.
 	public Text tempWinText, tempDieText;
 
 	public GameObject tempRedOrbIndicator, tempGreenOrbIndicator;
 	public static GameObject redOrbIndicator, greenOrbIndicator;
 
+	//Used for when the player dies to an extremely obvoius trap
 	private static bool idiot = false;
 
 	public static bool Idiot {
@@ -37,36 +37,6 @@ public class UIAdapter : MonoBehaviour
 
 	//ben made this
 	public static Image topBar,bottomBar;
-
-	void Start() {
-		currentLevel = level;
-		topBar = bar1;
-		bottomBar = bar2;
-		playerPortrait = playerPic;
-		bossPortrait = bossPic;
-		player = playerBar;
-		boss = bossBar;
-		achievementAnimator = achievementA;
-		winAnimator = winA;
-		deathAnimator = deathA;
-		playerDamageAnimator = playerA;
-		bossDamageAnimator = bossA;
-		achievementImageBox = tempAchievementImageBox;
-		achievementTextBox = tempAchievementTextBox;
-		winText = tempWinText;
-		dieText = tempDieText;
-		timer = tempTimer;
-
-        playerVal = 100;
-        bossVal = 100;
-
-		redOrbIndicator = tempRedOrbIndicator;
-		greenOrbIndicator = tempGreenOrbIndicator;
-	}
-
-	void Update() {
-		//print(boss);
-	}
 
 	public static int currentLevel;
 	public static Image playerPortrait;
@@ -108,6 +78,38 @@ public class UIAdapter : MonoBehaviour
 	//This needs to be altered in this class to show points earned.
 	public static Text winText;
 	public static Text dieText;
+
+
+	void Start() {
+		//Assign all variables passed in to the static variables.
+		currentLevel = level;
+		topBar = bar1;
+		bottomBar = bar2;
+		playerPortrait = playerPic;
+		bossPortrait = bossPic;
+		player = playerBar;
+		boss = bossBar;
+		achievementAnimator = achievementA;
+		winAnimator = winA;
+		deathAnimator = deathA;
+		playerDamageAnimator = playerA;
+		bossDamageAnimator = bossA;
+		achievementImageBox = tempAchievementImageBox;
+		achievementTextBox = tempAchievementTextBox;
+		winText = tempWinText;
+		dieText = tempDieText;
+		timer = tempTimer;
+
+		playerVal = 100;
+		bossVal = 100;
+
+		redOrbIndicator = tempRedOrbIndicator;
+		greenOrbIndicator = tempGreenOrbIndicator;
+	}
+
+	void Update() {
+		//print(boss);
+	}
 	/**
 	 * Stops the timer, can be started with startTimer.
 	 */ 	

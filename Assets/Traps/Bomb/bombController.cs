@@ -35,7 +35,7 @@ public class bombController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider collider){
 		if (collider.gameObject.tag == damagedBy) {
-			Vector3 front = collider.transform.forward*10000;
+			Vector3 front = collider.transform.forward*1000;
 			rb.AddForce(front);
 			Destroy (collider.gameObject);
 		}
@@ -43,11 +43,11 @@ public class bombController : MonoBehaviour {
 
 	void explode(){
 		//Play some explosion and some sound and hurt the player
-		SoundAdapter.playBombSound();
-		Instantiate(explosion,gameObject.transform.position, new Quaternion(0,0,0,0));
+		SoundAdapter.playBombSound ();
+		Instantiate (explosion, gameObject.transform.position, new Quaternion (0, 0, 0, 0));
 		Collider[] inRange = Physics.OverlapSphere (gameObject.transform.position, 10f);
-		//This goes through walls - call it a design feature; trees don't stop bombs.
-		int i = 0;
+		//This goes through walls; trees don't stop bombs.
+		int i	 = 0;
 		while (i<inRange.Length){
 			if (inRange [i].gameObject.tag == "Player") {
 				tank = inRange [i].gameObject.GetComponent<TankController> ();

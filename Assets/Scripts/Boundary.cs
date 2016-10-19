@@ -11,5 +11,4 @@ public class Boundary : MonoBehaviour {
             Destroy(other.gameObject);
         }   
     }
-
 }

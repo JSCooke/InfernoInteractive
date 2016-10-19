@@ -43,6 +43,7 @@ public class bombController : MonoBehaviour {
 
 	void explode(){
 		//Play some explosion and some sound and hurt the player
+		SoundAdapter.playBombSound();
 		Instantiate(explosion,gameObject.transform.position, new Quaternion(0,0,0,0));
 		Collider[] inRange = Physics.OverlapSphere (gameObject.transform.position, 10f);
 		//This goes through walls - call it a design feature; trees don't stop bombs.

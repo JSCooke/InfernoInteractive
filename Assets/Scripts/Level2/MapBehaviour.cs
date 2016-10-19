@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MapBehaviour : MonoBehaviour {
 
@@ -25,10 +26,25 @@ public class MapBehaviour : MonoBehaviour {
 	public void OnTriggerEnter(Collider other)
 	{
 		// TODO "pick up" map
-
+		SoundAdapter.playCollectSound();
 		if (id == 3 && other.gameObject.tag == "Player") // last map to collect and it's actually the player hitting it
 		{
 			UIAdapter.win();
+		}
+
+		//see if the box acheivement is achieved
+		if (id == 1 && other.gameObject.tag == "Player") {
+			Destroy(this.gameObject);
+			List<string> achievementsToDisplay = new List<string> ();
+			if (!AchievementController.hasFailedBoxStage) {
+				AchievementController.updateAchievement ("Puzzle Master", !AchievementController.hasFailedBoxStage);
+				achievementsToDisplay.Add ("Puzzle Master");
+			
+				//cycle through all achievements youved gained
+				AchievementController.displayAchievements(achievementsToDisplay);
+
+			}
+
 		}
 	}
 

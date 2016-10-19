@@ -19,24 +19,26 @@ public class MovementStationBehaviour : ControlStationBehaviour {
         wheelController.speed = 0;
         wheelController.rotation = 0;
 
-        if (up) {
-            wheelController.speed += 1;
-        }
-        if (down) {
-            wheelController.speed -= 1;
-        }
+		if (tankController.canMove) {
+			if (up) {
+				wheelController.speed += 1;
+			}
+			if (down) {
+				wheelController.speed -= 1;
+			}
 
-        if (left) {
-            wheelController.rotation -= 1;
+			if (left) {
+				wheelController.rotation -= 1;
+			}
+			if (right) {
+				wheelController.rotation += 1;
+			}
+			if (!left && !right) {
+				tank.GetComponent<Rigidbody> ().angularVelocity = new Vector3 (
+					tank.GetComponent<Rigidbody> ().angularVelocity.x,
+					tank.GetComponent<Rigidbody> ().angularVelocity.y / wheelController.turnDampFactor,
+					tank.GetComponent<Rigidbody> ().angularVelocity.z);
+			}
 		}
-		if (right) {
-            wheelController.rotation += 1;
-		}
-        if(!left && !right) {
-            tank.GetComponent<Rigidbody>().angularVelocity = new Vector3(
-                tank.GetComponent<Rigidbody>().angularVelocity.x,
-                tank.GetComponent<Rigidbody>().angularVelocity.y/wheelController.turnDampFactor,
-                tank.GetComponent<Rigidbody>().angularVelocity.z);
-        }
 	}
 }

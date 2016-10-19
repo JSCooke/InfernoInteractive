@@ -31,7 +31,7 @@ public class ddrSpawnerController : MonoBehaviour {
 			difficulty = 2;
 		}
 
-			print (difficulty);
+			print ("time based difficulty is :" +difficulty);
 		cooldown = Random.Range (cooldown-1, cooldown + (difficulty*5));
 
     }

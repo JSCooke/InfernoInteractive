@@ -31,10 +31,8 @@ public class ddrObjectBehaviour : MonoBehaviour
 			takeDamage (other.GetComponent<Collider>().gameObject.GetComponent<ProjectileController>().damage);
 			Destroy (other.GetComponent<Collider>().gameObject);
 		}
-
-		print ("we in this yo");
+			
 		if (other.gameObject.tag == "Player") {
-			print ("yo Player");
 
 			//Damage Player + shake screen
 			tank = GameObject.Find ("Tank");

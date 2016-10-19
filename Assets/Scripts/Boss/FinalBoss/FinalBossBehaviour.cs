@@ -71,7 +71,7 @@ public class FinalBossBehaviour : Spawnable {
     }
 
     void fightPlayer() {
-        print(newAction);
+
         if (newAction) {
 
             newAction = false;

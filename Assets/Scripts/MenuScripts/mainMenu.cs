@@ -6,6 +6,7 @@ using System.Collections;
 
 public class mainMenu : MonoBehaviour {
 
+	//List of all main menu buttons and their corresponding canvases
     public Canvas quitMenu;
 	public Button quitButton;
 
@@ -25,10 +26,9 @@ public class mainMenu : MonoBehaviour {
 	public Button settingsButton;
     
 
-    // Use this for initialization
     void Start () {
        
-
+		//Disable quit menu and get components
         quitMenu = quitMenu.GetComponent<Canvas>();
         playButton = playButton.GetComponent<Button>();
         leaderboardButton = leaderboardButton.GetComponent<Button>();

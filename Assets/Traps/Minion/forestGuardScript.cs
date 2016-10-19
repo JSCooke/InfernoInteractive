@@ -18,6 +18,7 @@ public class forestGuardScript : Damageable {
 		maxHealth = 50;
 		currentHealth = maxHealth;
 		damagedBy = "PlayerProjectile";
+		SoundAdapter.playMinionSound ();
 	}
 
 	void Update () 
@@ -45,6 +46,7 @@ public class forestGuardScript : Damageable {
 		if(Vector3.Distance(transform.position,player.transform.position) <= MaxDist)
 		{
 			guardAnimator.SetTrigger("Attack");
+			SoundAdapter.playSwordSound ();
 			player.GetComponent<TankController> ().takeDamage (1);
 			backpedal = true;
 		} 
@@ -52,6 +54,7 @@ public class forestGuardScript : Damageable {
 
 	public override void takeDamage(int damage){
 		currentHealth -= damage;
+		SoundAdapter.playMinionSound ();
 		if (currentHealth <= 0) {
 			Instantiate(explosion, this.gameObject.transform.position, new Quaternion(0,0,0,0));
 			Destroy(gameObject);

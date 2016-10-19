@@ -38,8 +38,8 @@ public class TrapScript : MonoBehaviour {
 	void OnTriggerEnter (Collider other) {
 		//Create the trap when the player hits the trigger
 		if (other.gameObject.tag == "Player") {
-			spawnTrap ();
 			Destroy (this.gameObject);
+			spawnTrap ();
 		}
 	}
 		

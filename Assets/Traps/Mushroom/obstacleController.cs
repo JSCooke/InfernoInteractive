@@ -15,7 +15,7 @@ public class obstacleController : Damageable {
 		Instantiate (explosion, this.gameObject.transform.position, new Quaternion (0, 0, 0, 0));
 	}
 
-	public override void takeDamage(int damage){
+	public override void takeDamage(float damage){
 		currentHealth -= damage;
 		if (currentHealth <= 0) {
 			SoundAdapter.playPopSound ();

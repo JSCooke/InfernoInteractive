@@ -13865,6 +13865,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 910523074}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &910649172 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+  m_PrefabInternal: {fileID: 2028077402}
 --- !u!1 &912123877 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 152962, guid: 7eae877e010a90b459c4d9f474e9762e, type: 2}
@@ -20848,11 +20852,17 @@ MonoBehaviour:
   achievement1: Cannon King
   achievement2: Untouchable!
   achievement3: Speedrunner
+  achievement7: Puzzle Master
+  achievement8: Who needs a shield
+  achievement9: Traps? what traps?
   achievement4: Orb Master
   achievement1Sprite: {fileID: 0}
   achievement2Sprite: {fileID: 0}
   achievement3Sprite: {fileID: 0}
   achievement4Sprite: {fileID: 0}
+  achievement7Sprite: {fileID: 0}
+  achievement8Sprite: {fileID: 0}
+  achievement9Sprite: {fileID: 0}
 --- !u!4 &1542593501
 Transform:
   m_ObjectHideFlags: 0
@@ -23485,7 +23495,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 25, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 85, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 910649172}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!114 &1846196928
@@ -25734,6 +25745,64 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2027952031}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &2028077402
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1846196927}
+    m_Modifications:
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 88.68595
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -322.72293
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -506.49622
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.6755902
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7372774
+      objectReference: {fileID: 0}
+    - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11415726, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: altBGM
+      value: 
+      objectReference: {fileID: 8300000, guid: ce93b23614c577845b7cb9487248f75f, type: 3}
+    - target: {fileID: 11415726, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: normalBGM
+      value: 
+      objectReference: {fileID: 8300000, guid: 7cbd60e6f5b3eb04c9902dd681b02c96, type: 3}
+    - target: {fileID: 11415726, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: bossHitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a93a5d359ecd74fe3ad12dd68b68e4d0, type: 3}
+    - target: {fileID: 8265018, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: BypassReverbZones
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &2039651440
 GameObject:
   m_ObjectHideFlags: 0

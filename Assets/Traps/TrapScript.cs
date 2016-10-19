@@ -11,22 +11,27 @@ public class TrapScript : MonoBehaviour {
 	public string trapType;
 	private int spawnNum;
 
-	public BossController.Difficulty difficultyTest;
+	private BossController.Difficulty difficulty;
 
 	// Use this for initialization
 	void Start () {
-		//difficultyTest = GameData.get<BossController.Difficulty> ("difficulty");
-		switch (difficultyTest) {
-		case BossController.Difficulty.Easy:
+		if (GameData.get<BossController.Difficulty> ("difficulty") != default(BossController.Difficulty)) {
+			difficulty = GameData.get<BossController.Difficulty> ("difficulty");
+			switch (difficulty) {
+			case BossController.Difficulty.Easy:
+				spawnNum = 1;
+				break;
+			case BossController.Difficulty.Medium:
+				spawnNum = 3;
+				break;
+			case BossController.Difficulty.Hard:
+				spawnNum = 5;
+				break;
+			}
+		} else {
 			spawnNum = 1;
-			break;
-		case BossController.Difficulty.Medium:
-			spawnNum = 3;
-			break;
-		case BossController.Difficulty.Hard:
-			spawnNum = 5;
-			break;
 		}
+
 	}
 	
 	// Update is called once per frame

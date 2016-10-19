@@ -23,7 +23,7 @@ public class tipsGenerator : MonoBehaviour {
 		//Tips shown in the game
         string[] tips = new string[9];
 
-        tips[0] = "Difficulty levels can be changed in he settings menu ";
+        tips[0] = "Difficulty levels can be changed in the settings menu ";
         tips[1] = "Objectives can be viewed in the pause menu";
         tips[2] = "Gaining achievements will unlock weapon upgradess";
         tips[3] = "The front facing gun is strong, but you need the driver's help to aim it";
@@ -32,6 +32,7 @@ public class tipsGenerator : MonoBehaviour {
         tips[6] = "Once the shield is activated, you do not need to stay in the station";
         tips[7] = "Each boss has a different set of strengths and weaknesses";
         tips[8] = "Change they way you fight by customising your tank in the Customise menu";
+		tips[9] = "Move slowly in areas you aren't familiar with"
 
         return tips;
     }

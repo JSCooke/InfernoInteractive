@@ -53,6 +53,7 @@ public class bombController : MonoBehaviour {
 				tank = inRange [i].gameObject.GetComponent<TankController> ();
 				if (tank != null) {
 					tank.takeDamage (15);
+					AchievementController.hasBeenDamagedByTraps = true;
 				}
 			}
 			i = i + 1;

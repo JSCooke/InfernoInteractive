@@ -21,11 +21,7 @@ public class SlamController : StateMachineBehaviour {
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 
-        GameObject player = enemy.GetComponent<FinalBossBehaviour>().player;
-        Vector3 spawnPoint = enemy.transform.position;
-        spawnPoint.z -= 6;
-        GameObject shockWaveInstantiated = (GameObject)Instantiate(shockWave, spawnPoint, Quaternion.identity);
-
+        GameObject shockWaveInstantiated = (GameObject)Instantiate(shockWave, enemy.transform.position, Quaternion.identity);
         shockWaveInstantiated.GetComponent<Slam>().target = playerPosition;
         shockWaveInstantiated.transform.LookAt(playerPosition);
         shockWaveInstantiated.transform.RotateAround(shockWaveInstantiated.transform.position, shockWaveInstantiated.transform.up, 180f);

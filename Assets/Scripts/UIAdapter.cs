@@ -14,6 +14,9 @@ public class UIAdapter : MonoBehaviour
 	public BarScript playerBar, bossBar;
 	public Image bar1, bar2;
 	public Image playerPic, bossPic;
+    public Sprite playerAngry;
+    public Sprite playerNeutral;
+    public Sprite playerHappy;
 	public Animator deathA, winA, achievementA, playerA, bossA;
 	public TimerScript tempTimer;
 	public Image tempAchievementImageBox;
@@ -50,8 +53,11 @@ public class UIAdapter : MonoBehaviour
 			player.Value = playerVal;
 		}
 	}
+    public static Sprite statPlayerAngry;
+    public static Sprite statPlayerNeutral;
+    public static Sprite statPlayerHappy;
 
-	public static Image bossPortrait;
+    public static Image bossPortrait;
 	public static BarScript boss;
 	public static float bossVal = 100;
 	public static float BossVal {
@@ -86,6 +92,7 @@ public class UIAdapter : MonoBehaviour
 		topBar = bar1;
 		bottomBar = bar2;
 		playerPortrait = playerPic;
+        playerPortrait.sprite = playerHappy;
 		bossPortrait = bossPic;
 		player = playerBar;
 		boss = bossBar;
@@ -105,6 +112,10 @@ public class UIAdapter : MonoBehaviour
 
 		redOrbIndicator = tempRedOrbIndicator;
 		greenOrbIndicator = tempGreenOrbIndicator;
+
+        statPlayerAngry = playerAngry;
+        statPlayerHappy = playerHappy;
+        statPlayerNeutral = playerNeutral;
 	}
 
 	void Update() {
@@ -138,6 +149,17 @@ public class UIAdapter : MonoBehaviour
 			playerDamageAnimator.SetTrigger ("playerDamage");
 			playerVal -= hp;
 			PlayerVal = playerVal;
+            if(((float)33.0 < playerVal) && (playerVal < (float)66.0))
+            {
+                playerPortrait.sprite = statPlayerNeutral;
+                Debug.LogError(playerVal);
+            }
+            else if(playerVal < 33.0)
+            {
+                playerPortrait.sprite = statPlayerAngry;
+                Debug.LogError(playerVal+"MOREEE");
+
+            }
 		}
 		if (playerDead())
 		{

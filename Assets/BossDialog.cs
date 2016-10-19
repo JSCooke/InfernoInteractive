@@ -6,6 +6,7 @@ public class BossDialog : ActivateNewDialog {
     public TankController tank;
     public int spawnLine;
     public bool done = false;
+    public bool activated = false;
 	// Use this for initialization
 	void Start () {
         bossAnimator.gameObject.SetActive(false);
@@ -13,6 +14,9 @@ public class BossDialog : ActivateNewDialog {
 	
 	// Update is called once per frame
 	void Update () {
+        if (!activated) {
+            return;
+        }
         if (dialogManager.currentLineNumber == spawnLine) {
             bossAnimator.gameObject.SetActive(true);
         }
@@ -29,10 +33,17 @@ public class BossDialog : ActivateNewDialog {
 	}
 
     public override void OnTriggerEnter(Collider other) {
+        if (done || other.name != "Tank") {
+            return;
+        }
+        activated = true;
         base.OnTriggerEnter(other);
         //Stop the tank and disable players
         tank.GetComponent<Rigidbody>().velocity = Vector3.zero;
         tank.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        tank.gameObject.GetComponentInChildren<Wheel_Control_CS>().speed = 0;
+        tank.gameObject.GetComponentInChildren<Wheel_Control_CS>().rotation = 0;
+
         foreach (PlayerController player in Object.FindObjectsOfType<PlayerController>()) {
             player.enabled = false;
         }

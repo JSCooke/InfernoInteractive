@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ddrSystemStartBehaviour : Spawnable {
 
@@ -48,6 +49,14 @@ public class ddrSystemStartBehaviour : Spawnable {
 				ddrEnemies = GameObject.FindGameObjectsWithTag("ddrEnemy");
 				foreach (GameObject ddrEnemy in ddrEnemies) {
 					Destroy (ddrEnemy);
+				}
+
+				if (difficulty == 4 && !AchievementController.hasUsedShield) {
+					List<string> achievementsToDisplay = new List<string> ();
+					AchievementController.updateAchievement ("Who needs a shield", true);
+					achievementsToDisplay.Add ("Who needs a shield");
+					//cycle through all achievements youved gained
+					AchievementController.displayAchievements(achievementsToDisplay);
 				}
 
 				//TODO UNLOCK MOVEMENT AND START CUTSCENE

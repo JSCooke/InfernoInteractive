@@ -6,19 +6,43 @@ using UnityEngine.UI;
 
 public class AchievementController : MonoBehaviour {
 
-
+	//level1
     public string achievement1 = "Cannon King";
     public string achievement2 = "Untouchable!";
     public string achievement3 = "Speedrunner";
+    
+	//level2
+	public string achievement7 = "Puzzle Master";
+	public string achievement8 = "Who needs a shield";
+	public string achievement9 = "Traps? what traps?";
 
-	public static bool hasBeenDamaged = false;
-	public static bool hasUsedOnlyCannon = true;
+	//level3
+	public string achievement4 = "Orb Master";
+
+
+    //level 1
+    public static bool hasBeenDamaged = false;
+    public static bool hasUsedOnlyCannon = true;
+
+	//level 2
+	public static bool hasFailedBoxStage = false;
+	public static bool hasUsedShield = false;
+	public static bool hasBeenDamagedByTraps = false;
+
+	//level 3
+	public static bool hasBeenDamagedL3 = false;
 
     public Sprite achievement1Sprite;
     public Sprite achievement2Sprite;
     public Sprite achievement3Sprite;
 
-	//static dictionary that stores the state of achievements, true if the achievement has been achieved
+    public Sprite achievement4Sprite;
+
+	public Sprite achievement7Sprite;
+	public Sprite achievement8Sprite;
+	public Sprite achievement9Sprite;
+
+    //static dictionary that stores the state of achievements, true if the achievement has been achieved
     public static Dictionary<string, bool> achievements = new Dictionary<string, bool>();
 	//static dictionary that maps strings to the corresponding achievement sprite
     public static Dictionary<string, Sprite> achievementSprites = new Dictionary<string, Sprite>();
@@ -31,10 +55,12 @@ public class AchievementController : MonoBehaviour {
     void Start () {
         hasBeenDamaged = false;
         hasUsedOnlyCannon = true;
+		hasFailedBoxStage = false;
+		hasUsedShield = false;
 
         instance = this;
 
-		//setup hashmap with achievements being fale
+		//setup hashmap with achievements being false
 		if (!achievements.ContainsKey (achievement1)) {
 			achievements.Add(achievement1, false);
 		}
@@ -44,9 +70,29 @@ public class AchievementController : MonoBehaviour {
 		if (!achievements.ContainsKey (achievement3)) {
 			achievements.Add(achievement3, false);
 		}
+        
 
-		//set up string to sprite mapping
-		if (!achievementSprites.ContainsKey (achievement1)) {
+		if (!achievements.ContainsKey(achievement4))
+        {
+            achievements.Add(achievement4, false);
+        }
+
+
+		if (!achievements.ContainsKey(achievement7))
+		{
+			achievements.Add(achievement7, false);
+		}
+		if (!achievements.ContainsKey(achievement8))
+		{
+			achievements.Add(achievement8, false);
+		}
+		if (!achievements.ContainsKey(achievement9))
+		{
+			achievements.Add(achievement9, false);
+		}
+
+        //set up string to sprite mapping
+        if (!achievementSprites.ContainsKey (achievement1)) {
 			achievementSprites.Add(achievement1, achievement1Sprite);
 		}
 		if (!achievementSprites.ContainsKey (achievement2)) {
@@ -55,7 +101,26 @@ public class AchievementController : MonoBehaviour {
 		if (!achievementSprites.ContainsKey (achievement3)) {
 			achievementSprites.Add(achievement3, achievement3Sprite);
 		}
-       
+        
+
+		if (!achievementSprites.ContainsKey(achievement4))
+        {
+            achievementSprites.Add(achievement4, achievement4Sprite);
+        }
+
+
+		if (!achievementSprites.ContainsKey(achievement7))
+		{
+			achievementSprites.Add(achievement7, achievement7Sprite);
+		}
+		if (!achievementSprites.ContainsKey(achievement8))
+		{
+			achievementSprites.Add(achievement8, achievement8Sprite);
+		}
+		if (!achievementSprites.ContainsKey(achievement9))
+		{
+			achievementSprites.Add(achievement9, achievement9Sprite);
+		}
     }
 	
 	// Update is called once per frame

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 using System.Threading;
+using UnityEngine.SceneManagement;
 
 public class UIAdapter : MonoBehaviour
 {
@@ -205,26 +206,27 @@ public class UIAdapter : MonoBehaviour
 	public static void win(){
         winAnimator.gameObject.SetActive(true);
 		stopTimer ();
+		List<string> achievementsToDisplay = new List<string> ();
 
-        List<string> achievementsToDisplay = new List<string>();
-		//update all achievement values
-		if (!AchievementController.hasBeenDamaged) {
-			AchievementController.updateAchievement("Untouchable!", !AchievementController.hasBeenDamaged);
-            achievementsToDisplay.Add("Untouchable!");
+		//Achievements for level 1
+		if (SceneManager.GetActiveScene ().buildIndex == 2) {
+			//update all achievement values
+			if (!AchievementController.hasBeenDamaged) {
+				AchievementController.updateAchievement ("Untouchable!", !AchievementController.hasBeenDamaged);
+				achievementsToDisplay.Add ("Untouchable!");
+			}
+			if (AchievementController.hasUsedOnlyCannon) {
+				AchievementController.updateAchievement ("Cannon King", AchievementController.hasUsedOnlyCannon);
+				achievementsToDisplay.Add ("Cannon King");
+
+			}
+			//if the time taken to win is longer than 70 you fail the achievement
+			if ((timer.getTime () [0] * 60) + (timer.getTime () [1]) < 70) {
+				//fail the speed runner achievement
+				AchievementController.updateAchievement ("Speedrunner", true);
+				achievementsToDisplay.Add ("Speedrunner");
+			}
 		}
-		if (AchievementController.hasUsedOnlyCannon) {
-			AchievementController.updateAchievement("Cannon King", AchievementController.hasUsedOnlyCannon);
-            achievementsToDisplay.Add("Cannon King");
-
-        }
-        //if the time taken to win is longer than 70 you fail the achievement
-        if ((timer.getTime()[0] * 60) + (timer.getTime()[1]) < 70)
-        {
-            //fail the speed runner achievement
-            AchievementController.updateAchievement("Speedrunner", true);
-            achievementsToDisplay.Add("Speedrunner");
-        }
-			
 
         //cycle through all achievements youved gained
         AchievementController.displayAchievements(achievementsToDisplay);

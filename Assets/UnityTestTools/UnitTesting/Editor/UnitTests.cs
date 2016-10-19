@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using NUnit.Framework;
+using UnityEditor;
 using System;
 using System.Collections.Generic;
 
@@ -29,7 +30,8 @@ public class UnitTests
 		TankController tank = new TankController();
 		tank.maxHealth = 100;
 		tank.CurrentHealth = 100;
-		
+		tank.iFrameTime = 2;
+
 		tank.lastDamageTime = 0;
 		tank.takeDamage(40);
 		Assert.That(tank.CurrentHealth == 100);
@@ -87,7 +89,7 @@ public class UnitTests
 	public void leaderboardScoresSorted()
 	{
 		//Test if leaderboard sorts scores correctly.
-		UIAdapter.currentLevel = 1;
+		UIAdapter.currentLevel = 2;
 		UIAdapter.addScoreToLeader("MIA", 120);
 		UIAdapter.addScoreToLeader("BOO", 5);
 
@@ -97,31 +99,12 @@ public class UnitTests
 			difficulty = BossController.Difficulty.Easy;
 		}
 
-		List<LeaderboardEntry> leaders = GameData.get<List<LeaderboardEntry>>("1" + difficulty);
+		List<LeaderboardEntry> leaders = GameData.get<List<LeaderboardEntry>>("2" + difficulty);
 
 		Assert.That(leaders[0].time == 5);
 		Assert.That(leaders[0].player == "BOO");
 
 		Assert.That(leaders[1].time == 120);
 		Assert.That(leaders[1].player == "MIA");
-	}
-
-	[Test]
-	public void leaderboardScoreSize()
-	{
-		//Test if leaderboard has the correct number of scores.
-		UIAdapter.currentLevel = 1;
-		UIAdapter.addScoreToLeader("MIA", 120);
-		UIAdapter.addScoreToLeader("BOO", 5);
-
-		BossController.Difficulty difficulty = GameData.get<BossController.Difficulty>("difficulty");
-		if (difficulty == default(BossController.Difficulty))
-		{
-			difficulty = BossController.Difficulty.Easy;
-		}
-
-		List<LeaderboardEntry> leaders = GameData.get<List<LeaderboardEntry>>("1" + difficulty);
-
-		Assert.That(leaders.Count == 2);
 	}
 }

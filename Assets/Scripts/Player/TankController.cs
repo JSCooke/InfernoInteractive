@@ -81,31 +81,34 @@ public class TankController : MonoBehaviour {
         }
     }
 
-    public void takeDamage(int damage) {
+	public void takeDamage(int damage)
+	{
 
-        //fail the no damage achievement
+		//fail the no damage achievement
 		AchievementController.hasBeenDamaged = true;
-        AchievementController.hasBeenDamagedL3 = true;
+		AchievementController.hasBeenDamagedL3 = true;
 
-        if (shield != null && shield.gameObject.activeSelf) {
-            lastDamageTime = Time.fixedTime;
-			SoundAdapter.playShieldDownSound ();
-            shield.SetActive(false);
-            return;
-        }
+		if (shield != null && shield.gameObject.activeSelf)
+		{
+			lastDamageTime = Time.fixedTime;
+			SoundAdapter.playShieldDownSound();
+			shield.SetActive(false);
+			return;
+		}
 
-            lastDamageTime = Time.fixedTime;
+		if (Time.fixedTime - lastDamageTime >= iFrameTime)
+		{
+			lastDamageTime = Time.fixedTime;
 
-            if (damage > CurrentHealth) {
-                damage = CurrentHealth;
-            }
+			if (damage > CurrentHealth)
+			{
+				damage = CurrentHealth;
+			}
 
-            currentHealth = currentHealth - damage;
-			SoundAdapter.playTankHitSound ();
-            UIAdapter.damagePlayer((float)damage, maxHealth);
+			currentHealth = currentHealth - damage;
+			SoundAdapter.playTankHitSound();
+			UIAdapter.damagePlayer((float)damage, maxHealth);
 
-        }
-
-    }
-
+		}
+	}
 }

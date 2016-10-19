@@ -15,11 +15,33 @@ public class SoundAdapter : MonoBehaviour
 	public static AudioClip myBossSquishSound;
 	public AudioClip tankHitSound;
 	public static AudioClip myTankHitSound;
+	public AudioClip bombSound;
+	public static AudioClip myBombSound;
+	public AudioClip confettiSound;
+	public static AudioClip myConfettiSound;
+	public AudioClip minionSound;
+	public static AudioClip myMinionSound;
+	public AudioClip minionSwordSound;
+	public static AudioClip myMinionSwordSound;
+	public AudioClip popSound;
+	public static AudioClip myPopSound;
+	public AudioClip frogSound;
+	public static AudioClip myFrogSound;
+	public AudioClip frogAttackSound;
+	public static AudioClip myFrogAttackSound;
+	public AudioClip collectSound;
+	public static AudioClip myCollectSound;
+
 	public AudioSource BGM;
 	public static AudioSource myBGM;
+	public AudioClip discoBGM;
+	public static AudioClip myDiscoBGM;
+	public AudioClip normalBGM;
+	public static AudioClip myNormalBGM;
+
 	public static float soundVolume = 1;
 
-	public float Soundvolume {
+	public float SoundVolume {
 		get {
 			return soundVolume;
 		}
@@ -47,7 +69,20 @@ public class SoundAdapter : MonoBehaviour
 		myShieldDownSound = shieldDownSound;
 		myBossSquishSound = bossSquishSound;
 		myTankHitSound = tankHitSound;
+		myBombSound = bombSound;
+		myConfettiSound = confettiSound;
+		myMinionSound = minionSound;
+		myMinionSwordSound = minionSwordSound;
+		myPopSound = popSound;
+		myFrogSound = frogSound;
+		myFrogAttackSound = frogAttackSound;
+		myNormalBGM = normalBGM;
+		myDiscoBGM = discoBGM;
+		myCollectSound = collectSound;
+
 		myBGM = BGM;
+		myBGM.clip = myNormalBGM;
+		myBGM.Play ();
 	}
 
 	void Update()
@@ -67,13 +102,45 @@ public class SoundAdapter : MonoBehaviour
 	public static void playShieldDownSound (){
 		AudioSource.PlayClipAtPoint (myShieldDownSound, Camera.main.transform.position, soundVolume);
 	}
-	public static void playBossSquishSound (){
-		AudioSource.PlayClipAtPoint (myBossSquishSound, Camera.main.transform.position, soundVolume);
-	}
 	public static void playTankHitSound (){
 		AudioSource.PlayClipAtPoint (myTankHitSound, Camera.main.transform.position, soundVolume);
 	}
+	public static void playBombSound(){
+		AudioSource.PlayClipAtPoint(myBombSound, Camera.main.transform.position, soundVolume);
+	}
+	public static void playBossSquishSound (){
+		AudioSource.PlayClipAtPoint (myBossSquishSound, Camera.main.transform.position, soundVolume);
+	}
+	public static void playConfettiSound (){
+		AudioSource.PlayClipAtPoint (myConfettiSound, Camera.main.transform.position, soundVolume);
+	}
+	public static void playMinionSound (){
+		AudioSource.PlayClipAtPoint (myMinionSound, Camera.main.transform.position, soundVolume);
+	}
+	public static void playSwordSound (){
+		AudioSource.PlayClipAtPoint (myMinionSwordSound, Camera.main.transform.position, soundVolume);
+	}
+	public static void playPopSound(){
+		AudioSource.PlayClipAtPoint (myPopSound, Camera.main.transform.position, soundVolume);
+	}
+	public static void playFrogSound(){
+		AudioSource.PlayClipAtPoint (myFrogSound, Camera.main.transform.position, soundVolume);
+	}
+	public static void playFrogAttackSound(){
+		AudioSource.PlayClipAtPoint (myFrogAttackSound, Camera.main.transform.position, soundVolume);
+	}
+	public static void playCollectSound(){
+		AudioSource.PlayClipAtPoint (myCollectSound, Camera.main.transform.position, soundVolume);
+	}
 
+	public static void startDisco(){
+		myBGM.clip = myDiscoBGM;
+		myBGM.Play ();
+	}
+	public static void endDisco(){
+		myBGM.clip = myNormalBGM;
+		myBGM.Play ();
+	}
 	/*
 	 * TO CREATE A NEW SOUND:
 	 * 

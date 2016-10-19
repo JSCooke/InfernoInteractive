@@ -8,12 +8,14 @@ public class Damageable : MonoBehaviour {
 	public int bodyDamage;
 	public string damagedBy; //PlayerProjectile
     public bool dead = false;
+    public bool unkillable;
 
     void Start() {
         currentHealth = maxHealth;
     }
 
     void OnTriggerEnter(Collider collider){
+		print (collider);
 		if (collider.gameObject.tag == damagedBy) {
             takeDamage (collider.gameObject.GetComponent<ProjectileController>().damage);
 			Destroy (collider.gameObject);
@@ -22,7 +24,7 @@ public class Damageable : MonoBehaviour {
 
 	public virtual void takeDamage(int damage){
         currentHealth -= damage;
-        if (currentHealth <= 0) {
+        if (currentHealth <= 0 && !unkillable) {
             Destroy(gameObject);
         }
     }

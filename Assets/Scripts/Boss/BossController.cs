@@ -35,6 +35,7 @@ public class BossController : Damageable {
             damage = currentHealth;
         }
         
+		SoundAdapter.playBossHitSound ();
         currentHealth = currentHealth - damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UIAdapter.damageBoss((float)damage, totalHealth);

@@ -126,12 +126,15 @@ public class DialogTextManager : MonoBehaviour {
             //Dialog has ended
             if (currentLineNumber > endLineNumber)
             {
-
-                tank.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                tank.gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                foreach(Rigidbody rb in tank.GetComponentsInChildren<Rigidbody>()) {
+                    rb.velocity = Vector3.zero;
+                    rb.angularVelocity = Vector3.zero;
+                }
 
                 DisableDialogBox();
 				if (shouldSpawn == true) {
+					print ("in dialogue spawn");
+					print (spawningObject.name);
 					spawningObject.Spawn ();
 				}
             }

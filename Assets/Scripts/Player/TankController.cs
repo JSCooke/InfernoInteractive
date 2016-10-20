@@ -93,9 +93,16 @@ public class TankController : MonoBehaviour {
                 damage = currentHealth;
             }
 
-            currentHealth = currentHealth - damage;
+            
 			SoundAdapter.playTankHitSound ();
-            UIAdapter.damagePlayer((float)damage, maxHealth);
+			currentHealth = currentHealth - damage;
+
+			float tempHealth = currentHealth;
+			currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+			if (currentHealth == tempHealth || currentHealth == 0) {
+				UIAdapter.damagePlayer((float)damage, maxHealth);
+			}
 
         } else {
             if (Time.fixedTime - lastDamageTime > iFrameTime) {

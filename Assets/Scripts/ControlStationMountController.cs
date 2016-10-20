@@ -50,11 +50,12 @@ public class ControlStationMountController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		station = startingStation;
         //check if the user has set a station
         if(stationName!="" && GameData.get<string>(stationName+" station")!=null) {
             //set the station
             station = GameData.get<string>(stationName + " station");
+        }else {
+            station = startingStation;
         }
 	}
 	

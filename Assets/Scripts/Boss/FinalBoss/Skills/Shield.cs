@@ -4,7 +4,7 @@ using System.Collections;
 public class Shield : MonoBehaviour {
 
     public bool destroyed;
-    private float healAmount = -0.02f;
+    private float healAmount = -0.2f;
     public bool[] hitCount = new bool[2];
     public string damagedBy;
 	private int difficulty = 2;
@@ -22,9 +22,9 @@ public class Shield : MonoBehaviour {
 			difficulty = (int)GameData.get<BossController.Difficulty>("difficulty");
 		}
 
-        //Amount healed depends on difficulty. 0.02 for easy, 0.03 for medium, 0.04 for hard
-		if (healAmount != (float)(difficulty * -1) / (float)100) {
-			healAmount = (float)(difficulty * -1) / (float)100;
+        //Amount healed depends on difficulty. 0.2 for easy, 0.3 for medium, 0.4 for hard
+		if (healAmount != (float)(difficulty * -1) / (float)10) {
+			healAmount = (float)(difficulty * -1) / (float)10;
         }
 
         healSelf();

@@ -81,36 +81,37 @@ public class FinalBossBehaviour : Spawnable {
             float randSkill = Random.Range(0, 100);
 
             if (randSkill <= 30) {  //Slam
-                print("Slam");
+                //print("Slam");
                 updateQueue(Action.SLAM);
                 anim.SetBool("Slam", true);
 				SoundAdapter.playFrogSound ();
 				SoundAdapter.playHoverSound ();
 
 			} else if (randSkill <= 45 && currentHealth <= (maxHealth * 0.25) && !lastSkillsUsed.Contains(Action.METEOR)) {     //Meteor
-                print("Meteor");
+                //print("Meteor");
                 updateQueue(Action.METEOR);
                 anim.SetBool("Meteor", true);
 				SoundAdapter.playFrogSound ();
 				SoundAdapter.playHoverSound ();
 
 			} else if (randSkill <= 60 && currentHealth <= (maxHealth * 0.50) && !lastSkillsUsed.Contains(Action.SHIELD)) {     //Shield
-                print("Shield");
+                //print("Shield");
                 updateQueue(Action.SHIELD);
                 anim.SetBool("Shield", true);
 				SoundAdapter.playFrogSound ();
 				SoundAdapter.playHoverSound ();
 
 			} else if (randSkill <= 75 && currentHealth <= (maxHealth * 0.75) && !lastSkillsUsed.Contains(Action.SNARE)) {     //Snare
-                print("Snare");
+                //print("Snare");
                 updateQueue(Action.SNARE);
                 anim.SetBool("Snare", true);
 				SoundAdapter.playFrogSound ();
 				SoundAdapter.playHoverSound ();
 
             } else {     //Stationary
-				anim.SetBool("Shield", true);
+				//anim.SetBool("Stationary", true);
 				updateQueue(Action.SHIELD);
+				anim.SetBool("Shield", true);
 				SoundAdapter.playFrogSound ();
 				SoundAdapter.playHoverSound ();
             }

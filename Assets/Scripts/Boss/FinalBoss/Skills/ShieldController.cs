@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ShieldController : StateMachineBehaviour {
 
-    public GameObject enemy;
+    public GameObject enemy, shield;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
@@ -17,8 +17,10 @@ public class ShieldController : StateMachineBehaviour {
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        enemy.GetComponent<FinalBossBehaviour>().shield.SetActive(true);
+
 		SoundAdapter.playShieldUpSound ();
+		GameObject shockWaveInstantiated = (GameObject)Instantiate(shield, enemy.transform.position, Quaternion.identity);
+
         enemy.GetComponent<FinalBossBehaviour>().anim.SetBool("Shield", false);
     }
 

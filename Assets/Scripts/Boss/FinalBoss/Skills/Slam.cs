@@ -33,7 +33,7 @@ public class Slam : MonoBehaviour {
             Vector3 forceDir = GameObject.Find(playerName).transform.position - transform.position;
             GameObject.Find(playerName).GetComponent<Rigidbody>().AddForce(forceDir * knockBack * 1000);    //1000 is mass of tank
 
-            collider.gameObject.GetComponent<TankController>().takeDamage(damage);
+			GameObject.Find("Tank").GetComponent<TankController>().takeDamage(damage);
             Destroy(this.gameObject);
             GameObject.Find("FinalBoss").GetComponent<FinalBossBehaviour>().newAction = true;
         }

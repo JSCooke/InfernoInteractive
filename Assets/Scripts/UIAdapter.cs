@@ -176,7 +176,7 @@ public class UIAdapter : MonoBehaviour
             if(((float)33.0 < playerVal) && (playerVal < (float)66.0))
             {
                 playerPortrait.sprite = statPlayerNeutral;
-                Debug.LogError(playerVal);
+                //Debug.LogError(playerVal);
             }
             else if(playerVal < 33.0)
             {

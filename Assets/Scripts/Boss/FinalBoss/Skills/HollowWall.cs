@@ -9,23 +9,29 @@ public class HollowWall : MonoBehaviour {
     public float health = 50f;
     public string playerName = "Tank";
     private float damage = 1f;
+	private int difficulty = 2;
 
 	// Use this for initialization
 	void Start () {
-	
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
+		if (GameData.get<BossController.Difficulty>("difficulty") != default(BossController.Difficulty))
+		{
+			difficulty = (int)GameData.get<BossController.Difficulty>("difficulty");
+		}
+			
         //Rotation speed depends on difficulty. 50 for easy, 100 for medium, 150 for hard
-        //if (rotationSpeed != (GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossController>().difficulty - 1) * baseRotationSpeed) {
-        //    rotationSpeed = (GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossController>().difficulty - 1) * baseRotationSpeed;
-        //}
+        if (rotationSpeed != (difficulty - 1) * baseRotationSpeed) {
+            rotationSpeed = (difficulty - 1) * baseRotationSpeed;
+        }
 
         //Damage over time depends on difficulty. 0.02 for easy, 0.03 for medium, 0.04 for hard
-        if (damage != (GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossController>().difficulty / 100)) {
-            damage = GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossController>().difficulty / 100;
+        if (damage != difficulty / 100) {
+            damage = difficulty / 100;
         }
 
         if (health <= 0) {

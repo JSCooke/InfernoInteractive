@@ -15,7 +15,7 @@ public class BossController : Damageable {
     public float totalHealth = 0;
 	private bool achievementsDone = false;
 
-    // Use this for initialization
+    // Use this for initialization 
     void Start () {
         dead = false;
         currentHealth = maxHealth;
@@ -29,16 +29,21 @@ public class BossController : Damageable {
 
     }
 
-    public override void takeDamage(int damage) {
-
+    public override void takeDamage(float damage) {
+        //print(damage);
         if (damage > currentHealth) {
             damage = currentHealth;
         }
         
 		SoundAdapter.playBossHitSound ();
         currentHealth = currentHealth - damage;
+
+        float tempHealth = currentHealth;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        UIAdapter.damageBoss((float)damage, totalHealth);
+
+        if (currentHealth == tempHealth || currentHealth == 0) {
+			UIAdapter.damageBoss((float)damage, totalHealth);
+        }
 
 		if (Mathf.Floor (currentHealth) <= 0) {
 			dead = true;

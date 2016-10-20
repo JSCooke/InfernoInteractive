@@ -20,6 +20,11 @@ public class AchievementMenu : MonoBehaviour {
 
 	//called to update all current achievements
 	public void updateAchievements(){
+
+        //load all of the achievements
+        AchievementController.load();
+
+
 		foreach (KeyValuePair<string, bool> entry in AchievementController.achievements) {
 			foreach (Transform t in GetComponentsInChildren<Transform>()) {
 				print(t.gameObject.name +", " + entry.Key);

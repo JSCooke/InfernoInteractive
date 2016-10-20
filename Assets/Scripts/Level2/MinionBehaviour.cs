@@ -144,7 +144,7 @@ public class MinionBehaviour : Damageable
 		Destroy(this.gameObject);
 	}
 
-	public override void takeDamage(int damage)
+	public override void takeDamage(float damage)
 	{
 		SoundAdapter.playFrogSound ();
 		if (damage > currentHealth)

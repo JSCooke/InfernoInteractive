@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Damageable : MonoBehaviour {
 
-    public int maxHealth;
-    public int currentHealth;
+    public float maxHealth;
+    public float currentHealth;
 	public int bodyDamage;
 	public string damagedBy; //PlayerProjectile
     public bool dead = false;
@@ -14,15 +14,14 @@ public class Damageable : MonoBehaviour {
         currentHealth = maxHealth;
     }
 
-    void OnTriggerEnter(Collider collider){
-		print (collider);
+    public virtual void OnTriggerStay(Collider collider){
 		if (collider.gameObject.tag == damagedBy) {
             takeDamage (collider.gameObject.GetComponent<ProjectileController>().damage);
 			Destroy (collider.gameObject);
 		}
 	}
 
-	public virtual void takeDamage(int damage){
+	public virtual void takeDamage(float damage){
         currentHealth -= damage;
         if (currentHealth <= 0 && !unkillable) {
             Destroy(gameObject);

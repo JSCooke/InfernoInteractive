@@ -54,7 +54,7 @@ public class forestGuardScript : Damageable {
 		} 
 	}
 
-	public override void takeDamage(int damage){
+	public override void takeDamage(float damage){
 		currentHealth -= damage;
 		SoundAdapter.playMinionSound ();
 		if (currentHealth <= 0) {

@@ -52,7 +52,6 @@ public class pauseMenuBehaviour : MonoBehaviour {
     public void Unpause() {
         this.GetComponent<Canvas>().enabled = false;
         Time.timeScale = 1;
-
         //disable all pause menu buttons
         foreach (Transform t in transform) {
             t.gameObject.SetActive(false);
@@ -74,6 +73,7 @@ public class pauseMenuBehaviour : MonoBehaviour {
     public void mainPress()
     {
         //TODO close the current game
+		Unpause();
 		SceneManager.LoadScene("Main");
     }
 
@@ -84,6 +84,7 @@ public class pauseMenuBehaviour : MonoBehaviour {
 
     public void restartPress()
     {
+		Unpause ();
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

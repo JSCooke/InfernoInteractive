@@ -23,6 +23,14 @@ public class UIAdapter : MonoBehaviour
 	public Text tempAchievementTextBox;
 	public Text tempWinText, tempDieText;
 
+	public AnimationClip amin;
+    private static bool isEMP = false;
+
+    public static void changeEMP()
+    {
+        isEMP = true;
+    }
+
 	public GameObject tempRedOrbIndicator, tempGreenOrbIndicator;
 	public static GameObject redOrbIndicator, greenOrbIndicator;
 
@@ -38,9 +46,8 @@ public class UIAdapter : MonoBehaviour
 		}
 	}
 
-	//ben made this
-	public static Image topBar,bottomBar;
-
+    //ben made this
+    public static Image topBar,bottomBar;
 	public static int currentLevel;
 	public static Image playerPortrait;
 	public static BarScript player;
@@ -69,8 +76,9 @@ public class UIAdapter : MonoBehaviour
 		}
 	}
 
-	//Perhaps make a general animator?
-	public static Animator achievementAnimator;
+
+    //Perhaps make a general animator?
+    public static Animator achievementAnimator;
 	public static Animator deathAnimator;
 	public static Animator winAnimator;
 	public static Animator playerDamageAnimator;
@@ -140,13 +148,24 @@ public class UIAdapter : MonoBehaviour
 	public static int[] getTime() {
 		return timer.getTime ();
 	}
+    /**
+	 * This returns the time in seconds
+	 */
+    public static int getTimeInSeconds() {
+        return getTime()[0] * 60 + getTime()[1];
+    }
+
 	/**
 	 * Decreases (negative values will increase) the player's health by the input percentage.
 	 * Returns the remaining hp of the player. (Pass in 0 to use this as a getter)
 	 */
 	public static float damagePlayer(float hp){
-		if (!playerDead () && !bossDead()) {
+		if (!playerDead () && (!bossDead() || isEMP)) {
+
+            if (playerDamageAnimator != null && hp>0)
+            {
 			playerDamageAnimator.SetTrigger ("playerDamage");
+            }
 			playerVal -= hp;
 			PlayerVal = playerVal;
             if(((float)33.0 < playerVal) && (playerVal < (float)66.0))
@@ -173,11 +192,23 @@ public class UIAdapter : MonoBehaviour
 	 * Returns the remaining hp of the boss. (Pass in 0 to use this as a getter)
 	 */ 
 	public static float damageBoss(float hp){
-		if (!bossDead () && !playerDead()) {
-			bossDamageAnimator.SetTrigger ("bossDamage");
+		if ((!bossDead ()|| isEMP) && !playerDead()) {
+            if(bossDamageAnimator!= null && hp>0)
+            {
+			    bossDamageAnimator.SetTrigger ("bossDamage");
+
+            }
 			bossVal -= hp;
+
+            if (bossVal <= 0)
+            {
+                bossVal = 0;
+            }
+
+            Debug.Log("emp health val " + bossVal);
+
 			BossVal = bossVal;
-			if (bossDead ()) {
+			if (bossDead ()&&!isEMP) {
 				win ();
 			}
 		}
@@ -212,12 +243,13 @@ public class UIAdapter : MonoBehaviour
 	 * Calls up the death screen, and stops the timer.
 	 */ 
 	public static void die(){
-		if (!idiot) {
-			dieText.text = "You died...";
-		} else {
-			dieText.text = "It's not like we didn't warn you...";
-			Idiot = false;
-		}
+        if (!idiot) {
+            dieText.text = "You died...";
+        }
+        else {
+            dieText.text = "It's not like we didn't warn you...";
+            Idiot = false;
+        }
         deathAnimator.gameObject.SetActive(true);
 		deathAnimator.SetTrigger ("Death");
 		stopTimer ();

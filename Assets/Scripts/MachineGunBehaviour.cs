@@ -8,6 +8,8 @@ public class MachineGunBehaviour : ControlStationBehaviour {
 	private float lastShotTime;
     private List<GameObject> spawners;
     private GameObject tank;
+
+    private bool isClone;
     void Start() {
         spawners = new List<GameObject>();
         foreach (Transform transform in gun.transform) {
@@ -16,6 +18,7 @@ public class MachineGunBehaviour : ControlStationBehaviour {
             }
         }
         tank = GetComponentInParent<TankController>().gameObject;
+        isClone = GetComponentInParent<TankCloner>().isClone;
     }
 
 	public override void keyHeld(bool up, bool left, bool down, bool right){
@@ -39,7 +42,7 @@ public class MachineGunBehaviour : ControlStationBehaviour {
 
 		//print (gun.transform.localRotation.eulerAngles.y);
 
-		if (up && Time.fixedTime > lastShotTime + cooldown) {
+		if (up && Time.fixedTime > lastShotTime + cooldown && !isClone) {
 
             //fail the cannon only achievement
 			AchievementController.hasUsedOnlyCannon = false;

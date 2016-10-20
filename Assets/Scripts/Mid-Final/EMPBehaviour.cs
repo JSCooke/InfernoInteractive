@@ -6,8 +6,6 @@ using System.Collections.Generic;
 public class EMPBehaviour : Damageable
 {
 
-    public BossDoorController exitDoor;
-
     float healthIncreamentTime = 1f;
     float timer;
 
@@ -119,9 +117,6 @@ public class EMPBehaviour : Damageable
         //stop spawning
         AlienSpawnManager alienMan = GameObject.FindObjectOfType<AlienSpawnManager>();
         alienMan.stopSpawn();
-
-        //open top door
-        exitDoor.open = true;
 
         //Unset EMP mode
         UIAdapter.setEMPMode(false);

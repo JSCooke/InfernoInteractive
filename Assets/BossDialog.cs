@@ -7,6 +7,7 @@ public class BossDialog : ActivateNewDialog {
     public int spawnLine;
     public bool done = false;
     public bool activated = false;
+    public BossDoorController bossDoor;
 	// Use this for initialization
 	public override void Start () {
         base.Start();
@@ -20,6 +21,7 @@ public class BossDialog : ActivateNewDialog {
         }
         if (dialogManager.currentLineNumber == spawnLine) {
             bossAnimator.gameObject.SetActive(true);
+            bossDoor.open = false;
         }
         if(dialogManager.currentLineNumber == dialogManager.endLineNumber + 1) {
             bossAnimator.SetBool("Ready", true);

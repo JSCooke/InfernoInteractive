@@ -26111,7 +26111,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 282446135}
   m_HandleRect: {fileID: 282446134}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -34364,6 +34364,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 2
+  tempRedOrbIndicator: {fileID: 0}
+  tempGreenOrbIndicator: {fileID: 0}
   playerBar: {fileID: 1257454070}
   bossBar: {fileID: 1353101184}
   bar1: {fileID: 1257454072}
@@ -34385,8 +34387,6 @@ MonoBehaviour:
   tempDieText: {fileID: 1567983720}
   tempLeaderboardCanvas: {fileID: 1870751460}
   amin: {fileID: 0}
-  tempRedOrbIndicator: {fileID: 0}
-  tempGreenOrbIndicator: {fileID: 0}
 --- !u!4 &1548059479
 Transform:
   m_ObjectHideFlags: 0
@@ -37876,7 +37876,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1692114029}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 229172649}
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1692114029

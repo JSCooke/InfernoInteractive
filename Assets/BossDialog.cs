@@ -23,6 +23,7 @@ public class BossDialog : ActivateNewDialog {
         }
         if(dialogManager.currentLineNumber == dialogManager.endLineNumber + 1) {
             bossAnimator.SetBool("Ready", true);
+			SoundAdapter.altTrack ();
             done = true;
             Destroy(gameObject);
         }
@@ -30,6 +31,7 @@ public class BossDialog : ActivateNewDialog {
             foreach (PlayerController player in Object.FindObjectsOfType<PlayerController>()) {
                 player.enabled = true;
             }
+
         }
 	}
 

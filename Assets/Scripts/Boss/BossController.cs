@@ -30,7 +30,7 @@ public class BossController : Damageable {
     }
 
     public override void takeDamage(float damage) {
-        //print(damage);
+
         if (damage > currentHealth) {
             damage = currentHealth;
         }
@@ -48,6 +48,7 @@ public class BossController : Damageable {
 		if (Mathf.Floor (currentHealth) <= 0) {
 			dead = true;
 		}
+
     }
 
     

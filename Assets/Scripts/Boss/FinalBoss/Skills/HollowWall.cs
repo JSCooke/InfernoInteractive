@@ -39,8 +39,7 @@ public class HollowWall : MonoBehaviour {
             this.health = maxHealth;
 			GameObject.Find("FinalBoss").GetComponent<FinalBossBehaviour>().newAction = true;
         }
-
-        damage = 0.02f;
+			
         //Damage over time while snared
         GameObject.Find(playerName).GetComponent<TankController>().takeDamage(damage);
         transform.Rotate(Vector3.down * (rotationSpeed * Time.deltaTime));

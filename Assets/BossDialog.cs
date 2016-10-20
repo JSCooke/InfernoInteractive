@@ -52,5 +52,8 @@ public class BossDialog : ActivateNewDialog {
         }
 
         UIAdapter.setBossUI(true);
+
+        //Zoom out the camera
+        mainCamera.GetComponent<Camera>().fieldOfView = 90;
     }
 }

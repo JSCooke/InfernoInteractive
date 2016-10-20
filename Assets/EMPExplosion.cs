@@ -3,6 +3,7 @@ using System.Collections;
 
 public class EMPExplosion : MonoBehaviour {
     public GameObject endTriggerZone;
+    public BossDoorController exitDoor;
     // Use this for initialization
 	void Start () {
         
@@ -13,6 +14,8 @@ public class EMPExplosion : MonoBehaviour {
         if (!GetComponent<ParticleSystem>().IsAlive()) {
             endTriggerZone.SetActive(true);
             Destroy(gameObject);
+            //Open the exit door
+            exitDoor.open = true;
         }
 	}
 }

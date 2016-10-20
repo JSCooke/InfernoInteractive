@@ -11,7 +11,7 @@ public class playMenu : MonoBehaviour {
 
 	//Arrays of sprites and descriptions cooresponding to levels
     public Sprite[] levelSprites = new Sprite[5];
-    string[] descriptions = new string[5];
+    public string[] descriptions = new string[5];
 
     void Start()
     {
@@ -42,7 +42,7 @@ public class playMenu : MonoBehaviour {
     void SetDescriptions()
     {
 		//List of level descriptions
-        descriptions[0] = "Defeat Slime Boss";
+        descriptions[0] = "Defend the City";
         descriptions[1] = "Navigate the Maze";
         descriptions[2] = "Chase away the Invaders";
     }

@@ -94,6 +94,12 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void toggleControl(){
+		if (currentControlStationController != null) {
+			if (currentControlStationController.attachedPlayer != null) {
+				print ("already in use");
+				return;
+			}
+		}
 		if (attachedToControlStation) {
 			attachedToControlStation = false;
 

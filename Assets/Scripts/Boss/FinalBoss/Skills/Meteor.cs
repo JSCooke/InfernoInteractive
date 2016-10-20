@@ -31,7 +31,7 @@ public class Meteor : MonoBehaviour {
 		SoundAdapter.playFenceSound ();
 		SoundAdapter.playBombSound ();
 		Destroy(this.transform.parent.gameObject);
-		Object.FindObjectOfType<FinalBossBehaviour>().newAction = true;
+		GameObject.Find("FinalBoss").GetComponent<FinalBossBehaviour>().newAction = true;
         
     }
 
@@ -39,7 +39,7 @@ public class Meteor : MonoBehaviour {
 		SoundAdapter.playFenceSound ();
 		SoundAdapter.playBombSound ();
         Destroy(this.transform.parent.gameObject);
-        Object.FindObjectOfType<FinalBossBehaviour>().newAction = true;
+		GameObject.Find("FinalBoss").GetComponent<FinalBossBehaviour>().newAction = true;
 
     }
 }

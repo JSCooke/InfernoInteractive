@@ -31,7 +31,7 @@ public class Shield : MonoBehaviour {
                 hitCount[i] = false;
             }
 
-            GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().newAction = true;
+			GameObject.Find("FinalBoss").GetComponent<FinalBossBehaviour>().newAction = true;
         }
 	}
 
@@ -44,7 +44,7 @@ public class Shield : MonoBehaviour {
     }
 
     void healSelf() {
-        GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossController>().takeDamage(healAmount);
+		GameObject.Find("FinalBoss").GetComponent<BossController>().takeDamage(healAmount);
     }
 
     void OnTriggerEnter(Collider collider) {

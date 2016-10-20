@@ -20,7 +20,7 @@ public class Slam : MonoBehaviour {
 
         if (transform.position == target    ) {
             Destroy(this.gameObject);
-            GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().newAction = true;
+			GameObject.Find("FinalBoss").GetComponent<FinalBossBehaviour>().newAction = true;
         }
     }
 
@@ -35,7 +35,7 @@ public class Slam : MonoBehaviour {
 
             collider.gameObject.GetComponent<TankController>().takeDamage(damage);
             Destroy(this.gameObject);
-            GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().newAction = true;
+            GameObject.Find("FinalBoss").GetComponent<FinalBossBehaviour>().newAction = true;
         }
     }
 

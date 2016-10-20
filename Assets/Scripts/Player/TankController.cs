@@ -18,10 +18,23 @@ public class TankController : MonoBehaviour {
 
     public GameObject shield;
 
-    // Use this for initialization
-    void Start() {
+	public int CurrentHealth
+	{
+		get
+		{
+			return currentHealth;
+		}
+
+		set
+		{
+			currentHealth = value;
+		}
+	}
+
+	// Use this for initialization
+	void Start() {
 		rb = GetComponent<Rigidbody> ();
-        currentHealth = maxHealth;
+        CurrentHealth = maxHealth;
 		shield = transform.Find ("Shield").gameObject;
         wheelController = GetComponentInChildren<Wheel_Control_CS>();
     }
@@ -77,7 +90,7 @@ public class TankController : MonoBehaviour {
 
     public void takeDamage(float damage) {
 
-        //fail the no damage achievement
+		//fail the no damage achievement
 		AchievementController.hasBeenDamaged = true;
         AchievementController.hasBeenDamagedL3 = true;
 

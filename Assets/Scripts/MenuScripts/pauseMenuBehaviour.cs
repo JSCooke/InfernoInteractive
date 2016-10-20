@@ -9,6 +9,7 @@ public class pauseMenuBehaviour : MonoBehaviour {
 	public Canvas objectives;
 	public Canvas controls;
 
+    private float previousTimeScale;
 
     // Use this for initialization
     void Start () {
@@ -38,9 +39,11 @@ public class pauseMenuBehaviour : MonoBehaviour {
             objectives.enabled = false;
             controls.enabled = false;
             this.GetComponent<Canvas>().enabled = true;
+            previousTimeScale = Time.timeScale;
             Time.timeScale = 0;
         } else {
             this.GetComponent<Canvas>().enabled = true;
+            previousTimeScale = Time.timeScale;
             Time.timeScale = 0;
         }
         //enable all pause menu buttons
@@ -51,7 +54,7 @@ public class pauseMenuBehaviour : MonoBehaviour {
 
     public void Unpause() {
         this.GetComponent<Canvas>().enabled = false;
-        Time.timeScale = 1;
+        Time.timeScale = previousTimeScale;
         //disable all pause menu buttons
         foreach (Transform t in transform) {
             t.gameObject.SetActive(false);

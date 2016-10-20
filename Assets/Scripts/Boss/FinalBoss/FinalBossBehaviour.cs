@@ -94,21 +94,21 @@ public class FinalBossBehaviour : Spawnable {
 				SoundAdapter.playFrogSound ();
 				SoundAdapter.playHoverSound ();
 
-			} else if (randSkill <= 45 && currentHealth <= (maxHealth * 0.25) && !lastSkillsUsed.Contains(Action.METEOR)) {     //Meteor
+			} else if (randSkill > 30 && randSkill <= 45 && currentHealth <= (maxHealth * 0.25) && !lastSkillsUsed.Contains(Action.METEOR)) {     //Meteor
                 //print("Meteor");
                 updateQueue(Action.METEOR);
                 anim.SetBool("Meteor", true);
 				SoundAdapter.playFrogSound ();
 				SoundAdapter.playHoverSound ();
 
-			} else if (randSkill <= 60 && currentHealth <= (maxHealth * 0.50) && !lastSkillsUsed.Contains(Action.SHIELD)) {     //Shield
+			} else if (randSkill > 45 && randSkill <= 60 && currentHealth <= (maxHealth * 0.50) && !lastSkillsUsed.Contains(Action.SHIELD)) {     //Shield
                 //print("Shield");
                 updateQueue(Action.SHIELD);
                 anim.SetBool("Shield", true);
 				SoundAdapter.playFrogSound ();
 				SoundAdapter.playHoverSound ();
 
-			} else if (randSkill <= 75 && currentHealth <= (maxHealth * 0.75) && !lastSkillsUsed.Contains(Action.SNARE)) {     //Snare
+			} else if (randSkill > 60 && randSkill <= 75 && currentHealth <= (maxHealth * 0.75) && !lastSkillsUsed.Contains(Action.SNARE)) {     //Snare
                 //print("Snare");
                 updateQueue(Action.SNARE);
                 anim.SetBool("Snare", true);
@@ -116,9 +116,7 @@ public class FinalBossBehaviour : Spawnable {
 				SoundAdapter.playHoverSound ();
 
             } else {     //Stationary
-				//anim.SetBool("Stationary", true);
-				updateQueue(Action.STATIONARY);
-				anim.SetBool("Snare", true);
+				anim.SetBool("Stationary", true);
 				SoundAdapter.playFrogSound ();
 				SoundAdapter.playHoverSound ();
             }

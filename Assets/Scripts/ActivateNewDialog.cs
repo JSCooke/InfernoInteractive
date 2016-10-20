@@ -25,7 +25,7 @@ public class ActivateNewDialog : MonoBehaviour {
 	public Spawnable spawningObject; 
 
     // Use this for initialization
-    void Start () {
+    public virtual void Start () {
         dialogManager = FindObjectOfType<DialogTextManager>();
 		if (cutscene != null) {
 			cutsceneController = cutscene.GetComponent<QuickCutsceneController>();

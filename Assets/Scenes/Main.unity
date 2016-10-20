@@ -442,6 +442,7 @@ GameObject:
   - 222: {fileID: 20186079}
   - 114: {fileID: 20186078}
   - 114: {fileID: 20186077}
+  - 114: {fileID: 20186080}
   m_Layer: 5
   m_Name: Movement Select
   m_TagString: Untagged
@@ -464,7 +465,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2, y: -2.000002}
+  m_AnchoredPosition: {x: 1, y: -11}
   m_SizeDelta: {x: 27, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &20186077
@@ -486,7 +487,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.6627451, g: 0.7529412, b: 1, a: 0.2509804}
+    m_NormalColor: {r: 0.4627451, g: 1, b: 1, a: 0.36862746}
     m_HighlightedColor: {r: 0, g: 0.6627451, b: 0.6901961, a: 0.78431374}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -508,6 +509,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1118501944}
         m_MethodName: DisplayMovementUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -552,6 +564,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 20186075}
+--- !u!114 &20186080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 20186075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1001 &21066448
 Prefab:
   m_ObjectHideFlags: 0
@@ -1464,6 +1506,7 @@ GameObject:
   - 222: {fileID: 64479161}
   - 114: {fileID: 64479160}
   - 114: {fileID: 64479159}
+  - 114: {fileID: 64479162}
   m_Layer: 5
   m_Name: Level 2
   m_TagString: Untagged
@@ -1539,6 +1582,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &64479160
@@ -1580,6 +1634,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 64479157}
+--- !u!114 &64479162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 64479157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &65057296
 GameObject:
   m_ObjectHideFlags: 0
@@ -2552,7 +2636,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -183, y: 161.10594}
+  m_AnchoredPosition: {x: -183, y: 141.32765}
   m_SizeDelta: {x: 457.5, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &105706305
@@ -2694,6 +2778,7 @@ GameObject:
   - 114: {fileID: 113612717}
   - 114: {fileID: 113612716}
   - 114: {fileID: 113612715}
+  - 114: {fileID: 113612719}
   m_Layer: 5
   m_Name: Machine Gun
   m_TagString: Untagged
@@ -2792,6 +2877,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &113612717
@@ -2829,6 +2925,36 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 113612713}
+--- !u!114 &113612719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 113612713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1001 &113833603
 Prefab:
   m_ObjectHideFlags: 0
@@ -2920,6 +3046,7 @@ GameObject:
   - 114: {fileID: 116880149}
   - 114: {fileID: 116880148}
   - 114: {fileID: 116880147}
+  - 114: {fileID: 116880151}
   m_Layer: 5
   m_Name: Repair
   m_TagString: Untagged
@@ -2997,6 +3124,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &116880149
@@ -3034,6 +3172,36 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 116880146}
+--- !u!114 &116880151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 116880146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1001 &117289526
 Prefab:
   m_ObjectHideFlags: 0
@@ -3153,7 +3321,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1726741643}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.44253802
+  m_Size: 0.3882094
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3238,7 +3406,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 124655577}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 912, y: 237.1002, z: -237.29999}
+  m_LocalPosition: {x: 1039, y: 237.1002, z: -311}
   m_LocalScale: {x: -16, y: -10, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -3246,7 +3414,7 @@ Transform:
   - {fileID: 1998522484}
   - {fileID: 1064419532}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
 --- !u!81 &124655579
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4246,6 +4414,7 @@ GameObject:
   - 114: {fileID: 160242086}
   - 114: {fileID: 160242085}
   - 114: {fileID: 160242084}
+  - 114: {fileID: 160242088}
   m_Layer: 5
   m_Name: Shield Mk2
   m_TagString: Untagged
@@ -4323,6 +4492,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &160242086
@@ -4360,6 +4540,36 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 160242083}
+--- !u!114 &160242088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 160242083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &161951943
 GameObject:
   m_ObjectHideFlags: 0
@@ -4463,7 +4673,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1624284877}
   - {fileID: 1296058062}
   - {fileID: 1443867988}
   m_Father: {fileID: 0}
@@ -4658,6 +4867,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 485238, guid: 565d9d4a943910846b02f932fd4a6a3a, type: 2}
   m_PrefabInternal: {fileID: 172228504}
+--- !u!1 &172678180 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 171742, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+  m_PrefabInternal: {fileID: 2083390265}
 --- !u!1 &175593814
 GameObject:
   m_ObjectHideFlags: 0
@@ -5173,7 +5386,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -49.50002, y: 0}
+  m_AnchoredPosition: {x: -39.6, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &185608945
@@ -5704,8 +5917,9 @@ GameObject:
   - 222: {fileID: 217783584}
   - 114: {fileID: 217783583}
   - 114: {fileID: 217783582}
+  - 114: {fileID: 217783585}
   m_Layer: 5
-  m_Name: 
+  m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5779,6 +5993,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &217783583
@@ -5820,6 +6045,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 217783580}
+--- !u!114 &217783585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 217783580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1001 &218450083
 Prefab:
   m_ObjectHideFlags: 0
@@ -6878,8 +7133,8 @@ MonoBehaviour:
   mainMenu: {fileID: 1639194548}
   levelSprites:
   - {fileID: 21300000, guid: c3f1e58be0da0734c80be2d18f006b4b, type: 3}
+  - {fileID: 21300000, guid: 3040339465600cb4fbfbf5b594673da3, type: 3}
   - {fileID: 21300000, guid: a3bc716eba952244fbd40531dfdbaed0, type: 3}
-  - {fileID: 21300000, guid: f1f4291992c7b844187f39c91c6dc2bc, type: 3}
   - {fileID: 21300000, guid: 0470b87a7ce1f0f4d9c0ca73e3b001b2, type: 3}
   - {fileID: 21300000, guid: f1f4291992c7b844187f39c91c6dc2bc, type: 3}
 --- !u!114 &241337142
@@ -8733,7 +8988,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!154 &327133090
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -8795,7 +9050,7 @@ Transform:
   - {fileID: 694891751}
   - {fileID: 1968885181}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!1 &328455003
 GameObject:
   m_ObjectHideFlags: 0
@@ -9209,6 +9464,7 @@ GameObject:
   - 114: {fileID: 344263342}
   - 114: {fileID: 344263341}
   - 114: {fileID: 344263340}
+  - 114: {fileID: 344263344}
   m_Layer: 5
   m_Name: Big Cannon Mk2
   m_TagString: Untagged
@@ -9307,6 +9563,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &344263342
@@ -9344,6 +9611,36 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 344263338}
+--- !u!114 &344263344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 344263338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &347639959
 GameObject:
   m_ObjectHideFlags: 0
@@ -9432,6 +9729,7 @@ GameObject:
   - 222: {fileID: 350885003}
   - 114: {fileID: 350885002}
   - 114: {fileID: 350885001}
+  - 114: {fileID: 350885004}
   m_Layer: 5
   m_Name: Defense Select
   m_TagString: Untagged
@@ -9454,7 +9752,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -2, y: 11}
+  m_AnchoredPosition: {x: 0, y: 23}
   m_SizeDelta: {x: 27, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &350885001
@@ -9476,7 +9774,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.6627451, g: 0.7529412, b: 1, a: 0.2509804}
+    m_NormalColor: {r: 0.4627451, g: 1, b: 1, a: 0.36862746}
     m_HighlightedColor: {r: 0, g: 0.6627451, b: 0.6901961, a: 0.78431374}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -9498,6 +9796,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1118501944}
         m_MethodName: DisplayDefenseUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9542,6 +9851,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 350884999}
+--- !u!114 &350885004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 350884999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &352804255
 GameObject:
   m_ObjectHideFlags: 0
@@ -9630,6 +9969,7 @@ GameObject:
   - 222: {fileID: 353906706}
   - 114: {fileID: 353906705}
   - 114: {fileID: 353906704}
+  - 114: {fileID: 353906707}
   m_Layer: 5
   m_Name: Level 3
   m_TagString: Untagged
@@ -9705,6 +10045,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &353906705
@@ -9746,6 +10097,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 353906702}
+--- !u!114 &353906707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 353906702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &357551315
 GameObject:
   m_ObjectHideFlags: 0
@@ -10253,6 +10634,7 @@ GameObject:
   - 222: {fileID: 379786498}
   - 114: {fileID: 379786497}
   - 114: {fileID: 379786496}
+  - 114: {fileID: 379786499}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -10328,6 +10710,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &379786497
@@ -10369,6 +10762,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 379786494}
+--- !u!114 &379786499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 379786494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1001 &388808984
 Prefab:
   m_ObjectHideFlags: 0
@@ -10956,6 +11379,40 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 002df49370ca7814499cb40ed86c61da, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &407803639 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 189298, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
+  m_PrefabInternal: {fileID: 2113699082}
+--- !u!114 &407803640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 407803639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &411710380
 GameObject:
   m_ObjectHideFlags: 0
@@ -11617,6 +12074,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
@@ -11666,6 +12134,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -11883,6 +12362,7 @@ GameObject:
   - 222: {fileID: 453730721}
   - 114: {fileID: 453730720}
   - 114: {fileID: 453730719}
+  - 114: {fileID: 453730722}
   m_Layer: 5
   m_Name: Leaderboard
   m_TagString: Untagged
@@ -11960,6 +12440,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &453730720
@@ -12003,6 +12494,36 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 453730717}
+--- !u!114 &453730722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 453730717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &455750844
 GameObject:
   m_ObjectHideFlags: 0
@@ -12074,6 +12595,10 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 455750844}
+--- !u!1 &456168725 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 165170, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+  m_PrefabInternal: {fileID: 2083390265}
 --- !u!1001 &457586319
 Prefab:
   m_ObjectHideFlags: 0
@@ -13181,6 +13706,7 @@ GameObject:
   - 114: {fileID: 526184791}
   - 114: {fileID: 526184790}
   - 114: {fileID: 526184789}
+  - 114: {fileID: 526184793}
   m_Layer: 5
   m_Name: Big Cannon Mk2
   m_TagString: Untagged
@@ -13279,6 +13805,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &526184791
@@ -13316,6 +13853,36 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 526184787}
+--- !u!114 &526184793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 526184787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &527393817
 GameObject:
   m_ObjectHideFlags: 0
@@ -14396,6 +14963,7 @@ GameObject:
   - 224: {fileID: 577991371}
   - 114: {fileID: 577991373}
   - 114: {fileID: 577991372}
+  - 114: {fileID: 577991374}
   m_Layer: 5
   m_Name: medToggle
   m_TagString: Untagged
@@ -14488,9 +15056,50 @@ MonoBehaviour:
           m_StringArgument: medium
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 0
+--- !u!114 &577991374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 577991370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &579166515
 GameObject:
   m_ObjectHideFlags: 0
@@ -14799,6 +15408,7 @@ GameObject:
   - 114: {fileID: 592413576}
   - 114: {fileID: 592413575}
   - 114: {fileID: 592413574}
+  - 114: {fileID: 592413578}
   m_Layer: 5
   m_Name: Big Cannon Mk2
   m_TagString: Untagged
@@ -14897,6 +15507,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &592413576
@@ -14934,6 +15555,36 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 592413572}
+--- !u!114 &592413578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 592413572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!223 &594086962
 Canvas:
   m_ObjectHideFlags: 0
@@ -15276,6 +15927,7 @@ GameObject:
   - 222: {fileID: 625116011}
   - 114: {fileID: 625116010}
   - 114: {fileID: 625116009}
+  - 114: {fileID: 625116012}
   m_Layer: 5
   m_Name: Left Select
   m_TagString: Untagged
@@ -15298,7 +15950,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 12, y: -2.000002}
+  m_AnchoredPosition: {x: 35, y: -6}
   m_SizeDelta: {x: 27, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &625116009
@@ -15320,7 +15972,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.6627451, g: 0.7529412, b: 1, a: 0.2509804}
+    m_NormalColor: {r: 0.4627451, g: 1, b: 1, a: 0.36862746}
     m_HighlightedColor: {r: 0, g: 0.6627451, b: 0.6901961, a: 0.78431374}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -15342,6 +15994,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1118501944}
         m_MethodName: DisplayLeftUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15386,6 +16049,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 625116007}
+--- !u!114 &625116012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 625116007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &626715448
 GameObject:
   m_ObjectHideFlags: 0
@@ -16978,7 +17671,7 @@ Transform:
   m_Children:
   - {fileID: 453382453}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!114 &680731402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17604,6 +18297,10 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 721699149}
+--- !u!1 &723330808 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 122184, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+  m_PrefabInternal: {fileID: 2083390265}
 --- !u!1 &734892697
 GameObject:
   m_ObjectHideFlags: 0
@@ -18631,6 +19328,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 521480717}
     m_Modifications:
+    - target: {fileID: 11490812, guid: 38821aa73a0eb1847b7b3e7ce502bdcb, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 22475342, guid: 38821aa73a0eb1847b7b3e7ce502bdcb, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -19903,6 +20604,26 @@ Prefab:
       propertyPath: m_SizeDelta.x
       value: -196
       objectReference: {fileID: 0}
+    - target: {fileID: 11490812, guid: 38821aa73a0eb1847b7b3e7ce502bdcb, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490812, guid: 38821aa73a0eb1847b7b3e7ce502bdcb, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490812, guid: 38821aa73a0eb1847b7b3e7ce502bdcb, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1826528024}
+    - target: {fileID: 11490812, guid: 38821aa73a0eb1847b7b3e7ce502bdcb, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: playInstantClickSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490812, guid: 38821aa73a0eb1847b7b3e7ce502bdcb, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38821aa73a0eb1847b7b3e7ce502bdcb, type: 2}
   m_IsPrefabParent: 0
@@ -20461,6 +21182,7 @@ GameObject:
   - 222: {fileID: 787903208}
   - 114: {fileID: 787903207}
   - 114: {fileID: 787903206}
+  - 114: {fileID: 787903209}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -20536,6 +21258,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &787903207
@@ -20577,6 +21310,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 787903204}
+--- !u!114 &787903209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 787903204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1001 &788985001
 Prefab:
   m_ObjectHideFlags: 0
@@ -21634,6 +22397,7 @@ GameObject:
   - 222: {fileID: 839686039}
   - 114: {fileID: 839686038}
   - 114: {fileID: 839686037}
+  - 114: {fileID: 839686040}
   m_Layer: 5
   m_Name: Customise
   m_TagString: Untagged
@@ -21711,6 +22475,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &839686038
@@ -21754,6 +22529,36 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 839686035}
+--- !u!114 &839686040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 839686035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1001 &840881732
 Prefab:
   m_ObjectHideFlags: 0
@@ -23209,6 +24014,7 @@ GameObject:
   - 114: {fileID: 875193499}
   - 114: {fileID: 875193498}
   - 114: {fileID: 875193497}
+  - 114: {fileID: 875193501}
   m_Layer: 5
   m_Name: Big Cannon
   m_TagString: Untagged
@@ -23286,6 +24092,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &875193499
@@ -23323,6 +24140,36 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 875193496}
+--- !u!114 &875193501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 875193496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &878720542
 GameObject:
   m_ObjectHideFlags: 0
@@ -23941,7 +24788,7 @@ RectTransform:
   - {fileID: 411710381}
   - {fileID: 2041197813}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -25453,6 +26300,7 @@ GameObject:
   - 114: {fileID: 933554444}
   - 114: {fileID: 933554443}
   - 114: {fileID: 933554442}
+  - 114: {fileID: 933554446}
   m_Layer: 5
   m_Name: Shield
   m_TagString: Untagged
@@ -25530,6 +26378,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &933554444
@@ -25567,6 +26426,36 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 933554441}
+--- !u!114 &933554446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 933554441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1001 &936221178
 Prefab:
   m_ObjectHideFlags: 0
@@ -27598,7 +28487,7 @@ RectTransform:
   - {fileID: 1417651462}
   - {fileID: 57191720}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -28206,6 +29095,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
@@ -28247,7 +29147,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1049571133}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1049571133
@@ -28376,6 +29287,7 @@ GameObject:
   - 224: {fileID: 1052061294}
   - 114: {fileID: 1052061296}
   - 114: {fileID: 1052061295}
+  - 114: {fileID: 1052061297}
   m_Layer: 5
   m_Name: hardToggle
   m_TagString: Untagged
@@ -28468,9 +29380,50 @@ MonoBehaviour:
           m_StringArgument: hard
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 0
+--- !u!114 &1052061297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1052061293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1059003189
 GameObject:
   m_ObjectHideFlags: 0
@@ -29170,15 +30123,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 51.457127
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 55.98231
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -269.19623
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 472634, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
       propertyPath: m_LocalRotation.x
@@ -29216,6 +30169,14 @@ Prefab:
       propertyPath: normalBGM
       value: 
       objectReference: {fileID: 8300000, guid: 32ef12e18086848468a5ab04ffa7043a, type: 3}
+    - target: {fileID: 11415726, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: hoverSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 0e9c473ef47e64fb4bc57875e2ac2cbc, type: 3}
+    - target: {fileID: 11415726, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: clickSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 6bc22ed6157c147bd81b058d01cd1a5f, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
   m_IsPrefabParent: 0
@@ -29970,6 +30931,7 @@ GameObject:
   - 222: {fileID: 1114844747}
   - 114: {fileID: 1114844746}
   - 114: {fileID: 1114844745}
+  - 114: {fileID: 1114844748}
   m_Layer: 5
   m_Name: Attack Select
   m_TagString: Untagged
@@ -29992,7 +30954,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -2, y: -11}
+  m_AnchoredPosition: {x: 0, y: -33}
   m_SizeDelta: {x: 27, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1114844745
@@ -30014,7 +30976,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.6627451, g: 0.7529412, b: 1, a: 0.2509804}
+    m_NormalColor: {r: 0.46323532, g: 1, b: 1, a: 0.372}
     m_HighlightedColor: {r: 0, g: 0.6627451, b: 0.6901961, a: 0.78431374}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -30036,6 +30998,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1118501944}
         m_MethodName: DisplayAttackUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -30080,6 +31053,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1114844743}
+--- !u!114 &1114844748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1114844743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1118501942
 GameObject:
   m_ObjectHideFlags: 0
@@ -30118,7 +31121,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 110, y: -7}
+  m_AnchoredPosition: {x: 126, y: -50}
   m_SizeDelta: {x: 260, y: 227}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1118501944
@@ -31207,6 +32210,40 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1170328421}
+--- !u!1 &1173788161 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 189298, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
+  m_PrefabInternal: {fileID: 1919297880}
+--- !u!114 &1173788162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1173788161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1001 &1173894185
 Prefab:
   m_ObjectHideFlags: 0
@@ -32289,6 +33326,7 @@ GameObject:
   - 222: {fileID: 1223289282}
   - 114: {fileID: 1223289281}
   - 114: {fileID: 1223289280}
+  - 114: {fileID: 1223289283}
   m_Layer: 5
   m_Name: No
   m_TagString: Untagged
@@ -32364,6 +33402,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1223289281
@@ -32405,6 +33454,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1223289278}
+--- !u!114 &1223289283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1223289278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1224064945
 GameObject:
   m_ObjectHideFlags: 0
@@ -34155,7 +35234,7 @@ RectTransform:
   - {fileID: 73300458}
   - {fileID: 370819936}
   m_Father: {fileID: 167309041}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -34186,11 +35265,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69bdb2e05a4aa3489502fefe3c33579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NorthStation: {fileID: 0}
-  EastStation: {fileID: 0}
-  WestStation: {fileID: 0}
-  CentralStation: {fileID: 0}
-  SouthStation: {fileID: 0}
+  NorthStation: {fileID: 456168725}
+  EastStation: {fileID: 172678180}
+  WestStation: {fileID: 1417337890}
+  CentralStation: {fileID: 1507351149}
+  SouthStation: {fileID: 723330808}
 --- !u!114 &1296058065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34280,7 +35359,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -70, y: 0}
+  m_AnchoredPosition: {x: -38.7, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1300323167
@@ -35939,7 +37018,7 @@ RectTransform:
   - {fileID: 403847971}
   - {fileID: 581954319}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -36098,7 +37177,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -49.499973, y: -1.6100011}
+  m_AnchoredPosition: {x: -38.8, y: -1.6100011}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1358680445
@@ -36395,6 +37474,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
@@ -36444,6 +37534,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -36860,7 +37961,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -134, y: -12}
+  m_AnchoredPosition: {x: -133.2, y: -30}
   m_SizeDelta: {x: 250, y: 227}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1376795576
@@ -37687,6 +38788,7 @@ GameObject:
   - 222: {fileID: 1406423506}
   - 114: {fileID: 1406423505}
   - 114: {fileID: 1406423504}
+  - 114: {fileID: 1406423507}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -37762,6 +38864,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1406423505
@@ -37803,6 +38916,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1406423502}
+--- !u!114 &1406423507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1406423502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1001 &1408630634
 Prefab:
   m_ObjectHideFlags: 0
@@ -37876,6 +39019,7 @@ GameObject:
   - 222: {fileID: 1409372341}
   - 114: {fileID: 1409372340}
   - 114: {fileID: 1409372339}
+  - 114: {fileID: 1409372342}
   m_Layer: 5
   m_Name: Achievements
   m_TagString: Untagged
@@ -37953,6 +39097,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1409372340
@@ -37996,6 +39151,36 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1409372337}
+--- !u!114 &1409372342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1409372337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1410134359
 GameObject:
   m_ObjectHideFlags: 0
@@ -38414,6 +39599,10 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1416504051}
+--- !u!1 &1417337890 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 195878, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+  m_PrefabInternal: {fileID: 2083390265}
 --- !u!1 &1417651461
 GameObject:
   m_ObjectHideFlags: 0
@@ -38651,6 +39840,7 @@ GameObject:
   - 222: {fileID: 1424266264}
   - 114: {fileID: 1424266263}
   - 114: {fileID: 1424266262}
+  - 114: {fileID: 1424266265}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -38726,6 +39916,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1424266263
@@ -38767,6 +39968,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1424266260}
+--- !u!114 &1424266265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1424266260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1431245599
 GameObject:
   m_ObjectHideFlags: 0
@@ -38778,6 +40009,7 @@ GameObject:
   - 222: {fileID: 1431245603}
   - 114: {fileID: 1431245602}
   - 114: {fileID: 1431245601}
+  - 114: {fileID: 1431245604}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -38853,6 +40085,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1431245602
@@ -38894,6 +40137,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1431245599}
+--- !u!114 &1431245604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1431245599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!224 &1433807386
 RectTransform:
   m_ObjectHideFlags: 0
@@ -38927,6 +40200,7 @@ GameObject:
   - 114: {fileID: 1433807390}
   - 114: {fileID: 1433807389}
   - 114: {fileID: 1433807388}
+  - 114: {fileID: 1433807392}
   m_Layer: 5
   m_Name: Machine Gun
   m_TagString: Untagged
@@ -39004,6 +40278,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1433807390
@@ -39041,6 +40326,36 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1433807387}
+--- !u!114 &1433807392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1433807387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1001 &1435375347
 Prefab:
   m_ObjectHideFlags: 0
@@ -39114,6 +40429,7 @@ GameObject:
   - 222: {fileID: 1449159708}
   - 114: {fileID: 1449159707}
   - 114: {fileID: 1449159706}
+  - 114: {fileID: 1449159709}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -39189,6 +40505,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1449159707
@@ -39230,6 +40557,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1449159704}
+--- !u!114 &1449159709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1449159704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1452028150
 GameObject:
   m_ObjectHideFlags: 0
@@ -39980,6 +41337,7 @@ GameObject:
   - 114: {fileID: 1484204365}
   - 114: {fileID: 1484204364}
   - 114: {fileID: 1484204363}
+  - 114: {fileID: 1484204367}
   m_Layer: 5
   m_Name: Movement Control
   m_TagString: Untagged
@@ -40057,6 +41415,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1484204365
@@ -40094,6 +41463,36 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1484204362}
+--- !u!114 &1484204367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1484204362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1484727445
 GameObject:
   m_ObjectHideFlags: 0
@@ -40731,6 +42130,7 @@ GameObject:
   - 224: {fileID: 1505674980}
   - 114: {fileID: 1505674982}
   - 114: {fileID: 1505674981}
+  - 114: {fileID: 1505674983}
   m_Layer: 5
   m_Name: easyToggle
   m_TagString: Untagged
@@ -40823,9 +42223,50 @@ MonoBehaviour:
           m_StringArgument: easy
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 1
+--- !u!114 &1505674983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1505674979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1506324715
 GameObject:
   m_ObjectHideFlags: 0
@@ -40902,6 +42343,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1506324715}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1507351149 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 112934, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+  m_PrefabInternal: {fileID: 2083390265}
 --- !u!1001 &1516280225
 Prefab:
   m_ObjectHideFlags: 0
@@ -41029,6 +42474,7 @@ GameObject:
   - 222: {fileID: 1524074103}
   - 114: {fileID: 1524074102}
   - 114: {fileID: 1524074101}
+  - 114: {fileID: 1524074104}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -41106,6 +42552,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1524074102
@@ -41149,6 +42606,36 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1524074099}
+--- !u!114 &1524074104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1524074099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1001 &1533602376
 Prefab:
   m_ObjectHideFlags: 0
@@ -42554,6 +44041,7 @@ GameObject:
   - 222: {fileID: 1609743112}
   - 114: {fileID: 1609743111}
   - 114: {fileID: 1609743113}
+  - 114: {fileID: 1609743114}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -42672,8 +44160,49 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1609743114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1609743109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1609764167
 GameObject:
   m_ObjectHideFlags: 0
@@ -43014,13 +44543,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1624284876}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 174.4, y: 149.2, z: -195}
+  m_LocalRotation: {x: 0.7071067, y: -1.4210855e-14, z: -1.4210855e-14, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 10, z: -205}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: -180, z: -180}
   m_Children: []
-  m_Father: {fileID: 167309041}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!20 &1624284878
 Camera:
   m_ObjectHideFlags: 0
@@ -43124,6 +44653,7 @@ GameObject:
   - 222: {fileID: 1631389033}
   - 114: {fileID: 1631389032}
   - 114: {fileID: 1631389034}
+  - 114: {fileID: 1631389035}
   m_Layer: 5
   m_Name: Yes
   m_TagString: Untagged
@@ -43238,8 +44768,49 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1631389035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1631389030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1632716077
 GameObject:
   m_ObjectHideFlags: 0
@@ -43528,6 +45099,7 @@ GameObject:
   - 222: {fileID: 1634942998}
   - 114: {fileID: 1634942997}
   - 114: {fileID: 1634942996}
+  - 114: {fileID: 1634942999}
   m_Layer: 5
   m_Name: Level 1
   m_TagString: Untagged
@@ -43603,6 +45175,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1634942997
@@ -43644,6 +45227,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1634942994}
+--- !u!114 &1634942999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1634942994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1636415767
 GameObject:
   m_ObjectHideFlags: 0
@@ -46509,6 +48122,7 @@ GameObject:
   - 222: {fileID: 1735796526}
   - 114: {fileID: 1735796525}
   - 114: {fileID: 1735796524}
+  - 114: {fileID: 1735796527}
   m_Layer: 5
   m_Name: Right Select
   m_TagString: Untagged
@@ -46531,7 +48145,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -17, y: -2.000002}
+  m_AnchoredPosition: {x: -37, y: -5}
   m_SizeDelta: {x: 27, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1735796524
@@ -46553,7 +48167,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.6627451, g: 0.7529412, b: 1, a: 0.2509804}
+    m_NormalColor: {r: 0.4627451, g: 1, b: 1, a: 0.36862746}
     m_HighlightedColor: {r: 0, g: 0.6627451, b: 0.6901961, a: 0.78431374}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -46575,6 +48189,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1118501944}
         m_MethodName: DisplayRightUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -46619,6 +48244,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1735796522}
+--- !u!114 &1735796527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1735796522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1737222165
 GameObject:
   m_ObjectHideFlags: 0
@@ -48082,6 +49737,7 @@ GameObject:
   - 222: {fileID: 1809288433}
   - 114: {fileID: 1809288432}
   - 114: {fileID: 1809288431}
+  - 114: {fileID: 1809288434}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -48159,6 +49815,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1809288432
@@ -48202,6 +49869,36 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1809288429}
+--- !u!114 &1809288434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1809288429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1001 &1810169261
 Prefab:
   m_ObjectHideFlags: 0
@@ -50795,6 +52492,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 439337001}
     m_Modifications:
+    - target: {fileID: 11411398, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 22417428, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -50942,6 +52643,26 @@ Prefab:
     - target: {fileID: 22417428, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411398, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411398, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411398, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1826528024}
+    - target: {fileID: 11411398, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: playInstantClickSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411398, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
@@ -51098,6 +52819,7 @@ GameObject:
   - 114: {fileID: 1924812388}
   - 114: {fileID: 1924812387}
   - 114: {fileID: 1924812386}
+  - 114: {fileID: 1924812390}
   m_Layer: 5
   m_Name: Machine Gun
   m_TagString: Untagged
@@ -51196,6 +52918,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1924812388
@@ -51233,6 +52966,36 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1924812384}
+--- !u!114 &1924812390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1924812384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1926279398
 GameObject:
   m_ObjectHideFlags: 0
@@ -51544,7 +53307,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 12, y: -56}
   m_SizeDelta: {x: 150, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1931203799
@@ -53126,7 +54889,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1998522480}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -53172,7 +54935,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1998522480}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: -0, z: 68.19998}
+  m_LocalPosition: {x: 0, y: -0, z: 41.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
   m_Children: []
@@ -54245,6 +56008,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 652232259}
     m_Modifications:
+    - target: {fileID: 11411398, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 22417428, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -54385,6 +56152,26 @@ Prefab:
       propertyPath: m_Colors.m_HighlightedColor.a
       value: 0.78431374
       objectReference: {fileID: 0}
+    - target: {fileID: 11411398, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411398, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411398, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1826528024}
+    - target: {fileID: 11411398, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: playInstantClickSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411398, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
   m_IsPrefabParent: 0
@@ -54505,6 +56292,40 @@ RectTransform:
   m_PrefabParentObject: {fileID: 22407122, guid: 665a2b8090aafb349bb8c80c16aea99b,
     type: 2}
   m_PrefabInternal: {fileID: 2065966257}
+--- !u!1 &2069100214 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 134004, guid: 38821aa73a0eb1847b7b3e7ce502bdcb, type: 2}
+  m_PrefabInternal: {fileID: 771090229}
+--- !u!114 &2069100215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2069100214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &2072352922
 GameObject:
   m_ObjectHideFlags: 0
@@ -54822,11 +56643,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5985292, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.0000011622906
+      value: 0.0000012814999
       objectReference: {fileID: 0}
     - target: {fileID: 5985292, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.z
-      value: -0.4000036
+      value: -0.40000358
       objectReference: {fileID: 0}
     - target: {fileID: 5933482, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.z
@@ -54846,19 +56667,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5913082, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.0000011622906
+      value: 0.0000009313226
       objectReference: {fileID: 0}
     - target: {fileID: 5913082, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.z
-      value: -0.40000358
+      value: -0.40000367
       objectReference: {fileID: 0}
     - target: {fileID: 5983840, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.00000023841858
+      value: -0.00000011920929
       objectReference: {fileID: 0}
     - target: {fileID: 5983840, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.z
-      value: -0.39999932
+      value: -0.3999993
       objectReference: {fileID: 0}
     - target: {fileID: 5961368, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.z
@@ -54870,11 +56691,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5999218, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.00000023841858
+      value: -0.00000046938658
       objectReference: {fileID: 0}
     - target: {fileID: 5999218, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.z
-      value: -0.3999993
+      value: -0.39999938
       objectReference: {fileID: 0}
     - target: {fileID: 5959124, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.z
@@ -54882,11 +56703,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5917060, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.00000012665987
+      value: 0.00000024586916
       objectReference: {fileID: 0}
     - target: {fileID: 5917060, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.z
-      value: -0.40000045
+      value: -0.40000042
       objectReference: {fileID: 0}
     - target: {fileID: 5980982, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.z
@@ -54894,35 +56715,35 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5959982, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.000000014901161
+      value: 0.00000010430813
       objectReference: {fileID: 0}
     - target: {fileID: 5959982, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.z
-      value: -0.4
+      value: -0.39999998
       objectReference: {fileID: 0}
     - target: {fileID: 5971480, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.0000013113022
+      value: 0.0000010803342
       objectReference: {fileID: 0}
     - target: {fileID: 5971480, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.z
-      value: -0.40000406
+      value: -0.40000415
       objectReference: {fileID: 0}
     - target: {fileID: 5926252, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.0000014156103
+      value: 0.000001296401
       objectReference: {fileID: 0}
     - target: {fileID: 5926252, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.z
-      value: -0.39999565
+      value: -0.4000048
       objectReference: {fileID: 0}
     - target: {fileID: 5915454, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.0000014156103
+      value: 0.0000016465783
       objectReference: {fileID: 0}
     - target: {fileID: 5915454, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.z
-      value: -0.39999568
+      value: -0.4000047
       objectReference: {fileID: 0}
     - target: {fileID: 5916998, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.z
@@ -54930,11 +56751,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5968434, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.0000013113022
+      value: 0.0000014305115
       objectReference: {fileID: 0}
     - target: {fileID: 5968434, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.z
-      value: -0.4000041
+      value: -0.40000406
       objectReference: {fileID: 0}
     - target: {fileID: 5929700, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.z
@@ -54950,11 +56771,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5918668, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.000000014901161
+      value: -0.00000024586916
       objectReference: {fileID: 0}
     - target: {fileID: 5918668, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.z
-      value: -0.39999998
+      value: -0.40000004
       objectReference: {fileID: 0}
     - target: {fileID: 5909910, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.z
@@ -54966,23 +56787,243 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5970938, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.00000012665987
+      value: -0.00000010430813
       objectReference: {fileID: 0}
     - target: {fileID: 5970938, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_ConnectedAnchor.z
-      value: -0.40000042
+      value: -0.4000005
       objectReference: {fileID: 0}
     - target: {fileID: 407324, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 147470, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 184066, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
-      propertyPath: m_IsActive
+    - target: {fileID: 407324, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 407324, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 407324, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 407324, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 407324, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5433178, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5433178, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954182, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.7878466
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961368, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.7560001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916998, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.7560001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939034, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.75599986
+      objectReference: {fileID: 0}
+    - target: {fileID: 5993462, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.75599986
+      objectReference: {fileID: 0}
+    - target: {fileID: 5980982, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.75599986
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933222, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.4520002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933482, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.75599986
+      objectReference: {fileID: 0}
+    - target: {fileID: 5924422, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.7560001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976480, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.75599986
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959124, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.75599986
+      objectReference: {fileID: 0}
+    - target: {fileID: 5943252, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.7560001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5909404, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.7560001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5909910, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.4519995
+      objectReference: {fileID: 0}
+    - target: {fileID: 5987888, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.7878459
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929700, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.7560001
+      objectReference: {fileID: 0}
+    - target: {fileID: 407324, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 407324, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 407324, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 11.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939034, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: 1.6000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5993462, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: 1.6000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5980982, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: 1.6000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933482, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: 1.6000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976480, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: 1.6000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959124, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: 1.6000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954182, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: -2.3200004
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961368, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: -1.6000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916998, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: -1.6000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5985292, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.45000046
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999218, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.45000046
+      objectReference: {fileID: 0}
+    - target: {fileID: 5970938, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.45000046
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917060, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.45000046
+      objectReference: {fileID: 0}
+    - target: {fileID: 5918668, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.45000046
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933222, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: -2.3200004
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983840, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.45000046
+      objectReference: {fileID: 0}
+    - target: {fileID: 5913082, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.45000046
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915454, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.45000046
+      objectReference: {fileID: 0}
+    - target: {fileID: 5924422, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: -1.6000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5968434, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.45000046
+      objectReference: {fileID: 0}
+    - target: {fileID: 5943252, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: -1.6000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5926252, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.45000046
+      objectReference: {fileID: 0}
+    - target: {fileID: 5909404, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: -1.6000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5909910, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: 2.3200004
+      objectReference: {fileID: 0}
+    - target: {fileID: 5971480, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.45000046
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959982, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.45000046
+      objectReference: {fileID: 0}
+    - target: {fileID: 5987888, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: 2.3200004
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929700, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: -1.6000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 114200, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 127922, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 133660, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
@@ -55061,6 +57102,7 @@ GameObject:
   - 114: {fileID: 2094962719}
   - 114: {fileID: 2094962718}
   - 114: {fileID: 2094962717}
+  - 114: {fileID: 2094962721}
   m_Layer: 5
   m_Name: Big Cannon
   m_TagString: Untagged
@@ -55159,6 +57201,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2094962719
@@ -55196,6 +57249,36 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2094962715}
+--- !u!114 &2094962721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2094962715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1001 &2095202407
 Prefab:
   m_ObjectHideFlags: 0
@@ -55599,6 +57682,40 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: '---'
+--- !u!1 &2113106931 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 189298, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
+  m_PrefabInternal: {fileID: 2059381151}
+--- !u!114 &2113106932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2113106931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1001 &2113699082
 Prefab:
   m_ObjectHideFlags: 0
@@ -55606,6 +57723,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 2110129619}
     m_Modifications:
+    - target: {fileID: 11411398, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 22417428, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -55753,6 +57874,26 @@ Prefab:
     - target: {fileID: 22417428, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411398, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411398, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411398, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1826528024}
+    - target: {fileID: 11411398, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: playInstantClickSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411398, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0978c71bfabcfc645909f948efd9785e, type: 2}
@@ -56147,6 +58288,7 @@ GameObject:
   - 114: {fileID: 2140833182}
   - 114: {fileID: 2140833181}
   - 114: {fileID: 2140833180}
+  - 114: {fileID: 2140833184}
   m_Layer: 5
   m_Name: Big Cannon
   m_TagString: Untagged
@@ -56245,6 +58387,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1826528024}
+        m_MethodName: playInstantClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2140833182
@@ -56282,6 +58435,36 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2140833178}
+--- !u!114 &2140833184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2140833178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1826528024}
+          m_MethodName: playInstantHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &2144782368
 GameObject:
   m_ObjectHideFlags: 0

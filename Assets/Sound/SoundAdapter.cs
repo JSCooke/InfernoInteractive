@@ -33,6 +33,10 @@ public class SoundAdapter : MonoBehaviour
 	public static AudioClip myCollectSound;
 	public AudioClip fenceSound;
 	public static AudioClip myFenceSound;
+	public AudioClip hoverSound;
+	public static AudioClip myHoverSound;
+	public AudioClip clickSound;
+	public static AudioClip myClickSound;
 
 	public AudioSource BGM;
 	public static AudioSource myBGM;
@@ -82,6 +86,8 @@ public class SoundAdapter : MonoBehaviour
 		myAltBGM = altBGM;
 		myCollectSound = collectSound;
 		myFenceSound = fenceSound;
+		myClickSound = clickSound;
+		myHoverSound = hoverSound;
 
 		myBGM = BGM;
 		myBGM.clip = myNormalBGM;
@@ -137,6 +143,21 @@ public class SoundAdapter : MonoBehaviour
 	}
 	public static void playFenceSound(){
 		AudioSource.PlayClipAtPoint (myFenceSound, Camera.main.transform.position, soundVolume);
+	}
+	//Main menu requires instance methods
+	public void playInstantClickSound(){
+		SoundAdapter.playClickSound (this.transform.position);
+	}
+	public static void playClickSound(Vector3 location){
+		AudioSource.PlayClipAtPoint (myClickSound, location, soundVolume);
+	}
+	//Main menu requires instance methods
+	public void playInstantHoverSound(){
+		SoundAdapter.playHoverSound (this.transform.position);
+	}
+	public static void playHoverSound(Vector3 location){
+		print (myHoverSound);
+		AudioSource.PlayClipAtPoint (myHoverSound, location, soundVolume);
 	}
 
 	public static void altTrack(){

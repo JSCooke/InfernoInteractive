@@ -12,16 +12,19 @@ public class AchievementController : MonoBehaviour {
     public string achievement1 = "Cannon King";
     public string achievement2 = "Untouchable!";
     public string achievement3 = "Speedrunner";
-    
-	//level2
-	public string achievement7 = "Puzzle Master";
+
+
+    //level3
+    public string achievement4 = "Orb Master";
+    public string achievement5 = "DroneSlayer";
+    public string achievement6 = "NotEvenClose";
+
+    //level2
+    public string achievement7 = "Puzzle Master";
 	public string achievement8 = "Who needs a shield";
 	public string achievement9 = "Traps? what traps?";
 
-	//level3
-	public string achievement4 = "Orb Master";
-    public string achievement5 = "DroneSlayer";
-    public string achievement6 = "NotEvenClose";
+
 
 
     //level 1
@@ -68,8 +71,12 @@ public class AchievementController : MonoBehaviour {
 
         instance = this;
 
-		//setup hashmap with achievements being false
-		if (!achievements.ContainsKey (achievement1)) {
+
+
+        load();
+
+        //setup hashmap with achievements being false
+        if (!achievements.ContainsKey (achievement1)) {
 			achievements.Add(achievement1, false);
 		}
 		if (!achievements.ContainsKey (achievement2)) {
@@ -105,7 +112,6 @@ public class AchievementController : MonoBehaviour {
 			achievements.Add(achievement9, false);
 		}
 
-        load();
 
         //set up string to sprite mapping
         if (!achievementSprites.ContainsKey (achievement1)) {
@@ -126,6 +132,7 @@ public class AchievementController : MonoBehaviour {
         if (!achievementSprites.ContainsKey(achievement5)) {
             achievementSprites.Add(achievement5, achievement5Sprite);
         }
+
         if (!achievementSprites.ContainsKey(achievement6)) {
             achievementSprites.Add(achievement6, achievement6Sprite);
         }
@@ -144,6 +151,7 @@ public class AchievementController : MonoBehaviour {
 			achievementSprites.Add(achievement9, achievement9Sprite);
 		}
 
+        print(Application.persistentDataPath);
 
     }
 	
@@ -174,34 +182,44 @@ public class AchievementController : MonoBehaviour {
         save();
 	}
 
-    public static void save() {
-		try{
-	        BinaryFormatter bf = new BinaryFormatter();
-	        FileStream file = File.Create(Application.persistentDataPath + "/achievements.dat");
+    public static void save()
+    {
+        try
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Create(Application.persistentDataPath + "/achievements.dat");
 
-	        Data data = new Data();
-	        data.achievements = achievements;
+            Data data = new Data();
+            data.achievements = achievements;
 
-	        bf.Serialize(file, data);
-	        file.Close();
-		}catch(Exception e){
-			Debug.LogError (e);
-		}
+            bf.Serialize(file, data);
+            file.Close();
+        }
+        catch (Exception e)
+        {
+            Debug.LogError(e);
+        }
     }
 
-    public static void load() {
-		try{
-	        if (File.Exists(Application.persistentDataPath + "/achievements.dat")) {
-	            BinaryFormatter bf = new BinaryFormatter();
-	            FileStream file = File.Open(Application.persistentDataPath + "/achievements.dat", FileMode.Open);
-	            Data data = (Data)bf.Deserialize(file);
-	            file.Close();
+    public static void load()
+    {
+        try
+        {
+            print(Application.persistentDataPath);
+            if (File.Exists(Application.persistentDataPath + "/achievements.dat"))
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                FileStream file = File.Open(Application.persistentDataPath + "/achievements.dat", FileMode.Open);
+                Data data = (Data)bf.Deserialize(file);
+                file.Close();
 
-	            achievements = data.achievements;
-	        }
-		}catch(Exception e){
-			Debug.LogError (e);
-		}
+                //achievements = data.achievements;
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError(e);
+        }
     }
 
     [Serializable]

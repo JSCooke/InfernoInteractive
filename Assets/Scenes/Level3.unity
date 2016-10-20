@@ -6718,8 +6718,8 @@ MonoBehaviour:
   playerA: {fileID: 1662727074}
   bossA: {fileID: 668081476}
   tempTimer: {fileID: 101943194}
-  tempAchievementImageBox: {fileID: 0}
-  tempAchievementTextBox: {fileID: 0}
+  tempAchievementImageBox: {fileID: 748152375}
+  tempAchievementTextBox: {fileID: 887978164}
   tempWinText: {fileID: 1588996671}
   tempDieText: {fileID: 1251185190}
   tempLeaderboardCanvas: {fileID: 780289779}
@@ -14086,7 +14086,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22431198, guid: 8fa9b25a63215f445b30382dc690db9d, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 22322850, guid: 8fa9b25a63215f445b30382dc690db9d, type: 2}
       propertyPath: m_Enabled
@@ -14095,6 +14095,14 @@ Prefab:
     - target: {fileID: 22431198, guid: 8fa9b25a63215f445b30382dc690db9d, type: 2}
       propertyPath: m_SizeDelta.y
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 22431198, guid: 8fa9b25a63215f445b30382dc690db9d, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 90.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 22490900, guid: 8fa9b25a63215f445b30382dc690db9d, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8fa9b25a63215f445b30382dc690db9d, type: 2}
@@ -27248,6 +27256,12 @@ MeshFilter:
 Transform:
   m_PrefabParentObject: {fileID: 405040, guid: 3ae6db4a6bb68444b8bdda927c181d72, type: 2}
   m_PrefabInternal: {fileID: 22142287}
+--- !u!114 &1002655833 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11408126, guid: 8fa9b25a63215f445b30382dc690db9d,
+    type: 2}
+  m_PrefabInternal: {fileID: 507620125}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &1002676729
 Prefab:
   m_ObjectHideFlags: 0
@@ -37259,7 +37273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerObjectiveText: {fileID: 313374252}
-  pauseMenuObjectiveText: {fileID: 0}
+  pauseMenuObjectiveText: {fileID: 1002655833}
 --- !u!4 &1458840334
 Transform:
   m_ObjectHideFlags: 0
@@ -38545,12 +38559,12 @@ MonoBehaviour:
   achievement1: Cannon King
   achievement2: Untouchable!
   achievement3: Speedrunner
+  achievement4: Orb Master
+  achievement5: DroneSlayer
+  achievement6: NotEvenClose
   achievement7: Puzzle Master
   achievement8: Who needs a shield
   achievement9: Traps? what traps?
-  achievement4: Orb Master
-  achievement5: Orb Master
-  achievement6: Orb Master
   achievement1Sprite: {fileID: 21300000, guid: 00723b6b579fde546a778f3f46b6f312, type: 3}
   achievement2Sprite: {fileID: 21300000, guid: 7226aab5c04373c4b9fdce6642517e67, type: 3}
   achievement3Sprite: {fileID: 21300000, guid: 6c21bec1d33a5a142a87faf70655434d, type: 3}

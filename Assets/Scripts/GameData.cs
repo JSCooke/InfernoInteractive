@@ -4,6 +4,7 @@ using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
+[Serializable]
 public class GameData : MonoBehaviour {
     private static Dictionary<string, object> dataItems;
 
@@ -35,25 +36,33 @@ public class GameData : MonoBehaviour {
     }
 
     public static void save() {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/gameData.dat");
+		try{
+	        BinaryFormatter bf = new BinaryFormatter();
+	        FileStream file = File.Create(Application.persistentDataPath + "/gameData.dat");
 
-        Data data = new Data();
-        data.dataItems = dataItems;
+	        Data data = new Data();
+	        data.dataItems = dataItems;
 
-        bf.Serialize(file, data);
-        file.Close();
+	        bf.Serialize(file, data);
+	        file.Close();
+		}catch(Exception e){
+			Debug.LogError (e);
+		}
     }
 
     public static void load() {
-        if (File.Exists(Application.persistentDataPath + "/gameData.dat")) {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/gameData.dat", FileMode.Open);
-            Data data = (Data)bf.Deserialize(file);
-            file.Close();
+		try{
+	        if (File.Exists(Application.persistentDataPath + "/gameData.dat")) {
+	            BinaryFormatter bf = new BinaryFormatter();
+	            FileStream file = File.Open(Application.persistentDataPath + "/gameData.dat", FileMode.Open);
+	            Data data = (Data)bf.Deserialize(file);
+	            file.Close();
 
-            dataItems = data.dataItems;
-        }
+	            dataItems = data.dataItems;
+	        }
+		}catch(Exception e){
+			Debug.LogError (e);
+		}
     }
 
     [Serializable]

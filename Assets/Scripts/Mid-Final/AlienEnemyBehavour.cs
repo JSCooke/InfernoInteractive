@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AlienEnemyBehavour : Damageable{
 
@@ -202,6 +203,28 @@ public class AlienEnemyBehavour : Damageable{
 		SoundAdapter.playMinionSound ();
 		if (currentHealth <= 0 && !unkillable) {
 			Destroy(gameObject);
+
 		}
 	}
+
+    void OnDestroy() {
+
+        //for drone killer achievement
+        AchievementController.droneKillCount++;
+        print("incrementing killcount");
+
+        if (AchievementController.droneKillCount == 1) {
+            List<string> achievementsToDisplay = new List<string>();
+
+            print("in achievement part");
+
+            AchievementController.updateAchievement("DroneSlayer", true);
+            achievementsToDisplay.Add("DroneSlayer");
+
+            //cycle through all achievements youved gained
+            AchievementController.displayAchievements(achievementsToDisplay);
+        }
+
+    }
+
 }

@@ -241,6 +241,7 @@ public class UIAdapter : MonoBehaviour
 	 * Pass in text and a sprite, and they'll be on the box.
 	 */
 	 public static void achieve(String achievementText, Sprite achievementSprite){
+        print("Achievement text :" + achievementText);
 		achievementTextBox.text = achievementText;	//Change text to whatever achievement value is.
 		achievementImageBox.sprite = achievementSprite;	//Change sprite to whatever achievement sprite is.
 		achievementAnimator.SetTrigger ("Achievement");

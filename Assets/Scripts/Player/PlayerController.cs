@@ -26,11 +26,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void movement(){
-		if (Input.GetKeyDown (action) && 
-            !Input.GetKeyDown(moveUp) && !Input.GetKey(moveUp) &&
-            !Input.GetKeyDown(moveDown) && !Input.GetKey(moveDown) &&
-            !Input.GetKeyDown(moveLeft) && !Input.GetKey(moveLeft) &&
-            !Input.GetKeyDown(moveRight) && !Input.GetKey(moveRight)) {
+        //Check if the player is trying to use a control station
+		if (Input.GetKeyDown (action)) {
 			toggleControl();
 		}
 
@@ -94,7 +91,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void toggleControl(){
-		if (currentControlStationController != null) {
+        //Check that the player is not trying to use an already occupied control station
+		if (!attachedToControlStation && currentControlStationController != null) {
 			if (currentControlStationController.attachedPlayer != null) {
 				print ("already in use");
 				return;

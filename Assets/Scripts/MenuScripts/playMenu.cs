@@ -9,13 +9,24 @@ public class playMenu : MonoBehaviour {
     public Text Desciption;
 	public Canvas mainMenu;
 
-	//Arrays of sprites and descriptions cooresponding to levels
-    public Sprite[] levelSprites = new Sprite[5];
-    public string[] descriptions = new string[5];
+    //Arrays of sprites and descriptions cooresponding to levels
+    public Sprite[] levelSprites;
+    public string[] descriptions;
+    public GameObject[] levelButtons;
 
     void Start()
-    {
-        SetDescriptions();
+    {   
+        //Check how many levels are unlocked
+        if(GameData.get<int>("levels unlocked") == default(int)) {
+            GameData.put("levels unlocked", 1);
+        }
+        for(int i = 0; i < levelButtons.Length; i++) {
+            levelButtons[i].SetActive(false);
+        }
+        for (int i = 0; i < GameData.get<int>("levels unlocked"); i++) {
+            levelButtons[i].SetActive(true);
+        }
+
     }
 
     public void LoadScene(int level)
@@ -37,13 +48,5 @@ public class playMenu : MonoBehaviour {
 		//Shows preview of sprite and description of level on hover
         Preview.sprite = levelSprites[level - 1];
         Desciption.text = descriptions[level - 1];
-    }
-
-    void SetDescriptions()
-    {
-		//List of level descriptions
-        descriptions[0] = "Defend the City";
-        descriptions[1] = "Navigate the Maze";
-        descriptions[2] = "Chase away the Invaders";
     }
 }

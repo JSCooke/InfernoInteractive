@@ -37,7 +37,7 @@ public class Meteor : MonoBehaviour {
     void OnCollisionEnter(Collision collision) {
 
         Destroy(this.transform.parent.gameObject);
-        GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().newAction = true;
+        Object.FindObjectOfType<FinalBossBehaviour>().newAction = true;
 
     }
 }

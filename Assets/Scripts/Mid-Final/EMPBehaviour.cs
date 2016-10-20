@@ -6,23 +6,26 @@ using System.Collections.Generic;
 public class EMPBehaviour : Damageable
 {
 
-    public GameObject exitDoor;
+    public BossDoorController exitDoor;
 
     float healthIncreamentTime = 1f;
     float timer;
 
-    int empIncreaseValue = 1;
+    int empIncreaseValue = 10;
 
     bool win = false;
     bool first = true;
     bool damaged = false;
 
+    public Image bossPortrait;
+    public Text bossBarValueText;
+    public Sprite bossImage;
 
+    public GameObject explosion;
 
     // Use this for initialization
     void Start()
     {
-        UIAdapter.changeEMP();
         timer = 0f;
         maxHealth = 100;
         currentHealth = 0;
@@ -42,11 +45,9 @@ public class EMPBehaviour : Damageable
 
         if (!win)
         {
-            Debug.Log("not win yet");
             //increase
             if (timer >= healthIncreamentTime)
             {
-                Debug.Log("im in here !!!");
                 increaseHealth();
                 timer = 0f;
             }
@@ -120,7 +121,23 @@ public class EMPBehaviour : Damageable
         alienMan.stopSpawn();
 
         //open top door
-        exitDoor.SetActive(false);
+        exitDoor.open = true;
+
+        //Unset EMP mode
+        UIAdapter.setEMPMode(false);
+        //Reset the boss health bar
+        UIAdapter.setBossUI(false);
+        UIAdapter.bossVal = 100;
+        UIAdapter.damageBoss(0);
+
+        //Set the portrait to the boss
+        bossPortrait.sprite = bossImage;
+
+        bossBarValueText.text = "Namelom: 100%";
+        Destroy(gameObject);
     }
 
+    void OnDestroy() {
+        explosion.SetActive(true);
+    }
 }

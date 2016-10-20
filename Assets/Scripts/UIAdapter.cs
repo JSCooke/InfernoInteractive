@@ -121,8 +121,8 @@ public class UIAdapter : MonoBehaviour
 		playerVal = 100;
 		bossVal = 100;
 
-		print (tempRedOrbIndicator);
-		print (tempGreenOrbIndicator);
+		//print (tempRedOrbIndicator);
+		//print (tempGreenOrbIndicator);
 		redOrbIndicator = tempRedOrbIndicator;
 		greenOrbIndicator = tempGreenOrbIndicator;
 
@@ -340,7 +340,7 @@ public class UIAdapter : MonoBehaviour
 	 * To make it disappear, pass in false.
 	 */ 
 	public static void setBossUI(bool ui){
-		print (ui);
+		//print (ui);
 		topBar.gameObject.SetActive (ui);
 		//bottomBar.gameObject.SetActive (ui);
 		//playerPortrait.gameObject.SetActive (ui);

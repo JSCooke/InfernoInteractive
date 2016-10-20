@@ -213,7 +213,7 @@ public class AchievementController : MonoBehaviour {
                 Data data = (Data)bf.Deserialize(file);
                 file.Close();
 
-                //achievements = data.achievements;
+                achievements = data.achievements;
             }
         }
         catch (Exception e)

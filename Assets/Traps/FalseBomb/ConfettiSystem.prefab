@@ -61,6 +61,7 @@ GameObject:
   - 4: {fileID: 483138}
   - 198: {fileID: 19861704}
   - 199: {fileID: 19902158}
+  - 114: {fileID: 11447420}
   m_Layer: 0
   m_Name: ConfettiSystem
   m_TagString: Untagged
@@ -185,6 +186,17 @@ Transform:
   - {fileID: 426288}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11447420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe70d92dca60bfa4091e594eb16c4547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &19814778
 ParticleSystem:
   m_ObjectHideFlags: 1

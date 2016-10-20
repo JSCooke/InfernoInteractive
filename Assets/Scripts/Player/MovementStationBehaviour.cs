@@ -15,7 +15,13 @@ public class MovementStationBehaviour : ControlStationBehaviour {
         wheelController = tankBase.GetComponentInChildren<Wheel_Control_CS>();
 	}
 
-	public override void keyHeld(bool up, bool left, bool down, bool right){
+    public override void onDetachPlayer(GameObject player) {
+        //When the player leaves the control station, stop acceleration and rotation
+        wheelController.speed = 0;
+        wheelController.rotation = 0;
+    }
+
+    public override void keyHeld(bool up, bool left, bool down, bool right){
         wheelController.speed = 0;
         wheelController.rotation = 0;
 

@@ -7,7 +7,7 @@ public class ControlStationController : MonoBehaviour {
 
 	private List<UnityEngine.GameObject> hoveringPlayers = new List<UnityEngine.GameObject>();
 
-	private UnityEngine.GameObject attachedPlayer;
+	public UnityEngine.GameObject attachedPlayer;
 	private PlayerController attachedPlayerController;
 
 	private ControlStationBehaviour controlStationBehaviour;

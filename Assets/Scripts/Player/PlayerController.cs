@@ -26,7 +26,11 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void movement(){
-		if (Input.GetKeyDown (action)) {
+		if (Input.GetKeyDown (action) && 
+            !Input.GetKeyDown(moveUp) && !Input.GetKey(moveUp) &&
+            !Input.GetKeyDown(moveDown) && !Input.GetKey(moveDown) &&
+            !Input.GetKeyDown(moveLeft) && !Input.GetKey(moveLeft) &&
+            !Input.GetKeyDown(moveRight) && !Input.GetKey(moveRight)) {
 			toggleControl();
 		}
 
@@ -90,6 +94,12 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void toggleControl(){
+		if (currentControlStationController != null) {
+			if (currentControlStationController.attachedPlayer != null) {
+				print ("already in use");
+				return;
+			}
+		}
 		if (attachedToControlStation) {
 			attachedToControlStation = false;
 

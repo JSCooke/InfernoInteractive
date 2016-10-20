@@ -30,6 +30,12 @@ public class upgradeController : MonoBehaviour {
 				} else if (achievement.Key == "Untouchable!") {
 					print ("hello adding mach 2 machine");
 					unlockedStations.Add ("Shield Mk2");
+				} else if (achievement.Key == "Puzzle Master") {
+					unlockedStations.Add ("Big Cannon Mk3");
+				} else if (achievement.Key == "Who needs a shield") {
+					unlockedStations.Add ("Shield Mk3");
+				} else if (achievement.Key == "Traps? what traps?") {
+					unlockedStations.Add ("Machine Gun Mk3");
 				}
 			}
 		}

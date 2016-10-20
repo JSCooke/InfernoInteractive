@@ -28,7 +28,7 @@ public class MeteorStrike : MonoBehaviour {
     void aimAnimation() {
 
         float radius = 5f;
-
+		SoundAdapter.playFrogSound ();
         //this.GetComponent<BossController>().difficulty
         for (int i = 0; i < 2; i++) {
 

@@ -6566,10 +6566,10 @@ MonoBehaviour:
   tempAchievementImageBox: {fileID: 463593839}
   tempAchievementTextBox: {fileID: 1666780831}
   tempWinText: {fileID: 1588996671}
-  tempDieText: {fileID: 0}
+  tempDieText: {fileID: 1251185190}
   amin: {fileID: 0}
-  tempRedOrbIndicator: {fileID: 0}
-  tempGreenOrbIndicator: {fileID: 0}
+  tempRedOrbIndicator: {fileID: 595150480}
+  tempGreenOrbIndicator: {fileID: 1194619516}
 --- !u!4 &175838620
 Transform:
   m_ObjectHideFlags: 0
@@ -14965,7 +14965,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 407324, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 140
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 407324, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_LocalRotation.x
@@ -15587,6 +15587,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 406272, guid: 59234cdca8471fe42ab77e0807ad6222, type: 2}
   m_PrefabInternal: {fileID: 592936174}
+--- !u!1 &595150480 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 111118, guid: 3d28a75c9abf8834781296bdd9172166, type: 2}
+  m_PrefabInternal: {fileID: 1928036868}
 --- !u!4 &598532568 stripped
 Transform:
   m_PrefabParentObject: {fileID: 475042, guid: b863ac4d6f31735428d5f09119eedec6, type: 2}
@@ -24511,7 +24515,7 @@ Prefab:
     - target: {fileID: 11415726, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
       propertyPath: bossHitSound
       value: 
-      objectReference: {fileID: 8300000, guid: a93a5d359ecd74fe3ad12dd68b68e4d0, type: 3}
+      objectReference: {fileID: 8300000, guid: 34aca9e3f1ade4802b9062b1380aa523, type: 3}
     - target: {fileID: 11415726, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
       propertyPath: normalBGM
       value: 
@@ -24520,6 +24524,30 @@ Prefab:
       propertyPath: altBGM
       value: 
       objectReference: {fileID: 8300000, guid: ce93b23614c577845b7cb9487248f75f, type: 3}
+    - target: {fileID: 11415726, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: minionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a93a5d359ecd74fe3ad12dd68b68e4d0, type: 3}
+    - target: {fileID: 11415726, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: fenceSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2b4ef0565b2a54fc6895c927f0855304, type: 3}
+    - target: {fileID: 11415726, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: minionSwordSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a1a3178f0271f49c5a12bc0c347e6e52, type: 3}
+    - target: {fileID: 11415726, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: clickSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 07c38e0499aea4acd81b44991c0e4d07, type: 3}
+    - target: {fileID: 11415726, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: hoverSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 6695b31b59f1041f6bf4669488fc08a4, type: 3}
+    - target: {fileID: 11415726, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
+      propertyPath: popSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1372e0cd62222624f9fbfc7e212a54b0, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4717a11bbb8a24cbfb51b54dd3a5f0b8, type: 2}
   m_IsPrefabParent: 0
@@ -29372,6 +29400,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1194534042}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1194619516 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 179658, guid: 3d28a75c9abf8834781296bdd9172166, type: 2}
+  m_PrefabInternal: {fileID: 1928036868}
 --- !u!1 &1196917117
 GameObject:
   m_ObjectHideFlags: 0
@@ -44240,6 +44272,10 @@ Prefab:
     - target: {fileID: 113916, guid: 3d28a75c9abf8834781296bdd9172166, type: 2}
       propertyPath: m_Name
       value: FriendlyUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 162968, guid: 3d28a75c9abf8834781296bdd9172166, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d28a75c9abf8834781296bdd9172166, type: 2}

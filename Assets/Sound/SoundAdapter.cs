@@ -151,6 +151,9 @@ public class SoundAdapter : MonoBehaviour
 	public static void playClickSound(Vector3 location){
 		AudioSource.PlayClipAtPoint (myClickSound, location, soundVolume);
 	}
+	public static void playClickSound(){
+		AudioSource.PlayClipAtPoint (myClickSound, Camera.main.transform.position, soundVolume);
+	}
 	//Main menu requires instance methods
 	public void playInstantHoverSound(){
 		SoundAdapter.playHoverSound (this.transform.position);
@@ -158,6 +161,9 @@ public class SoundAdapter : MonoBehaviour
 	public static void playHoverSound(Vector3 location){
 		print (myHoverSound);
 		AudioSource.PlayClipAtPoint (myHoverSound, location, soundVolume);
+	}
+	public static void playHoverSound(){
+		AudioSource.PlayClipAtPoint (myHoverSound, Camera.main.transform.position, soundVolume);
 	}
 
 	public static void altTrack(){

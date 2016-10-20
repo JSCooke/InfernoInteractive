@@ -43,7 +43,7 @@ public class BossDoorController : MonoBehaviour {
         if(other.tag == "Player" && redOrb && greenOrb)
         {
 			if (!open) {
-				SoundAdapter.playSwordSound ();
+				SoundAdapter.playClickSound ();
 			}
 			open = true;
 

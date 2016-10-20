@@ -61,7 +61,7 @@ public class RobotBehaviour : Damageable {
     }
 
     public override void takeDamage(float damage) {
-		SoundAdapter.playBossHitSound ();
+		SoundAdapter.playMinionSound ();
         stunTimeRemaining = stunDuration;
     }
 }

@@ -18,6 +18,7 @@ public class ShieldController : StateMachineBehaviour {
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         enemy.GetComponent<FinalBossBehaviour>().shield.SetActive(true);
+		SoundAdapter.playShieldUpSound ();
         enemy.GetComponent<FinalBossBehaviour>().anim.SetBool("Shield", false);
     }
 

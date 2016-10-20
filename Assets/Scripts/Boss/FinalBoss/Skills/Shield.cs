@@ -24,7 +24,7 @@ public class Shield : MonoBehaviour {
 
         //If both generators hit simulatenously, shield is deactivated
         if (generatorDestroyed()) {
-
+			SoundAdapter.playShieldDownSound ();
             this.gameObject.SetActive(false);
 
             for (int i = 0; i < hitCount.Length; i++) {

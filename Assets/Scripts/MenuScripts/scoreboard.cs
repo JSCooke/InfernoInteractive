@@ -33,39 +33,26 @@ public class scoreboard : MonoBehaviour {
 		for (int i = 0; i < 6; i++) {
 			if (i >= easy.Count) {
 				EasyNames[i].text = "----";
-				EasyTimes[i].text = Format(-1);
+				EasyTimes[i].text = "---";
 			} else {
 				EasyNames[i].text = easy[i].player;
-				EasyTimes[i].text = Format(easy[i].time);
+				EasyTimes[i].text = easy[i].score.ToString();
 			}
 			if (i >= medium.Count) {
 				MedNames[i].text = "----";
-				MedTimes[i].text = Format(-1);
+				MedTimes[i].text = "---";
 			} else {
 				MedNames[i].text = medium[i].player;
-				MedTimes[i].text = Format(medium[i].time);
+				MedTimes[i].text = medium[i].score.ToString();
 			}
 			if (i >= hard.Count) {
 				HardNames[i].text = "----";
-				HardTimes[i].text = Format(-1);
+				HardTimes[i].text = "---";
 			} else {
 				HardNames[i].text = hard[i].player;
-				HardTimes[i].text = Format(hard[i].time);
+				HardTimes[i].text = hard[i].score.ToString();
 			}
 		}
 	}
 
-	public string Format(int time) {
-		if (time != -1) {
-			int sec = time % 60;
-			int min = (time - sec) / 60;
-			string seconds = sec.ToString();
-			if (seconds.Length == 1)
-			{
-				seconds = "0" + seconds;
-			}
-			return min.ToString() + ":" + seconds;
-		}
-		return "--:--";
-	}
 }

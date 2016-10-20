@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class MapBehaviour : MonoBehaviour {
 
@@ -8,8 +9,12 @@ public class MapBehaviour : MonoBehaviour {
 	public float rotateSpeed = 1;
 	public float translateSpeed = 1;
 	public float translateAmplitude = 1;
+    public GameObject spawnTeleporter;
+    public Image map1;
+    public Image map2;
+    public Image map3;
 
-	private Vector3 _startPosition;
+    private Vector3 _startPosition;
 
 	// Use this for initialization
 	void Start () {
@@ -30,7 +35,11 @@ public class MapBehaviour : MonoBehaviour {
 	
 		if (id == 3 && other.gameObject.tag == "Player") // last map to collect and it's actually the player hitting it
 		{
-			UIAdapter.win();
+            map1.gameObject.SetActive(false);
+            map2.gameObject.SetActive(false);
+            map3.gameObject.SetActive(true);
+
+            UIAdapter.win();
 
 			//check for the trap master achievement
 			List<string> achievementsToDisplay = new List<string> ();
@@ -42,16 +51,42 @@ public class MapBehaviour : MonoBehaviour {
 				AchievementController.displayAchievements(achievementsToDisplay);
 
 			}
-			SoundAdapter.playCollectSound();
+
+
+            //spawn teleporter
+            if (spawnTeleporter != null) {
+                spawnTeleporter.SetActive(true);
+            }
+
+            SoundAdapter.playCollectSound();
 			Destroy(this.gameObject);
 
 		}
 
+        if (id == 2 && other.gameObject.tag == "Player") {
+            map1.gameObject.SetActive(false);
+            map2.gameObject.SetActive(true);
+            map3.gameObject.SetActive(false);
+
+
+            //spawn teleporter
+            if (spawnTeleporter != null) {
+                spawnTeleporter.SetActive(true);
+            }
+
+            SoundAdapter.playCollectSound();
+            Destroy(this.gameObject);
+        }
+
 		//see if the box acheivement is achieved
 		if (id == 1 && other.gameObject.tag == "Player") {
 
-			//check for the puzzle achievement
-			List<string> achievementsToDisplay = new List<string> ();
+            map3.gameObject.SetActive(false);
+            map2.gameObject.SetActive(false);
+            map1.gameObject.SetActive(true);
+
+            //check for the puzzle achievement
+            List<string> achievementsToDisplay = new List<string> ();
 			if (!AchievementController.hasFailedBoxStage) {
 				AchievementController.updateAchievement ("Puzzle Master", !AchievementController.hasFailedBoxStage);
 				achievementsToDisplay.Add ("Puzzle Master");
@@ -60,7 +95,13 @@ public class MapBehaviour : MonoBehaviour {
 				AchievementController.displayAchievements(achievementsToDisplay);
 
 			}
-			SoundAdapter.playCollectSound();
+
+            //spawn teleporter
+            if (spawnTeleporter != null) {
+                spawnTeleporter.SetActive(true);
+            }
+
+            SoundAdapter.playCollectSound();
 			Destroy(this.gameObject);
 
 		}

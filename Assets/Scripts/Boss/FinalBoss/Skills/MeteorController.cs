@@ -4,11 +4,17 @@ using System.Collections;
 public class MeteorController : StateMachineBehaviour {
 
     public GameObject player, enemy, meteor;
+	private int difficulty = 2;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         player = GameObject.Find("Tank");
         enemy = GameObject.Find("FinalBoss");
+
+		if (GameData.get<BossController.Difficulty>("difficulty") != default(BossController.Difficulty))
+		{
+			difficulty = (int)GameData.get<BossController.Difficulty>("difficulty");
+		}
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -21,12 +27,10 @@ public class MeteorController : StateMachineBehaviour {
 
         float radius = 6f;
 
-        //this.GetComponent<BossController>().difficulty
-        for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < difficulty; i++) {
 
             //Referenced from http://answers.unity3d.com/questions/1068513/place-8-objects-around-a-target-gameobject.html
-            //float angle = i * Mathf.PI * 2f / this.GetComponent<BossController>().difficulty;
-            float angle = i * Mathf.PI * 2f / 2;
+			float angle = i * Mathf.PI * 2f / difficulty;
             Vector3 newPos = new Vector3(player.transform.position.x + Mathf.Cos(angle) * radius, 0, player.transform.position.z + Mathf.Sin(angle) * radius);
             newPos.y += 2;
 

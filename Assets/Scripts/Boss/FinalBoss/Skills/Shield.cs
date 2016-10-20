@@ -7,6 +7,7 @@ public class Shield : MonoBehaviour {
     private float healAmount = -0.02f;
     public bool[] hitCount = new bool[2];
     public string damagedBy;
+	private int difficulty = 2;
 
     // Use this for initialization
     void Start () {
@@ -15,23 +16,24 @@ public class Shield : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (GameData.get<BossController.Difficulty>("difficulty") != default(BossController.Difficulty))
+		{
+			difficulty = (int)GameData.get<BossController.Difficulty>("difficulty");
+		}
+
         //Amount healed depends on difficulty. 0.02 for easy, 0.03 for medium, 0.04 for hard
-        //if (healAmount != GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossController>().difficulty * -1 / 100) {
-        //    healAmount = GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossController>().difficulty * -1 / 100;
-        //}
+		if (healAmount != (float)(difficulty * -1) / (float)100) {
+			healAmount = (float)(difficulty * -1) / (float)100;
+        }
 
         healSelf();
 
         //If both generators hit simulatenously, shield is deactivated
         if (generatorDestroyed()) {
 			SoundAdapter.playShieldDownSound ();
-            this.gameObject.SetActive(false);
-
-            for (int i = 0; i < hitCount.Length; i++) {
-                hitCount[i] = false;
-            }
-
 			GameObject.Find("FinalBoss").GetComponent<FinalBossBehaviour>().newAction = true;
+			Destroy (this.gameObject);
         }
 	}
 
@@ -56,6 +58,7 @@ public class Shield : MonoBehaviour {
     public bool generatorDestroyed() {
 
         for (int i = 0; i < hitCount.Length; i++) {
+			print(i + " got hit is " + hitCount[i]);
             if (!hitCount[i]) {
                 return false;
             }

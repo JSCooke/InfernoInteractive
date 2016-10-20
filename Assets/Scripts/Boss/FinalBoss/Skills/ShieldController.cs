@@ -20,7 +20,7 @@ public class ShieldController : StateMachineBehaviour {
 
 		SoundAdapter.playShieldUpSound ();
 		GameObject shockWaveInstantiated = (GameObject)Instantiate(shield, enemy.transform.position, Quaternion.identity);
-
+		shockWaveInstantiated.transform.parent = enemy.transform;
         enemy.GetComponent<FinalBossBehaviour>().anim.SetBool("Shield", false);
     }
 

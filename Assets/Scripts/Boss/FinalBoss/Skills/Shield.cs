@@ -58,7 +58,6 @@ public class Shield : MonoBehaviour {
     public bool generatorDestroyed() {
 
         for (int i = 0; i < hitCount.Length; i++) {
-			print(i + " got hit is " + hitCount[i]);
             if (!hitCount[i]) {
                 return false;
             }

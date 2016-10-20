@@ -30,8 +30,8 @@ public class HollowWall : MonoBehaviour {
         }
 
         //Damage over time depends on difficulty. 0.02 for easy, 0.03 for medium, 0.04 for hard
-        if (damage != difficulty / 100) {
-            damage = difficulty / 100;
+        if (damage != (float)difficulty / (float)100) {
+            damage = (float)difficulty / (float)100;
         }
 
         if (health <= 0) {

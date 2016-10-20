@@ -275,7 +275,11 @@ public class UIAdapter : MonoBehaviour
 	public static void win(){
         winAnimator.gameObject.SetActive(true);
 		stopTimer ();
-		List<string> achievementsToDisplay = new List<string> ();
+
+        //Set boss health to 0 to fix 1% health bug
+        boss.Value = 0;
+
+        List<string> achievementsToDisplay = new List<string> ();
 
 		//Achievements for level 1
 		if (SceneManager.GetActiveScene ().buildIndex == 2) {

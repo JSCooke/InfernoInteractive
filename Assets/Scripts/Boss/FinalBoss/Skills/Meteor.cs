@@ -18,15 +18,10 @@ public class Meteor : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        //transform.position = Vector3.MoveTowards(transform.position, target.position, meteorSpeed * Time.deltaTime);
 
-        //if (transform.position == target.position) {
-        //    Destroy(this.transform.parent.gameObject);
-        //    GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().newAction = true;
-        //}
     }
 
-    //Might cause null pointer
+
     void OnTriggerEnter(Collider collider) {
 		SoundAdapter.playFenceSound ();
 		SoundAdapter.playBombSound ();

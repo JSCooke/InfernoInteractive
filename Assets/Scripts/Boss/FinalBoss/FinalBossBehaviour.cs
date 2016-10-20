@@ -43,8 +43,6 @@ public class FinalBossBehaviour : Spawnable {
 
     // Update is called once per frame
     void Update() {
-        //rb.velocity = Vector3.zero;
-        //rb.angularVelocity = Vector3.zero;
 
         if (Time.timeScale == 0) {
             return;

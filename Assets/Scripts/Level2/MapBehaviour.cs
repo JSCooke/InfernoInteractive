@@ -69,6 +69,9 @@ public class MapBehaviour : MonoBehaviour {
 		//see if the box acheivement is achieved
 		if (id == 1 && other.gameObject.tag == "Player") {
 
+            SoundAdapter.playCollectSound();
+            Destroy(this.gameObject);
+
             map3.gameObject.SetActive(false);
             map2.gameObject.SetActive(false);
             map1.gameObject.SetActive(true);
@@ -89,8 +92,7 @@ public class MapBehaviour : MonoBehaviour {
                 spawnTeleporter.SetActive(true);
             }
 
-            SoundAdapter.playCollectSound();
-			Destroy(this.gameObject);
+
 
 		}
 	}

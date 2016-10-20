@@ -57,7 +57,10 @@ public class UIAdapter : MonoBehaviour
 			return playerVal;
 		}
 		set { 
-			player.Value = playerVal;
+			if (player != null)
+			{
+				player.Value = playerVal;
+			}
 		}
 	}
     public static Sprite statPlayerAngry;
@@ -71,8 +74,11 @@ public class UIAdapter : MonoBehaviour
 		get {
 			return bossVal;
 		}
-		set { 
-			boss.Value = bossVal;
+		set {
+			if (boss != null)
+			{
+				boss.Value = bossVal;
+			}
 		}
 	}
 
@@ -90,7 +96,7 @@ public class UIAdapter : MonoBehaviour
 	public static Text achievementTextBox;
 
 	public static Canvas leaderboardCanvas;
-	private static int points;
+	public static int points;
 
 	//This needs to be altered in this class to show points earned.
 	public static Text winText;
@@ -214,7 +220,7 @@ public class UIAdapter : MonoBehaviour
             }
 
 			BossVal = bossVal;
-			if (bossDead ()&&!isEMP) {
+			if (boss != null && bossDead ()&&!isEMP) {
 				win ();
 			}
 		}

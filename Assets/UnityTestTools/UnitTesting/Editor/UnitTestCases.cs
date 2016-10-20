@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 
 [TestFixture]
-public class UnitTests
+public class UnitTestCases
 {
 
 	[Test]
@@ -19,6 +19,7 @@ public class UnitTests
 
 		tank.iFrameTime = 0;
 		tank.lastDamageTime = 0;
+
 		tank.takeDamage(40);
 		Assert.That(tank.CurrentHealth == 60);
 	}
@@ -33,6 +34,7 @@ public class UnitTests
 		tank.iFrameTime = 2;
 
 		tank.lastDamageTime = 0;
+
 		tank.takeDamage(40);
 		Assert.That(tank.CurrentHealth == 100);
 	}
@@ -48,6 +50,7 @@ public class UnitTests
 		boss.maxHealth = 100;
 		boss.totalHealth = 100;
 		boss.dead = false;
+
 		boss.takeDamage(30);
 		Assert.That(boss.currentHealth == 70);
 	}
@@ -63,6 +66,7 @@ public class UnitTests
 		boss.maxHealth = 100;
 		boss.totalHealth = 100;
 		boss.dead = false;
+
 		boss.takeDamage(110);
 		Assert.That(boss.dead == true);
 	}
@@ -71,17 +75,20 @@ public class UnitTests
 	public void leaderboardScoresAdded()
 	{
 		//Test if leaderboard adds scores correctly.
-		UIAdapter.currentLevel = 1;
-		UIAdapter.addScoreToLeader("MIA", 120);
-
 		BossController.Difficulty difficulty = GameData.get<BossController.Difficulty>("difficulty");
 		if (difficulty == default(BossController.Difficulty))
 		{
 			difficulty = BossController.Difficulty.Easy;
 		}
 
+		GameData.put("1" + difficulty, null);
+
+		UIAdapter.currentLevel = 1;
+		UIAdapter.points = 120;
+		UIAdapter.addScoreToLeader("MIA");
+
 		List<LeaderboardEntry> leaders = GameData.get<List<LeaderboardEntry>>("1" + difficulty);
-		Assert.That(leaders[0].time == 120);
+		Assert.That(leaders[0].score == 120);
 		Assert.That(leaders[0].player == "MIA");
 	}
 
@@ -89,22 +96,26 @@ public class UnitTests
 	public void leaderboardScoresSorted()
 	{
 		//Test if leaderboard sorts scores correctly.
-		UIAdapter.currentLevel = 2;
-		UIAdapter.addScoreToLeader("MIA", 120);
-		UIAdapter.addScoreToLeader("BOO", 5);
-
 		BossController.Difficulty difficulty = GameData.get<BossController.Difficulty>("difficulty");
 		if (difficulty == default(BossController.Difficulty))
 		{
 			difficulty = BossController.Difficulty.Easy;
 		}
 
-		List<LeaderboardEntry> leaders = GameData.get<List<LeaderboardEntry>>("2" + difficulty);
+		GameData.put("1" + difficulty, null);
 
-		Assert.That(leaders[0].time == 5);
-		Assert.That(leaders[0].player == "BOO");
+		UIAdapter.currentLevel = 1;
+		UIAdapter.points = 5;
+		UIAdapter.addScoreToLeader("BOO");
+		UIAdapter.points = 120;
+		UIAdapter.addScoreToLeader("MIA");
 
-		Assert.That(leaders[1].time == 120);
-		Assert.That(leaders[1].player == "MIA");
+		List<LeaderboardEntry> leaders = GameData.get<List<LeaderboardEntry>>("1" + difficulty);
+
+		Assert.That(leaders[0].score == 120);
+		Assert.That(leaders[0].player == "MIA");
+
+		Assert.That(leaders[1].score == 5);
+		Assert.That(leaders[1].player == "BOO");
 	}
 }

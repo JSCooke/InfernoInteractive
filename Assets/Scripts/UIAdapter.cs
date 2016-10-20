@@ -291,8 +291,21 @@ public class UIAdapter : MonoBehaviour
 			}
 		}
 
-        //cycle through all achievements youved gained
-        AchievementController.displayAchievements(achievementsToDisplay);
+        //Achievements for level 3
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            //not even close achievement
+            if (UIAdapter.player.Value < 25 && UIAdapter.player.Value > 1)
+            {
+                AchievementController.updateAchievement("NotEvenClose", true);
+                achievementsToDisplay.Add("NotEvenClose");
+            }
+
+        }
+
+
+            //cycle through all achievements youved gained
+            AchievementController.displayAchievements(achievementsToDisplay);
 
         //More complex scores may be used later. For now, for every second under 10 minutes gets a point.
         points = 600 - (timer.getTime() [0] * 60) - (timer.getTime() [1]);

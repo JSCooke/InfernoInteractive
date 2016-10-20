@@ -213,7 +213,7 @@ public class AlienEnemyBehavour : Damageable{
         AchievementController.droneKillCount++;
         print("incrementing killcount");
 
-        if (AchievementController.droneKillCount == 1) {
+        if (AchievementController.droneKillCount == 15) {
             List<string> achievementsToDisplay = new List<string>();
 
             print("in achievement part");

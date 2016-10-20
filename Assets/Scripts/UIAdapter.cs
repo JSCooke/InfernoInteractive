@@ -10,6 +10,8 @@ public class UIAdapter : MonoBehaviour
 {
 	public int level;
 
+	public GameObject tempRedOrbIndicator, tempGreenOrbIndicator;
+	public static GameObject redOrbIndicator, greenOrbIndicator;
 	//All UI components are passed in as fields
 	public BarScript playerBar, bossBar;
 	public Image bar1, bar2;
@@ -31,9 +33,6 @@ public class UIAdapter : MonoBehaviour
     {
         isEMP = emp;
     }
-
-	public GameObject tempRedOrbIndicator, tempGreenOrbIndicator;
-	public static GameObject redOrbIndicator, greenOrbIndicator;
 
 	//Used for when the player dies to an extremely obvoius trap
 	private static bool idiot = false;
@@ -122,6 +121,8 @@ public class UIAdapter : MonoBehaviour
 		playerVal = 100;
 		bossVal = 100;
 
+		print (tempRedOrbIndicator);
+		print (tempGreenOrbIndicator);
 		redOrbIndicator = tempRedOrbIndicator;
 		greenOrbIndicator = tempGreenOrbIndicator;
 
@@ -399,13 +400,15 @@ public class UIAdapter : MonoBehaviour
 	 * Turns the red orb indicator on or off
 	 */
 	public static void setRedOrbActive(bool active){
-		redOrbIndicator.SetActive (active);
+		print (redOrbIndicator);
+		UIAdapter.redOrbIndicator.SetActive (active);
 	}
 
 	/**
 	 * Turns the green orb indicator on or off
 	 */
 	public static void setGreenOrbActive(bool active){
-		greenOrbIndicator.SetActive (active);
+		print (UIAdapter.greenOrbIndicator);
+		UIAdapter.greenOrbIndicator.SetActive (active);
 	}
 }

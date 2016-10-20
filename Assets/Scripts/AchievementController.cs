@@ -20,6 +20,8 @@ public class AchievementController : MonoBehaviour {
 
 	//level3
 	public string achievement4 = "Orb Master";
+    public string achievement5 = "DroneSlayer";
+    public string achievement6 = "NotEvenClose";
 
 
     //level 1
@@ -33,14 +35,18 @@ public class AchievementController : MonoBehaviour {
 
 	//level 3
 	public static bool hasBeenDamagedL3 = false;
+    public static int droneKillCount = 0;
+
 
     public Sprite achievement1Sprite;
     public Sprite achievement2Sprite;
     public Sprite achievement3Sprite;
 
     public Sprite achievement4Sprite;
+    public Sprite achievement5Sprite;
+    public Sprite achievement6Sprite;
 
-	public Sprite achievement7Sprite;
+    public Sprite achievement7Sprite;
 	public Sprite achievement8Sprite;
 	public Sprite achievement9Sprite;
 
@@ -78,9 +84,15 @@ public class AchievementController : MonoBehaviour {
         {
             achievements.Add(achievement4, false);
         }
+        if (!achievements.ContainsKey(achievement5)) {
+            achievements.Add(achievement5, false);
+        }
+        if (!achievements.ContainsKey(achievement6)) {
+            achievements.Add(achievement6, false);
+        }
 
 
-		if (!achievements.ContainsKey(achievement7))
+        if (!achievements.ContainsKey(achievement7))
 		{
 			achievements.Add(achievement7, false);
 		}
@@ -111,9 +123,15 @@ public class AchievementController : MonoBehaviour {
         {
             achievementSprites.Add(achievement4, achievement4Sprite);
         }
+        if (!achievementSprites.ContainsKey(achievement5)) {
+            achievementSprites.Add(achievement5, achievement5Sprite);
+        }
+        if (!achievementSprites.ContainsKey(achievement6)) {
+            achievementSprites.Add(achievement6, achievement6Sprite);
+        }
 
 
-		if (!achievementSprites.ContainsKey(achievement7))
+        if (!achievementSprites.ContainsKey(achievement7))
 		{
 			achievementSprites.Add(achievement7, achievement7Sprite);
 		}
@@ -125,6 +143,8 @@ public class AchievementController : MonoBehaviour {
 		{
 			achievementSprites.Add(achievement9, achievement9Sprite);
 		}
+
+
     }
 	
 	// Update is called once per frame
@@ -146,6 +166,7 @@ public class AchievementController : MonoBehaviour {
         foreach (string achievement in achievementsToDisplay)
         {
 			achievementQueue.Enqueue(achievement);
+            print("putting :" + achievement);
         }
 
 		//add the static dictionaries to the gamedata

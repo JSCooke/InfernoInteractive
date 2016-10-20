@@ -90,6 +90,8 @@ public class UnitTestCases
 		List<LeaderboardEntry> leaders = GameData.get<List<LeaderboardEntry>>("1" + difficulty);
 		Assert.That(leaders[0].score == 120);
 		Assert.That(leaders[0].player == "MIA");
+
+		GameData.put("1" + difficulty, null);
 	}
 
 	[Test]
@@ -117,5 +119,7 @@ public class UnitTestCases
 
 		Assert.That(leaders[1].score == 5);
 		Assert.That(leaders[1].player == "BOO");
+
+		GameData.put("1" + difficulty, null);
 	}
 }

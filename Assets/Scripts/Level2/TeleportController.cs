@@ -12,10 +12,10 @@ public class TeleportController : MonoBehaviour {
 	public void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "Player")
 		{
-			other.transform.position = new Vector3(gotoX, gotoY, gotoZ);
-			other.transform.rotation = Quaternion.identity;
+			other.GetComponentInParent<TankController>().transform.position = new Vector3(gotoX, gotoY, gotoZ);
+			other.GetComponentInParent<TankController>().transform.rotation = Quaternion.identity;
 			other.transform.Find("Treads").gameObject.transform.rotation = Quaternion.identity;
-			other.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
+			other.GetComponentInParent<TankController>().GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
 
 			//fail the achievement
 			if (isHole) {

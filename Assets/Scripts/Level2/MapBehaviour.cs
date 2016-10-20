@@ -9,6 +9,7 @@ public class MapBehaviour : MonoBehaviour {
 	public float rotateSpeed = 1;
 	public float translateSpeed = 1;
 	public float translateAmplitude = 1;
+    public GameObject spawnTeleporter;
     public Image map1;
     public Image map2;
     public Image map3;
@@ -50,7 +51,14 @@ public class MapBehaviour : MonoBehaviour {
 				AchievementController.displayAchievements(achievementsToDisplay);
 
 			}
-			SoundAdapter.playCollectSound();
+
+
+            //spawn teleporter
+            if (spawnTeleporter != null) {
+                spawnTeleporter.SetActive(true);
+            }
+
+            SoundAdapter.playCollectSound();
 			Destroy(this.gameObject);
 
 		}
@@ -59,6 +67,13 @@ public class MapBehaviour : MonoBehaviour {
             map1.gameObject.SetActive(false);
             map2.gameObject.SetActive(true);
             map3.gameObject.SetActive(false);
+
+
+            //spawn teleporter
+            if (spawnTeleporter != null) {
+                spawnTeleporter.SetActive(true);
+            }
+
             SoundAdapter.playCollectSound();
             Destroy(this.gameObject);
         }
@@ -80,7 +95,13 @@ public class MapBehaviour : MonoBehaviour {
 				AchievementController.displayAchievements(achievementsToDisplay);
 
 			}
-			SoundAdapter.playCollectSound();
+
+            //spawn teleporter
+            if (spawnTeleporter != null) {
+                spawnTeleporter.SetActive(true);
+            }
+
+            SoundAdapter.playCollectSound();
 			Destroy(this.gameObject);
 
 		}

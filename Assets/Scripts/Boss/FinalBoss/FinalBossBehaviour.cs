@@ -41,6 +41,7 @@ public class FinalBossBehaviour : Spawnable {
     // Update is called once per frame
     void Update() {
 
+        //If pause do nothing
         if (Time.timeScale == 0) {
             return;
         }
@@ -51,7 +52,7 @@ public class FinalBossBehaviour : Spawnable {
             Die();
         }
         else {
-
+            //Only attack when ready
 			if (anim.GetBool("Ready")){
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.transform.position - this.transform.position), this.GetComponent<BossController>().rotationSpeed * Time.deltaTime);
 				fightPlayer();
@@ -61,6 +62,7 @@ public class FinalBossBehaviour : Spawnable {
 
     }
 
+    //Set all animators to false
 	void resetAnimators (){
 		anim.SetBool ("Slam", false);
 		anim.SetBool ("Meteor", false);
@@ -69,6 +71,7 @@ public class FinalBossBehaviour : Spawnable {
 		anim.SetBool ("Stationary", false);
 	}
 
+    //Queue ensures boss doesnt use the same skills consecutively
     void updateQueue(Action action) {
 
         if (lastSkillsUsed.Count == 2) {
@@ -84,28 +87,28 @@ public class FinalBossBehaviour : Spawnable {
             newAction = false;
             float randSkill = Random.Range(0, 100);
 
-			if (randSkill <= 30 && !lastSkillsUsed.Contains(Action.SLAM)) {  //Slam
+			if (randSkill <= 30) {  //Slam
                 //print("Slam");
                 updateQueue(Action.SLAM);
                 anim.SetBool("Slam", true);
 				SoundAdapter.playFrogSound ();
 				SoundAdapter.playHoverSound ();
 
-			} else if (randSkill <= 45 && currentHealth <= (maxHealth * 0.25) && !lastSkillsUsed.Contains(Action.METEOR)) {     //Meteor
+			} else if (randSkill > 30 && randSkill <= 45 && currentHealth <= (maxHealth * 0.25) && !lastSkillsUsed.Contains(Action.METEOR)) {     //Meteor
                 //print("Meteor");
                 updateQueue(Action.METEOR);
                 anim.SetBool("Meteor", true);
 				SoundAdapter.playFrogSound ();
 				SoundAdapter.playHoverSound ();
 
-			} else if (randSkill <= 60 && currentHealth <= (maxHealth * 0.50) && !lastSkillsUsed.Contains(Action.SHIELD)) {     //Shield
+			} else if (randSkill > 45 && randSkill <= 60 && currentHealth <= (maxHealth * 0.50) && !lastSkillsUsed.Contains(Action.SHIELD)) {     //Shield
                 //print("Shield");
                 updateQueue(Action.SHIELD);
                 anim.SetBool("Shield", true);
 				SoundAdapter.playFrogSound ();
 				SoundAdapter.playHoverSound ();
 
-			} else if (randSkill <= 75 && currentHealth <= (maxHealth * 0.75) && !lastSkillsUsed.Contains(Action.SNARE)) {     //Snare
+			} else if (randSkill > 60 && randSkill <= 75 && currentHealth <= (maxHealth * 0.75) && !lastSkillsUsed.Contains(Action.SNARE)) {     //Snare
                 //print("Snare");
                 updateQueue(Action.SNARE);
                 anim.SetBool("Snare", true);
@@ -113,8 +116,6 @@ public class FinalBossBehaviour : Spawnable {
 				SoundAdapter.playHoverSound ();
 
             } else {     //Stationary
-				//anim.SetBool("Stationary", true);
-				updateQueue(Action.STATIONARY);
 				anim.SetBool("Stationary", true);
 				SoundAdapter.playFrogSound ();
 				SoundAdapter.playHoverSound ();

@@ -25,7 +25,7 @@ public class MeteorController : StateMachineBehaviour {
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) { 
 
-        float radius = 6f;
+        float radius = 7f;
 
 		for (int i = 0; i < difficulty; i++) {
 

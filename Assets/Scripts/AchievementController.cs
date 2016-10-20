@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System;
-
+[Serializable]
 public class AchievementController : MonoBehaviour {
 
 	//level1
@@ -154,25 +154,33 @@ public class AchievementController : MonoBehaviour {
 	}
 
     public static void save() {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/achievements.dat");
+		try{
+	        BinaryFormatter bf = new BinaryFormatter();
+	        FileStream file = File.Create(Application.persistentDataPath + "/achievements.dat");
 
-        Data data = new Data();
-        data.achievements = achievements;
+	        Data data = new Data();
+	        data.achievements = achievements;
 
-        bf.Serialize(file, data);
-        file.Close();
+	        bf.Serialize(file, data);
+	        file.Close();
+		}catch(Exception e){
+			Debug.LogError (e);
+		}
     }
 
     public static void load() {
-        if (File.Exists(Application.persistentDataPath + "/achievements.dat")) {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/achievements.dat", FileMode.Open);
-            Data data = (Data)bf.Deserialize(file);
-            file.Close();
+		try{
+	        if (File.Exists(Application.persistentDataPath + "/achievements.dat")) {
+	            BinaryFormatter bf = new BinaryFormatter();
+	            FileStream file = File.Open(Application.persistentDataPath + "/achievements.dat", FileMode.Open);
+	            Data data = (Data)bf.Deserialize(file);
+	            file.Close();
 
-            achievements = data.achievements;
-        }
+	            achievements = data.achievements;
+	        }
+		}catch(Exception e){
+			Debug.LogError (e);
+		}
     }
 
     [Serializable]

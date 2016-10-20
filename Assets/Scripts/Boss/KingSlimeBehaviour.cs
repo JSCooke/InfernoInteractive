@@ -52,9 +52,16 @@ public class KingSlimeBehaviour : Spawnable {
 
         this.GetComponent<BossController>().totalHealth = 100 + (200 * (this.GetComponent<BossController>().difficulty - 1));
 
-        //Math for medium isn't a round number
+        if (this.GetComponent<BossController>().difficultyLevel == BossController.Difficulty.Easy) {
+            this.GetComponent<BossController>().totalHealth = 448;
+        }
+
         if (this.GetComponent<BossController>().difficultyLevel == BossController.Difficulty.Medium) {
-            this.GetComponent<BossController>().totalHealth -= 25;
+            this.GetComponent<BossController>().totalHealth = 708;
+        }
+
+        if (this.GetComponent<BossController>().difficultyLevel == BossController.Difficulty.Hard) {
+            this.GetComponent<BossController>().totalHealth = 1042;
         }
 
         if (player == null) {
@@ -216,7 +223,7 @@ public class KingSlimeBehaviour : Spawnable {
 
             BossController childScript = child.GetComponent<BossController>();
             childScript.GetComponent<KingSlimeBehaviour>().currentLevel = currentLevel + 1;
-            childScript.maxHealth = (int)(maxHealth * threshold);
+            childScript.maxHealth = (int)(Mathf.Floor(maxHealth * (float)threshold));
             childScript.currentHealth = childScript.maxHealth;
 
         }

@@ -311,6 +311,11 @@ public class UIAdapter : MonoBehaviour
 			"\nYou finished the level in: " + timer.getTime() [0].ToString("D2") + ":" +timer.getTime() [1].ToString("D2") +
 			"\nThis earns you: " + Convert.ToString (points) + " points!";	//This would be fun if we animate it ticking up, as the time ticks down.
 		winAnimator.SetTrigger ("Win");
+
+        //Unlock the next level (if it is locked)
+        if(GameData.get<int>("levels unlocked") < SceneManager.GetActiveScene().buildIndex) {
+            GameData.put("levels unlocked", Math.Min(SceneManager.GetActiveScene().buildIndex, 3));
+        }
 	}
 
 	/**

@@ -54,6 +54,10 @@ public class GameData : MonoBehaviour {
                 }
             }
 
+            if(dataItems.ContainsKey("levels unlocked")) {
+                data.dataItems["levels unlocked"] = dataItems["levels unlocked"];
+            }
+
 	        bf.Serialize(file, data);
 	        file.Close();
 		}catch(Exception e){

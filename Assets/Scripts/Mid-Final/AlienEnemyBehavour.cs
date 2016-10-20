@@ -54,7 +54,7 @@ public class AlienEnemyBehavour : Damageable{
         tankPosition = player.transform;
         tank = player.GetComponent<TankController>();
 
-        empObj = GameObject.Find("EMP");
+        empObj = Object.FindObjectOfType<EMPBehaviour>().gameObject;
         emp = empObj.transform;
         empBehave = empObj.GetComponent<EMPBehaviour>();
 
@@ -99,7 +99,11 @@ public class AlienEnemyBehavour : Damageable{
 
     // Update is called once per frame
     void Update () {        
-
+        if(emp== null) {
+            empObj = Object.FindObjectOfType<EMPBehaviour>().gameObject;
+            emp = empObj.transform;
+            empBehave = empObj.GetComponent<EMPBehaviour>();
+        }
         //check which
         if (toEMP)
         {

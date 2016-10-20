@@ -23,9 +23,9 @@ public class UIAdapter : MonoBehaviour
 	public AnimationClip amin;
     private static bool isEMP = false;
 
-    public static void changeEMP()
+    public static void setEMPMode(bool emp)
     {
-        isEMP = true;
+        isEMP = emp;
     }
 
 	public GameObject tempRedOrbIndicator, tempGreenOrbIndicator;
@@ -180,8 +180,9 @@ public class UIAdapter : MonoBehaviour
             {
                 bossVal = 0;
             }
-
-            Debug.Log("emp health val " + bossVal);
+            if (bossVal > 100) {
+                bossVal = 100;
+            }
 
 			BossVal = bossVal;
 			if (bossDead ()&&!isEMP) {
@@ -311,8 +312,8 @@ public class UIAdapter : MonoBehaviour
 	public static void setBossUI(bool ui){
 		print (ui);
 		topBar.gameObject.SetActive (ui);
-		bottomBar.gameObject.SetActive (ui);
-		playerPortrait.gameObject.SetActive (ui);
+		//bottomBar.gameObject.SetActive (ui);
+		//playerPortrait.gameObject.SetActive (ui);
 		bossPortrait.gameObject.SetActive (ui);
 
 //		bossPortrait.enabled = ui;

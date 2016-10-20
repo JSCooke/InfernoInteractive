@@ -8,7 +8,8 @@ public class BossDialog : ActivateNewDialog {
     public bool done = false;
     public bool activated = false;
 	// Use this for initialization
-	void Start () {
+	public override void Start () {
+        base.Start();
         bossAnimator.gameObject.SetActive(false);
     }
 	

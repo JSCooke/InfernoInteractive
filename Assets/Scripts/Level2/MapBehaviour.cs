@@ -30,7 +30,6 @@ public class MapBehaviour : MonoBehaviour {
 
 	public void OnTriggerEnter(Collider other)
 	{
-		// TODO "pick up" map
 
 	
 		if (id == 3 && other.gameObject.tag == "Player") // last map to collect and it's actually the player hitting it
@@ -39,18 +38,7 @@ public class MapBehaviour : MonoBehaviour {
             map2.gameObject.SetActive(false);
             map3.gameObject.SetActive(true);
 
-            UIAdapter.win();
-
-			//check for the trap master achievement
-			List<string> achievementsToDisplay = new List<string> ();
-			if (!AchievementController.hasBeenDamagedByTraps) {
-				AchievementController.updateAchievement ("Traps? what traps?", !AchievementController.hasBeenDamagedByTraps);
-				achievementsToDisplay.Add ("Traps? what traps?");
-
-				//cycle through all achievements youved gained
-				AchievementController.displayAchievements(achievementsToDisplay);
-
-			}
+           
 
 
             //spawn teleporter

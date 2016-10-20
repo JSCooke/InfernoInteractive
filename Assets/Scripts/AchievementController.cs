@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
-
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System;
 
 public class AchievementController : MonoBehaviour {
 
@@ -91,6 +93,8 @@ public class AchievementController : MonoBehaviour {
 			achievements.Add(achievement9, false);
 		}
 
+        load();
+
         //set up string to sprite mapping
         if (!achievementSprites.ContainsKey (achievement1)) {
 			achievementSprites.Add(achievement1, achievement1Sprite);
@@ -146,6 +150,34 @@ public class AchievementController : MonoBehaviour {
 
 		//add the static dictionaries to the gamedata
 		GameData.put("Achievements", new AchievementController());
+        save();
 	}
+
+    public static void save() {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/achievements.dat");
+
+        Data data = new Data();
+        data.achievements = achievements;
+
+        bf.Serialize(file, data);
+        file.Close();
+    }
+
+    public static void load() {
+        if (File.Exists(Application.persistentDataPath + "/achievements.dat")) {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/achievements.dat", FileMode.Open);
+            Data data = (Data)bf.Deserialize(file);
+            file.Close();
+
+            achievements = data.achievements;
+        }
+    }
+
+    [Serializable]
+    class Data {
+        public Dictionary<string, bool> achievements;
+    }
 
 }

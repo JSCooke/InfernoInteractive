@@ -11,7 +11,7 @@ public class EMPBehaviour : Damageable
     float healthIncreamentTime = 1f;
     float timer;
 
-    int empIncreaseValue = 2;
+    int empIncreaseValue = 4;
 
     bool win = false;
     bool first = true;

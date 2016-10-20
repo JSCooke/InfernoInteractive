@@ -18,7 +18,8 @@ public class SnareController : StateMachineBehaviour {
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-
+		SoundAdapter.playFrogAttackSound ();
+		SoundAdapter.playBossHitSound ();
         Instantiate(wall, player.transform.position, Quaternion.identity);
         enemy.GetComponent<FinalBossBehaviour>().anim.SetBool("Snare", false);
     }

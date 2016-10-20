@@ -138,6 +138,8 @@ public class EMPBehaviour : Damageable
     }
 
     void OnDestroy() {
+		SoundAdapter.playPopSound ();
+		SoundAdapter.playBombSound ();
         explosion.SetActive(true);
     }
 }

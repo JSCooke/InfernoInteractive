@@ -28,14 +28,16 @@ public class Meteor : MonoBehaviour {
 
     //Might cause null pointer
     void OnTriggerEnter(Collider collider) {
-
-        Destroy(this.transform.parent.gameObject);
-        GameObject.FindGameObjectWithTag("Enemy").GetComponent<FinalBossBehaviour>().newAction = true;
+		SoundAdapter.playFenceSound ();
+		SoundAdapter.playBombSound ();
+		Destroy(this.transform.parent.gameObject);
+		Object.FindObjectOfType<FinalBossBehaviour>().newAction = true;
         
     }
 
     void OnCollisionEnter(Collision collision) {
-
+		SoundAdapter.playFenceSound ();
+		SoundAdapter.playBombSound ();
         Destroy(this.transform.parent.gameObject);
         Object.FindObjectOfType<FinalBossBehaviour>().newAction = true;
 

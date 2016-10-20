@@ -73,35 +73,43 @@ public class FinalBossBehaviour : Spawnable {
     void fightPlayer() {
 
         if (newAction) {
-
             newAction = false;
             float randSkill = Random.Range(0, 100);
             randSkill = 101;
-
             if (randSkill <= 30) {  //Slam
                 print("Slam");
                 updateQueue(Action.SLAM);
                 anim.SetBool("Slam", true);
+				SoundAdapter.playFrogSound ();
+				SoundAdapter.playHoverSound ();
 
             } else if (randSkill <= 40 && currentHealth <= 25 && !lastSkillsUsed.Contains(Action.METEOR)) {     //Meteor
                 print("Meteor");
                 updateQueue(Action.METEOR);
                 anim.SetBool("Meteor", true);
+				SoundAdapter.playFrogSound ();
+				SoundAdapter.playHoverSound ();
 
             } else if (randSkill <= 50 && currentHealth <= 50 && !lastSkillsUsed.Contains(Action.SHIELD)) {     //Shield
                 print("Shield");
                 updateQueue(Action.SHIELD);
                 anim.SetBool("Shield", true);
+				SoundAdapter.playFrogSound ();
+				SoundAdapter.playHoverSound ();
 
             } else if (randSkill <= 60 && currentHealth <= 75 && !lastSkillsUsed.Contains(Action.SNARE)) {     //Snare
                 print("Snare");
                 updateQueue(Action.SNARE);
                 anim.SetBool("Snare", true);
+				SoundAdapter.playFrogSound ();
+				SoundAdapter.playHoverSound ();
 
             } else {     //Stationary
                 //print("Stationary");
                 anim.SetBool("Meteor", true);
                 //anim.SetBool("Snare", true);
+				SoundAdapter.playFrogSound ();
+				SoundAdapter.playHoverSound ();
             }
 
         }

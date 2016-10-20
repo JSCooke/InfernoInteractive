@@ -20,7 +20,8 @@ public class SlamController : StateMachineBehaviour {
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-
+		SoundAdapter.playFenceSound ();
+		SoundAdapter.playTankHitSound ();
         GameObject shockWaveInstantiated = (GameObject)Instantiate(shockWave, enemy.transform.position, Quaternion.identity);
         shockWaveInstantiated.GetComponent<Slam>().target = playerPosition;
         shockWaveInstantiated.transform.LookAt(playerPosition);

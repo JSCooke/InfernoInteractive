@@ -186,12 +186,22 @@ public class AlienEnemyBehavour : Damageable{
 
             if(isPlayer)
             {
+				SoundAdapter.playSwordSound ();
                 Instantiate(projectile, transform.position, transform.rotation);
             }
             else
             {
+				SoundAdapter.playSwordSound ();
                 Instantiate(projectile, transform.position, transform.rotation);
             }
         }
     }
+
+	public override void takeDamage(float damage){
+		currentHealth -= damage;
+		SoundAdapter.playMinionSound ();
+		if (currentHealth <= 0 && !unkillable) {
+			Destroy(gameObject);
+		}
+	}
 }

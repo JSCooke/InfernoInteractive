@@ -22,6 +22,7 @@ public class UIAdapter : MonoBehaviour
 	public Image tempAchievementImageBox;
 	public Text tempAchievementTextBox;
 	public Text tempWinText, tempDieText;
+	public GameObject tempLeaderboardCanvas;
 
 	public AnimationClip amin;
     private static bool isEMP = false;
@@ -89,10 +90,12 @@ public class UIAdapter : MonoBehaviour
 	public static Image achievementImageBox;
 	public static Text achievementTextBox;
 
+	public static Canvas leaderboardCanvas;
+	private static int points;
+
 	//This needs to be altered in this class to show points earned.
 	public static Text winText;
 	public static Text dieText;
-
 
 	void Start() {
 		//Assign all variables passed in to the static variables.
@@ -114,6 +117,7 @@ public class UIAdapter : MonoBehaviour
 		winText = tempWinText;
 		dieText = tempDieText;
 		timer = tempTimer;
+		leaderboardCanvas = tempLeaderboardCanvas.GetComponent<Canvas>();
 
 		playerVal = 100;
 		bossVal = 100;
@@ -289,18 +293,18 @@ public class UIAdapter : MonoBehaviour
         AchievementController.displayAchievements(achievementsToDisplay);
 
         //More complex scores may be used later. For now, for every second under 10 minutes gets a point.
-        int points = 600 - (timer.getTime() [0] * 60) - (timer.getTime() [1]);
+        points = 600 - (timer.getTime() [0] * 60) - (timer.getTime() [1]);
 		//Prevent negative scores
 		if (points < 0) {
 			points = 0;
 		}
 
 		////Add player score to leaderboard
-		//TODO prompt user for team name
-		String player = "JJ";
-
-		addScoreToLeader(player, (timer.getTime()[0] * 60) + (timer.getTime()[1]));
-
+		if (isHighScore(points))
+		{
+			UIAdapter.leaderboardCanvas.enabled = true;
+		}
+		
 		winText.text = "You Win!" +
 			"\nYou finished the level in: " + timer.getTime() [0].ToString("D2") + ":" +timer.getTime() [1].ToString("D2") +
 			"\nThis earns you: " + Convert.ToString (points) + " points!";	//This would be fun if we animate it ticking up, as the time ticks down.
@@ -345,16 +349,18 @@ public class UIAdapter : MonoBehaviour
 		boss.enabled = ui;
 	}
 
-	private static void addScoreToLeader(String name, int time){
+	public static void addScoreToLeader(String name){
+
 		BossController.Difficulty difficulty = GameData.get<BossController.Difficulty>("difficulty");
-		if(difficulty == default(BossController.Difficulty)) {
+		if (difficulty == default(BossController.Difficulty))
+		{
 			difficulty = BossController.Difficulty.Easy;
 		}
 
 		List<LeaderboardEntry> leaders = GameData.get<List<LeaderboardEntry>>(currentLevel.ToString() + difficulty); //stands for level number and difficulty
 
 		// current player's score
-		LeaderboardEntry entry = new LeaderboardEntry(name, time);
+		LeaderboardEntry entry = new LeaderboardEntry(name, points);
 
 		if (leaders == null)
 		{
@@ -362,13 +368,31 @@ public class UIAdapter : MonoBehaviour
 		}
 
 		leaders.Add(entry);
-		leaders.Sort(delegate (LeaderboardEntry e1, LeaderboardEntry e2) { return e1.time.CompareTo(e2.time); });
+		// sort the list and trim if more than 6 entries
+		leaders.Sort(delegate (LeaderboardEntry e1, LeaderboardEntry e2) { return e2.score.CompareTo(e1.score); });
 		if (leaders.Count > 6)
 		{
 			leaders.RemoveAt(6);
 		}
 
 		GameData.put(currentLevel.ToString() + difficulty, leaders);
+	}
+
+	private static Boolean isHighScore(int score)
+	{
+		BossController.Difficulty difficulty = GameData.get<BossController.Difficulty>("difficulty");
+		if (difficulty == default(BossController.Difficulty))
+		{
+			difficulty = BossController.Difficulty.Easy;
+		}
+
+		List<LeaderboardEntry> leaders = GameData.get<List<LeaderboardEntry>>(currentLevel.ToString() + difficulty); //stands for level number and difficulty
+
+		if ((leaders == null) || (leaders.Count < 6) || (score > leaders[leaders.Count - 1].score))
+		{
+			return true;
+		}
+		return false;
 	}
 
 	/**

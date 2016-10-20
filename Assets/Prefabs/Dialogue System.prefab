@@ -116,7 +116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &422880
 Transform:
   m_ObjectHideFlags: 1
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -193,7 +193,7 @@ MonoBehaviour:
   inputText: {fileID: 11451636}
   dialogueImage: {fileID: 11473346}
   tank: {fileID: 0}
-  textFile: {fileID: 4900000, guid: 42b5cb59b9d243445b7935550907485a, type: 3}
+  textFile: {fileID: 4900000, guid: a19815e997dc10f4f9bb5f776432b038, type: 3}
   textLines: []
   currentLineNumber: 0
   endLineNumber: 0
@@ -204,13 +204,13 @@ MonoBehaviour:
   Jessie: {fileID: 21300000, guid: 6217e091a01d45b49b597967c8989ba4, type: 3}
   James: {fileID: 21300000, guid: 0bf864ebbd18247408c697fed536b7ab, type: 3}
   GeneralWatson: {fileID: 21300000, guid: 7916a6fd7721b8743b9a46d7545264eb, type: 3}
-  Civilian1: {fileID: 21300000, guid: dbdd366b7f679194aa7cfdf871e88440, type: 3}
-  Civilian2: {fileID: 21300000, guid: 2a0641910aca7ee49ace6859171249dd, type: 3}
-  Civilian3: {fileID: 21300000, guid: ee2f448cf0106104283e68ddc6f9a5cb, type: 3}
+  Civilian1: {fileID: 21300000, guid: 5f5fb0c0781e2fd4db44b7c057e1e3a0, type: 3}
+  Civilian2: {fileID: 21300000, guid: e42d755057e3f90418ddbe248ce3b017, type: 3}
+  Civilian3: {fileID: 21300000, guid: f83e2f2db942c8f45a92748d00f93351, type: 3}
   InformativeText: {fileID: 21300000, guid: 41e347e0bbd9fc14fa278fe7161e1c29, type: 3}
   _mainCamera: {fileID: 0}
   cutscene: {fileID: 0}
-  _lineNumber: 0
+  _lineNumber: 4
 --- !u!114 &11449196
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -248,7 +248,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 100
+    m_FontSize: 90
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -279,8 +279,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: e8941f3f07581a240a41f2559f22b8a1, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 96160c2950796724ab77853e6b19486c, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -412,8 +412,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 292, y: 5}
-  m_SizeDelta: {x: 2900, y: 500}
+  m_AnchoredPosition: {x: 220, y: 2.2502}
+  m_SizeDelta: {x: 2225, y: 530.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22432668
 RectTransform:
@@ -433,8 +433,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 120}
-  m_SizeDelta: {x: 724, y: 140}
+  m_AnchoredPosition: {x: 0.0000066757, y: 128}
+  m_SizeDelta: {x: 551, y: 143}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22464854
 RectTransform:
@@ -469,7 +469,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -82, y: 0}
+  m_AnchoredPosition: {x: -69, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &100100000

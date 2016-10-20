@@ -18,7 +18,7 @@ public class TankController : MonoBehaviour {
 
     public GameObject shield;
 
-	public int CurrentHealth
+	public float CurrentHealth
 	{
 		get
 		{
@@ -94,7 +94,7 @@ public class TankController : MonoBehaviour {
 		AchievementController.hasBeenDamaged = true;
         AchievementController.hasBeenDamagedL3 = true;
 
-        if (shield.gameObject.activeSelf) {
+        if (shield != null && shield.gameObject.activeSelf) {
             lastDamageTime = Time.fixedTime;
 			SoundAdapter.playShieldDownSound ();
             shield.SetActive(false);
@@ -118,7 +118,7 @@ public class TankController : MonoBehaviour {
 			}
 
         } else {
-            if (Time.fixedTime - lastDamageTime > iFrameTime) {
+            if (Time.fixedTime - lastDamageTime >= iFrameTime) {
                 lastDamageTime = Time.fixedTime;
 
                 if (damage > currentHealth) {

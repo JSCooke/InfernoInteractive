@@ -12995,7 +12995,7 @@ MonoBehaviour:
   Civilian1: {fileID: 21300000, guid: dbdd366b7f679194aa7cfdf871e88440, type: 3}
   Civilian2: {fileID: 21300000, guid: 2a0641910aca7ee49ace6859171249dd, type: 3}
   Civilian3: {fileID: 21300000, guid: ee2f448cf0106104283e68ddc6f9a5cb, type: 3}
-  InformativeText: {fileID: 21300000, guid: 41e347e0bbd9fc14fa278fe7161e1c29, type: 3}
+  InformativeText: {fileID: 21300000, guid: 1862ea68addfee341814435545d04974, type: 3}
   _mainCamera: {fileID: 1846196922}
   cutscene: {fileID: 0}
   _lineNumber: 0
@@ -14159,6 +14159,10 @@ Prefab:
     - target: {fileID: 22431198, guid: 8fa9b25a63215f445b30382dc690db9d, type: 2}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22431198, guid: 8fa9b25a63215f445b30382dc690db9d, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 144
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8fa9b25a63215f445b30382dc690db9d, type: 2}
@@ -15826,7 +15830,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 407324, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 349.7
+      value: 142.6
       objectReference: {fileID: 0}
     - target: {fileID: 407324, guid: 2bd35607985c25f4296e07df12e2cb95, type: 2}
       propertyPath: m_LocalRotation.x
@@ -38577,13 +38581,13 @@ MonoBehaviour:
   achievement8: Who needs a shield
   achievement9: Traps? what traps?
   achievement4: Orb Master
-  achievement1Sprite: {fileID: 0}
-  achievement2Sprite: {fileID: 0}
-  achievement3Sprite: {fileID: 0}
-  achievement4Sprite: {fileID: 0}
-  achievement7Sprite: {fileID: 0}
-  achievement8Sprite: {fileID: 0}
-  achievement9Sprite: {fileID: 0}
+  achievement1Sprite: {fileID: 21300000, guid: 00723b6b579fde546a778f3f46b6f312, type: 3}
+  achievement2Sprite: {fileID: 21300000, guid: 7226aab5c04373c4b9fdce6642517e67, type: 3}
+  achievement3Sprite: {fileID: 21300000, guid: 6c21bec1d33a5a142a87faf70655434d, type: 3}
+  achievement4Sprite: {fileID: 21300000, guid: 2d5f5253c0ed3594ea67c5cda6d499c8, type: 3}
+  achievement7Sprite: {fileID: 21300000, guid: 9d645167801b09e4da53a531181fdf69, type: 3}
+  achievement8Sprite: {fileID: 21300000, guid: 949c5152fcc834348b780c53fa2d3a0c, type: 3}
+  achievement9Sprite: {fileID: 21300000, guid: b05ab4bc6b356e040ba3065df95e1c1e, type: 3}
 --- !u!4 &1542593501
 Transform:
   m_ObjectHideFlags: 0
@@ -41301,7 +41305,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  shield: {fileID: 0}
   anim: {fileID: 0}
   newAction: 1
 --- !u!114 &1674015918
@@ -49295,7 +49298,7 @@ Prefab:
     - target: {fileID: 11492122, guid: 25febf326eda4e64ea1c427e2ff5d5c1, type: 2}
       propertyPath: bossImage
       value: 
-      objectReference: {fileID: 21300000, guid: 187bac2aa840842c3ac13803169234a0,
+      objectReference: {fileID: 21300000, guid: 39b768408bf7a0442bf1e400c689438d,
         type: 3}
     - target: {fileID: 11492122, guid: 25febf326eda4e64ea1c427e2ff5d5c1, type: 2}
       propertyPath: explosion

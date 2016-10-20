@@ -10,8 +10,6 @@ public class FinalBossBehaviour : Spawnable {
     private Rigidbody rb;
     private float currentHealth, maxHealth;
 
-    public GameObject shield;
-
     //Different types of skills
     public enum Action {
         STATIONARY,
@@ -28,7 +26,6 @@ public class FinalBossBehaviour : Spawnable {
 
     // Use this for initialization
     void Start() {
-        //rb = GetComponent<Rigidbody>();
         
         maxHealth = this.GetComponent<BossController>().maxHealth;
         currentHealth = maxHealth;
@@ -38,7 +35,7 @@ public class FinalBossBehaviour : Spawnable {
         }
 
         anim = this.gameObject.GetComponent<Animator>();
-
+		newAction = false;
     }
 
     // Update is called once per frame
@@ -49,6 +46,7 @@ public class FinalBossBehaviour : Spawnable {
         }
 
         currentHealth = this.GetComponent<BossController>().currentHealth;
+
         if (this.GetComponent<BossController>().dead) {
             Die();
         }
@@ -63,6 +61,14 @@ public class FinalBossBehaviour : Spawnable {
 
     }
 
+	void resetAnimators (){
+		anim.SetBool ("Slam", false);
+		anim.SetBool ("Meteor", false);
+		anim.SetBool ("Shield", false);
+		anim.SetBool ("Snare", false);
+		anim.SetBool ("Stationary", false);
+	}
+
     void updateQueue(Action action) {
 
         if (lastSkillsUsed.Count == 2) {
@@ -73,12 +79,12 @@ public class FinalBossBehaviour : Spawnable {
     }
 
     void fightPlayer() {
-		//print (newAction);
+
         if (newAction) {
             newAction = false;
             float randSkill = Random.Range(0, 100);
 
-            if (randSkill <= 30) {  //Slam
+			if (randSkill <= 30 && !lastSkillsUsed.Contains(Action.SLAM)) {  //Slam
                 //print("Slam");
                 updateQueue(Action.SLAM);
                 anim.SetBool("Slam", true);
@@ -108,8 +114,8 @@ public class FinalBossBehaviour : Spawnable {
 
             } else {     //Stationary
 				//anim.SetBool("Stationary", true);
-				updateQueue(Action.SHIELD);
-				anim.SetBool("Shield", true);
+				updateQueue(Action.STATIONARY);
+				anim.SetBool("Stationary", true);
 				SoundAdapter.playFrogSound ();
 				SoundAdapter.playHoverSound ();
             }
@@ -119,9 +125,7 @@ public class FinalBossBehaviour : Spawnable {
     }
 
     void Die() {
-        anim.SetBool("Dead", true);
+        anim.SetBool("Die", true);
     }
 
 }
-
-//Create shockwave object. Reset newaction when collide

@@ -41,7 +41,18 @@ public class GameData : MonoBehaviour {
 	        FileStream file = File.Create(Application.persistentDataPath + "/gameData.dat");
 
 	        Data data = new Data();
-	        data.dataItems = dataItems;
+	        //add leaderboard entries to data to be serialized
+            for(int i=1; i <= 3; i++) {
+                if (dataItems.ContainsKey(i.ToString() + BossController.Difficulty.Easy)) {
+                    data.dataItems[i.ToString() + BossController.Difficulty.Easy] = dataItems[i.ToString() + BossController.Difficulty.Easy];
+                }
+                if (dataItems.ContainsKey(i.ToString() + BossController.Difficulty.Medium)) {
+                    data.dataItems[i.ToString() + BossController.Difficulty.Medium] = dataItems[i.ToString() + BossController.Difficulty.Medium];
+                }
+                if (dataItems.ContainsKey(i.ToString() + BossController.Difficulty.Hard)) {
+                    data.dataItems[i.ToString() + BossController.Difficulty.Hard] = dataItems[i.ToString() + BossController.Difficulty.Hard];
+                }
+            }
 
 	        bf.Serialize(file, data);
 	        file.Close();
@@ -56,7 +67,21 @@ public class GameData : MonoBehaviour {
 	            BinaryFormatter bf = new BinaryFormatter();
 	            FileStream file = File.Open(Application.persistentDataPath + "/gameData.dat", FileMode.Open);
 	            Data data = (Data)bf.Deserialize(file);
-	            file.Close();
+
+                //dataItems = new Dictionary<string, object>();
+                //for (int i = 1; i <= 3; i++) {
+                //    if (data.dataItems[i.ToString() + BossController.Difficulty.Easy] != null) {
+                //        dataItems[i.ToString() + BossController.Difficulty.Easy] = data.dataItems[i.ToString() + BossController.Difficulty.Easy];
+                //    }
+                //    if (data.dataItems[i.ToString() + BossController.Difficulty.Medium] != null) {
+                //        dataItems[i.ToString() + BossController.Difficulty.Medium] = data.dataItems[i.ToString() + BossController.Difficulty.Medium];
+                //    }
+                //    if (data.dataItems[i.ToString() + BossController.Difficulty.Hard] != null) {
+                //        dataItems[i.ToString() + BossController.Difficulty.Hard] = data.dataItems[i.ToString() + BossController.Difficulty.Hard];
+                //    }
+                //}
+
+                file.Close();
 
 	            dataItems = data.dataItems;
 	        }
@@ -67,7 +92,7 @@ public class GameData : MonoBehaviour {
 
     [Serializable]
     class Data {
-        public Dictionary<string, object> dataItems;
+        public Dictionary<string, object> dataItems = new Dictionary<string, object>();
 
     }
 }

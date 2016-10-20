@@ -8,6 +8,7 @@ public class ShieldController : StateMachineBehaviour {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         enemy = GameObject.Find("FinalBoss");
+		enemy.GetComponent<FinalBossBehaviour>().anim.SetBool("Shield", false);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -19,9 +20,10 @@ public class ShieldController : StateMachineBehaviour {
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 
 		SoundAdapter.playShieldUpSound ();
-		GameObject shockWaveInstantiated = (GameObject)Instantiate(shield, enemy.transform.position, Quaternion.identity);
-		shockWaveInstantiated.transform.parent = enemy.transform;
-        enemy.GetComponent<FinalBossBehaviour>().anim.SetBool("Shield", false);
+		GameObject shieldInstantiated = (GameObject)Instantiate(shield, enemy.transform.position, Quaternion.identity);
+		shieldInstantiated.transform.parent = enemy.transform;
+		shieldInstantiated.transform.rotation = enemy.transform.rotation;
+        
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here

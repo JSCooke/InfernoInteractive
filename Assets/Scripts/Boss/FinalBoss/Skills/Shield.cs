@@ -32,8 +32,14 @@ public class Shield : MonoBehaviour {
         //If both generators hit simulatenously, shield is deactivated
         if (generatorDestroyed()) {
 			SoundAdapter.playShieldDownSound ();
-			GameObject.Find("FinalBoss").GetComponent<FinalBossBehaviour>().newAction = true;
 			Destroy (this.gameObject);
+
+			for (int i = 0; i < hitCount.Length; i++) {
+				hitCount [i] = false;
+			}
+
+			GameObject.Find("FinalBoss").GetComponent<FinalBossBehaviour>().newAction = true;
+
         }
 	}
 

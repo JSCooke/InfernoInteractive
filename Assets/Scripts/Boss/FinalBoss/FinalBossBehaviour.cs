@@ -41,6 +41,7 @@ public class FinalBossBehaviour : Spawnable {
     // Update is called once per frame
     void Update() {
 
+        //If pause do nothing
         if (Time.timeScale == 0) {
             return;
         }
@@ -51,7 +52,7 @@ public class FinalBossBehaviour : Spawnable {
             Die();
         }
         else {
-
+            //Only attack when ready
 			if (anim.GetBool("Ready")){
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.transform.position - this.transform.position), this.GetComponent<BossController>().rotationSpeed * Time.deltaTime);
 				fightPlayer();
@@ -61,6 +62,7 @@ public class FinalBossBehaviour : Spawnable {
 
     }
 
+    //Set all animators to false
 	void resetAnimators (){
 		anim.SetBool ("Slam", false);
 		anim.SetBool ("Meteor", false);
@@ -69,6 +71,7 @@ public class FinalBossBehaviour : Spawnable {
 		anim.SetBool ("Stationary", false);
 	}
 
+    //Queue ensures boss doesnt use the same skills consecutively
     void updateQueue(Action action) {
 
         if (lastSkillsUsed.Count == 2) {
@@ -115,7 +118,7 @@ public class FinalBossBehaviour : Spawnable {
             } else {     //Stationary
 				//anim.SetBool("Stationary", true);
 				updateQueue(Action.STATIONARY);
-				anim.SetBool("Stationary", true);
+				anim.SetBool("Snare", true);
 				SoundAdapter.playFrogSound ();
 				SoundAdapter.playHoverSound ();
             }

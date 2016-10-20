@@ -44,7 +44,7 @@ public class BossController : Damageable {
         if (currentHealth == tempHealth || currentHealth == 0) {
 			UIAdapter.damageBoss((float)damage, totalHealth);
         }
-        print(currentHealth);
+
 		if (Mathf.Floor (currentHealth) <= 0) {
 			dead = true;
 		}
@@ -55,9 +55,9 @@ public class BossController : Damageable {
 
 }
 
-//100 : 50 50 : 25 25 25 25 : 300
-//100 : 50 50 50 : 25 25 25 25 25 25 25 25 25 : 500
-//100 : 50 50 50 50 : 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 : 700
+//150 : 75 75 : 37 37 37 37 : 300
+//150 : 75 75 75 : 25 25 25 25 25 25 25 25 25 : 500
+//150 : 75 75 75 75 : 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 : 700
 
 //2 = 300, 200
 //3 = 500, 400

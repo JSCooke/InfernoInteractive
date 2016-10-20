@@ -93,9 +93,6 @@ public class ddrSystemStartBehaviour : Spawnable {
 
 				//DIALOGUE SECtiON
 
-
-				//spawn teleporter
-				teleporter.SetActive(true);
 			}
 		}
 	}

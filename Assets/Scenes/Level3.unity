@@ -13470,6 +13470,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22431198, guid: 8fa9b25a63215f445b30382dc690db9d, type: 2}
       propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 22322850, guid: 8fa9b25a63215f445b30382dc690db9d, type: 2}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -18406,6 +18410,12 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 406272, guid: 59234cdca8471fe42ab77e0807ad6222, type: 2}
   m_PrefabInternal: {fileID: 652712496}
+--- !u!114 &653757380 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11408126, guid: 8fa9b25a63215f445b30382dc690db9d,
+    type: 2}
+  m_PrefabInternal: {fileID: 507620125}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &654167903
 Prefab:
   m_ObjectHideFlags: 0
@@ -35545,7 +35555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerObjectiveText: {fileID: 313374252}
-  pauseMenuObjectiveText: {fileID: 0}
+  pauseMenuObjectiveText: {fileID: 653757380}
 --- !u!4 &1458840334
 Transform:
   m_ObjectHideFlags: 0
